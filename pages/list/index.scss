@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_public.scss';
+@import '../../public/css/_list_section.scss';
+
+.list-tabs{
+  height: 78rpx;
+  line-height: 78rpx;
+  background-color: #fff;
+  display: flex;
+  .tabs-item{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    &:first-child{
+      border-right: 2rpx solid #e7e7e7;
+    }
+    &.active{
+      text {
+        color:#ff5000;
+        border-bottom: 2rpx solid #ff5000;
+      }
+    }
+    text{
+      font-size: 28rpx;
+      color: #666;
+    }
+  }
+}
+

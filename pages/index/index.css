@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/*瀛椾綋瓒呭嚭鍙樼渷鐣ュ彿*/
+/**index.wxss**/
+.banner-slide {
+  width: 100%;
+  height: 235rpx; }
+  .banner-slide image {
+    width: 100%;
+    height: 235rpx; }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  background: linear-gradient(to right, #ff9000 20%, #ff5000 66%); }
+  .search-bar .right-btn {
+    width: 90rpx;
+    height: 60rpx; }
+  .search-bar .left-btn {
+    width: 73rpx;
+    height: 60rpx; }
+  .search-bar .left-btn,
+  .search-bar .right-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .search-bar .left-btn image,
+    .search-bar .right-btn image {
+      width: 48rpx;
+      height: 48rpx; }
+  .search-bar .search-input {
+    height: 60rpx;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 30rpx;
+    padding: 0 30rpx;
+    flex: 1; }
+    .search-bar .search-input input {
+      height: 60rpx;
+      color: #fff; }
+
+.category-list {
+  display: flex;
+  background-color: #fff; }
+  .category-list .category-item {
+    flex: 1; }
+    .category-list .category-item .link {
+      padding: 22rpx 0 18rpx 0; }
+    .category-list .category-item image {
+      width: 87rpx;
+      height: 87rpx;
+      margin: 0 auto;
+      display: block; }
+    .category-list .category-item text {
+      margin-top: 17rpx;
+      color: #666;
+      font-size: 20rpx;
+      text-align: center;
+      display: block; }
+
+.text-slider {
+  height: 50rpx;
+  border-top: 1rpx solid #e7e7e7;
+  padding: 10rpx 0 6rpx 0;
+  background-color: #fff;
+  position: relative;
+  display: flex; }
+  .text-slider:after {
+    content: '';
+    width: 167rpx;
+    height: 5rpx;
+    background: linear-gradient(to right, #508eff 39%, #3ab8fe 100%);
+    position: absolute;
+    top: -3rpx;
+    left: 0;
+    display: block; }
+  .text-slider swiper-item {
+    display: flex;
+    align-items: center; }
+    .text-slider swiper-item image {
+      width: 30rpx;
+      height: 24rpx;
+      margin-left: 24rpx; }
+    .text-slider swiper-item text {
+      width: 670rpx;
+      font-size: 22rpx;
+      margin-left: 8rpx;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,78 @@
+.list-section{
+  background-color: #fff;
+  padding-left: 18rpx;
+  .sel{
+    margin-right:20rpx;
+    image {
+      width: 36rpx;
+      height: 36rpx;
+      display: block;
+    }
+  }
+  .label-act{
+    .ico{
+      margin-left: 0;
+      image {
+        width: 25rpx;
+        height: 25rpx;
+      }
+    }
+  }
+  .list-item{
+    padding: 10rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+    display: flex;
+    .sel{
+      display:flex;
+      align-items:center;
+    }
+    .item-img{
+      padding-right: 10rpx;
+      image{
+        width: 166rpx;
+        height: 166rpx;
+        display: block;
+      }
+    }
+    .content{
+      flex: 1;
+      padding: 0 35rpx 0 26rpx;
+      .title{
+        line-height: 34rpx;
+        padding-top:5rpx;
+        font-size: 24rpx;
+        @include ellipsis(2);
+      }
+      .intro{
+        line-height: 32rpx;
+        color: #999;
+        font-size: 22rpx;
+      }
+    }
+  }
+  .item-opera{
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    .tip{
+      font-size: 32rpx;
+      color:#999;
+    }
+    .btns-group{
+      text-align: right;
+      flex: 1;
+      .btn{
+        margin-right:25rpx;
+      }
+    }
+    .sign{
+      color:#ff5000;
+      font-size: 22rpx;
+    }
+    .price{
+      color:#ff5000;
+      font-size: 32rpx;
+      font-weight: bold;
+    }
+  }
+}

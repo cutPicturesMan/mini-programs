@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/*字体超出变省略号*/
+@mixin ellipsis($line:1){
+  @if $line == 2{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  } @else {
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+}
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+@mixin rac($tb, $lr, $direction, $color ){
+  width:0;
+  height:0;
+  border-width:$tb $lr;
+  border-style:solid;
+
+  @if $direction == 'top'{
+    border-color:transparent transparent $color transparent;
+  }
+  @if $direction == 'right'{
+    border-color:transparent transparent transparent $color;
+  }
+  @if $direction == 'bottom'{
+    border-color:$color transparent transparent transparent;
+  }
+  @if $direction == 'left'{
+    border-color:transparent $color transparent transparent;
+  }
+}

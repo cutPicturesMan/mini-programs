@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/cart/index",
+    "pages/index/index",
+    "pages/category/index",
+    "pages/list/index",
+    "pages/my/index",
+    "pages/good/index",
+    "pages/listpay/index"
+  ],
+  "window":{
+    "backgroundColor":"#f2f2f2",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff5000",
+    "navigationBarTitleText": "电商",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "selectedColor": "#ff7000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "icons/index.jpg",
+      "selectedIconPath": "icons/index-active1.jpg"
+    }, {
+      "pagePath": "pages/category/index",
+      "text": "商品",
+      "iconPath": "icons/category.jpg",
+      "selectedIconPath": "icons/category-active.jpg"
+    }, {
+      "pagePath": "pages/list/index",
+      "text": "订单",
+      "iconPath": "icons/list.jpg",
+      "selectedIconPath": "icons/list-active.jpg"
+    }, {
+      "pagePath": "pages/my/index",
+      "text": "我的",
+      "iconPath": "icons/my.jpg",
+      "selectedIconPath": "icons/my-active.jpg"
+    }]
+  }
+}

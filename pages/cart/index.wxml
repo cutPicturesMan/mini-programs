@@ -1,0 +1,39 @@
+<view class="list-section">
+  <navigator class="label-act bb" url="/pages/good/index">
+    <view class="sel">
+      <!--<image src="../../icons/icon-radio.png"></image>-->
+      <image src="../../icons/icon-radio-selected.png"></image>
+    </view>
+    <view class="ico">
+      <image src="../../testimg/list1.jpg"></image>
+    </view>
+    <view class="title">
+      <text class="pr20 pl15">三能旗舰店</text>
+      <image class="icon" src="../../icons/icon-arrow-right.png"></image>
+    </view>
+    <view class="arrow ptb20 pl20">编辑</view>
+  </navigator>
+  <view class="list-item">
+    <view class="sel">
+      <!--<image src="../../icons/icon-radio.png"></image>-->
+      <image src="../../icons/icon-radio-selected.png"></image>
+    </view>
+    <navigator class="item-img" url="/pages/good/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="intro">白色X10个</view>
+      <view class="intro">时间：2017-7-24 11:44:50</view>
+      <view class="intro">金额：21,000.00（未付款）</view>
+    </view>
+  </view>
+  <view class="item-opera">
+    <view class="btns-group">
+      <text class="sign">￥</text>
+      <text class="price pr50">230</text>
+    </view>
+  </view>
+</view>
+
