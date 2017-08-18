@@ -734,21 +734,20 @@
       width: 25rpx;
       height: 25rpx; }
   .list-section .list-item {
-    padding: 10rpx 0;
     border-bottom: 1rpx solid #e5e5e5;
     display: flex; }
     .list-section .list-item .sel {
       display: flex;
       align-items: center; }
     .list-section .list-item .item-img {
-      padding-right: 10rpx; }
+      padding: 10rpx 10rpx 10rpx 0; }
       .list-section .list-item .item-img image {
         width: 166rpx;
         height: 166rpx;
         display: block; }
     .list-section .list-item .content {
       flex: 1;
-      padding: 0 35rpx 0 26rpx; }
+      padding: 10rpx 35rpx 10rpx 26rpx; }
       .list-section .list-item .content .title {
         line-height: 34rpx;
         padding-top: 5rpx;
@@ -758,17 +757,38 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2; }
-      .list-section .list-item .content .intro {
+      .list-section .list-item .content .descrip-container .descrip-list {
         line-height: 32rpx;
         color: #999;
-        font-size: 22rpx; }
+        font-size: 22rpx;
+        padding: 5rpx; }
+        .list-section .list-item .content .descrip-container .descrip-list.hide {
+          height: 32rpx;
+          overflow: hidden; }
+          .list-section .list-item .content .descrip-container .descrip-list.hide .intro:first-child {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; }
+      .list-section .list-item .content .descrip-container .icon {
+        width: 40rpx;
+        height: 40rpx;
+        float: right; }
+    .list-section .list-item .delete {
+      width: 110rpx;
+      color: #fff;
+      font-size: 24rpx;
+      background-color: #ff3b30;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
   .list-section .item-opera {
     height: 80rpx;
     display: flex;
     align-items: center; }
+    .list-section .item-opera .edit {
+      font-size: 24rpx; }
     .list-section .item-opera .tip {
-      font-size: 32rpx;
-      color: #999; }
+      font-size: 32rpx; }
     .list-section .item-opera .btns-group {
       text-align: right;
       flex: 1; }
@@ -781,5 +801,21 @@
       color: #ff5000;
       font-size: 32rpx;
       font-weight: bold; }
+
+.opera-btns {
+  display: flex;
+  align-items: center; }
+  .opera-btns .reduce-btn,
+  .opera-btns .add-btn {
+    width: 54rpx;
+    height: 54rpx; }
+  .opera-btns .count {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #000;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 /*# sourceMappingURL=index.wxss.map */

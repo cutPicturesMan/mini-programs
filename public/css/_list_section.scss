@@ -19,7 +19,6 @@
     }
   }
   .list-item{
-    padding: 10rpx 0;
     border-bottom: 1rpx solid #e5e5e5;
     display: flex;
     .sel{
@@ -27,7 +26,7 @@
       align-items:center;
     }
     .item-img{
-      padding-right: 10rpx;
+      padding: 10rpx 10rpx 10rpx 0;
       image{
         width: 166rpx;
         height: 166rpx;
@@ -36,27 +35,55 @@
     }
     .content{
       flex: 1;
-      padding: 0 35rpx 0 26rpx;
+      padding: 10rpx 35rpx 10rpx 26rpx;
       .title{
         line-height: 34rpx;
         padding-top:5rpx;
         font-size: 24rpx;
         @include ellipsis(2);
       }
-      .intro{
-        line-height: 32rpx;
-        color: #999;
-        font-size: 22rpx;
+      .descrip-container{
+        .descrip-list{
+          line-height: 32rpx;
+          color: #999;
+          font-size: 22rpx;
+          padding: 5rpx;
+          &.hide{
+            height: 32rpx;
+            overflow: hidden;
+            .intro{
+              &:first-child{
+                @include ellipsis();
+              }
+            }
+          }
+        }
+        .icon{
+          width: 40rpx;
+          height: 40rpx;
+          float: right;
+        }
       }
+    }
+    .delete{
+      width: 110rpx;
+      color: #fff;
+      font-size: 24rpx;
+      background-color: #ff3b30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   .item-opera{
     height: 80rpx;
     display: flex;
     align-items: center;
+    .edit{
+      font-size: 24rpx;
+    }
     .tip{
       font-size: 32rpx;
-      color:#999;
     }
     .btns-group{
       text-align: right;

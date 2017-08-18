@@ -24,13 +24,20 @@
     <view class="content">
       <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
-      <view class="intro">白色X10个</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">金额：21,000.00（未付款）</view>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
     </view>
   </view>
   <view class="item-opera">
-    <text class="tip">待发货确认</text>
+    <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>
       <view class="btn btn-energized">立即付款</view>
@@ -55,9 +62,16 @@
     <view class="content">
       <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
-      <view class="intro">白色X10个</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">金额：21,000.00（未付款）</view>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
     </view>
   </view>
   <view class="list-item">
@@ -67,9 +81,16 @@
     <view class="content">
       <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</navigator>
-      <view class="intro">白色X10个</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">金额：21,000.00（未付款）</view>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
     </view>
   </view>
   <view class="list-item">
@@ -79,16 +100,20 @@
     <view class="content">
       <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
-      <view class="intro">白色X10个</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">时间：2017-7-24 11:44:50</view>
-      <view class="intro">金额：21,000.00（未付款）</view>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
     </view>
   </view>
   <view class="item-opera">
-    <text class="tip">待发货确认</text>
+    <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>
       <view class="btn btn-energized">立即付款</view>
