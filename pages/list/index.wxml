@@ -40,7 +40,7 @@
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>
-      <view class="btn btn-energized">立即付款</view>
+      <navigator class="btn btn-energized" url="/pages/listpay/index">立即付款</navigator>
     </view>
   </view>
 </view>
@@ -116,7 +116,7 @@
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>
-      <view class="btn btn-energized">立即付款</view>
+      <navigator class="btn btn-energized" url="/pages/listpay/index">立即付款</navigator>
     </view>
   </view>
 </view>

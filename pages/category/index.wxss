@@ -15,6 +15,103 @@
  * $direction : 三角形指向(top, right, bottom, left)
  * $color : 三角形颜色
  */
+.small {
+  font-size: 75%; }
+
+.mt18 {
+  margin-top: 18rpx; }
+
+.mt55 {
+  margin-top: 55rpx; }
+
+.mt110 {
+  margin-top: 55rpx; }
+
+.clear:after {
+  content: '.';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden; }
+
+.text-dark {
+  color: #000; }
+
+.text-light {
+  color: #fff; }
+
+.text-stable {
+  color: #999; }
+
+.text-light-energized {
+  color: #f2d655; }
+
+.text-energized {
+  color: #ff5500; }
+
+.text-positive-light {
+  color: #ace1ec; }
+
+.text-positive {
+  color: #338ad5; }
+
+.text-balanced {
+  color: #2ebdcc; }
+
+.text-romance {
+  color: #ff869f; }
+
+.text-assertive {
+  color: #fe3030; }
+
+.bg-light {
+  color: #000;
+  background-color: #fff; }
+
+.bg-stable {
+  color: #fff;
+  background-color: #d5d5d5; }
+
+.bg-stable-light {
+  color: #fff;
+  background-color: #eaeaea; }
+
+.bg-light-energized {
+  color: #fff;
+  background-color: #f9c22f; }
+
+.bg-dark-energized {
+  color: #fff;
+  background-color: #f37d2e; }
+
+.bg-energized {
+  color: #FFF;
+  background-color: #fa952f; }
+
+.bg-calm {
+  background-color: #30b9d6; }
+
+.bg-calm-light {
+  background-color: #4aa8ff; }
+
+.bg-positive {
+  background-color: #338ad5; }
+
+.bg-balanced {
+  background-color: #2ebdcc; }
+
+.bg-kelly {
+  background-color: #b2c72b; }
+
+.bg-romance {
+  background-color: #ff869f; }
+
+.bg-assertive {
+  background-color: #fc4c66; }
+
+.bg-assertive-light {
+  background-color: #d85757; }
+
 /******** 边距简写 ********/
 .m5 {
   margin: 5rpx; }
@@ -519,22 +616,6 @@
 
 .pl60 {
   padding-left: 60rpx; }
-
-.clear:after {
-  content: '.';
-  clear: both;
-  display: block;
-  height: 0;
-  visibility: hidden; }
-
-.mt18 {
-  margin-top: 18rpx; }
-
-.mt55 {
-  margin-top: 55rpx; }
-
-.mt110 {
-  margin-top: 55rpx; }
 
 .btn {
   line-height: 56rpx;

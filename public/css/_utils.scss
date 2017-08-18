@@ -1,0 +1,134 @@
+@charset "utf-8";
+.small{
+  font-size: 75%;
+}
+.mt18{
+  margin-top: 18rpx;
+}
+.mt55{
+  margin-top: 55rpx;
+}
+.mt110{
+  margin-top: 55rpx;
+}
+
+.clear:after{
+  content:'.';
+  clear:both;
+  display:block;
+  height:0;
+  visibility:hidden;
+}
+
+.text-dark{
+  color: #000;
+}
+.text-light{
+  color: #fff;
+}
+.text-stable{
+  color:#999;
+}
+.text-light-energized{
+  color: #f2d655;
+}
+.text-energized{
+  color: #ff5500;
+}
+.text-positive-light{
+  color: #ace1ec;
+}
+.text-positive{
+  color: #338ad5;
+}
+.text-balanced{
+  color: #2ebdcc;
+}
+.text-romance{
+  color: #ff869f;
+}
+.text-assertive{
+  color: #fe3030;
+}
+
+.bg-light{
+  color:#000;
+  background-color: #fff;
+}
+.bg-stable{
+  color:#fff;
+  background-color: #d5d5d5;
+}
+.bg-stable-light{
+  color:#fff;
+  background-color: #eaeaea;
+}
+.bg-light-energized{
+  color:#fff;
+  background-color: #f9c22f;
+}
+.bg-dark-energized{
+  color:#fff;
+  background-color: #f37d2e;
+}
+.bg-energized{
+  color:#FFF;
+  background-color: #fa952f;
+}
+.bg-calm{
+  background-color: #30b9d6;
+}
+.bg-calm-light{
+  background-color: #4aa8ff;
+}
+.bg-positive{
+  background-color: #338ad5;
+}
+.bg-balanced{
+  background-color: #2ebdcc;
+}
+.bg-kelly{
+  background-color: #b2c72b;
+}
+.bg-romance{
+  background-color: #ff869f;
+}
+.bg-assertive{
+  background-color: #fc4c66;
+}
+.bg-assertive-light{
+  background-color: #d85757;
+}
+
+/******** 边距简写 ********/
+//注意.m等四个属性的边距简写要放置在.mt/.mr ...等两个属性之上，方便css样式优先级覆盖
+//同理，.mtb/.mlf等两个属性的要放置在.mt/.mr ...等单个属性之上，方便css样式优先级覆盖
+@for $i from 5 through 60{
+  @if($i % 5 == 0){
+    .m#{$i}{ margin: $i*1rpx;}
+    .p#{$i}{ padding: $i*1rpx;}
+  }
+}
+@for $i from 5 through 60{
+  @if($i % 5 == 0){
+    .mtb#{$i}{ margin: $i*1rpx 0 $i*1rpx 0;}
+    .mlr#{$i}{ margin: 0 $i*1rpx 0 $i*1rpx;}
+
+    .ptb#{$i}{ padding: $i*1rpx 0 $i*1rpx 0;}
+    .plr#{$i}{ padding: 0 $i*1rpx 0 $i*1rpx;}
+  }
+}
+@for $i from 5 through 60{
+  @if($i % 5 == 0){
+    .mt#{$i}{ margin-top: $i*1rpx;}
+    .mr#{$i}{ margin-right: $i*1rpx;}
+    .mb#{$i}{ margin-bottom: $i*1rpx;}
+    .ml#{$i}{ margin-left: $i*1rpx;}
+
+    .pt#{$i}{ padding-top: $i*1rpx;}
+    .pr#{$i}{ padding-right: $i*1rpx;}
+    .pb#{$i}{ padding-bottom: $i*1rpx;}
+    .pl#{$i}{ padding-left: $i*1rpx;}
+
+  }
+}
