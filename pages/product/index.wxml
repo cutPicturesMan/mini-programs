@@ -1,0 +1,85 @@
+<view class="add-cart">
+  <image src="../../icons/icon-shopcar.png"></image>
+</view>
+<swiper class="banner-slide"
+        indicator-dots="{{bannerSlider.indicatorDots}}"
+        indicator-color="rgba(0,0,0,0.5)"
+        indicator-active-color="#ff4400"
+        circular="{{bannerSlider.circular}}"
+        autoplay="{{bannerSlider.autoplay}}"
+        interval="{{bannerSlider.interval}}"
+        duration="{{bannerSlider.duration}}">
+  <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
+    <swiper-item>
+      <image src="{{item}}"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="product-info">
+  <view class="title">iFashion像素大战像素大战2像素大像素像
+    战像素大战像素大战</view>
+  <view class="price text-energized">
+    <text class="small">￥</text>123
+  </view>
+  <view class="number">型号：1345683147</view>
+  <view class="market-price">市场价：345</view>
+</view>
+<view class="product-sku mt18">
+  <view>
+    <view class="sku-title">颜色</view>
+    <view>
+      <view class="sku-item active">白色</view>
+      <view class="sku-item">黑色</view>
+    </view>
+  </view>
+  <view>
+    <view class="sku-title">颜色</view>
+    <view>
+      <view class="sku-item active">白色</view>
+      <view class="sku-item">黑色</view>
+      <view class="sku-item">黑色黑色</view>
+      <view class="sku-item">黑色</view>
+      <view class="sku-item">黑色黑色黑色黑色</view>
+      <view class="sku-item">黑色</view>
+    </view>
+  </view>
+  <view>
+    <view class="sku-title">颜色</view>
+    <view>
+      <view class="sku-item active">白色</view>
+      <view class="sku-item">黑色</view>
+    </view>
+  </view>
+  <view>
+    <view class="sku-title">订购数量</view>
+    <view class="opera-container">
+      <view class="opera-btns">
+        <view class="reduce-btn">
+          <image src="../../icons/icon-reduce.png"></image>
+        </view>
+        <view class="count">10</view>
+        <view class="add-btn">
+          <image src="../../icons/icon-add.png"></image>
+        </view>
+      </view>
+      <text class="unit">件</text>
+    </view>
+  </view>
+</view>
+<view class="product-intro mt18">
+  <view class="intro-title">
+    <text>产品详情</text>
+  </view>
+  <view class="intro-content">
+    <image src="../../testimg/good.jpg" mode="widthFix"></image>
+  </view>
+</view>
+<view class="opera-panel">
+  <view class="collect">
+    <image src="../../icons/icon-collect.png"></image>
+  </view>
+  <view class="share">
+    <image src="../../icons/icon-share.png"></image>
+  </view>
+  <view class="buy">立即购买</view>
+</view>

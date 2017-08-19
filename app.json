@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/product/index",
     "pages/index/index",
     "pages/category/index",
     "pages/list/index",
     "pages/my/index",
-    "pages/good/index",
     "pages/cart/index",
     "pages/listpay/index"
   ],

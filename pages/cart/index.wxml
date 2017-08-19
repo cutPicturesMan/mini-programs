@@ -4,11 +4,11 @@
       <!--<image src="../../icons/icon-radio.png"></image>-->
       <image src="../../icons/icon-radio-selected.png"></image>
     </view>
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
       <view class="opera-btns mb60">
         <image class="reduce-btn" src="../../icons/icon-reduce.png"></image>

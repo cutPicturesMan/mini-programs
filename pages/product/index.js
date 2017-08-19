@@ -3,8 +3,18 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    bannerSlider: {
+      imgUrls: [
+        '../../testimg/good.jpg',
+        '../../testimg/good.jpg',
+        '../../testimg/good.jpg'
+      ],
+      indicatorDots: true,
+      circular: true,
+      autoplay: false,
+      interval: 3000,
+      duration: 500
+    },
   },
   //事件处理函数
   bindViewTap: function() {

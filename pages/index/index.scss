@@ -1,13 +1,13 @@
 @import '../../public/css/_mixin.scss';
 @import '../../public/css/_public.scss';
 
-/**index.wxss**/
 .banner-slide {
   width: 100%;
   height: 235rpx;
   image {
     width: 100%;
     height: 235rpx;
+    display: block;
   }
 }
 
