@@ -950,4 +950,95 @@ page {
             width: 100%;
             height: 100%; }
 
+.shoper-descript {
+  height: 220rpx;
+  box-sizing: border-box;
+  padding-top: 85rpx;
+  display: flex; }
+  .shoper-descript .bg {
+    width: 100%;
+    height: 220rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(10px); }
+  .shoper-descript .shoper-avater {
+    margin-left: 30rpx; }
+    .shoper-descript .shoper-avater image {
+      width: 152rpx;
+      height: 152rpx;
+      border-radius: 6rpx;
+      display: block; }
+  .shoper-descript .shoper-info {
+    margin-left: 20rpx;
+    color: #fff; }
+    .shoper-descript .shoper-info .title {
+      line-height: 42rpx;
+      font-size: 34rpx;
+      padding-top: 8rpx;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .shoper-descript .shoper-info .intro {
+      height: 68rpx;
+      line-height: 34rpx;
+      font-size: 20rpx;
+      overflow-y: scroll; }
+
+.shoper-sub-title {
+  line-height: 67rpx;
+  color: #ef7272;
+  font-size: 26rpx;
+  padding: 13rpx 30rpx 0 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  background-color: #fff; }
+
+.good-bought {
+  padding: 18rpx 20rpx;
+  white-space: nowrap; }
+  .good-bought .good-card {
+    width: 308rpx;
+    height: 128rpx;
+    padding: 20rpx;
+    margin-right: 12rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 0 14rpx rgba(0, 0, 0, 0.15);
+    display: inline-block; }
+    .good-bought .good-card .title {
+      line-height: 32rpx;
+      font-size: 26rpx;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .good-bought .good-card .price {
+      margin-top: 20rpx;
+      font-size: 30rpx;
+      color: #ff5500; }
+    .good-bought .good-card .good-opera {
+      position: absolute;
+      right: 10rpx;
+      bottom: 10rpx; }
+
+.good-opera .opera-add {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 10rpx 10rpx 10rpx 0; }
+  .good-opera .opera-add image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block; }
+
+.category-nav {
+  top: 300rpx; }
+  .category-nav .nav-item:first-child {
+    padding-top: 18rpx; }
+
+.category-main {
+  top: 300rpx; }
+
 /*# sourceMappingURL=index.wxss.map */

@@ -1,31 +1,14 @@
-<view class="search-bar">
-  <view class="left-btn">
-    <image src="../../icons/icon-arrow-left.png"></image>
+<view class="shoper-descript">
+  <image class="bg" src="../../testimg/index2.jpg"></image>
+  <view class="shoper-avater">
+    <image src="../../testimg/shoper.jpg"></image>
   </view>
-  <view class="search-input">
-    <image src="../../icons/icon-search.png"></image>
-    <input placeholder="请输入" placeholder-style="color:#fff;"/>
-  </view>
-  <view class="right-btn">
-    <image src="../../icons/icon-shopcar.png"></image>
+  <view class="shoper-info">
+    <view class="title">耐克</view>
+    <view class="intro">公告：三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686</view>
   </view>
 </view>
-<view class="category-tabs">
-  <view class="tabs-item">
-    <text>销量</text>
-    <view class="sort-triangle">
-      <view class="up"></view>
-      <view class="down"></view>
-    </view>
-  </view>
-  <view class="tabs-item">
-    <text>价格</text>
-    <view class="sort-triangle">
-      <view class="up"></view>
-      <view class="down"></view>
-    </view>
-  </view>
-</view>
+<view class="shoper-sub-title">商品</view>
 <!-- 左侧导航 -->
 <scroll-view class="category-nav" scroll-y="true">
   <block wx:for="{{nav}}" wx:key="unique">
@@ -38,10 +21,30 @@
 <!-- 右侧主体 -->
 <view class="category-main">
   <scroll-view class="scroll-view" scroll-y="true">
-    <view class="ad-img">
-      <image src="../../testimg/category1.jpg"></image>
-    </view>
+    <scroll-view scroll-x="true">
+      <view class="good-bought">
+        <view class="good-card">
+          <view class="title">耐克</view>
+          <view class="price"><text class="small">¥</text>23.00</view>
+          <view class="good-opera">
+            <view class="opera-add">
+              <image src="../../icons/icon-add1.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="good-card">
+          <view class="title">耐克</view>
+          <view class="price"><text class="small">¥</text>23.00</view>
+          <view class="good-opera">
+            <view class="opera-add">
+              <image src="../../icons/icon-add1.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
     <view class="good-section">
+      <view class="nav-title">新品</view>
       <view class="good-item">
         <navigator class="good-img" url="/pages/good/index">
           <image src="../../testimg/category2.png"></image>

@@ -1,11 +1,12 @@
 {
   "pages":[
-    "pages/product/index",
+    "pages/shoper/index",
     "pages/index/index",
     "pages/category/index",
     "pages/list/index",
     "pages/my/index",
     "pages/cart/index",
+    "pages/product/index",
     "pages/listpay/index"
   ],
   "window":{
