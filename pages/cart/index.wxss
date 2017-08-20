@@ -36,7 +36,7 @@
         display: block; }
     .list-section .list-item .content {
       flex: 1;
-      padding: 10rpx 35rpx 10rpx 26rpx; }
+      padding: 10rpx 15rpx 10rpx 26rpx; }
       .list-section .list-item .content .title {
         line-height: 34rpx;
         padding-top: 5rpx;

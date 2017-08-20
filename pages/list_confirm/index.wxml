@@ -1,5 +1,5 @@
-<view class="addr-list">
-  <view class="addr-item">
+<view class="address-list">
+  <navigator class="address-item" url="/pages/address/index">
     <view class="ico">
       <image src="../../icons/icon-location.png"></image>
     </view>
@@ -14,12 +14,12 @@
     <view class="arrow">
       <image src="../../icons/icon-arrow-right-light.png"></image>
     </view>
-  </view>
+  </navigator>
   <image class="border-bar" src="../../icons/icon-bar.jpg"></image>
 </view>
 
 <view class="list-section mt18">
-  <navigator class="label-act" url="/pages/good/index">
+  <navigator class="label-act" url="/pages/shoper/index">
     <view class="ico">
       <image src="../../testimg/list1.jpg"></image>
     </view>
@@ -28,11 +28,11 @@
     </view>
   </navigator>
   <view class="list-item">
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
       <view class="descrip-container">
         <view class="descrip-list">
@@ -76,6 +76,6 @@
   <view class="total">
     合计：<text class="text-energized"><text class="small">￥</text>230</text>
   </view>
-  <view class="calc">提交订单</view>
+  <navigator class="calc" url="/pages/list_pay/index">提交订单</navigator>
 </view>
 

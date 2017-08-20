@@ -7,9 +7,10 @@
     "pages/cart/index",
     "pages/product/index",
     "pages/shoper/index",
-    "pages/search_result/index",
+    "pages/list_pay/index",
     "pages/list_confirm/index",
-    "pages/list_pay/index"
+    "pages/search_result/index",
+    "pages/address/index"
   ],
   "window":{
     "backgroundColor":"#f2f2f2",

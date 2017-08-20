@@ -8,7 +8,7 @@
 </view>
 
 <view class="list-section mt18">
-  <navigator class="label-act bb" url="/pages/good/index">
+  <navigator class="label-act bb" url="/pages/shoper/index">
     <view class="ico">
       <image src="../../testimg/list1.jpg"></image>
     </view>
@@ -18,11 +18,11 @@
     </view>
   </navigator>
   <view class="list-item">
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
       <view class="descrip-container">
         <view class="descrip-list">
@@ -39,14 +39,14 @@
   <view class="item-state">
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
-      <view class="btn btn-energized-light">再次购买</view>
-      <navigator class="btn btn-energized" url="/pages/listpay/index">立即付款</navigator>
+      <navigator class="btn btn-energized-light" url="/pages/shoper/index">再次购买</navigator>
+      <navigator class="btn btn-energized" url="/pages/list_pay/index">立即付款</navigator>
     </view>
   </view>
 </view>
 
 <view class="list-section mt18">
-  <navigator class="label-act bb" url="/pages/good/index">
+  <navigator class="label-act bb" url="/pages/product/index">
     <view class="ico">
       <image src="../../testimg/list1.jpg"></image>
     </view>
@@ -56,11 +56,11 @@
     </view>
   </navigator>
   <view class="list-item">
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
       <view class="descrip-container">
         <view class="descrip-list">
@@ -75,11 +75,11 @@
     </view>
   </view>
   <view class="list-item">
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</navigator>
       <view class="descrip-container">
         <view class="descrip-list">
@@ -94,11 +94,11 @@
     </view>
   </view>
   <view class="list-item">
-    <navigator class="item-img" url="/pages/good/index">
+    <navigator class="item-img" url="/pages/product/index">
       <image src="../../testimg/list.jpg"></image>
     </navigator>
     <view class="content">
-      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
       <view class="descrip-container">
         <view class="descrip-list">
@@ -115,8 +115,8 @@
   <view class="item-state">
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
-      <view class="btn btn-energized-light">再次购买</view>
-      <navigator class="btn btn-energized" url="/pages/listpay/index">立即付款</navigator>
+      <navigator class="btn btn-energized-light" url="/pages/shoper/index">再次购买</navigator>
+      <navigator class="btn btn-energized" url="/pages/list_pay/index">立即付款</navigator>
     </view>
   </view>
 </view>

@@ -36,7 +36,7 @@
     <view class="title">账户余额支付</view>
     <view class="sub">214,567.00</view>
     <view class="arrow">
-      <image class="icon" src="../../icons/icon-radio-selected.png"></image>
+      <image class="icon" src="../../icons/icon-radio.png"></image>
     </view>
   </view>
   <view class="select-label bb" url="/pages/good/index">
@@ -61,12 +61,12 @@
   </view>
 </view>
 <view class="plr30 mt110">
-  <view class="btn btn-full btn-energized-linear">确认支付</view>
+  <view class="btn btn-full btn-energized-linear" bindtap="pay">确认支付</view>
 </view>
-<view class="app-prompt">
+<view class="app-prompt" wx:if="{{payState!=0}}">
   <view class="prompt-container">
     <image src="../../icons/icon-laught.png"></image>
     <view class="text">支 付 成 功</view>
-    <view class="btn btn-large btn-energized-linear">完成</view>
+    <navigator url="/pages/list/index" open-type="switchTab" class="btn btn-large btn-energized-linear">完成</navigator>
   </view>
 </view>

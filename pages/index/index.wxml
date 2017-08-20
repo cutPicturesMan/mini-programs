@@ -1,277 +1,274 @@
-<!--index.wxml-->
+<view class="search-bar fixed">
+  <view class="left-btn">
+    <image src="../../icons/icon-arrow-left.png"></image>
+  </view>
+  <view class="search-input">
+    <input placeholder="请输入" placeholder-style="color:#fff;"/>
+  </view>
+  <navigator class="right-btn" url="/pages/cart/index">
+    <image src="../../icons/icon-shopcar.png"></image>
+  </navigator>
+</view>
+<swiper class="banner-slide"
+        indicator-dots="{{bannerSlider.indicatorDots}}"
+        indicator-color="rgba(0,0,0,0.5)"
+        indicator-active-color="#ff4400"
+        circular="{{bannerSlider.circular}}"
+        autoplay="{{bannerSlider.autoplay}}"
+        interval="{{bannerSlider.interval}}"
+        duration="{{bannerSlider.duration}}">
+  <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
+    <swiper-item>
+      <navigator url="/pages/product/index">
+        <image src="{{item}}"/>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="category-list clear">
+  <view class="category-item">
+    <navigator class="link" url="/pages/search_result/index">
+      <image src="../../icons/index-category1.png"></image>
+      <text class="text">主材类</text>
+    </navigator>
+  </view>
+  <view class="category-item">
+    <navigator class="link" url="/pages/search_result/index">
+      <image src="../../icons/index-category2.png"></image>
+      <text class="text">辅料类</text>
+    </navigator>
+  </view>
+  <view class="category-item">
+    <navigator class="link" url="/pages/search_result/index">
+      <image src="../../icons/index-category3.png"></image>
+      <text class="text">模具类模具类模具类模具类模具类模具类</text>
+    </navigator>
+  </view>
+  <view class="category-item">
+    <navigator class="link" url="/pages/search_result/index">
+      <image src="../../icons/index-category4.png"></image>
+      <text class="text">包材类</text>
+    </navigator>
+  </view>
+  <view class="category-item">
+    <navigator class="link" url="/pages/search_result/index">
+      <image src="../../icons/index-category5.png"></image>
+      <text class="text">外购成品</text>
+    </navigator>
+  </view>
+</view>
+<swiper class="text-slider"
+        circular="{{bannerSlider.circular}}"
+        autoplay="{{textSlider.autoplay}}"
+        interval="{{textSlider.interval}}"
+        duration="{{textSlider.duration}}"
+        vertical="{{textSlider.vertical}}">
+  <block wx:for="{{textSlider.imgUrls}}" wx:key="unique">
+    <swiper-item>
+      <image src="../../icons/icon-trumpet.png" class="slide-image"/>
+      <text>{{item}}</text>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="recommend-brand mt18">
+  <view class="title">
+    <image src="../../icons/index-brand.png"></image>
+    <text>推荐品牌</text>
+  </view>
+  <view class="content clear">
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+    <navigator class="brand-item" url="/pages/shoper/index">
+      <image src="../../testimg/index.jpg"></image>
+    </navigator>
+  </view>
+</view>
+<navigator class="ad-img mt18" url="/pages/product/index">
+  <image src="../../testimg/index2.jpg"></image>
+</navigator>
+<view class="mt18">
+  <navigator class="label-act" url="/pages/search_result/index">
+    <view class="ico">
+      <image src="../../icons/icon-new.png"></image>
+    </view>
+    <view class="title">新品上市</view>
+    <view class="arrow">更多>></view>
+  </navigator>
+  <view class="good-section">
+    <view class="l">
+      <navigator class="item" hover-class="none" url="/pages/product/index">
+        <image src="../../testimg/index3.png"></image>
+      </navigator>
+      <navigator class="item" hover-class="none" url="/pages/product/index">
+        <image src="../../testimg/index4.png"></image>
+      </navigator>
+    </view>
+    <view class="r">
+      <navigator class="item" hover-class="none" url="/pages/product/index">
+        <image src="../../testimg/index5.png"></image>
+      </navigator>
+      <navigator class="item" hover-class="none" url="/pages/product/index">
+        <image src="../../testimg/index51.png"></image>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class="mt18">
+  <navigator class="label-act" url="/pages/search_result/index">
+    <view class="ico">
+      <image src="../../icons/icon-flag.png"></image>
+    </view>
+    <view class="title">推荐</view>
+    <view class="arrow">更多>></view>
+  </navigator>
+  <view class="good-list type1 clear">
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index6.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index6.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index6.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index6.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<navigator class="ad-img mt18" url="/pages/product/index">
+  <image src="../../testimg/index7.png"></image>
+</navigator>
 <view>
-  <view class="search-bar">
-    <view class="left-btn">
-      <image src="../../icons/icon-arrow-left.png"></image>
+  <navigator class="label-act" url="/pages/search_result/index">
+    <view class="ico">
+      <image src="../../icons/icon-home.png"></image>
     </view>
-    <view class="search-input">
-      <input placeholder="请输入" placeholder-style="color:#fff;"/>
-    </view>
-    <view class="right-btn">
-      <image src="../../icons/icon-shopcar.png"></image>
-    </view>
-  </view>
-  <swiper class="banner-slide"
-          indicator-dots="{{bannerSlider.indicatorDots}}"
-          indicator-color="rgba(0,0,0,0.5)"
-          indicator-active-color="#ff4400"
-          circular="{{bannerSlider.circular}}"
-          autoplay="{{bannerSlider.autoplay}}"
-          interval="{{bannerSlider.interval}}"
-          duration="{{bannerSlider.duration}}">
-    <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
-      <swiper-item>
-        <navigator url="/pages/product/index">
-          <image src="{{item}}"/>
-        </navigator>
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class="category-list clear">
-    <view class="category-item">
-      <navigator class="link" url="/pages/good/index">
-        <image src="../../icons/index-category1.png"></image>
-        <text class="text">主材类</text>
-      </navigator>
-    </view>
-    <view class="category-item">
-      <navigator class="link" url="/pages/good/index">
-        <image src="../../icons/index-category2.png"></image>
-        <text class="text">辅料类</text>
-      </navigator>
-    </view>
-    <view class="category-item">
-      <navigator class="link" url="/pages/good/index">
-        <image src="../../icons/index-category3.png"></image>
-        <text class="text">模具类模具类模具类模具类模具类模具类</text>
-      </navigator>
-    </view>
-    <view class="category-item">
-      <navigator class="link" url="/pages/good/index">
-        <image src="../../icons/index-category4.png"></image>
-        <text class="text">包材类</text>
-      </navigator>
-    </view>
-    <view class="category-item">
-      <navigator class="link" url="/pages/good/index">
-        <image src="../../icons/index-category5.png"></image>
-        <text class="text">外购成品</text>
-      </navigator>
-    </view>
-  </view>
-  <swiper class="text-slider"
-          circular="{{bannerSlider.circular}}"
-          autoplay="{{textSlider.autoplay}}"
-          interval="{{textSlider.interval}}"
-          duration="{{textSlider.duration}}"
-          vertical="{{textSlider.vertical}}">
-    <block wx:for="{{textSlider.imgUrls}}" wx:key="unique">
-      <swiper-item>
-        <image src="../../icons/icon-trumpet.png" class="slide-image"/>
-        <text>{{item}}</text>
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class="recommend-brand mt18">
-    <view class="title">
-      <image src="../../icons/index-brand.png"></image>
-      <text>推荐品牌</text>
-    </view>
-    <view class="content clear">
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-      <navigator class="brand-item" url="/pages/good/index">
-        <image src="../../testimg/index.jpg"></image>
-      </navigator>
-    </view>
-  </view>
-  <navigator class="ad-img mt18" url="/pages/good/index">
-    <image src="../../testimg/index2.jpg"></image>
+    <view class="title">清仓处理</view>
+    <view class="arrow">更多>></view>
   </navigator>
-  <view class="mt18">
-    <navigator class="label-act" url="/pages/good/index">
-      <view class="ico">
-        <image src="../../icons/icon-new.png"></image>
-      </view>
-      <view class="title">新品上市</view>
-      <view class="arrow">更多>></view>
-    </navigator>
-    <view class="good-section">
-      <view class="l">
-        <navigator class="item" hover-class="none" url="/pages/good/index">
-          <image src="../../testimg/index3.png"></image>
-        </navigator>
-        <navigator class="item" hover-class="none" url="/pages/good/index">
-          <image src="../../testimg/index4.png"></image>
-        </navigator>
-      </view>
-      <view class="r">
-        <navigator class="item" hover-class="none" url="/pages/good/index">
-          <image src="../../testimg/index5.png"></image>
-        </navigator>
-        <navigator class="item" hover-class="none" url="/pages/good/index">
-          <image src="../../testimg/index51.png"></image>
-        </navigator>
-      </view>
+  <view class="good-section">
+    <view class="l">
+      <navigator class="item" url="/pages/product/index" hover-class="none">
+        <image src="../../testimg/index3.png"></image>
+      </navigator>
+      <navigator class="item" url="/pages/product/index" hover-class="none">
+        <image src="../../testimg/index4.png"></image>
+      </navigator>
+    </view>
+    <view class="r">
+      <navigator class="item" url="/pages/product/index" hover-class="none">
+        <image src="../../testimg/index5.png"></image>
+      </navigator>
+      <navigator class="item" hover-class="none" url="/pages/product/index">
+        <image src="../../testimg/index51.png"></image>
+      </navigator>
     </view>
   </view>
-  <view class="mt18">
-    <navigator class="label-act" url="/pages/good/index">
-      <view class="ico">
-        <image src="../../icons/icon-flag.png"></image>
-      </view>
-      <view class="title">推荐</view>
-      <view class="arrow">更多>></view>
-    </navigator>
-    <view class="good-list type1 clear">
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index6.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <view class="info">
-          <text class="price">¥23.00</text>
-          <view class="opera">
-            <image src="../../icons/icon-cart.png"></image>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index6.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <view class="info">
-          <text class="price">¥23.00</text>
-          <view class="opera">
-            <image src="../../icons/icon-cart.png"></image>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index6.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <view class="info">
-          <text class="price">¥23.00</text>
-          <view class="opera">
-            <image src="../../icons/icon-cart.png"></image>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index6.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <view class="info">
-          <text class="price">¥23.00</text>
-          <view class="opera">
-            <image src="../../icons/icon-cart.png"></image>
-          </view>
-        </view>
-      </view>
+</view>
+<view class="mt18">
+  <navigator class="label-act" url="/pages/search_result/index">
+    <view class="ico">
+      <image src="../../icons/icon-list.png"></image>
     </view>
-  </view>
-  <navigator class="ad-img mt18" url="/pages/good/index">
-    <image src="../../testimg/index7.png"></image>
+    <view class="title">历史清单</view>
+    <view class="arrow">更多>></view>
   </navigator>
-  <view>
-    <navigator class="label-act" url="/pages/good/index">
-      <view class="ico">
-        <image src="../../icons/icon-home.png"></image>
-      </view>
-      <view class="title">新品上市</view>
-      <view class="arrow">更多>></view>
-    </navigator>
-    <view class="good-section">
-      <view class="l">
-        <navigator class="item" url="/pages/good/index" hover-class="none">
-          <image src="../../testimg/index3.png"></image>
-        </navigator>
-        <navigator class="item" url="/pages/good/index" hover-class="none">
-          <image src="../../testimg/index4.png"></image>
-        </navigator>
-      </view>
-      <view class="r">
-        <navigator class="item" url="/pages/good/index" hover-class="none">
-          <image src="../../testimg/index5.png"></image>
-        </navigator>
-        <navigator class="item" hover-class="none" url="/pages/good/index">
-          <image src="../../testimg/index51.png"></image>
-        </navigator>
-      </view>
+  <scroll-view class="good-list type2" scroll-x="true">
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index8.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <text class="price">¥23.00</text>
+      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
     </view>
-  </view>
-  <view class="mt18">
-    <navigator class="label-act" url="/pages/good/index">
-      <view class="ico">
-        <image src="../../icons/icon-list.png"></image>
-      </view>
-      <view class="title">历史清单</view>
-      <view class="arrow">更多>></view>
-    </navigator>
-    <scroll-view class="good-list type2" scroll-x="true">
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index8.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <text class="price">¥23.00</text>
-        <view class="opera">补 货</view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index8.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <text class="price">¥23.00</text>
-        <view class="opera">补 货</view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index8.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <text class="price">¥23.00</text>
-        <view class="opera">补 货</view>
-      </view>
-      <view class="good-item">
-        <navigator url="/pages/good/index" hover-class="none">
-          <image class="img" src="../../testimg/index8.png"></image>
-          <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-            培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-        </navigator>
-        <text class="price">¥23.00</text>
-        <view class="opera">补 货</view>
-      </view>
-    </scroll-view>
-  </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index8.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <text class="price">¥23.00</text>
+      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
+    </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index8.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <text class="price">¥23.00</text>
+      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
+    </view>
+    <view class="good-item">
+      <navigator url="/pages/product/index" hover-class="none">
+        <image class="img" src="../../testimg/index8.png"></image>
+        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
+          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
+      </navigator>
+      <text class="price">¥23.00</text>
+      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
+    </view>
+  </scroll-view>
 </view>

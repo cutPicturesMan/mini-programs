@@ -678,6 +678,12 @@
   align-items: center;
   height: 88rpx;
   background: linear-gradient(to right, #ff9000 0%, #ff9000 20%, #ff5000 66%); }
+  .search-bar.fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100; }
   .search-bar .right-btn {
     width: 90rpx;
     height: 60rpx; }

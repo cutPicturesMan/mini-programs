@@ -10,6 +10,37 @@
     <view class="content">
       <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
         不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <image class="icon" src="../../icons/icon-arrow-down.png"></image>
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item-state">
+    <text class="edit">编辑</text>
+    <view class="btns-group">
+      <text class="sign">￥</text>
+      <text class="price pr50">230</text>
+    </view>
+  </view>
+</view>
+<view class="list-section mt20">
+  <view class="list-item">
+    <view class="sel">
+      <!--<image src="../../icons/icon-radio.png"></image>-->
+      <image src="../../icons/icon-radio-selected.png"></image>
+    </view>
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
       <view class="opera-btns mb60">
         <image class="reduce-btn" src="../../icons/icon-reduce.png"></image>
         <view class="count">10</view>
@@ -29,7 +60,7 @@
     </view>
     <view class="delete">删除</view>
   </view>
-  <view class="item-opera">
+  <view class="item-state">
     <text class="edit">编辑</text>
     <view class="btns-group">
       <text class="sign">￥</text>
@@ -47,6 +78,6 @@
   <view class="total">
     合计：<text class="text-energized"><text class="small">￥</text>230</text>
   </view>
-  <view class="calc">结算</view>
+  <navigator class="calc" url="/pages/list_confirm/index">结算</navigator>
 </view>
 

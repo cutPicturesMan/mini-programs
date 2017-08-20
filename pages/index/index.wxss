@@ -7,6 +7,9 @@
  * $direction : 三角形指向(top, right, bottom, left)
  * $color : 三角形颜色
  */
+page {
+  padding-top: 88rpx; }
+
 .banner-slide {
   width: 100%;
   height: 235rpx; }

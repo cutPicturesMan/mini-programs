@@ -36,7 +36,7 @@
         display: block; }
     .list-section .list-item .content {
       flex: 1;
-      padding: 10rpx 35rpx 10rpx 26rpx; }
+      padding: 10rpx 15rpx 10rpx 26rpx; }
       .list-section .list-item .content .title {
         line-height: 34rpx;
         padding-top: 5rpx;
@@ -134,11 +134,19 @@
       font-size: 32rpx;
       font-weight: bold; }
 
+page {
+  padding-top: 78rpx; }
+
 .list-tabs {
   height: 78rpx;
   line-height: 78rpx;
   background-color: #fff;
-  display: flex; }
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100; }
   .list-tabs .tabs-item {
     flex: 1;
     display: flex;

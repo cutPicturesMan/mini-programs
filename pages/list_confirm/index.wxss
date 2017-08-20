@@ -36,7 +36,7 @@
         display: block; }
     .list-section .list-item .content {
       flex: 1;
-      padding: 10rpx 35rpx 10rpx 26rpx; }
+      padding: 10rpx 15rpx 10rpx 26rpx; }
       .list-section .list-item .content .title {
         line-height: 34rpx;
         padding-top: 5rpx;
@@ -168,33 +168,33 @@ page {
     color: #fff;
     background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
-.addr-list .border-bar {
+.address-list .border-bar {
   width: 100%;
   height: 11rpx;
   display: block; }
-.addr-list .addr-item {
+.address-list .address-item {
   background-color: #fff;
   padding: 0 15rpx 0 22rpx;
   display: flex; }
-  .addr-list .addr-item .ico,
-  .addr-list .addr-item .arrow {
+  .address-list .address-item .ico,
+  .address-list .address-item .arrow {
     display: flex;
     align-items: center; }
-    .addr-list .addr-item .ico image,
-    .addr-list .addr-item .arrow image {
+    .address-list .address-item .ico image,
+    .address-list .address-item .arrow image {
       width: 40rpx;
       height: 40rpx; }
-  .addr-list .addr-item .content {
+  .address-list .address-item .content {
     padding: 15rpx 0 60rpx 0;
     margin-left: 15rpx;
     font-size: 24rpx;
     flex: 1; }
-    .addr-list .addr-item .content .user {
+    .address-list .address-item .content .user {
       line-height: 56rpx;
       display: flex; }
-      .addr-list .addr-item .content .user .name {
+      .address-list .address-item .content .user .name {
         flex: 1; }
-    .addr-list .addr-item .content .addr {
+    .address-list .address-item .content .addr {
       line-height: 30rpx; }
 
 .list-section .list-item {

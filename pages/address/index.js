@@ -3,14 +3,14 @@
 var app = getApp()
 Page({
   data: {
-    // 支付状态，0未支付，1支付成功，2支付失败
-    payState: 0
+    motto: 'Hello World',
+    userInfo: {}
   },
   //事件处理函数
-  pay: function() {
-    this.setData({
-      payState : 1
-    });
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
   },
   onLoad: function () {
     console.log('onLoad')

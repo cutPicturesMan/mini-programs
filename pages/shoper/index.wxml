@@ -46,11 +46,11 @@
     <view class="good-section">
       <view class="nav-title">新品</view>
       <view class="good-item">
-        <navigator class="good-img" url="/pages/good/index">
+        <navigator class="good-img" url="/pages/product/index">
           <image src="../../testimg/category2.png"></image>
         </navigator>
         <view class="content">
-          <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
           <text class="intro">2个规格可选</text>
@@ -63,11 +63,11 @@
         </view>
       </view>
       <view class="good-item">
-        <navigator class="good-img" url="/pages/good/index">
+        <navigator class="good-img" url="/pages/product/index">
           <image src="../../testimg/category2.png"></image>
         </navigator>
         <view class="content">
-          <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
           <text class="intro">2个规格可选</text>
@@ -80,11 +80,11 @@
         </view>
       </view>
       <view class="good-item">
-        <navigator class="good-img" url="/pages/good/index">
+        <navigator class="good-img" url="/pages/product/index">
           <image src="../../testimg/category2.png"></image>
         </navigator>
         <view class="content">
-          <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
           <text class="intro">2个规格可选</text>
@@ -97,11 +97,11 @@
         </view>
       </view>
       <view class="good-item">
-        <navigator class="good-img" url="/pages/good/index">
+        <navigator class="good-img" url="/pages/product/index">
           <image src="../../testimg/category2.png"></image>
         </navigator>
         <view class="content">
-          <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
           <text class="intro">2个规格可选</text>
@@ -117,11 +117,11 @@
     <view class="good-section">
       <view class="nav-title">推荐</view>
       <view class="good-item">
-        <navigator class="good-img" url="/pages/good/index">
+        <navigator class="good-img" url="/pages/product/index">
           <image src="../../testimg/category2.png"></image>
         </navigator>
         <view class="content">
-          <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
             0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
           <text class="intro">2个规格可选</text>
