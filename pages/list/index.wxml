@@ -36,7 +36,7 @@
       </view>
     </view>
   </view>
-  <view class="item-opera">
+  <view class="item-state">
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>
@@ -112,7 +112,7 @@
       </view>
     </view>
   </view>
-  <view class="item-opera">
+  <view class="item-state">
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <view class="btn btn-energized-light">再次购买</view>

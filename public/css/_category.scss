@@ -8,11 +8,20 @@ page{
   display: flex;
   .tabs-item{
     flex: 1;
+    border-right: 1rpx solid #e7e7e7;
     display: flex;
     justify-content: center;
     align-items: center;
-    &:first-child{
-      border-right: 1rpx solid #e7e7e7;
+    &.icon{
+      flex: 0 auto;
+      width: 120rpx;
+      image{
+        width: 48rpx;
+        height: 48rpx;
+      }
+    }
+    &:last-child{
+      border-right: 0;
     }
     text{
       font-size: 24rpx;
@@ -106,55 +115,55 @@ page{
     font-weight: bold;
     padding: 15rpx 0;
   }
-  .good-section{
-    padding: 0 20rpx 20rpx 20rpx;
-  }
-  .good-item{
-    background-color: #fff;
-    border-bottom: 1rpx solid #f3f3f6;
-    display: flex;
-    .good-img{
-      width: 226rpx;
-      height: 226rpx;
-      image{
-        width: 100%;
-        height: 100%;
-      }
+}
+.good-section{
+  padding: 0 20rpx 20rpx 20rpx;
+}
+.good-item{
+  background-color: #fff;
+  border-bottom: 1rpx solid #f3f3f6;
+  display: flex;
+  .good-img{
+    width: 226rpx;
+    height: 226rpx;
+    image{
+      width: 100%;
+      height: 100%;
     }
-    .content{
-      padding-bottom: 7rpx;
-      flex: 1;
-      .title{
-        line-height: 38rpx;
-        margin: 18rpx 15rpx 23rpx;
-        font-size: 24rpx;
-        @include ellipsis(2);
+  }
+  .content{
+    padding-bottom: 24rpx;
+    flex: 1;
+    .title{
+      line-height: 38rpx;
+      margin: 18rpx 15rpx 23rpx;
+      font-size: 24rpx;
+      @include ellipsis(2);
+    }
+    .intro{
+      line-height: 44rpx;
+      font-size: 22rpx;
+      padding: 0 15rpx;
+      color:#9a9a9a;
+      @include ellipsis();
+    }
+    .info{
+      display: flex;
+      align-items: center;
+      .price{
+        color:#ff4400;
+        font-size: 32rpx;
+        flex: 1;
+        padding-left: 18rpx;
+        font-weight: bold;
       }
-      .intro{
-        line-height: 44rpx;
-        font-size: 22rpx;
-        padding: 0 15rpx;
-        color:#9a9a9a;
-        @include ellipsis();
-      }
-      .info{
-        display: flex;
-        align-items: center;
-        .price{
-          color:#ff4400;
-          font-size: 32rpx;
-          flex: 1;
-          padding-left: 18rpx;
-          font-weight: bold;
-        }
-        .opera{
-          width: 65rpx;
-          height: 65rpx;
-          padding: 0rpx 9rpx;
-          image{
-            width: 100%;
-            height: 100%;
-          }
+      .opera{
+        width: 65rpx;
+        height: 65rpx;
+        padding: 0rpx 30rpx;
+        image{
+          width: 100%;
+          height: 100%;
         }
       }
     }

@@ -1,6 +1,5 @@
 .list-section{
   background-color: #fff;
-  padding-left: 18rpx;
   .sel{
     margin-right:20rpx;
     image {
@@ -10,6 +9,7 @@
     }
   }
   .label-act{
+    padding-left: 18rpx;
     .ico{
       margin-left: 0;
       image {
@@ -19,7 +19,7 @@
     }
   }
   .list-item{
-    border-bottom: 1rpx solid #e5e5e5;
+    padding-left: 18rpx;
     display: flex;
     .sel{
       display:flex;
@@ -64,6 +64,18 @@
           float: right;
         }
       }
+      .info{
+        line-height: 34rpx;
+        margin-top: 45rpx;
+        display: flex;
+        .price{
+          flex:1;
+          font-size: 32rpx;
+        }
+        .num{
+          font-size: 24rpx;
+        }
+      }
     }
     .delete{
       width: 110rpx;
@@ -76,7 +88,47 @@
     }
   }
   .item-opera{
+    padding: 26rpx 22rpx;
+    display: flex;
+    .text{
+      font-size: 24rpx;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .opera-btns{
+      display: flex;
+      align-items:center;
+      .reduce-btn,
+      .add-btn{
+        width: 56rpx;
+        height: 50rpx;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        image{
+          width: 40rpx;
+          height: 40rpx;
+        }
+      }
+      .count{
+        padding: 0 23rpx;
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #000;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+    }
+
+  }
+  .item-state{
     height: 80rpx;
+    margin-left: 18rpx;
+    border-top: 1rpx solid #e5e5e5;
     display: flex;
     align-items: center;
     .edit{

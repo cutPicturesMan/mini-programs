@@ -1,0 +1,81 @@
+<view class="addr-list">
+  <view class="addr-item">
+    <view class="ico">
+      <image src="../../icons/icon-location.png"></image>
+    </view>
+    <view class="content">
+      <view class="user">
+        <view class="name">收货人：张某某</view>
+        <view class="tel">13900001111</view>
+      </view>
+      <view class="addr">收货地址：浙江省杭州市西湖区文新街道西湖区文一西路
+        骆家庄西苑一区58号</view>
+    </view>
+    <view class="arrow">
+      <image src="../../icons/icon-arrow-right-light.png"></image>
+    </view>
+  </view>
+  <image class="border-bar" src="../../icons/icon-bar.jpg"></image>
+</view>
+
+<view class="list-section mt18">
+  <navigator class="label-act" url="/pages/good/index">
+    <view class="ico">
+      <image src="../../testimg/list1.jpg"></image>
+    </view>
+    <view class="title">
+      <text class="pr20 pl15">三能旗舰店</text>
+    </view>
+  </navigator>
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/good/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+      <view class="info">
+        <view class="price text-energized">
+          <text class="small">￥</text><text>230</text>
+        </view>
+        <view class="num">x3</view>
+      </view>
+    </view>
+  </view>
+  <view class="item-opera">
+    <view class="text">购买数量</view>
+    <view class="opera-btns">
+      <view class="reduce-btn">
+        <image src="../../icons/icon-reduce2.png"></image>
+      </view>
+      <view class="count">10</view>
+      <view class="add-btn">
+        <image src="../../icons/icon-add2.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="item-state pr40">
+    <view class="btns-group">
+      <text class="edit">共3件商品  小计：</text>
+      <text class="tip text-energized"><text class="small">￥</text>69.00</text>
+    </view>
+  </view>
+</view>
+
+<view class="cart-account">
+  <view class="total">
+    合计：<text class="text-energized"><text class="small">￥</text>230</text>
+  </view>
+  <view class="calc">提交订单</view>
+</view>
+

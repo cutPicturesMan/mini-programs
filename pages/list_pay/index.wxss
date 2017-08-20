@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+.info-section {
+  background-color: #fff;
+  padding: 0 20rpx; }
+  .info-section .info-item {
+    line-height: 50rpx;
+    padding: 17rpx 0;
+    color: #444; }
+    .info-section .info-item.bb {
+      border-bottom: 1rpx solid #e5e5e5; }
+    .info-section .info-item .title {
+      float: left;
+      font-size: 28rpx;
+      margin-right: 30rpx; }
+    .info-section .info-item .text {
+      text-align: right;
+      font-size: 32rpx; }
+
+.app-prompt .prompt-container {
+  padding: 76rpx 0 68rpx;
+  text-align: center; }
+  .app-prompt .prompt-container image {
+    width: 180rpx;
+    height: 180rpx;
+    margin: 0 auto;
+    display: block; }
+  .app-prompt .prompt-container .text {
+    text-align: center;
+    font-size: 44rpx;
+    color: #666;
+    margin-top: 35rpx; }
+  .app-prompt .prompt-container .btn {
+    margin: 150rpx auto 0; }
+
+/*# sourceMappingURL=index.wxss.map */

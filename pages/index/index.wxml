@@ -21,7 +21,7 @@
           duration="{{bannerSlider.duration}}">
     <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
       <swiper-item>
-        <navigator url="/pages/good/index">
+        <navigator url="/pages/product/index">
           <image src="{{item}}"/>
         </navigator>
       </swiper-item>

@@ -1,46 +1,9 @@
 @charset "utf-8";
 @import '../../public/css/_mixin.scss';
-@import '../../public/css/_public.scss';
 @import '../../public/css/_list_section.scss';
 @import '../../public/css/_opera_btns.scss';
-page{
-  padding-bottom:80rpx;
-}
-.cart-account{
-  height: 80rpx;
-  line-height: 80rpx;
-  border-top: 1rpx solid #e5e5e5;
-  background-color: #fff;
-  position:fixed;
-  right: 0;
-  bottom:0;
-  left:0;
-  display: flex;
-  .sel {
-    margin-left: 18rpx;
-    font-size: 28rpx;
-    display: flex;
-    align-items: center;
-    image{
-      width: 40rpx;
-      height: 40rpx;
-      display: block;
-    }
-  }
-  .total{
-    flex: 1;
-    text-align: right;
-    padding-right: 20rpx;
-    font-size: 26rpx;
-  }
-  .calc{
-    width: 190rpx;
-    font-size: 26rpx;
-    text-align: center;
-    color:#fff;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
-  }
-}
+@import '../../public/css/_cart_account.scss';
+
 
 
 

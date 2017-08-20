@@ -1,0 +1,109 @@
+<view class="search-bar">
+  <view class="left-btn">
+    <image src="../../icons/icon-arrow-left.png"></image>
+  </view>
+  <view class="search-input">
+    <image src="../../icons/icon-search.png"></image>
+    <input placeholder="请输入" placeholder-style="color:#fff;"/>
+  </view>
+  <view class="right-btn">
+    <image src="../../icons/icon-shopcar.png"></image>
+  </view>
+</view>
+<view class="category-tabs">
+  <view class="tabs-item icon">
+    <image src="../../icons/icon-type.png"></image>
+  </view>
+  <view class="tabs-item">
+    <text>综合</text>
+    <view class="sort-triangle">
+      <view class="up"></view>
+      <view class="down"></view>
+    </view>
+  </view>
+  <view class="tabs-item">
+    <text>销量</text>
+    <view class="sort-triangle">
+      <view class="up"></view>
+      <view class="down"></view>
+    </view>
+  </view>
+  <view class="tabs-item">
+    <text>价格</text>
+    <view class="sort-triangle">
+      <view class="up"></view>
+      <view class="down"></view>
+    </view>
+  </view>
+</view>
+<view class="mt18">
+  <view class="good-item">
+    <navigator class="good-img" url="/pages/good/index">
+      <image src="../../testimg/category2.png"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
+      <text class="intro">2个规格可选</text>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="good-item">
+    <navigator class="good-img" url="/pages/good/index">
+      <image src="../../testimg/category2.png"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
+      <text class="intro">2个规格可选</text>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="good-item">
+    <navigator class="good-img" url="/pages/good/index">
+      <image src="../../testimg/category2.png"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
+      <text class="intro">2个规格可选</text>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="good-item">
+    <navigator class="good-img" url="/pages/good/index">
+      <image src="../../testimg/category2.png"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/good/index">三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
+        0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
+      <text class="intro">2个规格可选</text>
+      <view class="info">
+        <text class="price">¥23.00</text>
+        <view class="opera">
+          <image src="../../icons/icon-cart2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
