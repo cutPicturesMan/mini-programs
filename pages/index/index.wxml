@@ -1,11 +1,8 @@
 <view class="search-bar fixed">
-  <view class="left-btn">
-    <image src="../../icons/icon-arrow-left.png"></image>
-  </view>
-  <view class="search-input">
+  <view class="search-input ml20">
     <input placeholder="请输入" placeholder-style="color:#fff;"/>
   </view>
-  <navigator class="right-btn" url="/pages/cart/index">
+  <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
     <image src="../../icons/icon-shopcar.png"></image>
   </navigator>
 </view>

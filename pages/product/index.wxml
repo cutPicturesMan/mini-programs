@@ -81,5 +81,5 @@
   <view class="share">
     <image src="../../icons/icon-share.png"></image>
   </view>
-  <navigator class="buy" url="/pages/cart/index">加入购物车</navigator>
+  <navigator class="buy" open-type="switchTab" url="/pages/cart/index">加入购物车</navigator>
 </view>

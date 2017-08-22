@@ -1,14 +1,11 @@
 <view class="search-bar">
-  <view class="left-btn">
-    <image src="../../icons/icon-arrow-left.png"></image>
-  </view>
-  <view class="search-input">
+  <view class="search-input ml20">
     <image src="../../icons/icon-search.png"></image>
     <input placeholder="请输入" placeholder-style="color:#fff;"/>
   </view>
-  <view class="right-btn">
+  <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
     <image src="../../icons/icon-shopcar.png"></image>
-  </view>
+  </navigator>
 </view>
 <view class="category-tabs">
   <view class="tabs-item">
