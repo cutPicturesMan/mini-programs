@@ -7,6 +7,12 @@
  * $direction : 三角形指向(top, right, bottom, left)
  * $color : 三角形颜色
  */
+.hide {
+  display: none !important; }
+
+.bt {
+  border-top: 1rpx solid #e5e5e5; }
+
 .small {
   font-size: 75%; }
 

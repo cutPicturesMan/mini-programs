@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/list_confirm/index",
+    "pages/address/index",
     "pages/index/index",
     "pages/category/index",
     "pages/list/index",
@@ -8,9 +10,7 @@
     "pages/product/index",
     "pages/shoper/index",
     "pages/list_pay/index",
-    "pages/list_confirm/index",
-    "pages/search_result/index",
-    "pages/address/index"
+    "pages/search_result/index"
   ],
   "window":{
     "backgroundColor":"#f2f2f2",

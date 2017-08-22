@@ -4,12 +4,13 @@ var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {}
+    userInfo: {},
+    isActive: false
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  delete: function() {
+    console.log();
+    this.setData({
+      isActive: !this.data.isActive
     })
   },
   onLoad: function () {
