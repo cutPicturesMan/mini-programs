@@ -1,0 +1,29 @@
+<view class="list-section mt18">
+  <view class="line-cell bb">
+    <view class="cell-title">客户名称</view>
+    <view class="cell-content">德玛西亚</view>
+  </view>
+  <view class="line-cell bb">
+    <view class="cell-title">联系人</view>
+    <view class="cell-content">刘德华</view>
+  </view>
+  <view class="line-cell bb">
+    <view class="cell-title">联系方式</view>
+    <view class="cell-content">18888888888</view>
+  </view>
+  <view class="line-cell bb">
+    <view class="cell-title">省/市/区</view>
+    <view class="cell-content">浙江省杭州市西湖区</view>
+  </view>
+  <view class="line-cell bb">
+    <view class="cell-title">详细地址</view>
+    <view class="cell-content">文一西路骆家庄西苑一区58号</view>
+  </view>
+  <view class="line-cell">
+    <view class="cell-title">详细地址</view>
+    <view class="cell-content">
+      <image class="select" src="../../icons/icon-radio.png"></image>
+      <image class="select" src="../../icons/icon-radio-selected.png"></image>
+    </view>
+  </view>
+</view>
