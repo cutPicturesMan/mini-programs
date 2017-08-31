@@ -1,15 +1,21 @@
 {
   "pages":[
-    "pages/list_confirm/index",
-    "pages/address/index",
+    "pages/order_detail/index",
     "pages/index/index",
     "pages/category/index",
     "pages/list/index",
     "pages/my/index",
     "pages/cart/index",
+    "pages/list_confirm/index",
+    "pages/list_pay/index",
+    "pages/list_log/index",
+    "pages/list_remark/index",
+    "pages/list_search/index",
+    "pages/list_fill/index",
+    "pages/address/index",
+    "pages/address_edit/index",
     "pages/product/index",
     "pages/shoper/index",
-    "pages/list_pay/index",
     "pages/search_result/index"
   ],
   "window":{

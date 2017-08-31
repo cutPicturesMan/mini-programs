@@ -1,6 +1,3 @@
 {
-  "backgroundTextStyle":"light",
-  "navigationBarBackgroundColor": "#ff5500",
-  "navigationBarTitleText": "商品详情",
-  "navigationBarTextStyle":"white"
+  "navigationBarTitleText": "商品详情"
 }

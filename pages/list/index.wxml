@@ -5,6 +5,9 @@
   <view class="tabs-item">
     <text>历史订单</text>
   </view>
+  <navigator class="tabs-item" url="/pages/list_search/index">
+    <text>订单查询</text>
+  </navigator>
 </view>
 
 <view class="list-section mt18">

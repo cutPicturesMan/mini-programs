@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+.addr-section {
+  background-color: #fff;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom: 96rpx; }
+  .addr-section .addr-item {
+    line-height: 50rpx;
+    padding: 17rpx 0;
+    color: #444; }
+    .addr-section .addr-item.bb {
+      border-bottom: 1rpx solid #e5e5e5; }
+    .addr-section .addr-item .title {
+      float: left;
+      font-size: 28rpx;
+      margin-right: 30rpx; }
+    .addr-section .addr-item .content {
+      min-height: 55rpx;
+      text-align: right;
+      font-size: 28rpx;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      .addr-section .addr-item .content .ico {
+        width: 36rpx;
+        height: 36rpx; }
+
+/*# sourceMappingURL=index.wxss.map */

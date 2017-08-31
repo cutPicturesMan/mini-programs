@@ -18,8 +18,9 @@ page{
     flex: 1;
     display: flex;
     justify-content: center;
-    &:first-child{
-      border-right: 2rpx solid #e7e7e7;
+    border-right: 1rpx solid #e7e7e7;
+    &:last-child{
+      border-right: 0;
     }
     &.active{
       text {

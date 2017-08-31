@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+page {
+  padding-bottom: 80rpx; }
+
+.cart-account {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1rpx solid #e5e5e5;
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex; }
+  .cart-account .sel {
+    margin-left: 18rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center; }
+    .cart-account .sel image {
+      width: 40rpx;
+      height: 40rpx;
+      display: block; }
+  .cart-account .total {
+    flex: 1;
+    text-align: right;
+    padding-right: 20rpx;
+    font-size: 26rpx; }
+  .cart-account .calc {
+    width: 190rpx;
+    font-size: 26rpx;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+
+page {
+  padding-bottom: 98rpx; }
+
+.bb {
+  border-bottom: 1rpx solid #eee; }
+
+.badge {
+  min-width: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 30rpx;
+  padding: 0 25rpx;
+  background-color: #ff5000;
+  display: inline-block; }
+
+.btns-prompt {
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.order-container {
+  background-color: #fff;
+  padding: 0 20rpx; }
+  .order-container .row,
+  .order-container .sub-row {
+    display: flex;
+    align-items: center; }
+    .order-container .row .title,
+    .order-container .sub-row .title {
+      margin-right: 30rpx; }
+    .order-container .row .content,
+    .order-container .sub-row .content {
+      flex: 1;
+      text-align: right; }
+      .order-container .row .content .icon,
+      .order-container .sub-row .content .icon {
+        width: 40rpx;
+        height: 40rpx; }
+  .order-container .row {
+    height: 60rpx;
+    font-size: 28rpx; }
+  .order-container .sub-row {
+    height: 50rpx;
+    color: #999;
+    font-size: 22rpx; }
+  .order-container .order-title {
+    height: 70rpx;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center; }
+    .order-container .order-title .title {
+      margin-right: 30rpx; }
+    .order-container .order-title .content {
+      flex: 1;
+      text-align: right; }
+  .order-container .order-info {
+    position: relative; }
+    .order-container .order-info .badge {
+      position: absolute;
+      right: 0;
+      bottom: 25rpx; }
+
+.line-container {
+  background-color: #fff; }
+  .line-container .line-item {
+    min-height: 110rpx;
+    color: #444;
+    padding: 16rpx 0;
+    margin: 0 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .line-container .line-item .row,
+    .line-container .line-item .sub-row {
+      display: flex;
+      align-items: center; }
+      .line-container .line-item .row .title,
+      .line-container .line-item .sub-row .title {
+        margin-right: 30rpx; }
+      .line-container .line-item .row .content,
+      .line-container .line-item .sub-row .content {
+        flex: 1;
+        text-align: right; }
+        .line-container .line-item .row .content .icon,
+        .line-container .line-item .sub-row .content .icon {
+          width: 40rpx;
+          height: 40rpx; }
+    .line-container .line-item .row {
+      height: 44rpx;
+      font-size: 28rpx; }
+    .line-container .line-item .sub-row {
+      height: 38rpx;
+      color: #999;
+      font-size: 22rpx; }
+
+/*# sourceMappingURL=index.wxss.map */

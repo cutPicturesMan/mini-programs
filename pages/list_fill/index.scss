@@ -1,0 +1,50 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_cart_account.scss';
+
+.line-container{
+  background-color: #fff;
+  .line-item{
+    min-height: 110rpx;
+    color: #444;
+    padding: 16rpx 0;
+    margin: 0 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &.bb{
+      border-bottom: 1rpx solid #e5e5e5;
+    }
+    .row,
+    .sub-row{
+      display: flex;
+      align-items: center;
+      .title{
+        margin-right:30rpx;
+      }
+      .content{
+        flex: 1;
+        text-align: right;
+        .icon{
+          width: 40rpx;
+          height: 40rpx;
+        }
+      }
+    }
+    .row{
+      height: 44rpx;
+      font-size:28rpx;
+      .content{
+
+      }
+    }
+    .sub-row{
+      height: 38rpx;
+      color: #999;
+      font-size: 22rpx;
+    }
+  }
+}
+
+

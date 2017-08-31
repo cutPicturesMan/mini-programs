@@ -1,0 +1,40 @@
+<view class="addr-section mt18">
+  <view class="addr-item bb">
+    <view class="title">客户名称</view>
+    <view class="content">
+      <input type="text" placeholder="请输入"/>
+    </view>
+  </view>
+  <view class="addr-item bb">
+    <view class="title">联系人</view>
+    <view class="content">
+      <input type="text" placeholder="姓名"/>
+    </view>
+  </view>
+  <view class="addr-item bb">
+    <view class="title">联系方式</view>
+    <view class="content">
+      <input type="text" placeholder="电话号码"/>
+    </view>
+  </view>
+  <view class="addr-item bb">
+    <view class="title">省/市/区</view>
+    <view class="content">
+      <input type="text" placeholder="请选择省市区"/>
+    </view>
+  </view>
+  <view class="addr-item bb">
+    <view class="title">详细地址</view>
+    <view class="content">
+      <input type="text" placeholder="姓名"/>
+    </view>
+  </view>
+  <view class="addr-item">
+    <view class="title">设为默认地址</view>
+    <view class="content">
+      <image class="ico" src="../../icons/icon-radio-selected.png"></image>
+      <image class="ico" src="../../icons/icon-radio.png"></image>
+    </view>
+  </view>
+</view>
+<view class="btn btn-energized-linear btn-fixed fixed-bottom">保 存</view>

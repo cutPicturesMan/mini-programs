@@ -1,7 +1,7 @@
 <view class="address-container">
   <view class="address-section mt18 {{isActive ? 'active' : ''}}">
     <view class="address-item">
-      <navigator url="/pages/address/index">
+      <navigator url="/pages/address_edit/index">
         <view class="addr-user">
           <view class="name">收货人：张某某</view>
           <view class="tel">13900001111</view>
@@ -22,7 +22,7 @@
           <image class="ico" src="../../icons/icon-radio-selected.png"></image>
           <text>默认地址</text>
         </view>
-        <navigator url="/pages/address/index" class="edit pl50">编辑</navigator>
+        <navigator url="/pages/address_edit/index" class="edit pl50">编辑</navigator>
         <view class="edit mr-25 {{isActive ? '' : 'hide'}}" bindtap="delete">取消</view>
         <view class="edit mr-25 {{isActive ? 'hide' : ''}}" bindtap="delete">删除</view>
       </view>
@@ -32,7 +32,7 @@
   </view>
   <view class="address-section mt18 {{isActive ? 'active' : ''}}">
     <view class="address-item">
-      <navigator url="/pages/address/index">
+      <navigator url="/pages/address_edit/index">
         <view class="addr-user">
           <view class="name">收货人：张某某</view>
           <view class="tel">13900001111</view>
@@ -53,7 +53,7 @@
           <image class="ico" src="../../icons/icon-radio-selected.png"></image>
           <text>默认地址</text>
         </view>
-        <navigator url="/pages/address/index" class="edit pl50">编辑</navigator>
+        <navigator url="/pages/address_edit/index" class="edit pl50">编辑</navigator>
         <view class="edit mr-25 {{isActive ? '' : 'hide'}}" bindtap="delete">取消</view>
         <view class="edit mr-25 {{isActive ? 'hide' : ''}}" bindtap="delete">删除</view>
       </view>
@@ -62,3 +62,5 @@
     <view class="delete-btn">删除</view>
   </view>
 </view>
+<view class="btn btn-fixed btn-energized-linear">新增地址</view>
+

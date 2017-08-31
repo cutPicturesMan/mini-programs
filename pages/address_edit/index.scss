@@ -1,0 +1,34 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+
+.addr-section{
+  background-color: #fff;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom:96rpx;
+  .addr-item{
+    line-height: 50rpx;
+    padding:17rpx 0;
+    color: #444;
+    &.bb{
+      border-bottom: 1rpx solid #e5e5e5;
+    }
+    .title{
+      float:left;
+      font-size:28rpx;
+      margin-right:30rpx;
+    }
+    .content{
+      min-height: 55rpx;
+      text-align: right;
+      font-size: 28rpx;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .ico{
+        width: 36rpx;
+        height: 36rpx;
+      }
+    }
+  }
+}

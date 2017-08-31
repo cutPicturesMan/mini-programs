@@ -150,9 +150,10 @@ page {
   .list-tabs .tabs-item {
     flex: 1;
     display: flex;
-    justify-content: center; }
-    .list-tabs .tabs-item:first-child {
-      border-right: 2rpx solid #e7e7e7; }
+    justify-content: center;
+    border-right: 1rpx solid #e7e7e7; }
+    .list-tabs .tabs-item:last-child {
+      border-right: 0; }
     .list-tabs .tabs-item.active text {
       color: #ff5000;
       border-bottom: 2rpx solid #ff5000; }

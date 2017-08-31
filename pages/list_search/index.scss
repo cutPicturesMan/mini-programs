@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+
+page{
+  background-color: #fff;
+}
+.search-container{
+  padding: 0 20rpx;
+  .search-item{
+    height: 110rpx;
+    color: #444;
+    font-size:28rpx;
+    display: flex;
+    align-items: center;
+    &.bb{
+      border-bottom: 1rpx solid #e5e5e5;
+    }
+    .title{
+      margin-right:30rpx;
+    }
+    .content{
+      flex: 1;
+      text-align: right;
+    }
+  }
+}

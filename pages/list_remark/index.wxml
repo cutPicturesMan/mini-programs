@@ -1,0 +1,27 @@
+<view class="empty-data" wx:if="{{list.length === 0}}">
+  <image src="../../icons/empty-data.png"></image>
+  <text>暂无数据～</text>
+</view>
+<view class="remark-add" wx:if="{{addToggle}}">
+  <view class="add-container animated {{addToggle ? 'bounceIn' : 'bounceOut'}}">
+    <view class="title">新增备注</view>
+    <view class="content">
+      <textarea placeholder="请输入备注"></textarea>
+    </view>
+    <view class="btns-prompt bt">
+      <view class="each-item cancel" bindtap="switchAddRemark">取消</view>
+      <view class="each-item confirm">确认</view>
+    </view>
+  </view>
+</view>
+<view class="remark-container">
+  <view class="remark-item">
+    <view class="title">事实上</view>
+    <view class="info">
+      <text class="name">刘德华</text>
+      <text class="time">2017-08-17-22:25:33</text>
+    </view>
+  </view>
+</view>
+<view class="btn btn-fixed fixed-bottom btn-energized-linear" bindtap="switchAddRemark">添加备注</view>
+

@@ -1,0 +1,10 @@
+<view class="remark-container">
+  <view class="remark-item">
+    <view class="title">事实上</view>
+    <view class="info">
+      <text class="name">刘德华</text>
+      <text class="time">2017-08-17-22:25:33</text>
+    </view>
+  </view>
+</view>
+

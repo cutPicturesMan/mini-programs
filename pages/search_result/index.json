@@ -1,6 +1,3 @@
 {
-  "backgroundTextStyle":"light",
-  "navigationBarBackgroundColor": "#ff5500",
-  "navigationBarTitleText": "结果列表",
-  "navigationBarTextStyle":"white"
+  "navigationBarTitleText": "结果列表"
 }

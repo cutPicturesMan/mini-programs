@@ -1,0 +1,136 @@
+<view class="pt18"></view>
+
+<view class="order-container">
+  <view class="order-title bb">
+    <view class="title">订单状态</view>
+    <view class="content text-energized">待订单审核</view>
+  </view>
+  <view class="order-info bb ptb10">
+    <view class="mr60">
+      <view class="sub-row">
+        <view class="title">公司名称：阿里巴巴</view>
+      </view>
+      <view class="sub-row">
+        <view class="title">订单编号：DH-O-201707024-026301</view>
+      </view>
+      <view class="sub-row">
+        <view class="title">下单时间：2017-08-17 20:20:04</view>
+      </view>
+    </view>
+    <view class="badge">催 办</view>
+  </view>
+  <view class="ptb20 bb">
+    <view class="row">
+      <view class="title">订单金额</view>
+      <view class="content">111</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">商品金额</view>
+      <view class="content">230.00</view>
+    </view>
+  </view>
+  <view class="ptb20 bb">
+    <view class="row">
+      <view class="title">付款记录</view>
+      <view class="content">
+        <text class="text-stable">未付款></text>
+      </view>
+    </view>
+    <view class="sub-row mt10 mb20">
+      <view class="title">待付款 230.00</view>
+      <view class="content">
+        <view class="badge">付 款</view>
+      </view>
+    </view>
+  </view>
+  <view class="ptb20">
+    <view class="row">
+      <view class="title">出库/发货记录</view>
+      <view class="content">备货中/待发货</view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item bb">
+    <view class="row">
+      <view class="title">备注信息</view>
+      <view class="content">
+        <text class="text-stable">0 ></text>
+      </view>
+    </view>
+  </view>
+  <view class="line-item bb">
+    <view class="row">
+      <view class="title">商品清单</view>
+      <view class="content">
+        <text class="text-stable">共4款，总数20 ></text>
+      </view>
+    </view>
+  </view>
+  <view class="line-item bb">
+    <view class="row">
+      <view class="title">订单附件</view>
+      <view class="content">
+        <text class="text-stable">0 ></text>
+      </view>
+    </view>
+  </view>
+  <view class="line-item">
+    <view class="row">
+      <view class="title">交货日期</view>
+      <view class="content">
+        <picker mode="date" value="{{form.date}}" bindchange="bindDateChange">
+          <view>{{date}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">收货信息</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">客户名称：岛国毕福剑</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">收货人：刘德华</view>
+      <view class="content">
+        18888888888
+      </view>
+    </view>
+    <view class="sub-row">
+      <view class="title">收货地址：浙江省杭州市西湖区XXX路XXXX号</view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">发票信息</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">不需要</view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">操作日志</view>
+      <view class="content">
+        <text class="text-stable">1 ></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="btns-prompt bt">
+  <view class="each-item cancel" bindtap="switchAddRemark">订单作废</view>
+  <view class="each-item confirm">再次购买</view>
+</view>

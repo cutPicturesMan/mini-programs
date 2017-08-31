@@ -1,6 +1,3 @@
 {
-  "backgroundTextStyle":"light",
-  "navigationBarBackgroundColor": "#ff5500",
-  "navigationBarTitleText": "商家",
-  "navigationBarTextStyle":"white"
+  "navigationBarTitleText": "商家"
 }

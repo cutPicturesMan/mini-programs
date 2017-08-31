@@ -1,6 +1,3 @@
 {
-  "backgroundTextStyle":"light",
-  "navigationBarBackgroundColor": "#ff5500",
-  "navigationBarTitleText": "收货地址",
-  "navigationBarTextStyle":"white"
+  "navigationBarTitleText": "收货地址"
 }
