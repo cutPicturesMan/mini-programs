@@ -1,6 +1,10 @@
 {
   "pages":[
     "pages/order_detail/index",
+    "pages/address_edit/index",
+    "pages/address_new/index",
+    "pages/list_confirm/index",
+    "pages/address/index",
     "pages/index/index",
     "pages/category/index",
     "pages/list/index",

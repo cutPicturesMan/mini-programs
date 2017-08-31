@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.line-cell{
+  line-height: 50rpx;
+  padding:17rpx 0;
+  color: #444;
+  font-size:24rpx;
+  &.bb{
+    border-bottom: 1rpx solid #e5e5e5;
+  }
+  .cell-title{
+    float:left;
+    margin-right:30rpx;
+  }
+  .cell-content{
+    min-height: 50rpx;
+    color:#999;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .select{
+      width: 37rpx;
+      height: 37rpx;
+    }
+  }
+}
