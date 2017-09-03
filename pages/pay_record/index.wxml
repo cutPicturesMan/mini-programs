@@ -1,0 +1,40 @@
+<view class="record-total">
+  <view class="line">
+    <view class="title">应付金额:</view>
+    <view class="content">230.00</view>
+  </view>
+  <view class="line">
+    <view class="title">待确认金额:</view>
+    <view class="content">230.00</view>
+  </view>
+</view>
+<view class="record-container">
+  <view class="row">
+    <view class="title">付款记录</view>
+    <view class="content">待审核</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">付款金额</view>
+    <view class="content">230.00</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">付款日期</view>
+    <view class="content">2017-08-17 22:00:36</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">付款方式</view>
+    <view class="content">账户余额支付</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">付款账户</view>
+    <view class="content">预付款账户</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">流水号</view>
+    <view class="content">2017081700110000200009019</view>
+  </view>
+  <view class="sub-row">
+    <view class="title">备注信息</view>
+    <view class="content">无</view>
+  </view>
+</view>

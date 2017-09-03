@@ -30,12 +30,12 @@
     </view>
   </view>
   <view class="ptb20 bb">
-    <view class="row">
+    <navigator class="row" url="/pages/pay_record/index">
       <view class="title">付款记录</view>
       <view class="content">
         <text class="text-stable">未付款></text>
       </view>
-    </view>
+    </navigator>
     <view class="sub-row mt10 mb20">
       <view class="title">待付款 230.00</view>
       <view class="content">
@@ -44,30 +44,30 @@
     </view>
   </view>
   <view class="ptb20">
-    <view class="row">
+    <navigator class="row" url="/pages/release_record/index">
       <view class="title">出库/发货记录</view>
       <view class="content">备货中/待发货</view>
-    </view>
+    </navigator>
   </view>
 </view>
 
 <view class="line-container mt18">
-  <view class="line-item bb">
+  <navigator class="line-item bb" url="/pages/list_remark/index">
     <view class="row">
       <view class="title">备注信息</view>
       <view class="content">
         <text class="text-stable">0 ></text>
       </view>
     </view>
-  </view>
-  <view class="line-item bb">
+  </navigator>
+  <navigator class="line-item bb" url="/pages/product_bill/index">
     <view class="row">
       <view class="title">商品清单</view>
       <view class="content">
         <text class="text-stable">共4款，总数20 ></text>
       </view>
     </view>
-  </view>
+  </navigator>
   <view class="line-item bb">
     <view class="row">
       <view class="title">订单附件</view>

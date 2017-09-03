@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+page {
+  background-color: #fff; }
+
+.record-total {
+  background-color: #ffbd69;
+  padding: 10rpx 30rpx;
+  font-size: 26rpx; }
+  .record-total .line {
+    line-height: 50rpx;
+    color: #fff;
+    display: flex; }
+    .record-total .line .content {
+      text-align: right;
+      flex: 1; }
+
+.record-container {
+  padding: 30rpx; }
+  .record-container .row,
+  .record-container .sub-row {
+    display: flex;
+    align-items: center; }
+    .record-container .row .title,
+    .record-container .sub-row .title {
+      margin-right: 30rpx; }
+    .record-container .row .content,
+    .record-container .sub-row .content {
+      flex: 1;
+      text-align: right; }
+  .record-container .row {
+    height: 44rpx;
+    font-size: 32rpx;
+    padding: 18rpx 0; }
+  .record-container .sub-row {
+    line-height: 44rpx;
+    color: #999;
+    font-size: 26rpx; }
+
+/*# sourceMappingURL=index.wxss.map */

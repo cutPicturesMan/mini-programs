@@ -1,0 +1,18 @@
+<view class="line-container mt18">
+  <navigator class="line-item bb" url="/pages/product_bill/index">
+    <view class="row">
+      <view class="title">待出库产品</view>
+      <view class="content">
+        <text class="text-stable">1 ></text>
+      </view>
+    </view>
+  </navigator>
+  <navigator class="line-item bb" url="/pages/product_bill/index">
+    <view class="row">
+      <view class="title">待发货产品</view>
+      <view class="content">
+        <text class="text-stable">0 ></text>
+      </view>
+    </view>
+  </navigator>
+</view>

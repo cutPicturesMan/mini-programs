@@ -1,23 +1,29 @@
 {
   "pages":[
+
     "pages/order_detail/index",
-    "pages/address_edit/index",
-    "pages/address_new/index",
-    "pages/list_confirm/index",
-    "pages/address/index",
+
     "pages/index/index",
     "pages/category/index",
+    "pages/cart/index",
     "pages/list/index",
     "pages/my/index",
-    "pages/cart/index",
-    "pages/list_confirm/index",
+
     "pages/list_pay/index",
     "pages/list_log/index",
     "pages/list_remark/index",
     "pages/list_search/index",
+    "pages/list_search_result/index",
+    "pages/list_confirm/index",
     "pages/list_fill/index",
+    "pages/order_detail/index",
+    "pages/release_record/index",
+    "pages/release_bill/index",
+
+    "pages/pay_record/index",
     "pages/address/index",
     "pages/address_edit/index",
+    "pages/address_new/index",
     "pages/product/index",
     "pages/shoper/index",
     "pages/search_result/index"
