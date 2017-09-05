@@ -1,10 +1,10 @@
 <view class="pt18"></view>
 
 <view class="order-container">
-  <view class="order-title bb">
+  <navigator class="order-title bb" url="/pages/order_status/index">
     <view class="title">订单状态</view>
     <view class="content text-energized">待订单审核</view>
-  </view>
+  </navigator>
   <view class="order-info bb ptb10">
     <view class="mr60">
       <view class="sub-row">
@@ -52,7 +52,7 @@
 </view>
 
 <view class="line-container mt18">
-  <navigator class="line-item bb" url="/pages/list_remark/index">
+  <navigator class="line-item bb" url="/pages/order_remark/index">
     <view class="row">
       <view class="title">备注信息</view>
       <view class="content">
@@ -60,7 +60,7 @@
       </view>
     </view>
   </navigator>
-  <navigator class="line-item bb" url="/pages/product_bill/index">
+  <navigator class="line-item bb" url="/pages/product_list/index">
     <view class="row">
       <view class="title">商品清单</view>
       <view class="content">
@@ -80,9 +80,7 @@
     <view class="row">
       <view class="title">交货日期</view>
       <view class="content">
-        <picker mode="date" value="{{form.date}}" bindchange="bindDateChange">
-          <view>{{date}}</view>
-        </picker>
+        <text>2017-09-01</text>
       </view>
     </view>
   </view>
@@ -120,17 +118,21 @@
 </view>
 
 <view class="line-container mt18">
-  <view class="line-item">
+  <navigator class="line-item" url="/pages/order_log/index">
     <view class="row">
       <view class="title">操作日志</view>
       <view class="content">
         <text class="text-stable">1 ></text>
       </view>
     </view>
-  </view>
+  </navigator>
 </view>
 
 <view class="btns-prompt bt">
-  <view class="each-item cancel" bindtap="switchAddRemark">订单作废</view>
+  <view class="each-item cancel" bindtap="listCancel" wx:if="{{!isCancel}}">订单作废</view>
   <view class="each-item confirm">再次购买</view>
+</view>
+
+<view class="list-prompt animated {{promptToggle ? 'bounceIn' : 'bounceOut'}}" wx:if="{{promptToggle}}">
+  <text>订单作废成功</text>
 </view>

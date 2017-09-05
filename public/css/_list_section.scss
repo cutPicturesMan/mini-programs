@@ -136,6 +136,7 @@
     }
     .tip{
       font-size: 32rpx;
+      @include ellipsis();
     }
     .btns-group{
       text-align: right;

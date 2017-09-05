@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_cart_account.scss';
+page{
+  padding-bottom: 98rpx;
+}
+.btns-prompt{
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.line-section{
+  background-color: #fff;
+  padding: 0 20rpx;
+  .line,
+  .sub-line{
+    min-height: 84rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    &.bb{
+      border-bottom: 1rpx solid #f6f6f6;
+    }
+    .icon{
+      width: 24rpx;
+      height: 24rpx;
+      margin-right: 12rpx;
+    }
+    .title{
+
+    }
+    .text{
+      flex: 1;
+      text-align: right;
+    }
+  }
+  .sub-line{
+    color:#999;
+  }
+}
+
+

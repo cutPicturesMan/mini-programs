@@ -1,0 +1,12 @@
+<view class="record-total">
+  <view class="line">
+    <view class="title">订单单号：DH-O-20170724-026301</view>
+  </view>
+  <view class="line">
+    <view class="title">下单时间：2017-07-24 11：39：50</view>
+  </view>
+</view>
+<view class="order-status">
+  <view class="order-item {{index === idx ? 'active' : ''}}" wx:for="{{status}}" wx:key="{{index}}">{{item.name}}</view>
+  <view class="order-line" style="height: {{115 + idx * 106}}rpx"></view>
+</view>

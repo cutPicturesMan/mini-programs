@@ -1,0 +1,57 @@
+<view class="remark-add" wx:if="{{addToggle}}">
+  <view class="add-container animated {{addToggle ? 'bounceIn' : 'bounceOut'}}">
+    <view class="title">新增备注</view>
+    <view class="content">
+      <textarea placeholder="请输入备注"></textarea>
+    </view>
+    <view class="btns-prompt bt">
+      <view class="each-item cancel" bindtap="switchAddRemark">取消</view>
+      <view class="each-item confirm">确认</view>
+    </view>
+  </view>
+</view>
+<view class="list-section mt18">
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item-state" bindtap="switchAddRemark">
+    <text class="tip text-stable">备注：请输入200字以内的备注</text>
+  </view>
+</view>
+<view class="list-section mt18">
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item-state" bindtap="switchAddRemark">
+    <text class="tip text-stable">备注：请输入200字以内的备注</text>
+  </view>
+</view>
+

@@ -44,6 +44,13 @@ page {
 page {
   padding-bottom: 98rpx; }
 
+.btns-prompt {
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
 .bb {
   border-bottom: 1rpx solid #eee; }
 
@@ -57,12 +64,22 @@ page {
   background-color: #ff5000;
   display: inline-block; }
 
-.btns-prompt {
-  background-color: #fff;
+.list-prompt {
   position: fixed;
   right: 0;
-  bottom: 0;
-  left: 0; }
+  bottom: 120rpx;
+  left: 0;
+  text-align: center; }
+  .list-prompt text {
+    max-width: 80%;
+    line-height: 32rpx;
+    padding: 10rpx 95rpx;
+    background-color: #000;
+    color: #fff;
+    font-size: 26rpx;
+    border-radius: 25rpx;
+    display: inline-block;
+    box-sizing: border-box; }
 
 .order-container {
   background-color: #fff;

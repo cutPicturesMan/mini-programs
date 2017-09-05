@@ -1,0 +1,86 @@
+<view class="pt18"></view>
+
+<view class="line-section">
+  <view class="line bb" bindtap="selectInvoice" data-type="0">
+    <image class="icon" src="../../icons/icon-radio.png" wx:if="{{type !== 0}}"></image>
+    <image class="icon" src="../../icons/icon-radio-selected.png" wx:if="{{type === 0}}"></image>
+    <view class="title">不开具发票</view>
+  </view>
+</view>
+<view class="line-section">
+  <view class="line bb" bindtap="selectInvoice" data-type="1">
+    <image class="icon" src="../../icons/icon-radio.png" wx:if="{{type !== 1}}"></image>
+    <image class="icon" src="../../icons/icon-radio-selected.png" wx:if="{{type === 1}}"></image>
+    <view class="title">普通发票</view>
+  </view>
+  <view wx:if="{{type === 1}}">
+    <view class="sub-line bb">
+      <view class="title">发票抬头</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">发票内容</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="line-section">
+  <view class="line bb" bindtap="selectInvoice" data-type="2">
+    <image class="icon" src="../../icons/icon-radio.png" wx:if="{{type !== 2}}"></image>
+    <image class="icon" src="../../icons/icon-radio-selected.png" wx:if="{{type === 2}}"></image>
+    <view class="title">增值税发票</view>
+  </view>
+  <view wx:if="{{type === 2}}">
+    <view class="sub-line bb">
+      <view class="title">发票抬头</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">发票内容</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">纳税人号</view>
+      <view class="text">
+        <input type="number" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">地址</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">电话</view>
+      <view class="text">
+        <input type="number" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">开户银行</view>
+      <view class="text">
+        <input type="text" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+    <view class="sub-line bb">
+      <view class="title">银行账号</view>
+      <view class="text">
+        <input type="number" placeholder="请输入" placeholder-style="color: #999"/>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="btns-prompt bt">
+  <view class="each-item cancel">取消</view>
+  <view class="each-item confirm">确定</view>
+</view>

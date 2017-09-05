@@ -78,6 +78,6 @@
   <view class="total">
     合计：<text class="text-energized"><text class="small">￥</text>230</text>
   </view>
-  <navigator class="calc" url="/pages/list_confirm/index">结算</navigator>
+  <navigator class="calc" url="/pages/order_fill/index">结算</navigator>
 </view>
 

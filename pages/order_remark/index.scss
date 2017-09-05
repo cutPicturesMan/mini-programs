@@ -1,0 +1,41 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_remark_add.scss';
+
+page{
+  height: 100%;
+  background-color: #fff;
+}
+.container,
+.empty-data{
+  padding-bottom:96rpx;
+}
+.remark-container{
+  padding: 0 24rpx;
+  .remark-item{
+    padding: 25rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+    .title{
+      line-height: 40rpx;
+      font-weight: bold;
+      font-size: 32rpx;
+      color:#666;
+      padding: 10rpx 0;
+    }
+    .info{
+      height: 56rpx;
+      font-size: 26rpx;
+      color:#999;
+      display: flex;
+      align-items: center;
+      .name{
+        width: 280rpx;
+        @include ellipsis();
+      }
+      .time{
+        flex:1;
+        text-align: right;
+      }
+    }
+  }
+}

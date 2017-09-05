@@ -1,0 +1,125 @@
+<view class="list-tabs">
+  <view class="tabs-item active">
+    <text>当前订单</text>
+  </view>
+  <view class="tabs-item">
+    <text>历史订单</text>
+  </view>
+  <navigator class="tabs-item" url="/pages/order_search/index">
+    <text>订单查询</text>
+  </navigator>
+</view>
+
+<view class="list-section mt18">
+  <navigator class="label-act bb" url="/pages/order_detail/index">
+    <view class="ico">
+      <image src="../../testimg/list1.jpg"></image>
+    </view>
+    <view class="title">
+      <text class="pr20 pl15">三能旗舰店</text>
+      <image class="icon" src="../../icons/icon-arrow-right.png"></image>
+    </view>
+  </navigator>
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item-state">
+    <text class="tip text-stable">待发货确认</text>
+    <view class="btns-group">
+      <navigator class="btn btn-energized-light" url="/pages/order_detail/index">再次购买</navigator>
+      <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
+    </view>
+  </view>
+</view>
+
+<view class="list-section mt18">
+  <navigator class="label-act bb" url="/pages/product/index">
+    <view class="ico">
+      <image src="../../testimg/list1.jpg"></image>
+    </view>
+    <view class="title">
+      <text class="pr20 pl15">三能旗舰店</text>
+      <image class="icon" src="../../icons/icon-arrow-right.png"></image>
+    </view>
+  </navigator>
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list-item">
+    <navigator class="item-img" url="/pages/product/index">
+      <image src="../../testimg/list.jpg"></image>
+    </navigator>
+    <view class="content">
+      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
+        不粘烤箱家用 烘焙工具</navigator>
+      <view class="descrip-container">
+        <view class="descrip-list">
+          <view class="intro">白色X10个</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">时间：2017-7-24 11:44:50</view>
+          <view class="intro">金额：21,000.00（未付款）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item-state">
+    <text class="tip text-stable">待发货确认</text>
+    <view class="btns-group">
+      <navigator class="btn btn-energized-light" url="/pages/order_detail/index">再次购买</navigator>
+      <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
+    </view>
+  </view>
+</view>

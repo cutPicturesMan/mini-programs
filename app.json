@@ -1,30 +1,32 @@
 {
   "pages":[
-
-    "pages/order_detail/index",
+    "pages/order_fill/index",
 
     "pages/index/index",
     "pages/category/index",
     "pages/cart/index",
-    "pages/list/index",
+    "pages/order/index",
     "pages/my/index",
 
-    "pages/list_pay/index",
-    "pages/list_log/index",
-    "pages/list_remark/index",
-    "pages/list_search/index",
-    "pages/list_search_result/index",
-    "pages/list_confirm/index",
-    "pages/list_fill/index",
+    "pages/order_pay/index",
+    "pages/order_log/index",
+    "pages/order_remark/index",
+    "pages/order_search/index",
+    "pages/order_search_result/index",
+    "pages/order_confirm/index",
+    "pages/order_fill/index",
     "pages/order_detail/index",
+    "pages/order_status/index",
+    "pages/order_invoice/index",
     "pages/release_record/index",
-    "pages/release_bill/index",
+    "pages/release_list/index",
 
     "pages/pay_record/index",
     "pages/address/index",
     "pages/address_edit/index",
     "pages/address_new/index",
     "pages/product/index",
+    "pages/product_list/index",
     "pages/shoper/index",
     "pages/search_result/index"
   ],
@@ -54,10 +56,10 @@
       "iconPath": "icons/cart.png",
       "selectedIconPath": "icons/cart-active.png"
     }, {
-      "pagePath": "pages/list/index",
+      "pagePath": "pages/order/index",
       "text": "订单",
-      "iconPath": "icons/list.jpg",
-      "selectedIconPath": "icons/list-active.jpg"
+      "iconPath": "icons/order.jpg",
+      "selectedIconPath": "icons/order-active.jpg"
     }, {
       "pagePath": "pages/my/index",
       "text": "我的",

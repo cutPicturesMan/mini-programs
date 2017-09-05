@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+page {
+  padding-bottom: 80rpx; }
+
+.cart-account {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1rpx solid #e5e5e5;
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex; }
+  .cart-account .sel {
+    margin-left: 18rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center; }
+    .cart-account .sel image {
+      width: 40rpx;
+      height: 40rpx;
+      display: block; }
+  .cart-account .total {
+    flex: 1;
+    text-align: right;
+    padding-right: 20rpx;
+    font-size: 26rpx; }
+  .cart-account .calc {
+    width: 190rpx;
+    font-size: 26rpx;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+
+page {
+  padding-bottom: 98rpx; }
+
+.btns-prompt {
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.line-section {
+  background-color: #fff;
+  padding: 0 20rpx; }
+  .line-section .line,
+  .line-section .sub-line {
+    min-height: 84rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center; }
+    .line-section .line.bb,
+    .line-section .sub-line.bb {
+      border-bottom: 1rpx solid #f6f6f6; }
+    .line-section .line .icon,
+    .line-section .sub-line .icon {
+      width: 24rpx;
+      height: 24rpx;
+      margin-right: 12rpx; }
+    .line-section .line .text,
+    .line-section .sub-line .text {
+      flex: 1;
+      text-align: right; }
+  .line-section .sub-line {
+    color: #999; }
+
+/*# sourceMappingURL=index.wxss.map */
