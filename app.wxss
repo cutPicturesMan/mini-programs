@@ -25,6 +25,9 @@
 .mt55 {
   margin-top: 55rpx; }
 
+.mt70 {
+  margin-top: 70rpx; }
+
 .mt110 {
   margin-top: 110rpx; }
 

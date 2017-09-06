@@ -1,0 +1,8 @@
+<image class="icon" src="../../icons/icon-laught.png"></image>
+<view class="text mt70">退款单号：DH-O-20170727-003001</view>
+<view class="text mt30">退款金额：1,498.00</view>
+
+<view class="btns-prompt bt">
+  <view class="each-item confirm">付  款</view>
+</view>
+

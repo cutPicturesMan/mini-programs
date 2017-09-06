@@ -1,0 +1,85 @@
+<view class="pt18"></view>
+
+<view class="line-container">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">商品金额</view>
+      <view class="content">
+        1,234.00
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item" url="/pages/order_remark/index" bindtap="switchAddRemark">
+    <view class="row">
+      <view class="title">备注信息</view>
+      <view class="content">
+        <input type="text" placeholder="请输入"/>
+        <!--<image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>-->
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">退款信息</view>
+      <view class="content">
+        <image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>
+      </view>
+    </view>
+    <view class="sub-row">
+      <view class="title">客户名称：岛国毕福剑</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">联系人：刘德华</view>
+      <view class="content">
+        18888888888
+      </view>
+    </view>
+    <view class="sub-row">
+      <view class="title">开户名称：XXX支行</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">开户银行：XXX银行</view>
+    </view>
+    <view class="sub-row">
+      <view class="title">银行账号：4561234897846023456</view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18">
+  <navigator class="line-item" url="/pages/product_list/index">
+    <view class="row">
+      <view class="title">商品清单</view>
+      <view class="content">
+        <text class="text-stable">共4款，总数20 ></text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="cart-account">
+  <view class="total">
+    应付金额：<text class="text-energized"><text class="small">￥</text>230</text>
+  </view>
+  <navigator class="calc" url="/pages/order_pay/index">提交订单</navigator>
+</view>
+
+<view class="remark-add" wx:if="{{addToggle}}">
+  <view class="add-container animated {{addToggle ? 'bounceIn' : 'bounceOut'}}">
+    <view class="title">退单备注</view>
+    <view class="content">
+      <textarea placeholder="请输入备注"></textarea>
+    </view>
+    <view class="btns-prompt bt">
+      <view class="each-item cancel" bindtap="switchAddRemark">取消</view>
+      <view class="each-item confirm">确认</view>
+    </view>
+  </view>
+</view>
+

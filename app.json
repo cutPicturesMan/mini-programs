@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/order_result/index",
+    "pages/order_detail/index",
+    "pages/sales_return_fill/index",
 
     "pages/index/index",
     "pages/category/index",
@@ -27,6 +28,8 @@
 
     "pages/account_balance/index",
     "pages/recharge/index",
+    "pages/sales_return_fill/index",
+    "pages/sales_return_result/index",
 
     "pages/pay_record/index",
     "pages/address/index",
