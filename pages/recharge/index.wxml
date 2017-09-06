@@ -1,0 +1,38 @@
+<view class="account-balance">
+  <image class="bg" src="../../icons/account-balance-bg.jpg"></image>
+  <view class="balance-container">
+    <view class="title">账户余额</view>
+    <view class="price">￥129,998.00</view>
+    <view class="recharge-btn">充 值</view>
+  </view>
+</view>
+<view class="account-list mt18">
+  <view class="list-title">选择充值金额</view>
+  <view class="recharge-container">
+    <view class="recharge-item">
+      <view class="money">100元</view>
+    </view>
+    <view class="recharge-item">
+      <view class="money">100元</view>
+    </view>
+    <view class="recharge-item">
+      <view class="money">100元</view>
+    </view>
+  </view>
+  <view class="total pr45 pt10 pb35">
+    实际到账：<text class="text-energized">100.00元</text>
+  </view>
+</view>
+<view class="select-label bb mt18" url="/pages/good/index">
+  <view class="ico">
+    <image src="../../icons/icon-wx.png"></image>
+  </view>
+  <view class="title">微信支付</view>
+  <view class="arrow">
+    <image class="icon" src="../../icons/icon-radio-selected.png"></image>
+  </view>
+</view>
+<view class="tips">点击充值，即表示你已同意 <text class="text-energized">《充值协议》</text></view>
+<view class="plr30 mt15 mb30">
+  <view class="btn btn-full btn-energized-linear" bindtap="pay">确认充值</view>
+</view>

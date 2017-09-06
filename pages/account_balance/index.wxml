@@ -1,0 +1,29 @@
+<view class="account-balance">
+  <image class="bg" src="../../icons/account-balance-bg.jpg"></image>
+  <view class="balance-container">
+    <view class="title">账户余额</view>
+    <view class="price">￥129,998.00</view>
+    <view class="recharge-btn">充 值</view>
+  </view>
+</view>
+<view class="account-list mt18">
+  <view class="list-title">账单明细</view>
+  <view>
+    <view class="account-item">
+      <image class="icon" src="../../testimg/good.jpg"></image>
+      <view class="main">
+        <view class="title">杭州耐克专卖店</view>
+        <view class="time">今天 00:22</view>
+      </view>
+      <view class="price">-1,314.00</view>
+    </view>
+    <view class="account-item">
+      <image class="icon" src="../../testimg/good.jpg"></image>
+      <view class="main">
+        <view class="title">杭州耐克专卖店</view>
+        <view class="time">今天 00:22</view>
+      </view>
+      <view class="price text-energized">+1,314.00</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<image class="icon" src="../../icons/order-success.png"></image>
+<view class="text">订货单号：DH-O-20170727-003001</view>
+<view class="text">应付金额：1,498.00</view>
+
+<view class="btns-prompt bt">
+  <view class="each-item cancel">完  成</view>
+  <view class="each-item confirm">付  款</view>
+</view>
+

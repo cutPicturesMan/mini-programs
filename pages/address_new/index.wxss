@@ -11,13 +11,14 @@
   line-height: 50rpx;
   padding: 17rpx 0;
   color: #444;
-  font-size: 24rpx; }
+  font-size: 24rpx;
+  display: flex; }
   .line-cell.bb {
     border-bottom: 1rpx solid #e5e5e5; }
   .line-cell .cell-title {
-    float: left;
     margin-right: 30rpx; }
   .line-cell .cell-content {
+    flex: 1;
     min-height: 50rpx;
     color: #999;
     text-align: right;

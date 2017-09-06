@@ -1,9 +1,56 @@
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="person-info">
+  <image class="icon" src="../../testimg/good.jpg"></image>
+  <text class="name">太极八卦六十四掌</text>
+</view>
+<view class="person-account mt18">
+  <image class="bg" src="../../icons/person-bg.jpg"></image>
+  <view class="account-container">
+    <view class="title">账户余额</view>
+    <view class="num">￥129,998.00</view>
   </view>
 </view>
+<view class="person-category mt18">
+  <navigator url="pages/componey_info/index" class="category-item mb20">
+    <image class="icon" src="../../icons/icon-person1.png"></image>
+    <text class="title">公司信息</text>
+  </navigator>
+  <navigator url="pages/address/index" class="category-item mb20">
+    <image class="icon" src="../../icons/icon-person2.png"></image>
+    <text class="title">收货地址</text>
+  </navigator>
+  <navigator url="pages//index" class="category-item mb20">
+    <image class="icon" src="../../icons/icon-person3.png"></image>
+    <text class="title">账户充值</text>
+  </navigator>
+  <navigator url="pages//index" class="category-item">
+    <image class="icon" src="../../icons/icon-person4.png"></image>
+    <text class="title">退货订单</text>
+  </navigator>
+  <navigator url="pages//index" class="category-item">
+    <image class="icon" src="../../icons/icon-person5.png"></image>
+    <text class="title">申请退货</text>
+  </navigator>
+  <navigator url="pages//index" class="category-item">
+    <image class="icon" src="../../icons/icon-person6.png"></image>
+    <text class="title">订单行程</text>
+  </navigator>
+</view>
+<view class="person-service mt18">
+  <view class="service-title">客户服务</view>
+  <view class="service-list">
+    <view class="service-item">
+      <image class="icon" src="../../icons/icon-person7.png"></image>
+      <text class="title">服务热线</text>
+    </view>
+    <view class="service-item">
+      <image class="icon" src="../../icons/icon-person8.png"></image>
+      <text class="title">意见反馈</text>
+    </view>
+  </view>
+</view>
+<view class="person-about mt18 pl25">
+  <view class="line-cell">
+    <view class="cell-title">了解焙云科技有限公司</view>
+  </view>
+</view>
+
