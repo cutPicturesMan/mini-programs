@@ -1672,6 +1672,7 @@
     font-size: 28rpx;
     border-radius: 0;
     position: fixed;
+    z-index: 1;
     display: block; }
   .btn.fixed-bottom {
     right: 0;

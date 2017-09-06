@@ -1,0 +1,23 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_line_cell.scss';
+
+.company-container {
+  background-color: #fff;
+  padding-bottom:96rpx;
+  .company-title{
+    line-height: 85rpx;
+    font-size: 28rpx;
+    color: #666;
+    padding: 0 25rpx;
+    border-bottom: 1rpx solid #eee;
+  }
+  .company-section{
+    padding:0 25rpx;
+    border-bottom: 1rpx solid #eee;
+  }
+}
+
+.line-cell{
+  line-height: 60rpx;
+}

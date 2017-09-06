@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/order_fill/index",
+    "pages/company_info/index",
 
     "pages/index/index",
     "pages/category/index",
@@ -18,6 +18,8 @@
     "pages/order_detail/index",
     "pages/order_status/index",
     "pages/order_invoice/index",
+    "pages/order_attachment/index",
+
     "pages/release_record/index",
     "pages/release_list/index",
 

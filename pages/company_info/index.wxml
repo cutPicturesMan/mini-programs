@@ -1,0 +1,118 @@
+<view class="company-container">
+  <view class="mt18">
+    <view class="company-title">基本信息</view>
+    <view class="company-section">
+      <view class="line-cell bb">
+        <view class="cell-title">公司名称</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">级别</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">所在地址</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">详细地址</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">邮编</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">电话</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">传真</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell">
+        <view class="cell-title">详细地址</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="company-title">财务信息</view>
+    <view class="company-section">
+      <view class="line-cell bb">
+        <view class="cell-title">发票抬头</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">纳税人号</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">地址</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">电话</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell bb">
+        <view class="cell-title">开户银行</view>
+        <view class="cell-content">
+          <input type="text" placeholder="请输入"/>
+        </view>
+      </view>
+      <view class="line-cell">
+        <view class="cell-title">银行账号</view>
+        <view class="cell-content">
+          <input type="number" placeholder="请输入"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="company-title">签约时间</view>
+    <view class="company-section">
+      <view class="line-cell bb">
+        <view class="cell-title">开始时间</view>
+        <view class="cell-content">
+          <picker mode="date" value="{{form.beginDate}}" bindchange="changeBeginDate">
+            <view>{{form.beginDate}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="line-cell">
+        <view class="cell-title">结束时间</view>
+        <view class="cell-content">
+          <picker mode="date" value="{{form.endDate}}" bindchange="changeEndDate">
+            <view>{{form.endDate}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btn btn-energized-linear btn-fixed fixed-bottom">保 存</view>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+
+page{
+  background-color: #fff;
+  padding-bottom: 250rpx;
+  box-sizing: border-box;
+}
+
+.file-list{
+  padding: 0 20rpx;
+  .file-item{
+    height: 108rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 28rpx;
+    color: #666;
+    display: flex;
+    align-items: center;
+    .name{
+      flex: 1;
+    }
+    .close{
+      width: 40rpx;
+      height: 40rpx;
+      display: block;
+    }
+  }
+}
+.tip{
+  color:#999;
+  text-align: center;
+  margin-top:80rpx;
+  font-size:26rpx;
+}
+.file-opera{
+  padding-bottom: 80rpx;
+  position:fixed;
+  right:0;
+  bottom:0;
+  left:0;
+  display: flex;
+  .item{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    .icon{
+      width: 96rpx;
+      height: 96rpx;
+    }
+    .text{
+      margin-top: 22rpx;
+      font-size: 26rpx;
+      color: #999;
+    }
+  }
+}

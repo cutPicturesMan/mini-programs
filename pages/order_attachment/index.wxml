@@ -1,0 +1,43 @@
+<view class="file-list">
+  <view class="file-item">
+    <view class="name">2017-08-18  11:14:54_0.png</view>
+    <view class="ptb20 pl20 pr10">
+      <image class="close" src="../../icons/icon-close.png"></image>
+    </view>
+  </view>
+  <view class="file-item">
+    <view class="name">2017-08-18  11:14:54_0.png</view>
+    <view class="ptb20 pl20 pr10">
+      <image class="close" src="../../icons/icon-close.png"></image>
+    </view>
+  </view>
+  <view class="file-item">
+    <view class="name">2017-08-18  11:14:54_0.png</view>
+    <view class="ptb20 pl20 pr10">
+      <image class="close" src="../../icons/icon-close.png"></image>
+    </view>
+  </view>
+  <view class="file-item">
+    <view class="name">2017-08-18  11:14:54_0.png</view>
+    <view class="ptb20 pl20 pr10">
+      <image class="close" src="../../icons/icon-close.png"></image>
+    </view>
+  </view>
+  <view class="file-item">
+    <view class="name">2017-08-18  11:14:54_0.png</view>
+    <view class="ptb20 pl20 pr10">
+      <image class="close" src="../../icons/icon-close.png"></image>
+    </view>
+  </view>
+  <view class="tip">单个文件不超过4M</view>
+</view>
+<view class="file-opera">
+  <view class="item" bindtap="chooseImg">
+    <image class="icon" src="../../icons/icon-img.png"></image>
+    <view class="text">图片</view>
+  </view>
+  <view class="item" bindtap="chooseCamera">
+    <image class="icon" src="../../icons/icon-camera.png"></image>
+    <view class="text">拍照</view>
+  </view>
+</view>

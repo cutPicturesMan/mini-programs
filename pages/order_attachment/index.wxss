@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/*字体超出变省略号*/
+/* 实心三角形
+ * 参数有4个
+ * $tb : 上下边框宽
+ * $lr : 左右边框宽
+ * $direction : 三角形指向(top, right, bottom, left)
+ * $color : 三角形颜色
+ */
+page {
+  background-color: #fff;
+  padding-bottom: 250rpx;
+  box-sizing: border-box; }
+
+.file-list {
+  padding: 0 20rpx; }
+  .file-list .file-item {
+    height: 108rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 28rpx;
+    color: #666;
+    display: flex;
+    align-items: center; }
+    .file-list .file-item .name {
+      flex: 1; }
+    .file-list .file-item .close {
+      width: 40rpx;
+      height: 40rpx;
+      display: block; }
+
+.tip {
+  color: #999;
+  text-align: center;
+  margin-top: 80rpx;
+  font-size: 26rpx; }
+
+.file-opera {
+  padding-bottom: 80rpx;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex; }
+  .file-opera .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    .file-opera .item .icon {
+      width: 96rpx;
+      height: 96rpx; }
+    .file-opera .item .text {
+      margin-top: 22rpx;
+      font-size: 26rpx;
+      color: #999; }
+
+/*# sourceMappingURL=index.wxss.map */
