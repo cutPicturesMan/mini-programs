@@ -1,8 +1,5 @@
 {
   "pages":[
-    "pages/order_detail/index",
-    "pages/sales_return_fill/index",
-
     "pages/index/index",
     "pages/category/index",
     "pages/cart/index",
