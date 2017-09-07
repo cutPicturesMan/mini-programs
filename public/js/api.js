@@ -1,5 +1,5 @@
 let api = {
-  category: '/product/search',
+  productSearch: '/product/search',
   login: '/wx/login',
 }
 
