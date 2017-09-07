@@ -1,9 +1,10 @@
 let api = {
-  login: '/site/wx/login',
+  category: '/product/search',
+  login: '/wx/login',
 }
 
 for(var attr in api){
-  api[attr] = 'https://www.byunfu.com' + api[attr];
+  api[attr] = 'https://www.byunfu.com/site' + api[attr];
 }
 
 export default api;
