@@ -13,8 +13,14 @@
 .bt {
   border-top: 1rpx solid #e5e5e5; }
 
+.tac {
+  text-align: center; }
+
 .small {
   font-size: 75%; }
+
+.fs20 {
+  font-size: 20rpx; }
 
 .pt18 {
   padding-top: 18rpx; }
