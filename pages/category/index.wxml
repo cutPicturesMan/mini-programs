@@ -44,7 +44,7 @@
     <!--</view>-->
     <view class="good-section">
       <view class="good-item" wx:for="{{list}}" wx:key="id">
-        <navigator class="good-img" url="/pages/product/index">
+        <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
           <image src="{{item.skuMedia.mediumUrl || '../../icons/img-none.png'}}"></image>
         </navigator>
         <view class="content">
