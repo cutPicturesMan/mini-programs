@@ -10,27 +10,27 @@
   </view>
 </view>
 <view class="person-category mt18">
-  <navigator url="pages/componey_info/index" class="category-item mb20">
+  <navigator url="/pages/componey_info/index" class="category-item mb20">
     <image class="icon" src="../../icons/icon-person1.png"></image>
     <text class="title">公司信息</text>
   </navigator>
-  <navigator url="pages/address/index" class="category-item mb20">
+  <navigator url="/pages/address/index" class="category-item mb20">
     <image class="icon" src="../../icons/icon-person2.png"></image>
     <text class="title">收货地址</text>
   </navigator>
-  <navigator url="pages//index" class="category-item mb20">
+  <navigator url="/pages/recharge/index" class="category-item mb20">
     <image class="icon" src="../../icons/icon-person3.png"></image>
     <text class="title">账户充值</text>
   </navigator>
-  <navigator url="pages//index" class="category-item">
+  <navigator url="/pages//index" class="category-item">
     <image class="icon" src="../../icons/icon-person4.png"></image>
     <text class="title">退货订单</text>
   </navigator>
-  <navigator url="pages//index" class="category-item">
+  <navigator url="/pages//index" class="category-item">
     <image class="icon" src="../../icons/icon-person5.png"></image>
     <text class="title">申请退货</text>
   </navigator>
-  <navigator url="pages//index" class="category-item">
+  <navigator url="/pages/order_/index" class="category-item">
     <image class="icon" src="../../icons/icon-person6.png"></image>
     <text class="title">订单行程</text>
   </navigator>
