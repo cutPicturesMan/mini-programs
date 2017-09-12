@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/address/index",
+    "pages/my/index",
 
     "pages/index/index",
     "pages/category/index",
@@ -33,7 +33,6 @@
     "pages/pay_record/index",
     "pages/address/index",
     "pages/address_edit/index",
-    "pages/address_new/index",
     "pages/product/index",
     "pages/product_list/index",
     "pages/shoper/index",

@@ -1,5 +1,5 @@
-import api from '../../public/js/api.js';
 import http from '../../public/js/http.js';
+import api from '../../public/js/api.js';
 
 var app = getApp()
 Page({

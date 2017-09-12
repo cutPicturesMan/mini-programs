@@ -25,6 +25,9 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      input{
+        flex: 1;
+      }
       .ico{
         width: 36rpx;
         height: 36rpx;

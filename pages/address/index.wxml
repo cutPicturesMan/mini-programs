@@ -1,7 +1,7 @@
 <view class="address-container">
   <view wx:for="{{list}}" wx:key="id" class="address-section mt18 {{delIndex === index ? 'active' : ''}}">
     <view class="address-item">
-      <navigator url="/pages/address_edit/index">
+      <navigator url="/pages/address_edit/index?id={{item.id}}">
         <view class="addr-user">
           <view class="name">收货人：{{item.fullName}}</view>
           <view class="tel">{{item.phonePrimary}}</view>

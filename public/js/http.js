@@ -27,33 +27,22 @@ class Http extends Auth {
       let fn = {
         success: (res) => {
           res = res.data;
-          console.log(res);
-          let status = res.errorCode.toString().charAt(0);
-          // 如果登录成功，则返回成功的promise
-          if (status === '2') {
-            resolve(res);
+          // 用户未登录，则重新登录之后，再次发起本次请求
+          if (res.errorCode === 401) {
+            this.logs(new Date() + '用户登录失败，重新登录中。错误：' + res.moreInfo);
+
+            this.login()
+              .then(() => {
+                sessionId = wx.getStorageSync('sessionId');
+                config.header.cookie = `SESSION=${sessionId}`;
+                this.request(config);
+              }, () => {
+                sessionId = wx.getStorageSync('sessionId');
+                config.header.cookie = `SESSION=${sessionId}`;
+                this.request(config);
+              });
           } else {
-            // 用户未登录，则重新登录之后，再次发起本次请求
-            if (res.errorCode === 401) {
-              this.logs(new Date() + '用户登录失败，重新登录中。错误：' + res.moreInfo);
-
-              this.login()
-                .then(() => {
-                  this.request(config);
-                }, () => {
-                  this.request(config);
-                });
-            } else {
-              this.logs(new Date() + '请求失败，错误：' + res.moreInfo);
-
-              // 出现其他错误
-              wx.showToast({
-                title: res.moreinfo,
-                image: '../../icons/close-circled.png'
-              })
-
-              reject(res);
-            }
+            resolve(res);
           }
         },
         fail(res){

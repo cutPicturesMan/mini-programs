@@ -14,6 +14,8 @@ let api = {
 
   // 登录
   login: '/wx/login',
+  // 个人中心
+  user: '/wx/info'
 }
 
 for (var attr in api) {

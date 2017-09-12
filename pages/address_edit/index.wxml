@@ -1,40 +1,37 @@
 <view class="addr-section mt18">
   <view class="addr-item bb">
-    <view class="title">客户名称</view>
-    <view class="content">
-      <input type="text" placeholder="请输入"/>
-    </view>
-  </view>
-  <view class="addr-item bb">
     <view class="title">联系人</view>
     <view class="content">
-      <input type="text" placeholder="姓名"/>
+      <input type="text" value="{{fullName}}" bindinput="bindNameChange" placeholder="姓名"/>
     </view>
   </view>
   <view class="addr-item bb">
     <view class="title">联系方式</view>
     <view class="content">
-      <input type="text" placeholder="电话号码"/>
+      <input type="text" value="{{phonePrimary}}" bindinput="bindPhoneChange" placeholder="电话号码"/>
     </view>
   </view>
   <view class="addr-item bb">
     <view class="title">省/市/区</view>
     <view class="content">
-      <input type="text" placeholder="请选择省市区"/>
+      <picker mode="region" bindchange="bindRegionChange" value="{{[stateProvinceRegion, city, county]}}">
+        <view class="picker">
+          {{stateProvinceRegion}}，{{city}}，{{county}}
+        </view>
+      </picker>
     </view>
   </view>
   <view class="addr-item bb">
     <view class="title">详细地址</view>
     <view class="content">
-      <input type="text" placeholder="姓名"/>
+      <input type="text" value="{{addressLine}}" bindinput="bindAddressLineChange" placeholder="请输入详细地址"/>
     </view>
   </view>
-  <view class="addr-item">
+  <view class="addr-item" bindtap="chooseDefault">
     <view class="title">设为默认地址</view>
     <view class="content">
-      <image class="ico" src="../../icons/icon-radio-selected.png"></image>
-      <image class="ico" src="../../icons/icon-radio.png"></image>
+      <image class="ico" src="{{isDefault ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
     </view>
   </view>
 </view>
-<view class="btn btn-energized-linear btn-fixed fixed-bottom">保 存</view>
+<view class="btn btn-fixed fixed-bottom {{id ? 'btn-energized-linear' : 'btn-stable'}}" bindtap="save">保 存</view>
