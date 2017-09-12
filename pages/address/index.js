@@ -1,27 +1,115 @@
-//index.js
-//获取应用实例
+import api from '../../public/js/api.js';
+import http from '../../public/js/http.js';
+
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    isActive: false
+    list: [],
+    // 显示第几条数据的删除按钮，-1为不显示
+    delIndex: -1
   },
-  delete: function() {
-    console.log();
+  // 获取收货地址数据
+  getAddressList () {
+    wx.showLoading();
+
+    http.request({
+      url: api.address,
+    }).then((res) => {
+      wx.hideLoading();
+
+      this.setData({
+        list: res.data
+      });
+    });
+  },
+  // 新增收货地址
+  add () {
+    wx.chooseAddress({
+      success: (res) => {
+        wx.showLoading();
+        http.request({
+          url: api.address,
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          method: 'POST',
+          data: {
+            name: res.userName,
+            stateProvinceRegion: res.provinceName,
+            city: res.cityName,
+            county: res.countyName,
+            addressLine: res.detailInfo,
+            phonePrimary: res.telNumber,
+            isDefault: 1,
+          },
+        }).then((res) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: res.moreInfo,
+          })
+          setTimeout(() => {
+            this.getAddressList();
+          }, 1500)
+        });
+      }
+    })
+  },
+  // 隐藏删除按钮
+  cancelDel () {
     this.setData({
-      isActive: !this.data.isActive
+      delIndex: -1
     })
   },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+  // 显示删除按钮
+  showDel (e) {
+    this.setData({
+      delIndex: e.currentTarget.dataset.index
     })
+  },
+  // 删除某个收货地址
+  del (e) {
+    let id = e.currentTarget.dataset.item.id;
+    let index = e.currentTarget.dataset.index;
+
+    wx.showModal({
+      content: '确实要删除该条收货地址？',
+      success: (res) => {
+        if (res.confirm) {
+          let list = this.data.list;
+          list.splice(index, 1);
+
+          this.setData({
+            delIndex: -1,
+            list: list
+          });
+
+          wx.showLoading();
+          http.request({
+            url: `${api.address}/${id}`,
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'DELETE'
+          }).then((res) => {
+            wx.hideLoading();
+
+            this.setData({
+              delIndex: -1
+            });
+
+            wx.showToast({
+              title: res.moreInfo,
+            })
+
+            setTimeout(() => {
+              this.getAddressList();
+            }, 1500)
+          });
+        }
+      }
+    })
+  },
+  onLoad () {
+    this.getAddressList();
   }
 })
