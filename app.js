@@ -1,4 +1,3 @@
-import api from './public/js/api.js';
 
 App({
   globalData: {
@@ -7,52 +6,22 @@ App({
     sessionId: wx.getStorageSync('sessionId') || null
   },
 
-  onLaunch () {
-    // 检查登录状态
-    wx.checkSession({
-      success: () => {
-        this.login();
-        this.logs(new Date() + '登录成功');
-      },
-      fail: () => {
-        // 如果失败，重新登录
-        this.login();
-      }
-    });
-  },
+  // onLaunch () {
+    // // 检查登录状态
+    // wx.checkSession({
+    //   success: () => {
+    //     console.log('checkSession 成功');
+    //     this.logs(new Date() + '登录成功');
+    //   },
+    //   fail: () => {
+    //     console.log('checkSession 失败');
+    //     // 如果失败，重新登录
+    //     this.login();
+    //   }
+    // });
+  // },
 
-  // 登录接口
-  login () {
-    wx.login({
-      success: (res) => {
-        if (res.code) {
-          wx.request({
-            url: api.login,
-            data: {
-              code: res.code
-            },
-            success: (res) => {
-              if (res.data.errorCode === 200) {
-                this.globalData.sessionId = res.data.data;
-                wx.setStorageSync('sessionId', res.data.data);
-              } else {
-                this.logs(new Date() + '服务器登录错误：' + res.data.moreInfo);
-              }
-            }
-          });
-        } else {
-          this.logs(new Date() + '获取用户登录态失败' + res.errMsg);
-        }
-      }
-    });
-  },
 
-  // 记录日志
-  logs (text) {
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(text)
-    wx.setStorageSync('logs', logs)
-  },
 
   getUserInfo: function (cb) {
     var that = this

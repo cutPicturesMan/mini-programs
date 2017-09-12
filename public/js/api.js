@@ -9,6 +9,9 @@ let api = {
   // 商品搜索
   product_search: '/product/search',
 
+  // 获取收货地址
+  address: '/address',
+
   // 登录
   login: '/wx/login',
 }
