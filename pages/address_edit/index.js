@@ -111,6 +111,7 @@ Page({
       if (res.errors && res.errors.length != 0) {
         wx.showToast({
           title: res.errors[0].defaultMessage,
+          image: '../../icons/close-circled.png'
         })
       } else {
         // 修改成功
