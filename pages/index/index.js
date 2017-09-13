@@ -4,6 +4,8 @@ var app = getApp()
 
 Page({
   data: {
+    // 搜索关键字
+    searchText: '',
     bannerSlider: {
       imgUrls: [
         '../../testimg/index2.jpg'
@@ -29,11 +31,18 @@ Page({
     },
     scroll: {}
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+  // 输入搜索文字
+  searchInput (e) {
+    this.setData({
+      searchText: e.detail.value
     })
+  },
+  // 搜索
+  searchConfirm (e) {
+    // 导航到搜索页
+    wx.navigateTo({
+      url: `/pages/search_result/index?key=${e.detail.value}`,
+    });
   },
   onLoad: function () {
     let sessionId = wx.getStorageSync('sessionId');

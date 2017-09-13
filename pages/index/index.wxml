@@ -1,6 +1,6 @@
 <view class="search-bar fixed">
   <view class="search-input ml20">
-    <input placeholder="请输入" placeholder-style="color:#fff;"/>
+    <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入" placeholder-style="color:#fff;"/>
   </view>
   <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
     <image src="../../icons/icon-shopcar.png"></image>
