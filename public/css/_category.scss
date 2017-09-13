@@ -144,7 +144,6 @@ page{
       font-size: 22rpx;
       padding-top:5rpx;
       color:#9a9a9a;
-      @include ellipsis();
     }
     .info{
       display: flex;

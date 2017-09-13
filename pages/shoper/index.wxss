@@ -144,10 +144,7 @@ page {
     .good-item .content .intro {
       font-size: 22rpx;
       padding-top: 5rpx;
-      color: #9a9a9a;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; }
+      color: #9a9a9a; }
     .good-item .content .info {
       display: flex;
       align-items: center; }
