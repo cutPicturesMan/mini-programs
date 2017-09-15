@@ -39,7 +39,9 @@ page {
     font-size: 26rpx;
     text-align: center;
     color: #fff;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+    background-color: #e5e5e5; }
+    .cart-account .calc.active {
+      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
 .remark-add {
   background-color: rgba(0, 0, 0, 0.65);

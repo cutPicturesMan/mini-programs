@@ -140,57 +140,29 @@
       font-size: 32rpx;
       font-weight: bold; }
 
-.opera-btns {
-  display: flex;
-  align-items: center; }
-  .opera-btns .reduce-btn,
-  .opera-btns .add-btn {
-    width: 54rpx;
-    height: 54rpx; }
-  .opera-btns .count {
-    font-size: 32rpx;
-    font-weight: bold;
-    color: #000;
-    flex: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-
 page {
-  padding-bottom: 80rpx; }
+  padding-top: 71rpx; }
 
-.cart-account {
-  height: 80rpx;
-  line-height: 80rpx;
-  border-top: 1rpx solid #e5e5e5;
+.list-tabs {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
   background-color: #fff;
+  display: flex;
   position: fixed;
+  top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  display: flex; }
-  .cart-account .sel {
-    margin-left: 18rpx;
-    font-size: 28rpx;
-    display: flex;
-    align-items: center; }
-    .cart-account .sel image {
-      width: 40rpx;
-      height: 40rpx;
-      display: block; }
-  .cart-account .total {
+  z-index: 100;
+  border-bottom: 1rpx solid #e7e7e7; }
+  .list-tabs .tabs-item {
     flex: 1;
-    text-align: right;
-    padding-right: 20rpx;
-    font-size: 26rpx; }
-  .cart-account .calc {
-    width: 190rpx;
-    font-size: 26rpx;
-    text-align: center;
-    color: #fff;
-    background-color: #e5e5e5; }
-    .cart-account .calc.active {
-      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+    display: flex;
+    justify-content: center; }
+    .list-tabs .tabs-item.active text {
+      color: #ff5000;
+      border-bottom: 4rpx solid #ff5000; }
+    .list-tabs .tabs-item text {
+      color: #666; }
 
 /*# sourceMappingURL=index.wxss.map */

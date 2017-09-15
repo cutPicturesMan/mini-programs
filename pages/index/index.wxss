@@ -155,6 +155,7 @@ page {
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2; }
     .good-list.type1 .good-item .info {
+      min-height: 70rpx;
       display: flex;
       align-items: center; }
       .good-list.type1 .good-item .info .price {

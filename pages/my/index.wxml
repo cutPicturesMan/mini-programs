@@ -1,16 +1,16 @@
 <view class="person-info">
-  <image class="icon" src="../../testimg/good.jpg"></image>
-  <text class="name">太极八卦六十四掌</text>
+  <image class="icon" src="{{user.avatarUrl}}"></image>
+  <text class="name">{{user.nickName}}</text>
 </view>
 <view class="person-account mt18">
   <image class="bg" src="../../icons/person-bg.jpg"></image>
   <view class="account-container">
     <view class="title">账户余额</view>
-    <view class="num">￥129,998.00</view>
+    <view class="num">￥{{user.amount}}</view>
   </view>
 </view>
 <view class="person-category mt18">
-  <navigator url="/pages/componey_info/index" class="category-item mb20">
+  <navigator url="/pages/company_info/index" class="category-item mb20">
     <image class="icon" src="../../icons/icon-person1.png"></image>
     <text class="title">公司信息</text>
   </navigator>
@@ -22,15 +22,15 @@
     <image class="icon" src="../../icons/icon-person3.png"></image>
     <text class="title">账户充值</text>
   </navigator>
-  <navigator url="/pages//index" class="category-item">
+  <navigator url="/pages/order_search/index?index=10" class="category-item">
     <image class="icon" src="../../icons/icon-person4.png"></image>
     <text class="title">退货订单</text>
   </navigator>
-  <navigator url="/pages//index" class="category-item">
+  <navigator url="/pages/sales_return_fill/index" class="category-item">
     <image class="icon" src="../../icons/icon-person5.png"></image>
     <text class="title">申请退货</text>
   </navigator>
-  <navigator url="/pages/order_/index" class="category-item">
+  <navigator url="/pages/order_journey/index" class="category-item">
     <image class="icon" src="../../icons/icon-person6.png"></image>
     <text class="title">订单行程</text>
   </navigator>

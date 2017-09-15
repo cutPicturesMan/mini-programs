@@ -92,6 +92,34 @@ Page({
       list: list
     });
   },
+  // 编辑完成
+  conformEdit (e) {
+    let list = this.data.list;
+    let index = e.currentTarget.dataset.index;
+
+    list[index].isEditPattern = !list[index].isEditPattern;
+
+    this.setData({
+      list: list
+    });
+
+    wx.showLoading();
+    http.request({
+      url: `${api.cart}/${list[index].id}`,
+      method: 'PUT',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        skuId: list[index].skuId,
+        num: list[index].quantity
+      }
+    }).then((res) => {
+      wx.hideLoading();
+
+      this.getData();
+    })
+  },
   // 选中、不选购物车条目
   addToEditArr (e) {
     let list = this.data.list;
@@ -253,9 +281,9 @@ Page({
           title: res.moreInfo || '恭喜你，提交成功'
         })
 
-        wx.setStorageSync('checkout', res)
-
         setTimeout(()=>{
+          this.onLoad();
+
           wx.navigateTo({
             url: `/pages/order_fill/index?id=${res.data.id}`
           });
@@ -265,11 +293,11 @@ Page({
           image: '../../icons/close-circled.png',
           title: res.moreInfo || '对不起，提交失败'
         })
-
-        this.setData({
-          isSubmit: false
-        });
       }
+
+      this.setData({
+        isSubmit: false
+      });
     });
   },
   onLoad: function () {

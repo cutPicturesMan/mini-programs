@@ -54,9 +54,6 @@
             <text class="price">¥{{item.minPrice}}</text>
           </view>
         </navigator>
-        <view class="opera">
-          <image src="../../icons/icon-cart2.png"></image>
-        </view>
       </view>
       <view class="p30 tac text-stable fs20" wx:if="{{!isMore}}">没有更多数据了～</view>
     </view>

@@ -10,7 +10,7 @@ Page({
     city: '',
     county: '',
     addressLine: '',
-    isDefault: 0
+    isDefault: 0,
   },
   // 改变姓名
   bindNameChange (e) {
@@ -119,8 +119,12 @@ Page({
         })
 
         setTimeout(() => {
-          wx.redirectTo({
-            url: '/pages/address/index'
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length - 2];  //上一个页面
+          prevPage.getAddressList();
+
+          wx.navigateBack({
+            delta: 1
           })
         }, 1500)
       }

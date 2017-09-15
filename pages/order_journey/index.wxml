@@ -8,15 +8,11 @@
 <view class="list-tabs">
   <view class="tabs-item {{tabIndex === index ? 'active' : ''}}"
         wx:for="{{tabList}}"
-        wx:key="{{item.id}}"
         data-index="{{index}}"
         data-item="{{item}}"
         bindtap="switchTabs">
     <text>{{item.name}}</text>
   </view>
-  <navigator class="tabs-item" url="/pages/order_search/index">
-    <text>订单查询</text>
-  </navigator>
 </view>
 
 <scroll-view
@@ -24,7 +20,7 @@
   scroll-y="true"
   enable-back-to-top="true"
   bindscrolltolower="loadmore">
-  <view class="list-section mt18" wx:for="{{list}}" wx:key="{{item.id}}">
+  <view class="list-section mb20" wx:for="{{list}}" wx:key="{{item.id}}">
     <navigator class="label-act bb" url="/pages/order_detail/index">
       <view class="title">
         <text class="pr20 pl15">订单编号</text>

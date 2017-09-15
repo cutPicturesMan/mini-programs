@@ -37,7 +37,8 @@
             bindtap="deleteItem">删除</view>
     </view>
     <view class="item-state">
-      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="toggleEdit">{{ item.isEditPattern ? '取消编辑' : '编辑'}}</text>
+      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="toggleEdit" hidden="{{item.isEditPattern}}">编辑</text>
+      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="conformEdit" hidden="{{!item.isEditPattern}}">完成</text>
       <view class="btns-group">
         <text class="sign">￥</text>
         <text class="price pr50">{{item.quantity * item.price}}</text>
@@ -53,12 +54,12 @@
     <view class="total">
       合计：<text class="text-energized"><text class="small">￥</text>{{totalPrice}}</text>
     </view>
-    <view class="calc" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>
+    <view class="calc active" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>
   </view>
 </view>
 
 <view class="empty-data" wx:if="{{list.length === 0}}">
-  <view class="p20 tac text-stable">购物车空空如也</view>
+  <view class="p20 tac fs32 text-stable">购物车空空如也</view>
   <view class="tac">
     <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>

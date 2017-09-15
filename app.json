@@ -1,7 +1,5 @@
 {
   "pages":[
-    "pages/order_fill/index",
-
     "pages/index/index",
     "pages/category/index",
     "pages/cart/index",
@@ -20,6 +18,7 @@
     "pages/order_invoice/index",
     "pages/order_attachment/index",
     "pages/order_result/index",
+    "pages/order_journey/index",
 
     "pages/release_record/index",
     "pages/release_list/index",

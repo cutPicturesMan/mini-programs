@@ -2,7 +2,6 @@ import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 import STATUS from '../../public/js/status.js';
 
-
 Page({
   data: {
     // 顶部订单状态tab切换
@@ -10,11 +9,17 @@ Page({
     // 1 表示历史订单
     tabIndex: 0,
     tabList: [{
-      name: '当前订单',
-      status: 0
+      name: '订单提交',
+      status: 1
     }, {
-      name: '历史订单',
-      status: 8
+      name: '订单审核',
+      status: 2
+    }, {
+      name: '财务审核',
+      status: 3
+    }, {
+      name: '发货确认',
+      status: 6
     }],
     // 订单数据
     list: [],

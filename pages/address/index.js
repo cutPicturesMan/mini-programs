@@ -5,6 +5,8 @@ var app = getApp()
 Page({
   data: {
     list: [],
+    // 是否是选择地址模式
+    isSelectPattern: false,
     // 显示第几条数据的删除按钮，-1为不显示
     delIndex: -1
   },
@@ -70,8 +72,15 @@ Page({
   select (e) {
     let item = e.currentTarget.dataset.item;
     let id = e.currentTarget.dataset.item.id;
-    console.log(id);
-    // item.
+
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];  //上一个页面
+
+    prevPage.setAddress(item);
+
+    wx.navigateBack({
+      delta: 1
+    })
   },
   // 删除某个收货地址
   del (e) {
@@ -124,7 +133,10 @@ Page({
       }
     })
   },
-  onLoad () {
+  onLoad (params) {
+    this.setData({
+      isSelectPattern: !!(params && params.selectPattern)
+    });
     this.getAddressList();
   }
 })

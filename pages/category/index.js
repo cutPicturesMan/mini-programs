@@ -43,7 +43,7 @@ Page({
 
     this.setData({
       priceOrder: priceOrder === 0 ? 1 : 0,
-      page: 1,
+      page: 0,
       isMore: true,
       isLoadingMore: false,
       list: []
@@ -56,7 +56,7 @@ Page({
 
     this.setData({
       navIndex: idx,
-      page: 1,
+      page: 0,
       isMore: true,
       isLoadingMore: false,
       list: []

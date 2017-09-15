@@ -13,7 +13,7 @@
     <view class="row">
       <view class="title">申请特价</view>
       <view class="content">
-        <input class="mr20" value="{{cheapMoney}}" placeholder="请输入"/>
+        <input value="{{cheapMoney}}" placeholder="请输入"/>
       </view>
     </view>
   </view>
@@ -23,7 +23,10 @@
   <view class="line-item">
     <view class="row">
       <view class="title">备注信息</view>
-      <view class="content ellipsis">{{remark || '请输入'}}</view>
+      <view class="content ellipsis">
+        <text wx:if="{{remark !== ''}}">{{remark}}</text>
+        <text class="text-stable" wx:if="{{remark === ''}}">请输入</text>
+      </view>
     </view>
   </view>
 </view>
@@ -33,7 +36,7 @@
     <view class="row">
       <view class="title">交货日期</view>
       <view class="content">
-        <picker class="mr20" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
           <view>{{date}}</view>
         </picker>
       </view>
@@ -92,7 +95,7 @@
     <view class="row">
       <view class="title">商品清单</view>
       <view class="content">
-        <text class="text-stable">共4款，总数20 ></text>
+        <text class="text-stable">共{{order.orderItems.length}}款，总数{{totalCount}} ></text>
       </view>
     </view>
   </navigator>
@@ -113,8 +116,8 @@
 
 <view class="cart-account">
   <view class="total">
-    应付金额：<text class="text-energized"><text class="small">￥</text>230</text>
+    应付金额：<text class="text-energized"><text class="small">￥</text>{{order.amount}}</text>
   </view>
-  <navigator class="calc" url="/pages/order_pay/index">提交订单</navigator>
+  <view class="calc {{ isSubmit ? '' : 'active'}}" bindtap="submit">提交订单</view>
 </view>
 

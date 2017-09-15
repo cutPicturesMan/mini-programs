@@ -5,12 +5,12 @@ Page({
   data: {
     // 搜索关键字
     searchText: '',
-    // 搜索排序
-    // 0 反序
-    // 1 正序
-    ase: 1,
+    // 价格排序，默认0
+    // 0，asc正序
+    // 1，desc倒序
+    priceOrder: 0,
     // 列表数据
-    list: []
+    list: [],
   },
   getData () {
     wx.showLoading();
@@ -18,7 +18,7 @@ Page({
       url: api.product_search,
       data: {
         key: this.data.searchText,
-        ase: this.data.ase
+        ase: this.data.priceOrder
       }
     }).then((res) => {
       wx.hideLoading();
@@ -37,7 +37,19 @@ Page({
   searchConfirm (e) {
     this.getData();
   },
+  // 切换价格排序
+  changePriceOrder () {
+    let { priceOrder } = this.data;
+
+    this.setData({
+      priceOrder: priceOrder === 0 ? 1 : 0,
+      page: 0,
+      list: []
+    });
+    this.getData()
+  },
   onLoad (params) {
+    console.log(params);
     this.setData({
       searchText: params.key
     });

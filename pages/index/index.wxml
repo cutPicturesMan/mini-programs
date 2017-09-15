@@ -24,31 +24,31 @@
 </swiper>
 <view class="category-list clear">
   <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
+    <navigator class="link" open-type="switchTab" url="/pages/category/index">
       <image src="../../icons/index-category1.png"></image>
       <text class="text">主材类</text>
     </navigator>
   </view>
   <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
+    <navigator class="link" open-type="switchTab" url="/pages/category/index">
       <image src="../../icons/index-category2.png"></image>
       <text class="text">辅料类</text>
     </navigator>
   </view>
   <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
+    <navigator class="link" open-type="switchTab" url="/pages/category/index">
       <image src="../../icons/index-category3.png"></image>
       <text class="text">模具类模具类模具类模具类模具类模具类</text>
     </navigator>
   </view>
   <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
+    <navigator class="link" open-type="switchTab" url="/pages/category/index">
       <image src="../../icons/index-category4.png"></image>
       <text class="text">包材类</text>
     </navigator>
   </view>
   <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
+    <navigator class="link" open-type="switchTab" url="/pages/category/index">
       <image src="../../icons/index-category5.png"></image>
       <text class="text">外购成品</text>
     </navigator>
@@ -146,9 +146,6 @@
       </navigator>
       <view class="info">
         <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
       </view>
     </view>
     <view class="good-item">
@@ -159,9 +156,6 @@
       </navigator>
       <view class="info">
         <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
       </view>
     </view>
     <view class="good-item">
@@ -172,9 +166,6 @@
       </navigator>
       <view class="info">
         <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
       </view>
     </view>
     <view class="good-item">
@@ -185,9 +176,6 @@
       </navigator>
       <view class="info">
         <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
       </view>
     </view>
   </view>

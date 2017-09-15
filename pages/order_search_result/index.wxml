@@ -22,7 +22,7 @@
     <text class="tip text-stable">待发货确认</text>
     <view class="btns-group">
       <navigator class="btn btn-energized-light" url="/pages/shoper/index">再次购买</navigator>
-      <navigator class="btn btn-energized" url="/pages/list_pay/index">立即付款</navigator>
+      <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
     </view>
   </view>
 </view>

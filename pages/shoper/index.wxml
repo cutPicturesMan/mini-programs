@@ -56,9 +56,6 @@
           <text class="intro">2个规格可选</text>
           <view class="info">
             <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
         </view>
       </view>
@@ -73,9 +70,6 @@
           <text class="intro">2个规格可选</text>
           <view class="info">
             <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
         </view>
       </view>
@@ -90,9 +84,6 @@
           <text class="intro">2个规格可选</text>
           <view class="info">
             <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
         </view>
       </view>
@@ -107,9 +98,6 @@
           <text class="intro">2个规格可选</text>
           <view class="info">
             <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
         </view>
       </view>
@@ -127,9 +115,6 @@
           <text class="intro">2个规格可选</text>
           <view class="info">
             <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
         </view>
       </view>

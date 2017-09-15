@@ -178,6 +178,7 @@ page{
         @include ellipsis(2);
       }
       .info{
+        min-height: 70rpx;
         display: flex;
         align-items: center;
         .price{
