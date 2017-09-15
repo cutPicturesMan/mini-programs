@@ -1,38 +1,47 @@
-//index.js
-//获取应用实例
-var app = getApp()
+import http from '../../public/js/http.js';
+import api from '../../public/js/api.js';
+
 Page({
   data: {
-    navIndex: 0,
-    nav: [{
-      icon: '../../icons/icon-new1.png',
-      title: '新品'
-    },{
-      icon: '../../icons/icon-zan.png',
-      title: '推荐'
-    },{
-      icon: '../../icons/icon-hot.png',
-      title: '热卖'
-    },{
-      icon: '../../icons/icon-sell.png',
-      title: '促销'
-    }]
+    // 搜索关键字
+    searchText: '',
+    // 搜索排序
+    // 0 反序
+    // 1 正序
+    ase: 1,
+    // 列表数据
+    list: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  getData () {
+    wx.showLoading();
+    http.request({
+      url: api.product_search,
+      data: {
+        key: this.data.searchText,
+        ase: this.data.ase
+      }
+    }).then((res) => {
+      wx.hideLoading();
+      this.setData({
+        list: res.data
+      });
     })
   },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+  // 输入搜索文字
+  searchInput (e) {
+    this.setData({
+      searchText: e.detail.value
     })
+  },
+  // 搜索
+  searchConfirm (e) {
+    this.getData();
+  },
+  onLoad (params) {
+    this.setData({
+      searchText: params.key
+    });
+
+    this.getData();
   }
 })

@@ -1,6 +1,7 @@
-<view class="add-cart">
-  <image src="../../icons/icon-shopcar.png"></image>
-</view>
+<navigator class="add-cart" open-type="switchTab" url="/pages/cart/index"
+>
+  <image src="../../icons/icon-shopcar.png"/>
+</navigator>
 <swiper class="banner-slide"
         indicator-dots="{{bannerSlider.indicatorDots}}"
         indicator-color="rgba(0,0,0,0.5)"
@@ -16,53 +17,46 @@
   </block>
 </swiper>
 <view class="product-info">
-  <view class="title">iFashion像素大战像素大战2像素大像素像
-    战像素大战像素大战</view>
+  <view class="title">{{product.name}}</view>
   <view class="price text-energized">
-    <text class="small">￥</text>123
+    <text class="small">￥</text>{{ skuIndex >= 0 ? sku[skuIndex].rp : '查询中...'}}
   </view>
-  <view class="number">型号：1345683147</view>
-  <view class="market-price">市场价：345</view>
+  <view class="number">货号：{{product.number || '暂无'}}</view>
+  <view class="number">市场价：
+    {{ skuIndex >= 0
+      ? (sku[skuIndex].sp !== null ? sku[skuIndex].sp : '暂无' )
+      : '查询中...'}}
+  </view>
+  <view class="number">单位：{{product.unit || '暂无'}}</view>
+  <view class="number">生产商：{{product.manufacturer || '暂无'}}</view>
+  <view class="number">产地：{{product.origin || '暂无'}}</view>
+  <view class="number">描述：{{product.description || '暂无'}}</view>
 </view>
 <view class="product-sku mt18">
   <view>
-    <view class="sku-title">颜色</view>
+    <view class="sku-title">选择</view>
     <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
+      <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
+            wx:for="{{sku}}"
+            wx:key="{{id}}"
+            data-index="{{index}}"
+            bindtap="selectSku">{{item.title}}</view>
     </view>
   </view>
   <view>
-    <view class="sku-title">颜色</view>
-    <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
-      <view class="sku-item">黑色黑色</view>
-      <view class="sku-item">黑色</view>
-      <view class="sku-item">黑色黑色黑色黑色</view>
-      <view class="sku-item">黑色</view>
-    </view>
-  </view>
-  <view>
-    <view class="sku-title">颜色</view>
-    <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
-    </view>
-  </view>
-  <view>
-    <view class="sku-title">订购数量</view>
+    <view class="sku-title">订购</view>
     <view class="opera-container">
       <view class="opera-btns">
-        <view class="reduce-btn">
+        <view class="reduce-btn" bindtap="reduce">
           <image src="../../icons/icon-reduce.png"></image>
         </view>
-        <view class="count">10</view>
-        <view class="add-btn">
+        <input class="count" type="number" value="{{num}}" bindinput="inputNumber"/>
+        <view class="add-btn" bindtap="add">
           <image src="../../icons/icon-add.png"></image>
         </view>
       </view>
       <text class="unit">件</text>
+      <text class="unit">剩余 {{sku[skuIndex].q}} 件</text>
     </view>
   </view>
 </view>
@@ -71,7 +65,10 @@
     <text>产品详情</text>
   </view>
   <view class="intro-content">
-    <image src="../../testimg/good.jpg" mode="widthFix"></image>
+    <block wx:if="{{product.longDescription}}">{{product.longDescription}}</block>
+    <block wx:if="{{!product.longDescription}}">
+      <view class="fs20 pt15 pb60 tac text-stable">暂无描述详情</view>
+    </block>
   </view>
 </view>
 <view class="opera-panel">
@@ -81,5 +78,12 @@
   <view class="share">
     <image src="../../icons/icon-share.png"></image>
   </view>
-  <navigator class="buy" open-type="switchTab" url="/pages/cart/index">加入购物车</navigator>
+  <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
+        hidden="{{isSubmit}}"
+        bindtap="buy">
+    {{(skuIndex >= 0 && num <= sku[skuIndex].q) ? '加入购物车' : ''}}
+    {{ skuIndex < 0 ? '未设置规格' : ''}}
+    {{ num > sku[skuIndex].q ? '库存不足' : ''}}
+  </view>
+  <view class="buy" hidden="{{!isSubmit}}">提交中...</view>
 </view>

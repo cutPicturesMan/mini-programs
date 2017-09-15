@@ -1,12 +1,14 @@
+import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 
-var app = getApp()
 Page({
   data: {
+    // 搜索关键字
+    searchText: '',
     // 左侧选中的分类序号
     navIndex: 0,
     // 当前页码
-    page: 1,
+    page: 0,
     // 一页显示的数量
     size: 30,
     // 价格排序，默认0
@@ -22,14 +24,18 @@ Page({
     // 右侧数据
     list: []
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+  // 输入搜索文字
+  searchInput (e) {
+    this.setData({
+      searchText: e.detail.value
     })
   },
-  // 重新设置与分页加载有关的数据
-  resetList () {
+  // 搜索
+  searchConfirm (e) {
+    // 导航到搜索页
+    wx.navigateTo({
+      url: `/pages/search_result/index?key=${e.detail.value}`,
+    });
   },
   // 切换价格排序
   changePriceOrder () {
@@ -72,31 +78,27 @@ Page({
     } = this.data;
 
     wx.showLoading();
-    wx.request({
-      url: api.category_products + nav[navIndex].id,
-      header: {
-        cookie: `SESSION=${app.globalData.sessionId}`
-      },
+    http.request({
+      url: `${api.category_products}/${nav[navIndex].id}`,
       data: {
         page: page,
         size: size,
         ase: priceOrder
-      },
-      success: (res) => {
-        wx.hideLoading();
-        let data = res.data.data;
-
-        // 如果返回的数据长度小于请求预期长度，则表示没有下一页了
-        if(data.length < size){
-          isMore = false;
-        }
-
-        this.setData({
-          isMore: isMore,
-          isLoadingMore: false,
-          list: list.concat(data)
-        });
       }
+    }).then((res) => {
+      wx.hideLoading();
+      let data = res.data;
+
+      // 如果返回的数据长度小于请求预期长度，则表示没有下一页了
+      if (data.length < size) {
+        isMore = false;
+      }
+
+      this.setData({
+        isMore: isMore,
+        isLoadingMore: false,
+        list: list.concat(data)
+      });
     })
   },
   // 加载更多数据
@@ -121,27 +123,23 @@ Page({
   },
   onLoad: function () {
     wx.showLoading();
-    wx.request({
+    http.request({
       url: api.category,
-      header: {
-        cookie: `SESSION=${app.globalData.sessionId}`
-      },
       data: {
         categoryType: 'CATEGORY'
-      },
-      success: (res) => {
-        let data = res.data.data;
-        wx.hideLoading();
-
-        this.setData({
-          nav: data
-        });
-
-        // 如果有分类的情况下，默认请求第一个分类数据
-        if (data.length !== 0) {
-          this.getProductList()
-        }
       }
-    });
+    }).then((res) => {
+      let data = res.data;
+      wx.hideLoading();
+
+      this.setData({
+        nav: data
+      });
+
+      // 如果有分类的情况下，默认请求第一个分类数据
+      if (data.length !== 0) {
+        this.getProductList()
+      }
+    })
   }
 })

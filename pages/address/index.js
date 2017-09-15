@@ -76,7 +76,7 @@ Page({
       success: (res) => {
         if (res.confirm) {
           let list = this.data.list;
-          list.splice(index, 1);
+          let item = list.splice(index, 1)[0];
 
           this.setData({
             delIndex: -1,
@@ -93,17 +93,25 @@ Page({
           }).then((res) => {
             wx.hideLoading();
 
-            this.setData({
-              delIndex: -1
-            });
+            if (res.errorCode === 200) {
+              wx.showToast({
+                title: res.moreInfo,
+              })
 
-            wx.showToast({
-              title: res.moreInfo,
-            })
-
-            setTimeout(() => {
-              this.getAddressList();
-            }, 1500)
+              setTimeout(() => {
+                this.getAddressList();
+              }, 1500)
+            } else {
+              wx.showToast({
+                image: '../../icons/close-circled.png',
+                title: res.moreInfo || '删除失败',
+              })
+              // 删除失败，则还原刚刚移除的数据
+              list.splice(index, 1, item);
+              this.setData({
+                list: list
+              });
+            }
           });
         }
       }

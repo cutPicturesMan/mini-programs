@@ -2,4 +2,14 @@
 @import '../../public/css/_mixin.scss';
 @import '../../public/css/_category.scss';
 
+page{
+  padding-top: 160rpx;
+}
+.search-top{
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index: 100;
+}
 

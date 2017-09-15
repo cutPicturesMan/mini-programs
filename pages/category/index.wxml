@@ -1,7 +1,6 @@
 <view class="search-bar">
   <view class="search-input ml20">
-    <image src="../../icons/icon-search.png"></image>
-    <input placeholder="请输入" placeholder-style="color:#fff;"/>
+    <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入" placeholder-style="color:#fff;"/>
   </view>
   <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
     <image src="../../icons/icon-shopcar.png"></image>
@@ -47,16 +46,16 @@
         <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
           <image src="{{item.skuMedia.mediumUrl || '../../icons/img-none.png'}}"></image>
         </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">{{item.name}}</navigator>
+        <navigator class="content" url="/pages/product/index?id={{item.id}}">
+          <view class="title">{{item.name}}</view>
           <view class="intro">{{item.productOptionSize}}个规格可选</view>
           <view class="intro">产地：{{item.manufacturer || '暂无'}}</view>
           <view class="info">
             <text class="price">¥{{item.minPrice}}</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
           </view>
+        </navigator>
+        <view class="opera">
+          <image src="../../icons/icon-cart2.png"></image>
         </view>
       </view>
       <view class="p30 tac text-stable fs20" wx:if="{{!isMore}}">没有更多数据了～</view>

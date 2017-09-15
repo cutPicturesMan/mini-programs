@@ -28,7 +28,7 @@ page{
   }
 }
 .product-info{
-  padding:17rpx 17rpx 0 17rpx;
+  padding:17rpx;
   background-color: #fff;
   .title{
     line-height: 30rpx;
@@ -113,12 +113,11 @@ page{
   .count{
     font-weight: bold;
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+    text-align: center;
   }
 }
 .product-intro{
+  min-height: 300rpx;
   background-color: #fff;
   .intro-title{
     height: 84rpx;
@@ -142,6 +141,7 @@ page{
 }
 .opera-panel{
   height: 88rpx;
+  line-height: 88rpx;
   background-color: #fff;
   display: flex;
   position: fixed;
@@ -160,13 +160,16 @@ page{
   }
   .buy{
     width: 50%;
-    color:#fff;
     font-size: 34rpx;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
+    color:#fff;
+    background: #e5e5e5;
+    text-align: center;
+    &.active{
+      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
+    }
   }
   .collect,
-  .share,
-  .buy{
+  .share{
     display: flex;
     justify-content: center;
     align-items: center;

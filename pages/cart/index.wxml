@@ -1,83 +1,67 @@
-<view class="list-section mt20">
-  <view class="list-item">
-    <view class="sel">
-      <!--<image src="../../icons/icon-radio.png"></image>-->
-      <image src="../../icons/icon-radio-selected.png"></image>
-    </view>
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
-      <view class="descrip-container">
-        <image class="icon" src="../../icons/icon-arrow-down.png"></image>
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
+<view wx:if="list.length !== 0">
+  <view class="list-section mt20" wx:for="{{list}}" wx:key="{{id}}">
+    <view class="list-item">
+      <view class="sel" data-index="{{index}}" bindtap="addToEditArr">
+        <image src="{{item.isSelected ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+      </view>
+      <navigator class="item-img" url="/pages/product/index">
+        <image src="../../testimg/list.jpg"></image>
+      </navigator>
+      <view class="content">
+        <view class="opera-btns mb60" hidden="{{!item.isEditPattern}}">
+          <image class="reduce-btn" src="../../icons/icon-reduce.png"
+                 data-index="{{index}}"
+                 bindtap="reduce"></image>
+          <input class="count" type="number" value="{{item.quantity}}"
+                 data-index="{{index}}"
+                 bindinput="inputNumber"/>
+          <image class="add-btn" src="../../icons/icon-add.png"
+                 data-index="{{index}}"
+                 bindtap="add"></image>
+        </view>
+        <navigator class="title" url="/pages/product/index" hidden="{{item.isEditPattern}}">
+          {{item.name}}
+        </navigator>
+        <view class="descrip-container " data-index="{{index}}" bindtap="showDetail">
+          <image class="icon {{item.isShowDetail ? 'rotate' : ''}}" src="../../icons/icon-arrow-down.png"></image>
+          <view class="descrip-list {{item.isShowDetail ? '' : 'short'}}">
+            <view class="intro">数量：{{item.quantity}}</view>
+            <view class="intro">单价：￥{{item.price}}</view>
+            <view class="intro" wx:for="{{item.productOption}}" wx:key="{{item.attributeName}}">{{item.attributeName}}：{{item.attributeValue}}</view>
+          </view>
         </view>
       </view>
+      <view class="delete"
+            data-index="{{index}}"
+            wx:if="{{item.isEditPattern}}"
+            bindtap="deleteItem">删除</view>
     </view>
-  </view>
-  <view class="item-state">
-    <text class="edit">编辑</text>
-    <view class="btns-group">
-      <text class="sign">￥</text>
-      <text class="price pr50">230</text>
-    </view>
-  </view>
-</view>
-<view class="list-section mt20">
-  <view class="list-item">
-    <view class="sel">
-      <!--<image src="../../icons/icon-radio.png"></image>-->
-      <image src="../../icons/icon-radio-selected.png"></image>
-    </view>
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <view class="opera-btns mb60">
-        <image class="reduce-btn" src="../../icons/icon-reduce.png"></image>
-        <view class="count">10</view>
-        <image class="add-btn" src="../../icons/icon-add.png"></image>
-      </view>
-      <view class="descrip-container">
-        <image class="icon" src="../../icons/icon-arrow-down.png"></image>
-        <view class="descrip-list hide">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
-        </view>
+    <view class="item-state">
+      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="toggleEdit">{{ item.isEditPattern ? '取消编辑' : '编辑'}}</text>
+      <view class="btns-group">
+        <text class="sign">￥</text>
+        <text class="price pr50">{{item.quantity * item.price}}</text>
       </view>
     </view>
-    <view class="delete">删除</view>
   </view>
-  <view class="item-state">
-    <text class="edit">编辑</text>
-    <view class="btns-group">
-      <text class="sign">￥</text>
-      <text class="price pr50">230</text>
+
+  <view class="cart-account">
+    <view class="sel" bindtap="selectAll">
+      <image src="{{isSelectAll ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+      <text class="plr15">全选</text>
     </view>
+    <view class="total">
+      合计：<text class="text-energized"><text class="small">￥</text>{{totalPrice}}</text>
+    </view>
+    <view class="calc" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>
   </view>
 </view>
 
-<view class="cart-account">
-  <view class="sel">
-    <!--<image src="../../icons/icon-radio.png"></image>-->
-    <image src="../../icons/icon-radio-selected.png"></image>
-    <text class="plr15">全选</text>
+<view class="empty-data" wx:if="{{list.length === 0}}">
+
+  <view class="p20 tac text-stable">购物车空空如也</view>
+  <view class="tac">
+    <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>
-  <view class="total">
-    合计：<text class="text-energized"><text class="small">￥</text>230</text>
-  </view>
-  <navigator class="calc" url="/pages/order_fill/index">结算</navigator>
 </view>
 

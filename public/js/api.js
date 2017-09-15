@@ -6,8 +6,16 @@ let api = {
 
   // 获取某个商品
   product: '/product/',
+  // 获取商品sku
+  product_sku: '/product/sku/',
   // 商品搜索
   product_search: '/product/search',
+
+  // 购物车
+  cart: '/cart',
+
+  // 订单
+  order: '/order',
 
   // 获取收货地址
   address: '/address',
