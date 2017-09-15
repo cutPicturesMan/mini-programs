@@ -1,32 +1,35 @@
 <view class="address-container">
   <view wx:for="{{list}}" wx:key="id" class="address-section mt18 {{delIndex === index ? 'active' : ''}}">
-    <view class="address-item">
-      <navigator url="/pages/address_edit/index?id={{item.id}}">
-        <view class="addr-user">
-          <view class="name">收货人：{{item.fullName}}</view>
-          <view class="tel">{{item.phonePrimary}}</view>
-        </view>
-        <view class="addr-detail">
-          <view class="ico">
-            <image src="../../icons/icon-location.png"></image>
+    <view class="address-main">
+      <view class="address-item">
+        <navigator url="/pages/address_edit/index?id={{item.id}}">
+          <view class="addr-user">
+            <view class="name">收货人：{{item.fullName}}</view>
+            <view class="tel">{{item.phonePrimary}}</view>
           </view>
-          <view class="content">收货地址：{{item.stateProvinceRegion}} {{item.city}} {{item.county}} {{item.addressLine}}</view>
-          <view class="arrow">
-            <image src="../../icons/icon-arrow-right-light.png"></image>
+          <view class="addr-detail">
+            <view class="ico">
+              <image src="../../icons/icon-location.png"></image>
+            </view>
+            <view class="content">收货地址：{{item.stateProvinceRegion}} {{item.city}} {{item.county}} {{item.addressLine}}</view>
+            <view class="arrow">
+              <image src="../../icons/icon-arrow-right-light.png"></image>
+            </view>
           </view>
+        </navigator>
+        <view class="addr-opera bt">
+          <view class="default">
+            <image class="ico" src="{{item.default ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+            <text>设为默认地址</text>
+          </view>
+          <navigator url="/pages/address_edit/index?id={{item.id}}" class="edit pl50">编辑</navigator>
+          <view class="edit mr-25" data-index="{{index}}" bindtap="cancelDel" wx:if="{{delIndex === index}}">取消</view>
+          <view class="edit mr-25" data-index="{{index}}" bindtap="showDel" wx:if="{{delIndex !== index}}">删除</view>
         </view>
-      </navigator>
-      <view class="addr-opera bt">
-        <view class="default">
-          <image class="ico" src="{{item.default ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>默认地址
-          <text>默认地址</text>
-        </view>
-        <navigator url="/pages/address_edit/index?id={{item.id}}" class="edit pl50">编辑</navigator>
-        <view class="edit mr-25" data-index="{{index}}" bindtap="cancelDel" wx:if="{{delIndex === index}}">取消</view>
-        <view class="edit mr-25" data-index="{{index}}" bindtap="showDel" wx:if="{{delIndex !== index}}">删除</view>
       </view>
+      <image class="border-bar" src="../../icons/icon-bar.jpg"></image>
     </view>
-    <image class="border-bar" src="../../icons/icon-bar.jpg"></image>
+    <view class="select-btn" data-item="{{item}}" data-index="{{index}}" bindtap="select">选择</view>
     <view class="delete-btn" data-item="{{item}}" data-index="{{index}}" bindtap="del">删除</view>
   </view>
   <view wx:if="{{list.length === 0}}" class="p30 tac text-stable fs20">暂无收货地址，快去添加吧～</view>

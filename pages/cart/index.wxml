@@ -58,7 +58,6 @@
 </view>
 
 <view class="empty-data" wx:if="{{list.length === 0}}">
-
   <view class="p20 tac text-stable">购物车空空如也</view>
   <view class="tac">
     <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>

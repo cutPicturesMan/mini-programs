@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/cart/index",
+    "pages/order_fill/index",
 
     "pages/index/index",
     "pages/category/index",

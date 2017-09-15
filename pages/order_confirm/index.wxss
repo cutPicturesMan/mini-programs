@@ -179,9 +179,13 @@ page {
 
 .address-section {
   position: relative;
-  transition: .4s; }
+  transition: .4s;
+  display: flex; }
   .address-section.active {
     transform: translateX(-110rpx); }
+  .address-section .address-main {
+    flex: 1; }
+  .address-section .select-btn,
   .address-section .delete-btn {
     width: 110rpx;
     background-color: #ff5500;
@@ -189,7 +193,8 @@ page {
     color: #fff;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; }
+  .address-section .delete-btn {
     position: absolute;
     top: 0;
     right: -110rpx;

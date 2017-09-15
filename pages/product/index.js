@@ -160,8 +160,8 @@ Page({
     this.setData({
       isSubmit: true
     });
+
     wx.showLoading();
-    // open-type="switchTab" url="/pages/cart/index"
     http.request({
       url: api.cart,
       method: 'POST',

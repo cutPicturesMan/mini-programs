@@ -1,26 +1,44 @@
-//index.js
-//获取应用实例
-var app = getApp()
+import http from '../../public/js/http.js';
+import api from '../../public/js/api.js';
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    // 订单数据
+    list: [],
+    // 当前页码
+    page: 0,
+    // 一页显示的数量
+    size: 30,
+    // 订单状态
+    // SUBMITTED  已提交的订单
+    // CANCELLED  取消的订单
+    // PAID       已经支付的订单
+    // CONFIRMED  确认收货的订单
+    // SHIPPED    运输中的订单
+    // FINISHED   已经结束的订单
+    status: 'SUBMITTED',
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  // 获取订单数据
+  getData () {
+    let { page, size, status } = this.data;
+
+    wx.showLoading();
+    http.request({
+      url: api.order,
+      data: {
+        page,
+        size,
+        status
+      }
+    }).then((res) => {
+      wx.hideLoading();
+
+      this.setData({
+        list: res.data
+      });
+    });
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    this.getData();
   }
 })

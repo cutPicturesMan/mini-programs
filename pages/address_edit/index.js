@@ -81,7 +81,6 @@ Page({
         throw new Error('详细地址不能为空');
       }
     } catch(e){
-      console.log(e.message);
       return wx.showToast({
         title: e.message,
         image: '../../icons/close-circled.png'

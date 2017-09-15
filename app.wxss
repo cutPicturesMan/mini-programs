@@ -37,6 +37,9 @@
 .mt110 {
   margin-top: 110rpx; }
 
+.vam {
+  vertical-align: middle; }
+
 .clear:after {
   content: '.';
   clear: both;
@@ -1589,6 +1592,11 @@
     transform: translate3d(0, -100%, 0); } }
 .slideOutUp {
   animation-name: slideOutUp; }
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .empty-data {
   height: 100%;

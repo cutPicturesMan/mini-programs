@@ -15,10 +15,11 @@ let api = {
   cart: '/cart',
 
   // 订单
-  order: '/order',
+  order: '/order/',
 
   // 获取收货地址
   address: '/address',
+  // 获取默认收货地址
 
   // 登录
   login: '/wx/login',

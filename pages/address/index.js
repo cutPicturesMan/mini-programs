@@ -66,6 +66,13 @@ Page({
       delIndex: e.currentTarget.dataset.index
     })
   },
+  // 选择收货地址
+  select (e) {
+    let item = e.currentTarget.dataset.item;
+    let id = e.currentTarget.dataset.item.id;
+    console.log(id);
+    // item.
+  },
   // 删除某个收货地址
   del (e) {
     let id = e.currentTarget.dataset.item.id;

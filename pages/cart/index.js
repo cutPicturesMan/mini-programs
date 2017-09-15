@@ -14,12 +14,6 @@ Page({
     // 是否提交中
     isSubmit: false
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   // 购物车减
   reduce (e) {
     let list = this.data.list;
@@ -181,7 +175,9 @@ Page({
     let totalPrice = 0;
 
     list.forEach((item, index) => {
-      totalPrice += item.price * item.quantity;
+      if(item.isSelected){
+        totalPrice += item.price * item.quantity;
+      }
     });
 
     this.setData({
@@ -215,14 +211,6 @@ Page({
     let { list, isSubmit } = this.data;
     let cartIds = [];
 
-    // 正在提交中，请勿重复提交
-    if(isSubmit){
-      return wx.showToast({
-        image: '../../icons/close-circled.png',
-        title: '正在提交中，请勿重复提交'
-      })
-    }
-
     list.forEach((item, index) => {
       if (item.isSelected) {
         cartIds.push(item.id);
@@ -235,6 +223,17 @@ Page({
         title: '请至少选择一个商品'
       })
     }
+
+    // 正在提交中，请勿重复提交
+    if(isSubmit){
+      return wx.showToast({
+        image: '../../icons/close-circled.png',
+        title: '正在提交中，请勿重复提交'
+      })
+    }
+    this.setData({
+      isSubmit: true
+    });
 
     wx.showLoading();
     http.request({
@@ -253,11 +252,23 @@ Page({
         wx.showToast({
           title: res.moreInfo || '恭喜你，提交成功'
         })
+
+        wx.setStorageSync('checkout', res)
+
+        setTimeout(()=>{
+          wx.navigateTo({
+            url: `/pages/order_fill/index?id=${res.data.id}`
+          });
+        }, 1500);
       } else {
         wx.showToast({
           image: '../../icons/close-circled.png',
           title: res.moreInfo || '对不起，提交失败'
         })
+
+        this.setData({
+          isSubmit: false
+        });
       }
     });
   },
