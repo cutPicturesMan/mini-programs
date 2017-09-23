@@ -51,7 +51,7 @@
       <image src="{{isSelectAll ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
       <text class="plr15">全选</text>
     </view>
-    <view class="total">
+    <view class="total tar">
       合计：<text class="text-energized"><text class="small">￥</text>{{totalPrice}}</text>
     </view>
     <view class="calc active" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>

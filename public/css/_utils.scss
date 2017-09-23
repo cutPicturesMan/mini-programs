@@ -134,11 +134,23 @@
 }
 @for $i from 5 through 60{
   @if($i % 5 == 0){
-    .mtb#{$i}{ margin: $i*1rpx 0 $i*1rpx 0;}
-    .mlr#{$i}{ margin: 0 $i*1rpx 0 $i*1rpx;}
+    .mtb#{$i}{
+      margin-top: $i*1rpx;
+      margin-bottom: $i*1rpx;
+    }
+    .mlr#{$i}{
+      margin-left: $i*1rpx;
+      margin-right: $i*1rpx;
+    }
 
-    .ptb#{$i}{ padding: $i*1rpx 0 $i*1rpx 0;}
-    .plr#{$i}{ padding: 0 $i*1rpx 0 $i*1rpx;}
+    .ptb#{$i}{
+      padding-top: $i*1rpx;
+      padding-bottom: $i*1rpx;
+    }
+    .plr#{$i}{
+      padding-left: $i*1rpx;
+      padding-right: $i*1rpx;
+    }
   }
 }
 @for $i from 5 through 60{

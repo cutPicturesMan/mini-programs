@@ -164,8 +164,7 @@ page {
       display: block; }
   .cart-account .total {
     flex: 1;
-    text-align: right;
-    padding-right: 20rpx;
+    padding: 0 20rpx;
     font-size: 26rpx; }
   .cart-account .calc {
     width: 190rpx;

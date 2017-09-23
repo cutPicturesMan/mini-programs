@@ -75,7 +75,7 @@
 </view>
 
 <view class="cart-account">
-  <view class="total">
+  <view class="total tar">
     合计：<text class="text-energized"><text class="small">￥</text>230</text>
   </view>
   <navigator class="calc" url="/pages/list_pay/index">提交订单</navigator>
