@@ -1,0 +1,17 @@
+.user-info{
+  height: 280rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .img{
+    width: 130rpx;
+    height: 130rpx;
+    border: 1rpx solid #e5e5e5;
+  }
+  .title{
+    margin-top: 25rpx;
+    font-size: 28rpx;
+  }
+}

@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import '../../public/css/_mixin.scss';
+@import '../../public/css/_user_info.scss';
+@import '../../public/css/_line_cell.scss';
+@import '../../public/css/_product_item.scss';
+
+page{
+  padding-bottom:100rpx;
+}
+
+.line-cell{
+  font-size: 28rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  input{
+    width: 100%;
+  }
+}
+

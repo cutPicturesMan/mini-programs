@@ -24,6 +24,8 @@ Page({
       list[index].quantity = 1;
     }
 
+    list[index].itemPrice = (list[index].quantity * list[index].price).toFixed(2);
+
     this.setData({
       list: list
     });
@@ -53,6 +55,7 @@ Page({
     }
 
     list[index].quantity = num;
+    list[index].itemPrice = (list[index].quantity * list[index].price).toFixed(2);
 
     this.setData({
       list: list
@@ -75,6 +78,8 @@ Page({
         image: '../../icons/close-circled.png'
       })
     }
+
+    list[index].itemPrice = (list[index].quantity * list[index].price).toFixed(2);
 
     this.setData({
       list: list
@@ -209,7 +214,7 @@ Page({
     });
 
     this.setData({
-      totalPrice: totalPrice
+      totalPrice: totalPrice.toFixed(2)
     });
   },
   // 获取购物车数据
@@ -225,6 +230,7 @@ Page({
         item.isEditPattern = false;
         item.isSelected = false;
         item.isShowDetail = false;
+        item.itemPrice = (item.quantity * item.price).toFixed(2);
       });
 
       this.setData({

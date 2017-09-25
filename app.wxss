@@ -16,6 +16,9 @@
 .tac {
   text-align: center; }
 
+.tar {
+  text-align: right; }
+
 .small {
   font-size: 75%; }
 

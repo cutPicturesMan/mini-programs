@@ -29,11 +29,10 @@ Page({
   },
   // 获取商品数据
   getData (id) {
-    id = 1;
     wx.showLoading();
 
     http.request({
-      url: `${api.product}${id || 932}`,
+      url: `${api.product}${id}`,
     }).then((res) => {
       wx.hideLoading();
 
@@ -47,7 +46,7 @@ Page({
   // 获取商品规格
   getSku (id) {
     http.request({
-      url: `${api.product_sku}${id || 932}`,
+      url: `${api.product_sku}${id}`,
     }).then((res) => {
       wx.hideLoading();
 
@@ -202,6 +201,7 @@ Page({
     });
   },
   onLoad: function (url) {
+    console.log(url);
     this.getData(url.id);
   }
 })

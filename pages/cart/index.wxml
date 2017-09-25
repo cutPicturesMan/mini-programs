@@ -41,7 +41,7 @@
       <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="conformEdit" hidden="{{!item.isEditPattern}}">完成</text>
       <view class="btns-group">
         <text class="sign">￥</text>
-        <text class="price pr50">{{item.quantity * item.price}}</text>
+        <text class="price pr50">{{item.itemPrice}}</text>
       </view>
     </view>
   </view>
@@ -64,4 +64,3 @@
     <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>
 </view>
-

@@ -79,7 +79,7 @@ Page({
 
     wx.showLoading();
     http.request({
-      url: `${api.category_products}/${nav[navIndex].id}`,
+      url: `${api.category_products}${nav[navIndex].id}`,
       data: {
         page: page,
         size: size,

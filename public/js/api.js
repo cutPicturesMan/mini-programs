@@ -21,6 +21,8 @@ let api = {
   address: '/address',
   // 获取默认收货地址
 
+  // 增加客户
+  add_customer: '/wx/info',
   // 登录
   login: '/wx/login',
   // 个人中心

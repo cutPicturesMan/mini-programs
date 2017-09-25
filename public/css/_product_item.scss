@@ -1,0 +1,36 @@
+.product-item{
+  padding: 24rpx;
+  .item-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title{
+      font-size: 28rpx;
+      color: #333;
+    }
+    .content{
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1;
+      .input{
+        width: 155rpx;
+        height: 60rpx;
+        text-align: center;
+        border: 2rpx solid #dedede;
+        border-radius: 10rpx;
+        display: inline-block;
+      }
+    }
+  }
+  .item-detail{
+    color: #999;
+    font-size: 24rpx;
+    display: flex;
+    .c{
+      text-align: center;
+      flex: 1;
+    }
+  }
+}
