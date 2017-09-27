@@ -1,5 +1,5 @@
 <view class="person-info">
-  <image class="icon" src="{{user.avatarUrl}}"></image>
+  <image class="icon" src="{{user.avatarUrl || '../../icons/img-none.png'}}" wx:if="{{user.avatarUrl}}"></image>
   <text class="name">{{user.nickName}}</text>
 </view>
 <view class="person-account mt18">
@@ -22,11 +22,11 @@
     <image class="icon" src="../../icons/icon-person3.png"></image>
     <text class="title">账户充值</text>
   </navigator>
-  <navigator url="/pages/order_search/index?index=10" class="category-item">
+  <navigator url="/pages/order_search_result/index?status={{FINISHED}}" class="category-item">
     <image class="icon" src="../../icons/icon-person4.png"></image>
     <text class="title">退货订单</text>
   </navigator>
-  <navigator url="/pages/sales_return_fill/index" class="category-item">
+  <navigator url="/pages/order_search_result/index?status={{FINISHED}}" class="category-item">
     <image class="icon" src="../../icons/icon-person5.png"></image>
     <text class="title">申请退货</text>
   </navigator>

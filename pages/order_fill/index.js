@@ -19,7 +19,7 @@ Page({
     // remark临时输入值
     remarkText: '',
     // 特价
-    cheapMoney: '',
+    offerPrice: '',
     // 最后提交的remark
     remark: '',
     // 收货地址
@@ -59,6 +59,12 @@ Page({
 
     this.switchRemark();
   },
+  // 输入特价
+  inputOfferPrice: function (e) {
+    this.setData({
+      offerPrice: e.detail.value
+    })
+  },
   // 选择日期
   bindDateChange: function (e) {
     this.setData({
@@ -84,7 +90,7 @@ Page({
 
       this.setData({
         order: res.data,
-        cheapMoney: res.data.amount,
+        offerPrice: res.data.amount,
         totalCount: totalCount
       });
     });
@@ -158,7 +164,7 @@ Page({
   },
   // 提交订单
   submit () {
-    let { id, remark, cheapMoney, address, date, isSubmit } = this.data;
+    let { id, remark, offerPrice, address, date, isSubmit } = this.data;
 
     // 正在提交中，请勿重复提交
     if (isSubmit) {
@@ -174,7 +180,7 @@ Page({
         throw new Error(`订单id无效，id=${id}`);
       }
       // 如果特价为空，则提示
-      if (cheapMoney === '') {
+      if (offerPrice === '') {
         throw new Error('特价未填写');
       }
       // 如果收货地址为空，则提示
@@ -203,11 +209,9 @@ Page({
         addressId: address[0].id,
         remarks: remark,
         deliveryDate: new Date(date).getTime(),
-        offerPrice: cheapMoney
+        offerPrice: offerPrice
       }
     }).then((res) => {
-      wx.hideLoading();
-
       if (res.errorCode === 200) {
         wx.showToast({
           title: res.moreInfo || '恭喜你，订单创建成功'

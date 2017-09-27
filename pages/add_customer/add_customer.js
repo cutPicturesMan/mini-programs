@@ -155,8 +155,6 @@ Page({
         adminId
       }
     }).then((res) => {
-      wx.hideLoading();
-
       // 提交成功，则跳转到待处理页面
       if (res.errorCode === 200) {
         wx.showToast({

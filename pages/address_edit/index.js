@@ -104,8 +104,6 @@ Page({
         isDefault: this.data.isDefault
       }
     }).then((res) => {
-      wx.hideLoading();
-
       // 如果字段填写错误
       if (res.errors && res.errors.length != 0) {
         wx.showToast({

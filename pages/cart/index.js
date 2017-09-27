@@ -14,6 +14,29 @@ Page({
     // 是否提交中
     isSubmit: false
   },
+  // 获取购物车数据
+  getData () {
+    wx.showLoading();
+    http.request({
+      url: api.cart
+    }).then((res) => {
+      wx.hideLoading();
+
+      // 为每个数据添加编辑模式标识、选中标识、显示详情标识
+      res.data.forEach((item, key) => {
+        item.isEditPattern = false;
+        item.isSelected = false;
+        item.isShowDetail = false;
+        item.itemPrice = (item.quantity * item.price).toFixed(2);
+      });
+      this.setData({
+        isSelectAll: false,
+        list: res.data
+      });
+
+      this.countTotalPrice();
+    });
+  },
   // 购物车减
   reduce (e) {
     let list = this.data.list;
@@ -165,8 +188,6 @@ Page({
       url: `${api.cart}/${id}`,
       method: 'DELETE'
     }).then((res) => {
-      wx.hideLoading();
-
       if (res.errorCode === 200) {
         wx.showToast({
           title: res.moreInfo || '删除成功',
@@ -217,29 +238,6 @@ Page({
       totalPrice: totalPrice.toFixed(2)
     });
   },
-  // 获取购物车数据
-  getData () {
-    wx.showLoading();
-    http.request({
-      url: api.cart
-    }).then((res) => {
-      wx.hideLoading();
-
-      // 为每个数据添加编辑模式标识、选中标识、显示详情标识
-      res.data.forEach((item, key) => {
-        item.isEditPattern = false;
-        item.isSelected = false;
-        item.isShowDetail = false;
-        item.itemPrice = (item.quantity * item.price).toFixed(2);
-      });
-
-      this.setData({
-        list: res.data
-      });
-
-      this.countTotalPrice();
-    });
-  },
   // 结算
   submit () {
     let { list, isSubmit } = this.data;
@@ -280,8 +278,6 @@ Page({
         cartIds: cartIds
       }
     }).then((res) => {
-      wx.hideLoading();
-
       if (res.errorCode === 200) {
         wx.showToast({
           title: res.moreInfo || '恭喜你，提交成功'

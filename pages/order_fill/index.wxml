@@ -13,7 +13,7 @@
     <view class="row">
       <view class="title">申请特价</view>
       <view class="content">
-        <input value="{{cheapMoney}}" placeholder="请输入"/>
+        <input value="{{offerPrice}}" placeholder="请输入" bindinput="inputOfferPrice"/>
       </view>
     </view>
   </view>
@@ -116,7 +116,7 @@
 
 <view class="cart-account">
   <view class="total tar">
-    应付金额：<text class="text-energized"><text class="small">￥</text>{{order.amount}}</text>
+    应付金额：<text class="text-energized"><text class="small">￥</text>{{offerPrice}}</text>
   </view>
   <view class="calc {{ isSubmit ? '' : 'active'}}" bindtap="submit">提交订单</view>
 </view>

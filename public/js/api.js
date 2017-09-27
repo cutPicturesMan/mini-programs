@@ -23,6 +23,8 @@ let api = {
 
   // 增加客户
   add_customer: '/wx/info',
+  // 获取所有支付方式，id
+  pay: '/pay/',
   // 登录
   login: '/wx/login',
   // 个人中心

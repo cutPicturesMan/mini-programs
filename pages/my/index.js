@@ -1,8 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import STATUS from '../../public/js/status.js';
 
 Page({
   data: {
+    ...STATUS,
     user: {}
   },
   //事件处理函数

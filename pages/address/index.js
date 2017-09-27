@@ -45,7 +45,6 @@ Page({
             isDefault: 1,
           },
         }).then((res) => {
-          wx.hideLoading();
           wx.showToast({
             title: res.moreInfo,
           })
@@ -107,8 +106,6 @@ Page({
             },
             method: 'DELETE'
           }).then((res) => {
-            wx.hideLoading();
-
             if (res.errorCode === 200) {
               wx.showToast({
                 title: res.moreInfo,

@@ -50,7 +50,7 @@
         line-height: 32rpx;
         color: #999;
         font-size: 22rpx;
-        padding: 5rpx; }
+        padding: 0 5rpx; }
         .list-section .list-item .content .descrip-container .descrip-list.short {
           height: 64rpx;
           overflow: hidden; }

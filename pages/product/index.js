@@ -15,29 +15,48 @@ Page({
     // 是否正在提交中
     isSubmit: false,
     bannerSlider: {
-      imgUrls: [
-        '../../testimg/good.jpg',
-        '../../testimg/good.jpg',
-        '../../testimg/good.jpg'
-      ],
+      imgUrls: [],
       indicatorDots: true,
       circular: true,
       autoplay: false,
       interval: 3000,
       duration: 500
     },
+    // 数据是否加载完毕
+    isLoaded: false
   },
   // 获取商品数据
   getData (id) {
-    wx.showLoading();
+    let { bannerSlider } = this.data;
 
+    wx.showLoading();
     http.request({
       url: `${api.product}${id}`,
     }).then((res) => {
       wx.hideLoading();
 
+      let skuMedia = res.data.skuMedia;
+      let imgs = [];
+      let skuMediaKey = Object.keys(skuMedia);
+
+      // 如果找到了主图的key，则放在第一位
+      let mainImgIndex = skuMediaKey.indexOf('primary');
+      if(!!~mainImgIndex){
+        skuMediaKey.splice(mainImgIndex, 1);
+        skuMediaKey.unshift('primary');
+      }
+
+      skuMediaKey.forEach((key) => {
+        // 如果不存在图片地址，则赋值一个默认的图片
+        imgs.push(skuMedia[key].url ? skuMedia[key].url : '../../icons/img-none.png');
+      });
+
+      bannerSlider.imgUrls = imgs;
+
       this.setData({
-        product: res.data
+        bannerSlider,
+        product: res.data,
+        isLoaded: true
       });
 
       this.getSku(id);
@@ -172,8 +191,6 @@ Page({
         skuId: sku[skuIndex].skuId
       }
     }).then((res) => {
-      wx.hideLoading();
-
       if (res.errorCode === 200) {
         wx.showToast({
           title: res.data,
@@ -184,6 +201,7 @@ Page({
             url: '/pages/cart/index',
             success: (e) => {
               var page = getCurrentPages().pop();
+              console.log(page);
               if (page == undefined || page == null) return;
               page.onLoad();
             }
@@ -200,8 +218,17 @@ Page({
       }
     });
   },
-  onLoad: function (url) {
-    console.log(url);
-    this.getData(url.id);
+  onLoad: function (params) {
+    console.log('product');
+    // 测试用，正式上线删除
+    !params.id && (params.id = 324);
+    if (params.id) {
+      this.getData(params.id);
+    } else {
+      wx.showToast({
+        title: '请传入商品id',
+        image: '../../icons/close-circled.png'
+      })
+    }
   }
 })

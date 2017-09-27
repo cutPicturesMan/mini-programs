@@ -1,89 +1,91 @@
-<navigator class="add-cart" open-type="switchTab" url="/pages/cart/index"
->
-  <image src="../../icons/icon-shopcar.png"/>
-</navigator>
-<swiper class="banner-slide"
-        indicator-dots="{{bannerSlider.indicatorDots}}"
-        indicator-color="rgba(0,0,0,0.5)"
-        indicator-active-color="#ff4400"
-        circular="{{bannerSlider.circular}}"
-        autoplay="{{bannerSlider.autoplay}}"
-        interval="{{bannerSlider.interval}}"
-        duration="{{bannerSlider.duration}}">
-  <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
-    <swiper-item>
-      <image src="{{item}}"/>
-    </swiper-item>
-  </block>
-</swiper>
-<view class="product-info">
-  <view class="title">{{product.name}}</view>
-  <view class="price text-energized">
-    <text class="small">￥</text>{{ skuIndex >= 0 ? sku[skuIndex].rp : '查询中...'}}
-  </view>
-  <view class="number">货号：{{product.number || '暂无'}}</view>
-  <view class="number">市场价：
-    {{ skuIndex >= 0
-      ? (sku[skuIndex].sp !== null ? sku[skuIndex].sp : '暂无' )
-      : '查询中...'}}
-  </view>
-  <view class="number">单位：{{product.unit || '暂无'}}</view>
-  <view class="number">生产商：{{product.manufacturer || '暂无'}}</view>
-  <view class="number">产地：{{product.origin || '暂无'}}</view>
-  <view class="number">描述：{{product.description || '暂无'}}</view>
-</view>
-<view class="product-sku mt18">
-  <view>
-    <view class="sku-title">选择</view>
-    <view>
-      <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
-            wx:for="{{sku}}"
-            wx:key="{{id}}"
-            data-index="{{index}}"
-            bindtap="selectSku">{{item.title}}</view>
-    </view>
-  </view>
-  <view>
-    <view class="sku-title">订购</view>
-    <view class="opera-container">
-      <view class="opera-btns">
-        <view class="reduce-btn" bindtap="reduce">
-          <image src="../../icons/icon-reduce.png"></image>
-        </view>
-        <input class="count" type="number" value="{{num}}" bindinput="inputNumber"/>
-        <view class="add-btn" bindtap="add">
-          <image src="../../icons/icon-add.png"></image>
-        </view>
-      </view>
-      <text class="unit">件</text>
-      <text class="unit">剩余 {{sku[skuIndex].q}} 件</text>
-    </view>
-  </view>
-</view>
-<view class="product-intro mt18">
-  <view class="intro-title">
-    <text>产品详情</text>
-  </view>
-  <view class="intro-content">
-    <block wx:if="{{product.longDescription}}">{{product.longDescription}}</block>
-    <block wx:if="{{!product.longDescription}}">
-      <view class="fs20 pt15 pb60 tac text-stable">暂无描述详情</view>
+<block wx:if="{{isLoaded}}">
+  <navigator class="add-cart" open-type="switchTab" url="/pages/cart/index"
+  >
+    <image src="../../icons/icon-shopcar.png"/>
+  </navigator>
+  <swiper class="banner-slide"
+          indicator-dots="{{bannerSlider.indicatorDots}}"
+          indicator-color="rgba(0,0,0,0.5)"
+          indicator-active-color="#ff4400"
+          circular="{{bannerSlider.circular}}"
+          autoplay="{{bannerSlider.autoplay}}"
+          interval="{{bannerSlider.interval}}"
+          duration="{{bannerSlider.duration}}">
+    <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}"/>
+      </swiper-item>
     </block>
+  </swiper>
+  <view class="product-info">
+    <view class="title">{{product.name}}</view>
+    <view class="price text-energized">
+      <text class="small">￥</text>{{ skuIndex >= 0 ? sku[skuIndex].rp : '查询中...'}}
+    </view>
+    <view class="number">货号：{{product.number || '暂无'}}</view>
+    <view class="number">市场价：
+      {{ skuIndex >= 0
+        ? (sku[skuIndex].sp !== null ? sku[skuIndex].sp : '暂无' )
+        : '查询中...'}}
+    </view>
+    <view class="number">单位：{{product.unit || '暂无'}}</view>
+    <view class="number">生产商：{{product.manufacturer || '暂无'}}</view>
+    <view class="number">产地：{{product.origin || '暂无'}}</view>
+    <view class="number">描述：{{product.description || '暂无'}}</view>
   </view>
-</view>
-<view class="opera-panel">
-  <view class="collect">
-    <image src="../../icons/icon-collect.png"></image>
+  <view class="product-sku mt18">
+    <view>
+      <view class="sku-title">选择</view>
+      <view>
+        <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
+              wx:for="{{sku}}"
+              wx:key="{{id}}"
+              data-index="{{index}}"
+              bindtap="selectSku">{{item.title}}</view>
+      </view>
+    </view>
+    <view>
+      <view class="sku-title">订购</view>
+      <view class="opera-container">
+        <view class="opera-btns">
+          <view class="reduce-btn" bindtap="reduce">
+            <image src="../../icons/icon-reduce.png"></image>
+          </view>
+          <input class="count" type="number" value="{{num}}" bindinput="inputNumber"/>
+          <view class="add-btn" bindtap="add">
+            <image src="../../icons/icon-add.png"></image>
+          </view>
+        </view>
+        <text class="unit">件</text>
+        <text class="unit">剩余 {{sku[skuIndex].q}} 件</text>
+      </view>
+    </view>
   </view>
-  <view class="share">
-    <image src="../../icons/icon-share.png"></image>
+  <view class="product-intro mt18">
+    <view class="intro-title">
+      <text>产品详情</text>
+    </view>
+    <view class="intro-content">
+      <block wx:if="{{product.longDescription}}">{{product.longDescription}}</block>
+      <block wx:if="{{!product.longDescription}}">
+        <view class="fs20 pt15 pb60 tac text-stable">暂无描述详情</view>
+      </block>
+    </view>
   </view>
-  <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
-        hidden="{{isSubmit}}"
-        bindtap="buy">
-    {{(skuIndex >= 0 && num <= sku[skuIndex].q) ? '加入购物车' : ''}}
-    {{ skuIndex < 0 ? '未设置规格' : ''}}
-    {{ num > sku[skuIndex].q ? '库存不足' : ''}}
+  <view class="opera-panel">
+    <view class="collect">
+      <image src="../../icons/icon-collect.png"></image>
+    </view>
+    <view class="share">
+      <image src="../../icons/icon-share.png"></image>
+    </view>
+    <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
+          hidden="{{isSubmit}}"
+          bindtap="buy">
+      {{(skuIndex >= 0 && num <= sku[skuIndex].q) ? '加入购物车' : ''}}
+      {{ skuIndex < 0 ? '未设置规格' : ''}}
+      {{ num > sku[skuIndex].q ? '库存不足' : ''}}
+    </view>
+    <view class="buy" hidden="{{!isSubmit}}">提交中...</view>
   </view>
-  <view class="buy" hidden="{{!isSubmit}}">提交中...</view>
-</view>
+</block>

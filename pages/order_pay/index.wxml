@@ -1,72 +1,64 @@
-<view class="info-section">
-  <view class="info-item bb">
-    <view class="title">订单金额</view>
-    <view class="text">69.00</view>
-  </view>
-  <view class="info-item">
-    <view class="title">待付金额</view>
-    <view class="text">69.00</view>
-  </view>
-</view>
-<view class="info-section mt18">
-  <view class="info-item bb">
-    <view class="title">账号余额</view>
-    <view class="text">214,567.00</view>
-  </view>
-  <view class="info-item">
-    <view class="title">账号返点</view>
-    <view class="text">69.00</view>
-  </view>
-</view>
-<view class="select-label bb mt55" url="/pages/good/index">
-  <view class="ico">
-    <image src="../../icons/icon-money.png"></image>
-  </view>
-  <view class="title">现金支付</view>
-  <view class="arrow">
-    <!--<image class="icon" src="../../icons/icon-radio.png"></image>-->
-    <image class="icon" src="../../icons/icon-radio-selected.png"></image>
-  </view>
-</view>
-<view>
-  <view class="select-label bb mt25" url="/pages/good/index">
-    <view class="ico">
-      <image src="../../icons/icon-bag.png"></image>
+<block wx:if="{{isLoaded}}">
+  <view class="info-section">
+    <view class="info-item bb">
+      <view class="title">订单金额</view>
+      <view class="text">{{order.subtotal}}</view>
     </view>
-    <view class="title">账户余额支付</view>
-    <view class="sub">214,567.00</view>
-    <view class="arrow">
-      <image class="icon" src="../../icons/icon-radio.png"></image>
+    <view class="info-item">
+      <view class="title">待付金额</view>
+      <view class="text">{{order.total}}</view>
     </view>
   </view>
-  <view class="select-label bb" url="/pages/good/index">
-    <view class="ico">
-      <image src="../../icons/icon-day.png"></image>
+  <view class="info-section mt18" wx:if="{{false}}">
+    <view class="info-item bb">
+      <view class="title">账号余额</view>
+      <view class="text">214,567.00</view>
     </view>
-    <view class="title">账期支付</view>
-    <view class="sub">最晚下个月1号结清</view>
-    <view class="arrow">
-      <image class="icon" src="../../icons/icon-radio.png"></image>
-    </view>
-  </view>
-  <view class="select-label bb" url="/pages/good/index">
-    <view class="ico">
-      <image src="../../icons/icon-wx-disabled.png"></image>
-    </view>
-    <view class="title">微信支付</view>
-    <view class="sub">开通公众号后可用</view>
-    <view class="arrow">
-      <image class="icon" src="../../icons/icon-radio.png"></image>
+    <view class="info-item">
+      <view class="title">账号返点</view>
+      <view class="text">69.00</view>
     </view>
   </view>
-</view>
-<view class="plr30 mt110">
-  <view class="btn btn-full btn-energized-linear" bindtap="pay">确认支付</view>
-</view>
-<view class="app-prompt" wx:if="{{payState!=0}}">
-  <view class="prompt-container">
-    <image src="../../icons/icon-laught.png"></image>
-    <view class="text">支 付 成 功</view>
-    <navigator url="/pages/order/index" open-type="switchTab" class="btn btn-large btn-energized-linear">完成</navigator>
+  <view>
+    <view class="select-label bb {{index === 0 ? 'mt25' : 0}}"
+          wx:for="{{payType}}"
+          wx:key="{{index}}"
+          data-index="{{index}}"
+          bindtap="selectPayType">
+      <view class="ico">
+        <block wx:if="{{item.type === CASH_GATEWAY}}">
+          <image src="../../icons/icon-bag.png"></image>
+        </block>
+        <block wx:if="{{item.type === PTPAY_GATEWAY}}">
+          <image src="../../icons/icon-money.png"></image>
+        </block>
+        <block wx:if="{{item.type === CYCLE_GATEWAY}}">
+          <image src="../../icons/icon-day.png"></image>
+        </block>
+        <block wx:if="{{item.type === WXPAY_GATEWAY}}">
+          <!--<image src="../../icons/icon-wx-disabled.png"></image>-->
+          <image src="../../icons/icon-wx.png"></image>
+        </block>
+      </view>
+      <view class="title">{{item.friendlyType}}</view>
+      <view class="arrow">
+        <image class="icon" src="{{ payIndex === index ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+      </view>
+    </view>
   </view>
-</view>
+  <view class="plr30 mt110">
+    <block wx:if="{{payType.length === 0}}">
+      <view class="btn btn-full btn-stable">暂无支付方式，无法完成支付</view>
+    </block>
+    <block wx:else>
+      <view class="btn btn-full btn-energized-linear" bindtap="submit">{{isSubmit ? '正在提交中...' : '确认支付'}}</view>
+    </block>
+  </view>
+  <view class="app-prompt" wx:if="{{payState!=0}}">
+    <view class="prompt-container">
+      <image src="../../icons/icon-laught.png"></image>
+      <view class="text">支 付 成 功</view>
+      <view class="btn btn-large btn-energized-linear" bindtap="switchOrderPage">完成</view>
+    </view>
+  </view>
+</block>

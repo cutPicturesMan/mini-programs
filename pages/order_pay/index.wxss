@@ -11,6 +11,7 @@
   background-color: #fff;
   padding: 0 20rpx; }
   .info-section .info-item {
+    min-height: 50rpx;
     line-height: 50rpx;
     padding: 17rpx 0;
     color: #444; }

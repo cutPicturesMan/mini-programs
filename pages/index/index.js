@@ -44,17 +44,7 @@ Page({
       url: `/pages/search_result/index?key=${e.detail.value}`,
     });
   },
-  onLoad: function () {
-    let sessionId = wx.getStorageSync('sessionId');
+  onLoad () {
 
-    wx.request({
-      url: api.category_products + 4,
-      header: {
-        cookie: `SESSION=${sessionId}`
-      },
-      success: (res) => {
-        console.log(res);
-      }
-    });
   }
 })

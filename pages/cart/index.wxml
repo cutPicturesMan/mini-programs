@@ -5,7 +5,7 @@
         <image src="{{item.isSelected ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
       </view>
       <navigator class="item-img" url="/pages/product/index">
-        <image src="../../testimg/list.jpg"></image>
+        <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
       </navigator>
       <view class="content">
         <view class="opera-btns mb60" hidden="{{!item.isEditPattern}}">

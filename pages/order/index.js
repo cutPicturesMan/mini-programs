@@ -2,20 +2,10 @@ import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 import STATUS from '../../public/js/status.js';
 
-
 Page({
   data: {
-    // 顶部订单状态tab切换
-    // 0 表示已提交的订单
-    // 1 表示历史订单
+    ...STATUS,
     tabIndex: 0,
-    tabList: [{
-      name: '当前订单',
-      status: 0
-    }, {
-      name: '历史订单',
-      status: 8
-    }],
     // 订单数据
     list: [],
     // 当前页码
@@ -31,14 +21,14 @@ Page({
   },
   // 切换顶部订单状态tab
   switchTabs(e){
-    let { index, item } = e.currentTarget.dataset;
+    let { index, status } = e.currentTarget.dataset;
 
     this.setData({
       tabIndex: index,
       page: 0,
       isMore: true,
       isLoadingMore: false,
-      status: STATUS[item.status]
+      status
     });
 
     this.getData();
@@ -48,12 +38,8 @@ Page({
     let { page, size, status } = this.data;
     let params = {
       page,
-      size
-    }
-
-    // 根据订单状态查询
-    if(status){
-      Object.assign(params, {status});
+      size,
+      status
     }
 
     wx.showLoading();
@@ -64,7 +50,8 @@ Page({
       wx.hideLoading();
 
       this.setData({
-        list: res.data
+        list: res.data,
+        isMore: res.data.length < size ? false : true
       });
     });
   },
