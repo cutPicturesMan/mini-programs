@@ -23,7 +23,7 @@ Page({
       {
         id: 3,
         code: 'EXAMINE_FINANCE',
-        name: '财务审核'
+        name: '仓管审核'
       },
       {
         id: 4,
@@ -33,7 +33,7 @@ Page({
       {
         id: 5,
         code: 'PAID',
-        name: '已经支付'
+        name: '财务审核'
       },
       {
         id: 6,

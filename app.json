@@ -8,6 +8,7 @@
 
     "pages/add_customer/add_customer",
 
+
     "pages/order_pay/index",
     "pages/order_log/index",
     "pages/order_remark/index",
