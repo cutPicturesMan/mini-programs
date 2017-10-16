@@ -12,12 +12,19 @@
 	"projectname": "%E7%84%99%E4%BA%91%E4%BE%9B%E5%BA%94%E9%93%BE",
 	"condition": {
 		"weapp": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "个人中心",
-					"pathName": "pages/my/index"
+					"pathName": "pages/my/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/registry/registry",
+					"query": ""
 				}
 			]
 		},

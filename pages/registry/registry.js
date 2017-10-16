@@ -65,25 +65,6 @@ Page({
       address: e.detail.value
     })
   },
-  // 选择收货地址
-  chooseAddress () {
-    wx.chooseAddress({
-      success: (res) => {
-        this.setData({
-          isAllowAddress: true,
-          name: res.userName,
-          phone: res.telNumber,
-          address: res.provinceName + ' ' + res.cityName + ' ' + res.countyName + ' ' + res.detailInfo
-        });
-      },
-      fail: () => {
-        // 有2种状态会引发fail
-        // 第一种是拒绝授予收货地址权限
-        // 第二种是授予权限了，在收货地址页点击取消时，也会触发fail，这不是我们想要的
-        // 因此fail函数不作处理
-      }
-    })
-  },
   // 提交数据
   submit () {
     // 防止重复提交
@@ -195,42 +176,22 @@ Page({
       }
     });
   },
-  // 查询一下用户是否授权了 收货地址 接口
-  checkAddress () {
-    wx.getSetting({
-      success: (res) => {
-        if (!res.authSetting['scope.address']) {
-          wx.authorize({
-            scope: 'scope.address',
-            success: () => {
-              this.setData({
-                isAllowAddress: true
-              });
-            },
-            fail: () => {
-              this.setData({
-                isAllowAddress: false
-              });
-            }
-          })
-        } else {
-          this.setData({
-            isAllowAddress: true
-          });
-        }
-      }
-    })
-  },
-  onShow () {
-    this.checkAddress();
-  },
-  onLoad (options) {
-    var scene = decodeURIComponent(options.scene);
+  onLoad (params) {
+    // 默认业务员id为1
+    let adminId = 1;
+
+    // 如果是通过扫码进来的
+    if(params.scene){
+      let scene = decodeURIComponent(params.scene);
+      scene.adminId && (adminId = scene.adminId);
+    } else {
+      params.adminId && (adminId = params.adminId);
+    }
+
     this.setData({
-      adminId: scene.adminId || 3
+      adminId
     });
 
-    this.checkAddress();
     this.getUserInfo();
   }
 })
