@@ -1,13 +1,11 @@
 {
   "pages":[
+
     "pages/index/index",
     "pages/category/index",
     "pages/cart/index",
     "pages/order/index",
     "pages/my/index",
-
-    "pages/add_customer/add_customer",
-
 
     "pages/order_pay/index",
     "pages/order_log/index",
@@ -26,6 +24,8 @@
     "pages/release_record/index",
     "pages/release_list/index",
     "pages/company_info/index",
+
+    "pages/registry/registry",
 
     "pages/account_balance/index",
     "pages/recharge/index",

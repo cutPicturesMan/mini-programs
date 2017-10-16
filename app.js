@@ -1,42 +1,40 @@
-// 电商端小程序
-// appid: wxc4e5ae5a69b4faff
-// appsecret: acceb78d9e0af3ac63ab15408e970566
+import http from './public/js/http.js';
+import api from './public/js/api.js';
 
 App({
-  globalData: {
-    userInfo: null,
-    // 全局的sessionId
-    sessionId: wx.getStorageSync('sessionId') || null
-  },
-  //
-  // onLaunch () {
-  //   // 检查登录状态
-  //   wx.checkSession({
-  //     success: () => {
-  //       console.log('checkSession 成功');
-  //       this.logs(new Date() + '登录成功');
-  //     },
-  //     fail: () => {
-  //       console.log('checkSession 失败');
-  //       // 如果失败，重新登录
-  //       this.login();
-  //     }
-  //   });
-  // },
+  // 用户信息
+  userInfo: null,
+  // 获取用户信息，返回一个promise
+  getUserInfo () {
+    let p = new Promise((resolve, reject) => {
+      // 如果还未获取用户角色，则请求并设置
+      if (!this.userInfo) {
+        wx.showLoading();
 
-  getUserInfo: function (cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: false,
-        success: function (res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
-      })
-    }
-  },
+        http.request({
+          url: api.user
+        }).then((res) => {
+          let userInfo = res.data;
+          wx.hideLoading();
+
+          if (res.errorCode === 200) {
+            // 设置用户信息
+            this.userInfo = res.data;
+            resolve(res.data);
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '用户数据获取失败，请重新进入小程序'
+            })
+            reject(res.data);
+          }
+        });
+      } else {
+        // 已经请求过用户角色，则直接返回用户数据
+        resolve(this.userInfo);
+      }
+    })
+
+    return p;
+  }
 })

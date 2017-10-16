@@ -1,3 +1,24 @@
+<!--如果用户角色数据请求完毕-->
+<block wx:if="{{userInfo.status}}">
+  <!--如果用户审核通过(1)，则进入系统-->
+  <block wx:if="{{userInfo.status.id == 1}}">
+
+  </block>
+  <!--否则-->
+  <block wx:else>
+    <view class="empty-data">
+      <!--如果正在审核中(2)、则页面显示正在审核，不进入系统-->
+      <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
+      <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
+      <block wx:else>
+        <view class="p20 tac fs32 text-stable">对不起，您暂未注册，请扫码注册</view>
+      </block>
+    </view>
+  </block>
+</block>
+
+
+
 <view class="empty-data" wx:if="{{list.length === 0}}">
   <view class="p20 tac text-stable fs32">空空如也~</view>
   <view class="tac">

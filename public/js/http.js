@@ -70,7 +70,7 @@ class Http extends Auth {
         fail(res){
           // 请求错误
           wx.showToast({
-            title: res.data.moreinfo,
+            title: res.errMsg,
             image: '../../icons/close-circled.png'
           })
         }

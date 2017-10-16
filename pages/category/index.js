@@ -105,7 +105,7 @@ Page({
   loadmore () {
     let { page, isMore, isLoadingMore } = this.data;
 
-    // 如果正在加载更多数据，则不执行操作
+    // 如果没有更多数据，则不执行操作
     if (!isMore) {
       return false;
     }
