@@ -11,7 +11,7 @@
       <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
       <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
       <block wx:else>
-        <view class="p20 tac fs32 text-stable">对不起，您暂未注册，请扫码注册</view>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
       </block>
     </view>
   </block>

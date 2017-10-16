@@ -3,14 +3,14 @@
   <!--如果用户审核通过(1)，则进入系统-->
   <block wx:if="{{userInfo.status.id == 1}}">
     <view class="person-info">
-      <image class="icon" src="{{user.avatarUrl || '../../icons/img-none.png'}}" wx:if="{{user.avatarUrl}}"></image>
-      <text class="name">{{user.nickName}}</text>
+      <image class="icon" src="{{userInfo.avatarUrl || '../../icons/img-none.png'}}" wx:if="{{userInfo.avatarUrl}}"></image>
+      <text class="name">{{userInfo.nickName}}</text>
     </view>
     <view class="person-account mt18">
       <image class="bg" src="../../icons/person-bg.jpg"></image>
       <view class="account-container">
         <view class="title">账户余额</view>
-        <view class="num">￥{{user.amount}}</view>
+        <view class="num">￥{{userInfo.amount}}</view>
       </view>
     </view>
     <view class="person-category mt18">
@@ -65,7 +65,7 @@
       <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
       <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
       <block wx:else>
-        <view class="p20 tac fs32 text-stable">对不起，您暂未注册，请扫码注册</view>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
       </block>
     </view>
   </block>
