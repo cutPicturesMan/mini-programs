@@ -47,7 +47,7 @@
   vertical-align: middle; }
 
 .clear:after {
-  content: '.';
+  content: '';
   clear: both;
   display: block;
   height: 0;
@@ -1899,5 +1899,9 @@
 page {
   box-sizing: border-box;
   background: #f2f2f2; }
+
+.no-img {
+  width: 73rpx;
+  height: 64rpx; }
 
 /*# sourceMappingURL=app.wxss.map */

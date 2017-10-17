@@ -1,5 +1,6 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import utils from '../../public/js/utils.js';
 
 let app = getApp();
 
@@ -60,7 +61,6 @@ Page({
   },
   // 输入地址
   bindAddressInput (e) {
-    console.log(e.detail.value);
     this.setData({
       address: e.detail.value
     })
@@ -136,11 +136,17 @@ Page({
         adminId
       }
     }).then((res) => {
-      // 提交成功，则跳转到待处理页面
+      // 提交成功，则跳转到首页
       if (res.errorCode === 200) {
         wx.showToast({
           title: res.data.status.friendlyType || '提交成功'
         })
+
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/index/index'
+          });
+        }, 1500);
       } else {
         // 提交失败，则提示
         wx.showToast({
@@ -182,7 +188,7 @@ Page({
 
     // 如果是通过扫码进来的
     if(params.scene){
-      let scene = decodeURIComponent(params.scene);
+      let scene = utils.parseQueryString(decodeURIComponent(params.scene));
       scene.adminId && (adminId = scene.adminId);
     } else {
       params.adminId && (adminId = params.adminId);

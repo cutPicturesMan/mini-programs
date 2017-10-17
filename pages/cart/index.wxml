@@ -1,66 +1,83 @@
-<view wx:if="list.length !== 0">
-  <view class="list-section mt20" wx:for="{{list}}" wx:key="{{id}}">
-    <view class="list-item">
-      <view class="sel" data-index="{{index}}" bindtap="addToEditArr">
-        <image src="{{item.isSelected ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
-      </view>
-      <navigator class="item-img" url="/pages/product/index">
-        <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
-      </navigator>
-      <view class="content">
-        <view class="opera-btns mb60" hidden="{{!item.isEditPattern}}">
-          <image class="reduce-btn" src="../../icons/icon-reduce.png"
-                 data-index="{{index}}"
-                 bindtap="reduce"></image>
-          <input class="count" type="number" value="{{item.quantity}}"
-                 data-index="{{index}}"
-                 bindinput="inputNumber"/>
-          <image class="add-btn" src="../../icons/icon-add.png"
-                 data-index="{{index}}"
-                 bindtap="add"></image>
+<!--如果用户角色数据请求完毕-->
+<block wx:if="{{userInfo.status}}">
+  <!--如果用户审核通过(1)，则进入系统-->
+  <block wx:if="{{userInfo.status.id == 1}}">
+    <view wx:if="{{list.length !== 0}}">
+      <view class="list-section mt20" wx:for="{{list}}" wx:key="{{id}}">
+        <view class="list-item">
+          <view class="sel" data-index="{{index}}" bindtap="addToEditArr">
+            <image src="{{item.isSelected ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+          </view>
+          <navigator class="item-img" url="/pages/product/index">
+            <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+          </navigator>
+          <view class="content">
+            <view class="opera-btns mb60" hidden="{{!item.isEditPattern}}">
+              <image class="reduce-btn" src="../../icons/icon-reduce.png"
+                     data-index="{{index}}"
+                     bindtap="reduce"></image>
+              <input class="count" type="number" value="{{item.quantity}}"
+                     data-index="{{index}}"
+                     bindinput="inputNumber"/>
+              <image class="add-btn" src="../../icons/icon-add.png"
+                     data-index="{{index}}"
+                     bindtap="add"></image>
+            </view>
+            <navigator class="title" url="/pages/product/index" hidden="{{item.isEditPattern}}">
+              {{item.name}}
+            </navigator>
+            <view class="descrip-container " data-index="{{index}}" bindtap="showDetail">
+              <image class="icon {{item.isShowDetail ? 'rotate' : ''}}" src="../../icons/icon-arrow-down.png"></image>
+              <view class="descrip-list {{item.isShowDetail ? '' : 'short'}}">
+                <view class="intro">数量：{{item.quantity}}</view>
+                <view class="intro">单价：￥{{item.price}}</view>
+                <view class="intro" wx:for="{{item.productOption}}" wx:key="{{item.attributeName}}">{{item.attributeName}}：{{item.attributeValue}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="delete"
+                data-index="{{index}}"
+                wx:if="{{item.isEditPattern}}"
+                bindtap="deleteItem">删除</view>
         </view>
-        <navigator class="title" url="/pages/product/index" hidden="{{item.isEditPattern}}">
-          {{item.name}}
-        </navigator>
-        <view class="descrip-container " data-index="{{index}}" bindtap="showDetail">
-          <image class="icon {{item.isShowDetail ? 'rotate' : ''}}" src="../../icons/icon-arrow-down.png"></image>
-          <view class="descrip-list {{item.isShowDetail ? '' : 'short'}}">
-            <view class="intro">数量：{{item.quantity}}</view>
-            <view class="intro">单价：￥{{item.price}}</view>
-            <view class="intro" wx:for="{{item.productOption}}" wx:key="{{item.attributeName}}">{{item.attributeName}}：{{item.attributeValue}}</view>
+        <view class="item-state">
+          <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="toggleEdit" hidden="{{item.isEditPattern}}">编辑</text>
+          <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="conformEdit" hidden="{{!item.isEditPattern}}">完成</text>
+          <view class="btns-group">
+            <text class="sign">￥</text>
+            <text class="price pr50">{{item.itemPrice}}</text>
           </view>
         </view>
       </view>
-      <view class="delete"
-            data-index="{{index}}"
-            wx:if="{{item.isEditPattern}}"
-            bindtap="deleteItem">删除</view>
-    </view>
-    <view class="item-state">
-      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="toggleEdit" hidden="{{item.isEditPattern}}">编辑</text>
-      <text class="edit pt20 pr60 pb20" data-index="{{index}}" bindtap="conformEdit" hidden="{{!item.isEditPattern}}">完成</text>
-      <view class="btns-group">
-        <text class="sign">￥</text>
-        <text class="price pr50">{{item.itemPrice}}</text>
+
+      <view class="cart-account">
+        <view class="sel" bindtap="selectAll">
+          <image src="{{isSelectAll ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+          <text class="plr15">全选</text>
+        </view>
+        <view class="total tar">
+          合计：<text class="text-energized"><text class="small">￥</text>{{totalPrice}}</text>
+        </view>
+        <view class="calc active" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>
       </view>
     </view>
-  </view>
 
-  <view class="cart-account">
-    <view class="sel" bindtap="selectAll">
-      <image src="{{isSelectAll ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
-      <text class="plr15">全选</text>
+    <view class="empty-data" wx:if="{{list.length === 0}}">
+      <view class="p20 tac fs32 text-stable">购物车空空如也</view>
+      <view class="tac">
+        <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
+      </view>
     </view>
-    <view class="total tar">
-      合计：<text class="text-energized"><text class="small">￥</text>{{totalPrice}}</text>
+  </block>
+  <!--否则-->
+  <block wx:else>
+    <view class="empty-data">
+      <!--如果正在审核中(2)、则页面显示正在审核，不进入系统-->
+      <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
+      <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
+      <block wx:else>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
+      </block>
     </view>
-    <view class="calc active" bindtap="submit">{{ isSubmit ? '提交中...' : '结算'}}</view>
-  </view>
-</view>
-
-<view class="empty-data" wx:if="{{list.length === 0}}">
-  <view class="p20 tac fs32 text-stable">购物车空空如也</view>
-  <view class="tac">
-    <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
-  </view>
-</view>
+  </block>
+</block>

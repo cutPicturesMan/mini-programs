@@ -201,7 +201,6 @@ Page({
             url: '/pages/cart/index',
             success: (e) => {
               var page = getCurrentPages().pop();
-              console.log(page);
               if (page == undefined || page == null) return;
               page.onLoad();
             }
