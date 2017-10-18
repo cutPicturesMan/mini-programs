@@ -217,10 +217,7 @@ Page({
       }
     });
   },
-  onLoad: function (params) {
-    console.log('product');
-    // 测试用，正式上线删除
-    !params.id && (params.id = 324);
+  onLoad (params) {
     if (params.id) {
       this.getData(params.id);
     } else {

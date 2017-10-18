@@ -144,13 +144,7 @@ Page({
     });
     this.getProductList()
   },
-  onShow(){
-    console.log('show');
-  },
-  onLoad (params) {
-    console.log('load');
-    console.log(params);
-
+  onShow () {
     // 获取用户的信息
     app.getUserInfo()
       .then((res) => {

@@ -20,12 +20,16 @@
             circular="{{bannerSlider.circular}}"
             autoplay="{{bannerSlider.autoplay}}"
             interval="{{bannerSlider.interval}}"
-            duration="{{bannerSlider.duration}}">
-      <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
+            duration="{{bannerSlider.duration}}"
+            wx:if="{{bannerList.length > 0}}">
+      <block wx:for="{{bannerList}}" wx:key="unique">
         <swiper-item>
-          <navigator url="/pages/product/index">
-            <image src="{{item}}"/>
-          </navigator>
+          <view data-type="{{5}}"
+                data-id="{{item.id}}"
+                data-clength="{{item.childCategory.length}}"
+                bindtap="jump">
+            <image src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url : '../../icons/icon-no-img.png'}}"/>
+          </view>
         </swiper-item>
       </block>
     </swiper>
@@ -41,7 +45,13 @@
             wx:if="{{categoryArr.length > 0}}">
       <block wx:for="{{categoryArr}}" wx:key="{{index}}">
         <swiper-item class="category-sub clear">
-          <view class="category-item" wx:for="{{item}}" wx:key="{{index}}">
+          <view class="category-item"
+                wx:for="{{item}}"
+                wx:key="{{index}}"
+                data-type="{{2}}"
+                data-id="{{item.id}}"
+                data-clength="{{item.childCategory.length}}"
+                bindtap="jump">
             <view class="link">
               <image src="{{item.icon}}"></image>
               <text class="text">{{item.name}}</text>
@@ -52,13 +62,13 @@
     </swiper>
     <!--文字轮播-->
     <swiper class="text-slider"
-            circular="{{bannerSlider.circular}}"
+            circular="{{textSlider.circular}}"
             autoplay="{{textSlider.autoplay}}"
             interval="{{textSlider.interval}}"
             duration="{{textSlider.duration}}"
             vertical="{{textSlider.vertical}}"
-            wx:if="{{textSlider.length > 0}}">
-      <block wx:for="{{textSlider.list}}" wx:key="{{index}}">
+            wx:if="{{textList.length > 0 && false}}">
+      <block wx:for="{{textList}}" wx:key="{{index}}">
         <swiper-item>
           <image src="../../icons/icon-trumpet.png" class="slide-image"/>
           <text>{{item}}</text>
@@ -72,24 +82,36 @@
         <text>推荐品牌</text>
       </view>
       <view class="content clear">
-        <navigator class="brand-item"
-                   url="/pages/shoper/index"
-                   wx:for="{{brankList}}"
-                   wx:key="{{index}}">
+        <view class="brand-item"
+               wx:for="{{brankList}}"
+               wx:key="{{index}}"
+               data-type="{{4}}"
+               data-id="{{item.id}}"
+               data-clength="{{item.childCategory.length}}"
+               bindtap="jump">
           <image class="{{item.url ? 'img' : 'no-img'}}"
-                 src="{{item.url ? item.url : '../../icons/icon-no-img.png'}}"
+                 src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url : '../../icons/icon-no-img.png'}}"
                  mode="aspectFit"></image>
-        </navigator>
+        </view>
       </view>
     </view>
     <block wx:for="{{productList}}" wx:key="{{index}}">
       <!--广告，每2个分类，就循环显示一个广告-->
-      <navigator class="ad-img mt18" url="/pages/product/index">
-        <image src="../../testimg/index2.jpg"></image>
-      </navigator>
+      <view class="ad-img mt18"
+            wx:if="{{adList[index] && adList[index].categoryMedia.primary}}"
+            data-type="{{3}}"
+            data-id="{{adList[index].id}}"
+            data-clength="{{adList[index].childCategory.length}}"
+            bindtap="jump">
+        <image src="{{adList[index].categoryMedia.primary.media.url}}"></image>
+      </view>
       <!--当前循环序号是偶数 && 子分类有商品，显示分类样式1-->
       <view class="mt18" wx:if="{{index % 2 == 0 && item.goods.length != 0}}">
-        <view class="label-act" data-id="{{item.id}}" bindtap="jumpCategory">
+        <view class="label-act"
+              data-type="{{1}}"
+              data-id="{{item.id}}"
+              data-clength="{{item.childCategory.length}}"
+              bindtap="jump">
           <view class="ico">
             <image src="{{item.url}}" wx:if="{{item.url}}"></image>
           </view>
@@ -125,7 +147,11 @@
       </view>
       <!--当前循环序号是奇数 && 子分类有商品，显示分类样式2-->
       <view class="mt18" wx:if="{{index % 2 == 1 && item.goods.length != 0}}">
-        <view class="label-act" data-id="{{item.id}}" bindtap="jumpCategory">
+        <view class="label-act"
+              data-type="{{1}}"
+              data-id="{{item.id}}"
+              data-clength="{{item.childCategory.length}}"
+              bindtap="jump">
           <view class="ico">
             <image src="{{item.url}}" wx:if="{{item.url}}"></image>
           </view>

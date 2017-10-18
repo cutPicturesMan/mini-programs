@@ -22,9 +22,9 @@
 				},
 				{
 					"id": 1,
-					"name": "注册",
-					"pathName": "pages/registry/registry",
-					"query": "adminId=4"
+					"name": "搜索页/分类商品列表页",
+					"pathName": "pages/search_result/index",
+					"query": "type=1&id=33"
 				}
 			]
 		},

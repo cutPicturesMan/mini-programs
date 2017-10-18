@@ -166,7 +166,9 @@ page {
       height: 100%; }
 
 page {
-  padding-top: 160rpx; }
+  padding-top: 178rpx;
+  box-sizing: border-box;
+  height: 100%; }
 
 .search-top {
   position: fixed;
@@ -174,5 +176,8 @@ page {
   right: 0;
   left: 0;
   z-index: 100; }
+
+.scroll-view {
+  height: 100%; }
 
 /*# sourceMappingURL=index.wxss.map */

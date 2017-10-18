@@ -42,9 +42,6 @@
         scroll-y="true"
         enable-back-to-top="true"
         bindscrolltolower="loadmore">
-        <!--<view class="ad-img">-->
-        <!--<image src="../../testimg/category1.jpg"></image>-->
-        <!--</view>-->
         <view class="good-section">
           <view class="good-item" wx:for="{{list}}" wx:key="id">
             <navigator class="good-img" url="/pages/product/index?id={{item.id}}">

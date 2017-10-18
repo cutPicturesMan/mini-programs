@@ -9,9 +9,6 @@ Page({
     searchText: '',
     // 图片轮播
     bannerSlider: {
-      imgUrls: [
-        '../../testimg/index2.jpg'
-      ],
       indicatorDots: true,
       circular: true,
       autoplay: false,
@@ -20,11 +17,6 @@ Page({
     },
     // 文字轮播
     textSlider: {
-      list: [
-        'iPhone 6定妆照确定了：长这样卖8000你会考虑吗长这样卖8000你会考虑吗长这样卖8000你会考虑吗长这样卖8000你会考虑吗？',
-        'iPhone 7定妆照确定了：长这样卖8000你会考虑吗？',
-        'iPhone 8定妆照确定了：长这样卖8000你会考虑吗？'
-      ],
       indicatorDots: true,
       circular: true,
       autoplay: false,
@@ -32,12 +24,8 @@ Page({
       duration: 500,
       vertical: true
     },
-    // 分类轮播的轮播页数量
-    categoryArr: [],
     // 分类轮播
     categorySlider: {
-      // 分类数据不在list字段里，而在下面的商品列表productList中
-      list: [],
       indicatorDots: false,
       circular: true,
       autoplay: false,
@@ -45,11 +33,21 @@ Page({
       duration: 500,
       vertical: true
     },
+    // 幻灯列表
+    bannerList: [],
+    // 文字轮播
+    textList: [
+      'iPhone 6定妆照确定了：长这样卖8000你会考虑吗长这样卖8000你会考虑吗长这样卖8000你会考虑吗长这样卖8000你会考虑吗？',
+      'iPhone 7定妆照确定了：长这样卖8000你会考虑吗？',
+      'iPhone 8定妆照确定了：长这样卖8000你会考虑吗？'
+    ],
+    // 分类轮播的轮播页数量
+    categoryArr: [],
     // 广告列表
     adList: [],
     // 品牌列表
     brankList: [],
-    // 商品列表
+    // 商品列表，分类轮播图也取这个数据
     productList: [],
   },
   // 输入搜索文字
@@ -64,6 +62,19 @@ Page({
     wx.navigateTo({
       url: `/pages/search_result/index?key=${e.detail.value}`,
     });
+  },
+  // 获取banner轮播列表
+  getBannerList () {
+    http.request({
+      url: api.category,
+      data: {
+        categoryType: 'SLIDE'
+      }
+    }).then((res) => {
+      this.setData({
+        bannerList: res.data
+      });
+    })
   },
   // 获取广告列表
   getAdList () {
@@ -128,17 +139,17 @@ Page({
         let categoryArr = [];
 
         // 页面上需要循环的分类图标二维数组，一组5个图标
-        for(let tabIndex = 1; tabIndex <= cLengthCeil; tabIndex ++){
+        for (let tabIndex = 1; tabIndex <= cLengthCeil; tabIndex++) {
           let num = 5;
 
           // 如果是最后一个，则最后的分类图标数有可能不足5个
-          if(tabIndex == cLengthCeil){
+          if (tabIndex == cLengthCeil) {
             num = homeCategory.length - (tabIndex - 1) * 5;
           }
 
           let list = [];
           // 判断每个分类是否有图标url
-          for(let itemIndex = 0; itemIndex < num; itemIndex ++) {
+          for (let itemIndex = 0; itemIndex < num; itemIndex++) {
             let index = tabIndex * itemIndex;
             // 如果本分类下没有配置图标，则默认本地图标
             if (!homeCategory[index].icon) {
@@ -196,12 +207,30 @@ Page({
   },
   // 获取数据
   getData () {
+    // 获取banner列表
+    this.getBannerList();
     // 获取广告列表
     this.getAdList();
     // 获取品牌列表
     this.getBrankList();
     // 获取首页商品分类
     this.getHomeCategory();
+  },
+  // 跳转
+  jump (e) {
+    let { type, id, clength } = e.currentTarget.dataset;
+
+    // 如果有子分类，则跳转子分类页面
+    if (clength > 0) {
+      wx.navigateTo({
+        url: `/pages/shoper/index?id=${id}&type=${type}`
+      })
+    } else {
+      // 如果没有子分类，则跳转搜索页
+      wx.navigateTo({
+        url: `/pages/search_result/index?id=${id}&type=${type}`
+      })
+    }
   },
   onLoad () {
     // 获取用户的信息

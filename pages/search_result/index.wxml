@@ -10,23 +10,6 @@
     </navigator>
   </view>
   <view class="category-tabs">
-    <!--<view class="tabs-item icon">-->
-    <!--<image src="../../icons/icon-type.png"></image>-->
-    <!--</view>-->
-    <!--<view class="tabs-item">-->
-    <!--<text>综合</text>-->
-    <!--<view class="sort-triangle">-->
-    <!--<view class="up"></view>-->
-    <!--<view class="down"></view>-->
-    <!--</view>-->
-    <!--</view>-->
-    <!--<view class="tabs-item">-->
-    <!--<text>销量</text>-->
-    <!--<view class="sort-triangle">-->
-    <!--<view class="up"></view>-->
-    <!--<view class="down"></view>-->
-    <!--</view>-->
-    <!--</view>-->
     <view class="tabs-item" bindtap="changePriceOrder">
       <text>价格</text>
       <view class="sort-triangle {{priceOrder === 1 ? 'active' : ''}}">
@@ -36,7 +19,13 @@
     </view>
   </view>
 </view>
-<view class="mt18">
+
+<scroll-view
+  class="scroll-view"
+  wx:if="{{isLoaded}}"
+  scroll-y="true"
+  enable-back-to-top="true"
+  bindscrolltolower="loadmore">
   <view class="good-item" wx:for="{{list}}" wx:key="id">
     <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
       <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
@@ -50,23 +39,6 @@
       </view>
     </navigator>
   </view>
-  <view class="tac p20 text-stable fs20" wx:if="{{list.length === 0}}">暂无结果</view>
-  <!--<view class="good-item">-->
-  <!--<navigator class="good-img" url="/pages/product/index">-->
-  <!--<image src="../../testimg/category2.png"></image>-->
-  <!--</navigator>-->
-  <!--<view class="content">-->
-  <!--<navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686-->
-  <!--0 芝士戚风烘培金 三能乳酪蛋糕模具SN686-->
-  <!--0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>-->
-  <!--<text class="intro">2个规格可选</text>-->
-  <!--<view class="info">-->
-  <!--<text class="price">¥23.00</text>-->
-  <!--<view class="opera">-->
-  <!--<image src="../../icons/icon-cart2.png"></image>-->
-  <!--</view>-->
-  <!--</view>-->
-  <!--</view>-->
-  <!--</view>-->
-</view>
+  <view class="tac p20 text-stable fs20" wx:if="{{!isMore}}">没有更多了</view>
+</scroll-view>
 
