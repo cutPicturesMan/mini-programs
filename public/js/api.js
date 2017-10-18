@@ -1,6 +1,8 @@
 let api = {
   // 获取分类
   category: '/category',
+  // 获取子分类
+  sub_category: '/category/category/',
   // 获取分类商品
   category_products: '/category/products/',
 

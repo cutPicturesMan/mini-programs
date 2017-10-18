@@ -16,14 +16,62 @@ Page({
     // 0，asc正序
     // 1，desc倒序
     priceOrder: 0,
+    // 左侧导航
+    navList: [],
+    // 左侧选中的导航
+    selectedNav: [],
+    // 右侧数据
+    list: [],
+    // 是否显示子选项开关
+    toggleSubCategory: false,
     // 是否还有更多数据，默认是；当返回的分类数据小于this.data.size时，表示没有更多数据了
     isMore: true,
     // 是否正在加载更多数据
     isLoadingMore: false,
-    // 左侧导航
-    nav: [],
-    // 右侧数据
-    list: []
+    // 背景动画
+    subCategoryBgAnimation: {},
+    // 背景动画
+    subCategoryMainAnimation: {},
+  },
+  // 弹窗开启关闭动画
+  toggleSubCategory () {
+    let { toggleSubCategory } = this.data;
+    let bgAnimation = this.bgAnimation;
+    let subAnimation = this.subAnimation;
+    let subCategoryBgAnimation = null;
+    let subCategoryMainAnimation = null;
+    toggleSubCategory = !toggleSubCategory;
+
+    // 如果接下来是要开启
+    if(toggleSubCategory){
+      bgAnimation.opacity(1).step();
+      subAnimation.translateY(0).step();
+
+      this.setData({
+        toggleSubCategory,
+      })
+
+      setTimeout(() => {
+        this.setData({
+          subCategoryBgAnimation: bgAnimation.export(),
+          subCategoryMainAnimation: subAnimation.export()
+        })
+      }, 0)
+    } else {
+      bgAnimation.opacity(0).step();
+      subAnimation.translateY('100%').step();
+
+      this.setData({
+        subCategoryBgAnimation: bgAnimation.export(),
+        subCategoryMainAnimation: subAnimation.export()
+      })
+
+      setTimeout(() => {
+        this.setData({
+          toggleSubCategory
+        })
+      }, 700)
+    }
   },
   // 输入搜索文字
   searchInput (e) {
@@ -54,17 +102,33 @@ Page({
   // 改变左侧menu序号
   changeTab (e) {
     let idx = e.currentTarget.dataset.index;
+    let { navList } = this.data;
 
-    this.setData({
-      navIndex: idx,
-      page: 0,
-      isMore: true,
-      isLoadingMore: false,
-      list: []
-    });
+    // 如果有子分类，则显示子分类
+    if(navList[idx].childCategory.length > 0){
+      this.setData({
+        navIndex: idx,
+        selectedNav: navList[idx]
+      });
 
-    // 获取新的分类商品列表
-    this.getProductList(this.data.nav[idx].id);
+      this.toggleSubCategory();
+    } else {
+      // 否则，直接请求分类列表数据
+      this.setData({
+        navIndex: idx,
+        page: 0,
+        isMore: true,
+        isLoadingMore: false,
+        list: []
+      });
+
+      // 获取新的分类商品列表
+      this.getProductList(navList[idx].id);
+    }
+  },
+  // 确定子导航
+  confirmSubNav () {
+    
   },
   // 获取数据
   getData(){
@@ -79,7 +143,7 @@ Page({
       wx.hideLoading();
 
       this.setData({
-        nav: data
+        navList: data
       });
 
       // 如果有分类的情况下，默认请求第一个分类数据
@@ -97,12 +161,12 @@ Page({
       priceOrder,
       isMore,
       list,
-      nav
+      navList
     } = this.data;
 
     wx.showLoading();
     http.request({
-      url: `${api.category_products}${nav[navIndex].id}`,
+      url: `${api.category_products}${navList[navIndex].id}`,
       data: {
         page: page,
         size: size,
@@ -165,5 +229,19 @@ Page({
           userInfo: res
         });
       }, () => {});
-  }
+  },
+  onLoad(){
+    let bgAnimation = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+    })
+
+    let subAnimation = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+    })
+
+    this.bgAnimation = bgAnimation;
+    this.subAnimation = subAnimation;
+  },
 })

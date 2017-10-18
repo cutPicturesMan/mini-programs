@@ -11,13 +11,6 @@
       </navigator>
     </view>
     <view class="category-tabs">
-      <!--<view class="tabs-item">-->
-      <!--<text>销量</text>-->
-      <!--<view class="sort-triangle">-->
-      <!--<view class="up"></view>-->
-      <!--<view class="down"></view>-->
-      <!--</view>-->
-      <!--</view>-->
       <view class="tabs-item" bindtap="changePriceOrder">
         <text>价格</text>
         <view class="sort-triangle {{priceOrder === 1 ? 'active' : ''}}">
@@ -28,12 +21,14 @@
     </view>
     <!-- 左侧导航 -->
     <scroll-view class="category-nav" scroll-y="true">
-      <block wx:for="{{nav}}" wx:key="id">
-        <view class="nav-item {{navIndex==index ? 'active' : ''}}" data-index="{{index}}" bindtap="changeTab">
-          <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
-          <text>{{item.name}}</text>
-        </view>
-      </block>
+      <view class="nav-item {{navIndex==index ? 'active' : ''}}"
+            wx:for="{{navList}}"
+            wx:key="{{index}}"
+            data-index="{{index}}"
+            bindtap="changeTab">
+        <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
     </scroll-view>
     <!-- 右侧主体 -->
     <view class="category-main">
@@ -73,3 +68,20 @@
     </view>
   </block>
 </block>
+
+<view class="sub-category" hidden="{{!toggleSubCategory}}">
+  <view class="sub-category-bg"
+        animation="{{subCategoryBgAnimation}}"
+        bindtap="toggleSubCategory"></view>
+  <view class="sub-category-main" animation="{{subCategoryMainAnimation}}">
+    <view class="sub-category-title"></view>
+    <scroll-view
+      class="scroll-view"
+      scroll-y="true"
+      class="sub-category-content">
+      <view class="sub-category-item"></view>
+    </scroll-view>
+    <view class="btn btn-full btn-energized-linear">确定</view>
+  </view>
+</view>
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
