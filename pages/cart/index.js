@@ -154,13 +154,12 @@ Page({
     let list = this.data.list;
     let index = e.currentTarget.dataset.index;
 
-    list[index].isSelected = !list[index].isSelected;
-
     this.setData({
-      list: list
+      [`list[${index}].isSelected`]: !list[index].isSelected
     });
 
     this.countTotalPrice();
+    this.judgeSelectAll();
   },
   // 显示、隐藏详情
   showDetail (e) {
@@ -223,6 +222,18 @@ Page({
     });
 
     this.countTotalPrice();
+  },
+  // 判断是否已经全选
+  judgeSelectAll () {
+    let list = this.data.list;
+
+    let isSelectAll = list.every((item)=>{
+      return item.isSelected;
+    });
+
+    this.setData({
+      isSelectAll
+    })
   },
   // 计算总价
   countTotalPrice () {

@@ -12,7 +12,7 @@
 	"projectname": "%E7%84%99%E4%BA%91%E4%BE%9B%E5%BA%94%E9%93%BE",
 	"condition": {
 		"weapp": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -30,6 +30,12 @@
 					"id": -1,
 					"name": "分类页",
 					"pathName": "pages/category/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车页",
+					"pathName": "pages/cart/index",
 					"query": ""
 				}
 			]
