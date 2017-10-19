@@ -27,6 +27,7 @@
             data-index="{{index}}"
             bindtap="changeTab">
         <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+        <text class="text-energized" wx:if="{{item.childCategory.length > 0}}">·</text>
         <text>{{item.name}}</text>
       </view>
     </scroll-view>
@@ -69,19 +70,24 @@
   </block>
 </block>
 
-<view class="sub-category" hidden="{{!toggleSubCategory}}">
+<view class="sub-category" wx:if="{{toggleSubCategory}}">
   <view class="sub-category-bg"
         animation="{{subCategoryBgAnimation}}"
         bindtap="toggleSubCategory"></view>
   <view class="sub-category-main" animation="{{subCategoryMainAnimation}}">
-    <view class="sub-category-title"></view>
+    <view class="sub-category-title">{{selectedNav.name}}</view>
     <scroll-view
       class="scroll-view"
       scroll-y="true"
-      class="sub-category-content">
-      <view class="sub-category-item"></view>
+      class="sub-category-scroll">
+      <view class="sub-category-content">
+        <view class="sub-category-item {{subNavIndex == index ? 'active' : ''}}"
+              wx:for="{{navList[navIndexExtra].childCategory}}"
+              wx:key="{{index}}"
+              data-index="{{index}}"
+              bindtap="changeSubNav">{{item.name}}</view>
+      </view>
     </scroll-view>
-    <view class="btn btn-full btn-energized-linear">确定</view>
+    <view class="btn btn-full btn-energized-linear" bindtap="confirmSubNav">确定</view>
   </view>
 </view>
-<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>

@@ -8,6 +8,10 @@ Page({
     searchText: '',
     // 左侧选中的分类序号
     navIndex: 0,
+    // 左侧临时选中的分类序号
+    navIndexExtra: 0,
+    // 左侧子导航序号
+    subNavIndex: 0,
     // 当前页码
     page: 0,
     // 一页显示的数量
@@ -28,6 +32,8 @@ Page({
     isMore: true,
     // 是否正在加载更多数据
     isLoadingMore: false,
+    // 当前选中的是否是二级分类
+    isSub: false,
     // 背景动画
     subCategoryBgAnimation: {},
     // 背景动画
@@ -58,6 +64,7 @@ Page({
         })
       }, 0)
     } else {
+      // 关闭弹窗
       bgAnimation.opacity(0).step();
       subAnimation.translateY('100%').step();
 
@@ -102,12 +109,18 @@ Page({
   // 改变左侧menu序号
   changeTab (e) {
     let idx = e.currentTarget.dataset.index;
-    let { navList } = this.data;
+    let { navList, navIndex } = this.data;
+
+    if(navIndex != idx){
+      this.setData({
+        subNavIndex: 0
+      })
+    }
 
     // 如果有子分类，则显示子分类
     if(navList[idx].childCategory.length > 0){
       this.setData({
-        navIndex: idx,
+        navIndexExtra: idx,
         selectedNav: navList[idx]
       });
 
@@ -115,7 +128,9 @@ Page({
     } else {
       // 否则，直接请求分类列表数据
       this.setData({
+        isSub: false,
         navIndex: idx,
+        subNavIndex: 0,
         page: 0,
         isMore: true,
         isLoadingMore: false,
@@ -123,12 +138,35 @@ Page({
       });
 
       // 获取新的分类商品列表
-      this.getProductList(navList[idx].id);
+      this.getProductList();
     }
+  },
+  // 改变子导航序号
+  changeSubNav (e) {
+    let { index } = e.currentTarget.dataset;
+
+    this.setData({
+      subNavIndex: index
+    })
   },
   // 确定子导航
   confirmSubNav () {
-    
+    let { navIndexExtra } = this.data;
+
+    this.toggleSubCategory();
+
+    // 请求分类列表数据
+    this.setData({
+      isSub: true,
+      navIndex: navIndexExtra,
+      page: 0,
+      isMore: true,
+      isLoadingMore: false,
+      list: []
+    });
+
+    // 获取新的分类商品列表
+    this.getProductList();
   },
   // 获取数据
   getData(){
@@ -153,20 +191,37 @@ Page({
     })
   },
   // 获取产品列表
-  getProductList (id) {
+  getProductList () {
     let {
       navIndex,
+      subNavIndex,
+      selectedNav,
       page,
       size,
       priceOrder,
       isMore,
       list,
-      navList
+      navList,
+      isSub
     } = this.data;
+
+    let navData = navList[navIndex];
+    let id = navData.id;
+
+    // 如果当前选中的是二级分类，则请求相应的二级列表数据
+    if(isSub){
+      id = selectedNav.childCategory[subNavIndex].id;
+    } else {
+      // 如果当前选中的是一级分类，则判断是否有二级分类
+      // 如果有二级分类，则取二级分类第一个数据
+      if(navData.childCategory.length > 0){
+        id = navData.childCategory[0].id;
+      }
+    }
 
     wx.showLoading();
     http.request({
-      url: `${api.category_products}${navList[navIndex].id}`,
+      url: `${api.category_products}${id}`,
       data: {
         page: page,
         size: size,
@@ -232,12 +287,12 @@ Page({
   },
   onLoad(){
     let bgAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease',
     })
 
     let subAnimation = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'ease',
     })
 
