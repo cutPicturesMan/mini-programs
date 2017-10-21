@@ -128,17 +128,27 @@ page{
   border-top: 1rpx solid #e5e5e5;
   background-color: #fff;
   display: flex;
+  &.length1,
+  &.length2{
+    .l{
+      width: 100%;
+      display: flex;
+    }
+    .r{
+      display: none;
+    }
+  }
   .l{
-    width: 273rpx;
     .item{
       display:flex;
       justify-content: center;
       align-items: center;
+      flex: 1;
       &:first-child{
         border-bottom: 1rpx solid #e5e5e5;
       }
       image{
-        width: 100%;
+        width: 273rpx;
         height: 150rpx;
       }
     }

@@ -11,7 +11,7 @@
   enable-back-to-top="true"
   bindscrolltolower="loadmore">
   <view class="list-section mt18" wx:for="{{list}}" wx:key="{{item.id}}">
-    <navigator class="label-act bb" url="/pages/order_detail/index">
+    <navigator class="label-act bb" url="/pages/order_detail/index?id={{item.id}}">
       <view class="title">
         <text class="pr20 pl15">订单编号</text>
       </view>
@@ -26,7 +26,7 @@
         <view class="descrip-container">
           <view class="descrip-list">
             <view class="intro">数量：{{sku.quantity}}</view>
-            <view class="intro">单价：￥{{sku.price}}</view>
+            <view class="intro">单价：￥{{sku.amount}}</view>
             <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">{{item.attributeName}}：{{item.attributeValue}}</view>
           </view>
         </view>

@@ -118,7 +118,7 @@
           <view class="title">{{item.name}}</view>
           <view class="arrow">更多>></view>
         </view>
-        <view class="good-section">
+        <view class="good-section {{item.goods.length == 1 ? 'length1' : ''}} {{item.goods.length == 2 ? 'length2' : ''}} {{item.goods.length == 3 ? 'length3' : ''}} {{item.goods.length == 4 ? 'length4' : ''}}">
           <view class="l">
             <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[0].id}}" >
               <image class="img"
@@ -132,14 +132,14 @@
             </navigator>
           </view>
           <view class="r">
-            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[2].id}}">
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[2].id}}" wx:if="{{item.goods[2].id}}">
               <image class="img"
-                     src="{{item.goods[1].skuMedia.primary ? item.goods[1].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     src="{{item.goods[2].skuMedia.primary ? item.goods[2].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
                      mode="aspectFit"></image>
             </navigator>
-            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[3].id}}">
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[3].id}}" wx:if="{{item.goods[3].id}}">
               <image class="img"
-                     src="{{item.goods[1].skuMedia.primary ? item.goods[1].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     src="{{item.goods[3].skuMedia.primary ? item.goods[3].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
                      mode="aspectFit"></image>
             </navigator>
           </view>

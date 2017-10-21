@@ -312,9 +312,13 @@ Page({
       this.setData({
         isSubmit: false
       });
+    }).catch(() => {
+      this.setData({
+        isSubmit: false
+      });
     });
   },
-  onLoad () {
+  onShow () {
     // 获取用户的信息
     app.getUserInfo()
       .then((res) => {

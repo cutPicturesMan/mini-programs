@@ -196,16 +196,10 @@ Page({
           title: res.data,
           duration: 2500
         })
-        setTimeout(() => {
-          wx.switchTab({
-            url: '/pages/cart/index',
-            success: (e) => {
-              var page = getCurrentPages().pop();
-              if (page == undefined || page == null) return;
-              page.onLoad();
-            }
-          });
-        }, 2500);
+
+        this.setData({
+          isSubmit: false
+        })
       } else {
         this.setData({
           isSubmit: false

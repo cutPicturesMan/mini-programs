@@ -1,10 +1,10 @@
 <block wx:if="{{isLoaded}}">
   <view class="pt18"></view>
   <view class="order-container">
-    <navigator class="order-title bb" url="/pages/order_status/index">
+    <view class="order-title bb">
       <view class="title">订单状态</view>
       <view class="content text-energized">{{order.status.friendlyType}}</view>
-    </navigator>
+    </view>
     <view class="order-info bb ptb10">
       <view class="mr60">
         <view class="sub-row">
@@ -15,7 +15,7 @@
         </view>
       </view>
     </view>
-    <view class="ptb20 bb">
+    <view class="ptb20">
       <view class="row">
         <view class="title">订单金额</view>
         <view class="content">{{order.amount}}</view>
@@ -25,7 +25,7 @@
         <view class="content">{{order.offerTotal || '无'}}</view>
       </view>
     </view>
-    <view class="ptb20 bb">
+    <view class="ptb20" wx:if="{{order.status.type == 'SUBMITTED'}}">
       <!--<navigator class="row" url="/pages/pay_record/index">-->
         <!--<view class="title">付款记录</view>-->
         <!--<view class="content">-->
@@ -33,9 +33,10 @@
         <!--</view>-->
       <!--</navigator>-->
       <view class="row mt10 mb20">
-        <view class="title">待付款 ￥{{order.subtotal}}</view>
+        <!--<view class="title">待付款 ￥{{order.subtotal}}</view>-->
         <view class="content">
-          <view class="badge" wx:if="{{order.status.type == 'SUBMITTED'}}">付 款</view>
+          <navigator class="badge"
+                     url="/pages/order_pay/index?id={{order.id}}">付 款</navigator>
         </view>
       </view>
     </view>
@@ -131,7 +132,7 @@
     <view class="each-item cancel"
           bindtap="switchBackReason"
           wx:if="{{order.status.id >= 2000 && order.status.id < 4000}}">{{isBacking ? '正在退单中' : '申请退单'}}</view>
-    <navigator class="each-item confirm" open-type="switchTab" url="/pages/index/index">继续购物</navigator>
+    <navigator class="each-item confirm" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>
 </block>
 

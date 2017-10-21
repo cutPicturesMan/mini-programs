@@ -50,7 +50,7 @@
             <view class="descrip-container">
               <view class="descrip-list">
                 <view class="intro">数量：{{sku.quantity}}</view>
-                <view class="intro">单价：￥{{sku.price}}</view>
+                <view class="intro">单价：￥{{sku.amount}}</view>
                 <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">
                   {{item.attributeName}}：{{item.attributeValue}}
                 </view>
