@@ -8,8 +8,8 @@ Page({
     product: {},
     // 商品规格
     sku: [],
-    // 默认选中的规格，-1表示初始时什么都没选中
-    skuIndex: -1,
+    // 默认选中的规格
+    skuIndex: 0,
     // 选择的数量
     num: 1,
     // 是否正在提交中
@@ -23,7 +23,9 @@ Page({
       duration: 500
     },
     // 数据是否加载完毕
-    isLoaded: false
+    isLoaded: false,
+    // 规格是否查询完毕
+    isSkuLoaded: false
   },
   // 获取商品数据
   getData (id) {
@@ -80,8 +82,8 @@ Page({
 
       // 有规格数据，则默认选中第一个规格
       this.setData({
-        sku: res.data,
-        skuIndex: (res.data.length != 0 && 0)
+        isSkuLoaded: true,
+        sku: res.data
       });
     });
   },
@@ -90,9 +92,17 @@ Page({
     let index = e.currentTarget.dataset.index;
     let { sku, num } = this.data;
 
-    // 如果购买数量大于总库存，则提示
-    if (num > sku[index].q) {
-      num = sku[index].q;
+    try {
+      // 如果购买数量大于总库存，则提示
+      if (num > sku[index].q) {
+        throw new Error('库存不足');
+      }
+    } catch (e) {
+      return wx.showToast({
+        title: e.message,
+        image: '../../icons/close-circled.png',
+        duration: 3000
+      })
     }
 
     this.setData({
@@ -117,20 +127,23 @@ Page({
     let { sku, skuIndex } = this.data;
     let num = parseInt(e.detail.value) || 1;
 
-    if (num < 1) {
-      num = 1;
-      wx.showToast({
-        title: '选择的数量不能小于1',
-        image: '../../icons/close-circled.png'
-      })
-    }
-
-    // 如果购买数量大于总库存，则提示
-    if (num > sku[skuIndex].q) {
-      num = sku[skuIndex].q;
-      wx.showToast({
-        title: '库存不足',
-        image: '../../icons/close-circled.png'
+    try {
+      // 无规格
+      if (sku.length == 0) {
+        throw new Error('该商品没有规格，无法购买');
+      }
+      if (num < 1) {
+        throw new Error('选择的数量不能小于1');
+      }
+      // 如果购买数量大于总库存，则提示
+      if (num > sku[skuIndex].q) {
+        throw new Error('库存不足');
+      }
+    } catch (e) {
+      return wx.showToast({
+        title: e.message,
+        image: '../../icons/close-circled.png',
+        duration: 3000
       })
     }
 
@@ -143,13 +156,21 @@ Page({
     let { sku, skuIndex, num } = this.data;
     num++;
 
-    // 如果购买数量大于总库存，则提示
-    if (num > sku[skuIndex].q) {
-      num = sku[skuIndex].q;
+    try {
+      // 无规格
+      if (sku.length == 0) {
+        throw new Error('该商品没有规格，无法购买');
+      }
 
+      // 如果购买数量大于总库存，则提示
+      if (num > sku[skuIndex].q) {
+        throw new Error('库存不足');
+      }
+    } catch (e) {
       return wx.showToast({
-        title: '库存不足',
-        image: '../../icons/close-circled.png'
+        title: e.message,
+        image: '../../icons/close-circled.png',
+        duration: 3000
       })
     }
 

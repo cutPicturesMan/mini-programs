@@ -1,5 +1,5 @@
-<view class="shoper-descript">
-  <image class="bg" src="../../testimg/index2.jpg"></image>
+<!--<view class="shoper-descript">-->
+  <!--<image class="bg" src="../../testimg/index2.jpg"></image>-->
   <!--<view class="shoper-avater">-->
     <!--<image src="../../testimg/shoper.jpg"></image>-->
   <!--</view>-->
@@ -7,7 +7,7 @@
     <!--<view class="title">耐克</view>-->
     <!--<view class="intro">公告：三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686三能乳酪蛋糕模具SN686</view>-->
   <!--</view>-->
-</view>
+<!--</view>-->
 <view class="shoper-sub-title">类别</view>
 <!-- 左侧导航 -->
 <scroll-view class="category-nav" scroll-y="true">

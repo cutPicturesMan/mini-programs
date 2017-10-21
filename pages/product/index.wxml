@@ -20,13 +20,21 @@
   <view class="product-info">
     <view class="title">{{product.name}}</view>
     <view class="price text-energized">
-      <text class="small">￥</text>{{ skuIndex >= 0 ? sku[skuIndex].rp : '查询中...'}}
+      <block wx:if="{{isSkuLoaded}}">
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].rp : '无价格'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
     </view>
     <view class="number">货号：{{product.number || '暂无'}}</view>
     <view class="number">市场价：
-      {{ skuIndex >= 0
-        ? (sku[skuIndex].sp !== null ? sku[skuIndex].sp : '暂无' )
-        : '查询中...'}}
+      <block wx:if="{{isSkuLoaded}}">
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].sp : '无市场价'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
     </view>
     <view class="number">单位：{{product.unit || '暂无'}}</view>
     <view class="number">生产商：{{product.manufacturer || '暂无'}}</view>
@@ -37,11 +45,19 @@
     <view>
       <view class="sku-title">选择</view>
       <view>
-        <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
-              wx:for="{{sku}}"
-              wx:key="{{id}}"
-              data-index="{{index}}"
-              bindtap="selectSku">{{item.title}}</view>
+        <block wx:if="{{isSkuLoaded}}">
+          <block wx:if="{{sku.length > 0}}">
+            <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
+                  wx:for="{{sku}}"
+                  wx:key="{{id}}"
+                  data-index="{{index}}"
+                  bindtap="selectSku">{{item.title}}</view>
+          </block>
+          <view class="text-stable" wx:else>无可选规格</view>
+        </block>
+        <block wx:else>
+          查询中
+        </block>
       </view>
     </view>
     <view>
@@ -82,9 +98,12 @@
     <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
           hidden="{{isSubmit}}"
           bindtap="buy">
-      {{(skuIndex >= 0 && num <= sku[skuIndex].q) ? '加入购物车' : ''}}
-      {{ skuIndex < 0 ? '未设置规格' : ''}}
-      {{ num > sku[skuIndex].q ? '库存不足' : ''}}
+      <block wx:if="{{isSkuLoaded}}">
+        {{ num > sku[skuIndex].q ? '库存不足' : '加入购物车'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
     </view>
     <view class="buy" hidden="{{!isSubmit}}">提交中...</view>
   </view>

@@ -249,11 +249,11 @@ page {
     display: block; }
 
 .category-nav {
-  top: 300rpx; }
+  top: 68rpx; }
   .category-nav .nav-item:first-child {
     padding-top: 18rpx; }
 
 .category-main {
-  top: 300rpx; }
+  top: 68rpx; }
 
 /*# sourceMappingURL=index.wxss.map */

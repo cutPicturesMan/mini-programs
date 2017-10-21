@@ -23,7 +23,7 @@
     <scroll-view class="category-nav" scroll-y="true">
       <view class="nav-item {{navIndex==index ? 'active' : ''}}"
             wx:for="{{navList}}"
-            wx:key="{{index}}"
+            wx:key="{{id}}"
             data-index="{{index}}"
             bindtap="changeTab">
         <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
@@ -39,7 +39,7 @@
         enable-back-to-top="true"
         bindscrolltolower="loadmore">
         <view class="good-section">
-          <view class="good-item" wx:for="{{list}}" wx:key="id">
+          <view class="good-item" wx:for="{{list}}" wx:key="{{id}}">
             <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
               <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/180/h/160') : '../../icons/img-none.png'}}"></image>
             </navigator>
@@ -83,7 +83,7 @@
       <view class="sub-category-content">
         <view class="sub-category-item {{subNavIndex == index ? 'active' : ''}}"
               wx:for="{{navList[navIndexExtra].childCategory}}"
-              wx:key="{{index}}"
+              wx:key="{{id}}"
               data-index="{{index}}"
               bindtap="changeSubNav">{{item.name}}</view>
       </view>
