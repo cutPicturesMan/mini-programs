@@ -28,7 +28,7 @@
                 data-id="{{item.id}}"
                 data-clength="{{item.childCategory.length}}"
                 bindtap="jump">
-            <image src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url : '../../icons/icon-no-img.png'}}"/>
+            <image src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url + '?imageView2/1/w/750/h/235' : '../../icons/icon-no-img.png'}}"/>
           </view>
         </swiper-item>
       </block>
@@ -103,7 +103,7 @@
             data-id="{{adList[index].id}}"
             data-clength="{{adList[index].childCategory.length}}"
             bindtap="jump">
-        <image src="{{adList[index].categoryMedia.primary.media.url}}"></image>
+        <image src="{{adList[index].categoryMedia.primary.media.url + '?imageView2/1/w/750/h/160'}}"></image>
       </view>
       <!--当前循环序号是偶数 && 子分类有商品，显示分类样式1-->
       <view class="mt18" wx:if="{{index % 2 == 0 && item.goods.length != 0}}">

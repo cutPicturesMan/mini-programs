@@ -18,7 +18,11 @@ let api = {
 
   // 订单
   order: '/order/',
+  // 退单
+  order_back: '/order/back/',
 
+  // 获取某个订单的配送方式
+  logistic_list: '/order/fulfillType/',
   // 获取收货地址
   address: '/address',
   // 获取默认收货地址

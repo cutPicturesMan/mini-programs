@@ -33,7 +33,7 @@
       enable-back-to-top="true"
       bindscrolltolower="loadmore">
       <view class="list-section mt18" wx:for="{{list}}" wx:key="{{item.id}}">
-        <navigator class="label-act bb" url="/pages/order_detail/index">
+        <navigator class="label-act bb" url="/pages/order_detail/index?id={{item.id}}">
           <view class="title">
             <text class="pr20 pl15">订单编号</text>
           </view>

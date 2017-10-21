@@ -8,7 +8,7 @@
           <view class="sel" data-index="{{index}}" bindtap="addToEditArr">
             <image src="{{item.isSelected ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
           </view>
-          <navigator class="item-img" url="/pages/product/index">
+          <navigator class="item-img" url="/pages/product/index?id={{item.skuId}}">
             <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
           </navigator>
           <view class="content">
@@ -23,7 +23,7 @@
                      data-index="{{index}}"
                      bindtap="add"></image>
             </view>
-            <navigator class="title" url="/pages/product/index" hidden="{{item.isEditPattern}}">
+            <navigator class="title" url="/pages/product/index?id={{item.skuId}}" hidden="{{item.isEditPattern}}">
               {{item.name}}
             </navigator>
             <view class="descrip-container " data-index="{{index}}" bindtap="showDetail">

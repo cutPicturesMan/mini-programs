@@ -2,6 +2,7 @@ import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 
 let { formatDate } = require('../../public/js/utils.js');
+let beginDateMillion = new Date().getTime() + (24 * 60 * 60 * 1000) * 2;
 
 Page({
   data: {
@@ -18,14 +19,20 @@ Page({
     totalCount: 0,
     // remark临时输入值
     remarkText: '',
-    // 特价
-    offerPrice: '',
     // 最后提交的remark
     remark: '',
     // 收货地址
     address: [],
+    // 物流方式列表
+    logisticList: [],
+    // 选中的物流方式
+    logisticIndex: '',
+    // 物流方式是否加载完毕
+    isLogisticed: false,
     // 交货日期
     date: formatDate(new Date(), 'YYYY-MM-DD'),
+    // 交货最早时间
+    beginDate: formatDate(new Date(beginDateMillion), 'YYYY/MM/DD'),
   },
   // 显示/隐藏新增备注框
   switchRemark: function () {
@@ -59,16 +66,16 @@ Page({
 
     this.switchRemark();
   },
-  // 输入特价
-  inputOfferPrice: function (e) {
-    this.setData({
-      offerPrice: e.detail.value
-    })
-  },
   // 选择日期
   bindDateChange: function (e) {
     this.setData({
       date: e.detail.value
+    })
+  },
+  // 选择物流方式
+  bindLogisticChange (e) {
+    this.setData({
+      logisticIndex: e.detail.value
     })
   },
   // 获取数据
@@ -90,10 +97,32 @@ Page({
 
       this.setData({
         order: res.data,
-        offerPrice: res.data.amount,
         totalCount: totalCount
       });
+
+      this.getlogisticList();
     });
+  },
+  // 获取物流方式列表
+  getlogisticList () {
+    let { order } = this.data;
+
+    http.request({
+      url: `${api.logistic_list}${order.id}`
+    }).then((res) => {
+      if (res.errorCode === 200) {
+        this.setData({
+          isLogisticed: true,
+          logisticList: res.data
+        });
+      } else {
+        // 获取失败，则提示
+        wx.showToast({
+          title: res.moreInfo,
+          image: '../../icons/close-circled.png'
+        })
+      }
+    })
   },
   setAddress (item) {
     let address = this.data.address;
@@ -164,24 +193,24 @@ Page({
   },
   // 提交订单
   submit () {
-    let { id, remark, offerPrice, address, date, isSubmit } = this.data;
-
-    // 正在提交中，请勿重复提交
-    if (isSubmit) {
-      return wx.showToast({
-        image: '../../icons/close-circled.png',
-        title: '正在提交中，请勿重复提交'
-      })
-    }
+    let { id, remark, address, date, isSubmit, logisticList, logisticIndex, isLogisticed } = this.data;
 
     try {
+      // 物流列表未加载完毕
+      if (!isLogisticed) {
+        throw new Error('正在加载配送方式中，请稍后');
+      }
+      // 正在提交中，请勿重复提交
+      if (isSubmit) {
+        throw new Error('正在提交中，请勿重复提交');
+      }
       // 如果id为0，则提示
       if (!id) {
         throw new Error(`订单id无效，id=${id}`);
       }
-      // 如果特价为空，则提示
-      if (offerPrice === '') {
-        throw new Error('特价未填写');
+      // 未选择物流
+      if (logisticIndex == '') {
+        throw new Error('请选择物流方式');
       }
       // 如果收货地址为空，则提示
       if (address.length === 0) {
@@ -198,6 +227,8 @@ Page({
       })
     }
 
+    let fulFillType = logisticList[logisticIndex].type;
+
     wx.showLoading();
     http.request({
       url: `${api.order}${id}`,
@@ -209,7 +240,7 @@ Page({
         addressId: address[0].id,
         remarks: remark,
         deliveryDate: new Date(date).getTime(),
-        offerPrice: offerPrice
+        fulFillType
       }
     }).then((res) => {
       if (res.errorCode === 200) {

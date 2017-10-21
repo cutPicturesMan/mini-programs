@@ -136,15 +136,14 @@ page {
   bottom: 0;
   left: 0; }
   .opera-panel .collect {
-    flex: 1;
-    box-sizing: border-box;
+    width: 25%;
     border-top: 1rpx solid #e5e5e5;
     border-right: 1rpx solid #e5e5e5; }
   .opera-panel .share {
-    flex: 1;
+    width: 25%;
     border-top: 1rpx solid #e5e5e5; }
   .opera-panel .buy {
-    width: 50%;
+    flex: 1;
     font-size: 34rpx;
     color: #fff;
     background: #e5e5e5;
@@ -153,6 +152,7 @@ page {
       background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
   .opera-panel .collect,
   .opera-panel .share {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center; }

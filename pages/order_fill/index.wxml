@@ -1,19 +1,11 @@
 <view class="pt18"></view>
 
 <view class="line-container">
-  <view class="line-item bb">
+  <view class="line-item">
     <view class="row">
       <view class="title">订单金额</view>
       <view class="content">
         <text class="text-energized">¥ {{order.amount}}</text>
-      </view>
-    </view>
-  </view>
-  <view class="line-item">
-    <view class="row">
-      <view class="title">申请特价</view>
-      <view class="content">
-        <input value="{{offerPrice}}" placeholder="请输入" bindinput="inputOfferPrice"/>
       </view>
     </view>
   </view>
@@ -32,28 +24,38 @@
 </view>
 
 <view class="line-container mt18">
-  <view class="line-item">
+  <view class="line-item bb">
     <view class="row">
       <view class="title">交货日期</view>
       <view class="content">
-        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <picker mode="date" value="{{date}}" start="{{beginDate}}" bindchange="bindDateChange">
           <view>{{date}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="line-item">
+    <view class="row">
+      <view class="title">物流方式</view>
+      <view class="content">
+        <picker bindchange="bindLogisticChange" value="{{logisticIndex}}" range="{{logisticList}}" range-key="friendlyType">
+          <view>{{logisticList[logisticIndex].friendlyType || '请选择物流方式'}}</view>
         </picker>
       </view>
     </view>
   </view>
 </view>
 
-<view class="line-container mt18">
-  <navigator class="line-item" url="/pages/order_attachment/index">
-    <view class="row">
-      <view class="title">订单附件</view>
-      <view class="content">
-        <image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>
-      </view>
-    </view>
-  </navigator>
-</view>
+<!--<view class="line-container mt18">-->
+  <!--<navigator class="line-item" url="/pages/order_attachment/index">-->
+    <!--<view class="row">-->
+      <!--<view class="title">订单附件</view>-->
+      <!--<view class="content">-->
+        <!--<image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</navigator>-->
+<!--</view>-->
 
 <view class="line-container mt18">
   <view class="line-item" bindtap="selectAddress">
@@ -79,27 +81,27 @@
   </view>
 </view>
 
-<view class="line-container mt18">
-  <navigator class="line-item" url="/pages/order_invoice/index">
-    <view class="row">
-      <view class="title">发票信息</view>
-      <view class="content">
-        <image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>
-      </view>
-    </view>
-  </navigator>
-</view>
+<!--<view class="line-container mt18">-->
+  <!--<navigator class="line-item" url="/pages/order_invoice/index">-->
+    <!--<view class="row">-->
+      <!--<view class="title">发票信息</view>-->
+      <!--<view class="content">-->
+        <!--<image class="icon mr10" src="../../icons/icon-arrow-right-gray.png"></image>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</navigator>-->
+<!--</view>-->
 
-<view class="line-container mt18">
-  <navigator class="line-item" url="/pages/product_list/index">
-    <view class="row">
-      <view class="title">商品清单</view>
-      <view class="content">
-        <text class="text-stable">共{{order.orderItems.length}}款，总数{{totalCount}} ></text>
-      </view>
-    </view>
-  </navigator>
-</view>
+<!--<view class="line-container mt18">-->
+  <!--<navigator class="line-item" url="/pages/product_list/index">-->
+    <!--<view class="row">-->
+      <!--<view class="title">商品清单</view>-->
+      <!--<view class="content">-->
+        <!--<text class="text-stable">共{{order.orderItems.length}}款，总数{{totalCount}} ></text>-->
+      <!--</view>-->
+    <!--</view>-->
+  <!--</navigator>-->
+<!--</view>-->
 
 <view class="remark-add" wx:if="{{remarkToggle}}">
   <view class="add-container animated {{remarkToggle ? 'bounceIn' : 'bounceOut'}}">

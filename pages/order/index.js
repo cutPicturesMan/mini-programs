@@ -56,7 +56,7 @@ Page({
       });
     });
   },
-  onLoad: function () {
+  onLoad () {
     // 获取用户的信息
     app.getUserInfo()
       .then((res) => {

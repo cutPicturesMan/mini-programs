@@ -73,12 +73,12 @@
     </view>
   </view>
   <view class="opera-panel">
-    <view class="collect">
-      <image src="../../icons/icon-collect.png"></image>
-    </view>
-    <view class="share">
-      <image src="../../icons/icon-share.png"></image>
-    </view>
+    <!--<view class="collect">-->
+      <!--<image src="../../icons/icon-collect.png"></image>-->
+    <!--</view>-->
+    <!--<view class="share">-->
+      <!--<image src="../../icons/icon-share.png"></image>-->
+    <!--</view>-->
     <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
           hidden="{{isSubmit}}"
           bindtap="buy">
