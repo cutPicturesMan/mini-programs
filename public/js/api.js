@@ -20,6 +20,8 @@ let api = {
   order: '/order/',
   // 退单
   order_back: '/order/back/',
+  // 确认订单
+  order_confirm: '/order/confirm/',
 
   // 获取某个订单的配送方式
   logistic_list: '/order/fulfillType/',

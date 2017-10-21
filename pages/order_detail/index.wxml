@@ -132,6 +132,10 @@
     <view class="each-item cancel"
           bindtap="switchBackReason"
           wx:if="{{order.status.id >= 2000 && order.status.id < 4000}}">{{isBacking ? '正在退单中' : '申请退单'}}</view>
+    <!--运输中，可以确认收货-->
+    <view class="each-item cancel"
+          bindtap="confirmReceive"
+          wx:if="{{order.status.id == 3000}}">{{isReceiving ? '正在确认中' : '确认收货'}}</view>
     <navigator class="each-item confirm" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>
 </block>

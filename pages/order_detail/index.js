@@ -16,6 +16,8 @@ Page({
     isLoaded: false,
     // 是否正在取消订单中
     isCancelling: false,
+    // 是否确认收货中
+    isReceiving: false,
     // 是否正在退单中
     isBacking: false
   },
@@ -173,6 +175,50 @@ Page({
 
         this.setData({
           isBacking: false
+        })
+      }
+    });
+  },
+  // 确认收货
+  confirmReceived () {
+    wx.showLoading();
+    let { id, isReceiving} = this.data;
+
+    if(isReceiving){
+      return wx.showToast({
+        title: '正在确认中',
+        image: '../../icons/close-circled.png'
+      })
+    }
+
+    this.setData({
+      isReceiving: true
+    })
+
+    http.request({
+      url: `${api.order_confirm}${id}`,
+      method: 'PUT'
+    }).then((res) => {
+      if(res.errorCode == 200){
+        wx.showToast({
+          title: res.moreInfo || '确认收货成功'
+        })
+
+        setTimeout(()=>{
+          this.setData({
+            isReceiving: false
+          });
+
+          this.getData();
+        }, 1500)
+      } else {
+        wx.showToast({
+          title: res.moreInfo || '确认收货失败，请重试',
+          image: '../../icons/close-circled.png'
+        })
+
+        this.setData({
+          isReceiving: false
         })
       }
     });
