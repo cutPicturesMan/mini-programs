@@ -70,6 +70,8 @@ page {
     border-bottom: 1rpx solid #e5e5e5;
     position: relative;
     z-index: 100; }
+    .category-nav .nav-item.big {
+      font-weight: bold; }
     .category-nav .nav-item.active {
       background-color: #f3f3f6; }
       .category-nav .nav-item.active:after {

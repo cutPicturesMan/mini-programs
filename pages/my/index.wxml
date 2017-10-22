@@ -46,7 +46,7 @@
           <image class="icon" src="../../icons/icon-person7.png"></image>
           <text class="title">服务热线</text>
         </view>
-        <view class="service-item">
+        <view class="service-item" wx:if="{{false}}">
           <image class="icon" src="../../icons/icon-person8.png"></image>
           <text class="title">意见反馈</text>
         </view>

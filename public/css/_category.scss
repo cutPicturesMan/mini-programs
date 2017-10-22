@@ -59,6 +59,9 @@ page{
     border-bottom: 1rpx solid #e5e5e5;
     position: relative;
     z-index: 100;
+    &.big{
+      font-weight:bold;
+    }
     &.active{
       background-color: #f3f3f6;
       &:after{

@@ -8,8 +8,6 @@ Page({
     searchText: '',
     // 左侧选中的分类序号
     navIndex: 0,
-    // 左侧临时选中的分类序号
-    navIndexExtra: 0,
     // 左侧子导航序号
     subNavIndex: 0,
     // 当前页码
@@ -22,63 +20,12 @@ Page({
     priceOrder: 0,
     // 左侧导航
     navList: [],
-    // 左侧选中的导航
-    selectedNav: [],
     // 右侧数据
     list: [],
-    // 是否显示子选项开关
-    toggleSubCategory: false,
     // 是否还有更多数据，默认是；当返回的分类数据小于this.data.size时，表示没有更多数据了
     isMore: true,
     // 是否正在加载更多数据
-    isLoadingMore: false,
-    // 当前选中的是否是二级分类
-    isSub: false,
-    // 背景动画
-    subCategoryBgAnimation: {},
-    // 背景动画
-    subCategoryMainAnimation: {},
-  },
-  // 弹窗开启关闭动画
-  toggleSubCategory () {
-    let { toggleSubCategory } = this.data;
-    let bgAnimation = this.bgAnimation;
-    let subAnimation = this.subAnimation;
-    let subCategoryBgAnimation = null;
-    let subCategoryMainAnimation = null;
-    toggleSubCategory = !toggleSubCategory;
-
-    // 如果接下来是要开启
-    if(toggleSubCategory){
-      bgAnimation.opacity(1).step();
-      subAnimation.translateY(0).step();
-
-      this.setData({
-        toggleSubCategory,
-      })
-
-      setTimeout(() => {
-        this.setData({
-          subCategoryBgAnimation: bgAnimation.export(),
-          subCategoryMainAnimation: subAnimation.export()
-        })
-      }, 0)
-    } else {
-      // 关闭弹窗
-      bgAnimation.opacity(0).step();
-      subAnimation.translateY('100%').step();
-
-      this.setData({
-        subCategoryBgAnimation: bgAnimation.export(),
-        subCategoryMainAnimation: subAnimation.export()
-      })
-
-      setTimeout(() => {
-        this.setData({
-          toggleSubCategory
-        })
-      }, 700)
-    }
+    isLoadingMore: false
   },
   // 输入搜索文字
   searchInput (e) {
@@ -107,58 +54,31 @@ Page({
     this.getProductList()
   },
   // 改变左侧menu序号
-  changeTab (e) {
-    let idx = e.currentTarget.dataset.index;
-    let { navList, navIndex } = this.data;
-
-    if(navIndex != idx){
-      this.setData({
-        subNavIndex: 0
-      })
-    }
-
-    // 如果有子分类，则显示子分类
-    if(navList[idx].childCategory.length > 0){
-      this.setData({
-        navIndexExtra: idx,
-        selectedNav: navList[idx]
-      });
-
-      this.toggleSubCategory();
-    } else {
-      // 否则，直接请求分类列表数据
-      this.setData({
-        isSub: false,
-        navIndex: idx,
-        subNavIndex: 0,
-        page: 0,
-        isMore: true,
-        isLoadingMore: false,
-        list: []
-      });
-
-      // 获取新的分类商品列表
-      this.getProductList();
-    }
-  },
-  // 改变子导航序号
-  changeSubNav (e) {
+  changeNav (e) {
     let { index } = e.currentTarget.dataset;
-
-    this.setData({
-      subNavIndex: index
-    })
-  },
-  // 确定子导航
-  confirmSubNav () {
-    let { navIndexExtra } = this.data;
-
-    this.toggleSubCategory();
+    let { navList, navIndex } = this.data;
 
     // 请求分类列表数据
     this.setData({
-      isSub: true,
-      navIndex: navIndexExtra,
+      navIndex: index,
+      subNavIndex: 0,
+      page: 0,
+      isMore: true,
+      isLoadingMore: false,
+      list: []
+    });
+
+    // 获取新的分类商品列表
+    this.getProductList();
+  },
+  // 改变子导航序号
+  changeSubNav (e) {
+    let { index, subIndex } = e.currentTarget.dataset;
+
+    // 请求分类列表数据
+    this.setData({
+      navIndex: index,
+      subNavIndex: subIndex,
       page: 0,
       isMore: true,
       isLoadingMore: false,
@@ -195,28 +115,20 @@ Page({
     let {
       navIndex,
       subNavIndex,
-      selectedNav,
       page,
       size,
       priceOrder,
       isMore,
       list,
-      navList,
-      isSub
+      navList
     } = this.data;
 
     let navData = navList[navIndex];
     let id = navData.id;
 
-    // 如果当前选中的是二级分类，则请求相应的二级列表数据
-    if(isSub){
-      id = selectedNav.childCategory[subNavIndex].id;
-    } else {
-      // 如果当前选中的是一级分类，则判断是否有二级分类
-      // 如果有二级分类，则取二级分类第一个数据
-      if(navData.childCategory.length > 0){
-        id = navData.childCategory[0].id;
-      }
+    // 如果有子分类，则请求相应子分类数据
+    if(navData.childCategory.length > 0){
+      id = navData.childCategory[subNavIndex].id;
     }
 
     wx.showLoading();
@@ -284,19 +196,5 @@ Page({
           userInfo: res
         });
       }, () => {});
-  },
-  onLoad(){
-    let bgAnimation = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease',
-    })
-
-    let subAnimation = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'ease',
-    })
-
-    this.bgAnimation = bgAnimation;
-    this.subAnimation = subAnimation;
-  },
+  }
 })

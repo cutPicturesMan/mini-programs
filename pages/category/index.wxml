@@ -4,7 +4,8 @@
   <block wx:if="{{userInfo.status.id == 1}}">
     <view class="search-bar">
       <view class="search-input ml20">
-        <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入" placeholder-style="color:#fff;"/>
+        <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入"
+               placeholder-style="color:#fff;"/>
       </view>
       <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
         <image src="../../icons/icon-shopcar.png"></image>
@@ -21,14 +22,27 @@
     </view>
     <!-- 左侧导航 -->
     <scroll-view class="category-nav" scroll-y="true">
-      <view class="nav-item {{navIndex==index ? 'active' : ''}}"
-            wx:for="{{navList}}"
-            wx:key="{{id}}"
-            data-index="{{index}}"
-            bindtap="changeTab">
-        <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
-        <text class="text-energized" wx:if="{{item.childCategory.length > 0}}">·</text>
-        <text>{{item.name}}</text>
+      <view wx:for="{{navList}}"
+            wx:key="{{id}}">
+        <view class="nav-item big {{navIndex==index && item.childCategory.length == 0 ? 'active' : ''}}"
+              data-index="{{index}}"
+              bindtap="changeNav">
+          <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+        <block wx:if="{{item.childCategory.length > 0}}">
+          <view class="nav-item {{navIndex==index && subNavIndex==subindex ? 'active' : ''}}"
+                wx:for="{{item.childCategory}}"
+                wx:for-index="subindex"
+                wx:key="{{id}}"
+                data-index="{{index}}"
+                data-sub-index="{{subindex}}"
+                bindtap="changeSubNav">
+            <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+            <text class="text-energized">·</text>
+            <text>{{item.name}}</text>
+          </view>
+        </block>
       </view>
     </scroll-view>
     <!-- 右侧主体 -->
@@ -41,7 +55,8 @@
         <view class="good-section">
           <view class="good-item" wx:for="{{list}}" wx:key="{{id}}">
             <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
-              <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/180/h/160') : '../../icons/img-none.png'}}"></image>
+              <image
+                src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/180/h/160') : '../../icons/img-none.png'}}"></image>
             </navigator>
             <navigator class="content" url="/pages/product/index?id={{item.id}}">
               <view class="title">{{item.name}}</view>
@@ -69,25 +84,3 @@
     </view>
   </block>
 </block>
-
-<view class="sub-category" wx:if="{{toggleSubCategory}}">
-  <view class="sub-category-bg"
-        animation="{{subCategoryBgAnimation}}"
-        bindtap="toggleSubCategory"></view>
-  <view class="sub-category-main" animation="{{subCategoryMainAnimation}}">
-    <view class="sub-category-title">{{selectedNav.name}}</view>
-    <scroll-view
-      class="scroll-view"
-      scroll-y="true"
-      class="sub-category-scroll">
-      <view class="sub-category-content">
-        <view class="sub-category-item {{subNavIndex == index ? 'active' : ''}}"
-              wx:for="{{navList[navIndexExtra].childCategory}}"
-              wx:key="{{id}}"
-              data-index="{{index}}"
-              bindtap="changeSubNav">{{item.name}}</view>
-      </view>
-    </scroll-view>
-    <view class="btn btn-full btn-energized-linear" bindtap="confirmSubNav">确定</view>
-  </view>
-</view>
