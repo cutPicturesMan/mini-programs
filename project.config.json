@@ -49,6 +49,12 @@
 					"name": "子分类页",
 					"pathName": "pages/shoper/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "代下单",
+					"pathName": "pages/index/index",
+					"query": "customerId=4&adminId=1"
 				}
 			]
 		},

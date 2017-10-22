@@ -1,7 +1,9 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import Auth from '../../public/js/auth.js';
 
-var app = getApp()
+let app = getApp();
+let auth = new Auth();
 
 Page({
   data: {
@@ -27,7 +29,7 @@ Page({
     // 分类轮播
     categorySlider: {
       indicatorDots: false,
-      circular: true,
+      circular: false,
       autoplay: false,
       interval: 3000,
       duration: 500,
@@ -102,6 +104,64 @@ Page({
       });
     })
   },
+  // 获取分类页商品分类
+  getCategory () {
+    wx.showLoading();
+
+    http.request({
+      url: api.category,
+      data: {
+        categoryType: 'CATEGORY'
+      }
+    }).then((res) => {
+      wx.hideLoading();
+      let category = res.data;
+      let categoryArr = [];
+
+      let cLength = category.length / 5;
+      let cLengthCeil = Math.ceil(cLength);
+
+      // 页面上需要循环的分类图标二维数组，一组5个图标
+      for (let tabIndex = 1; tabIndex <= cLengthCeil; tabIndex++) {
+        let num = 5;
+
+        // 如果是最后一个，则最后的分类图标数有可能不足5个
+        if (tabIndex == cLengthCeil) {
+          num = category.length - (tabIndex - 1) * 5;
+        }
+
+        let list = [];
+        // 判断每个分类是否有图标url
+        for (let itemIndex = 0; itemIndex < num; itemIndex++) {
+          let index = tabIndex * itemIndex;
+          // 如果本分类下没有配置图标，则默认本地图标
+          if (!category[index].icon) {
+            category[index].icon = `../../icons/index-category${itemIndex + 1}.png`;
+          }
+
+          list.push(category[index]);
+        }
+
+        categoryArr.push(list);
+      }
+
+      this.setData({
+        categoryArr
+      });
+    }, () => {
+      wx.hideLoading();
+
+      wx.showModal({
+        title: '提示',
+        content: '对不起，获取商品失败，请重试',
+        success: (res) => {
+          if (res.confirm) {
+            this.getHomeCategory();
+          }
+        }
+      })
+    })
+  },
   // 获取首页商品分类
   getHomeCategory () {
     wx.showLoading();
@@ -134,38 +194,9 @@ Page({
       Promise.all(goodsArr).then(() => {
         wx.hideLoading();
 
-        let cLength = homeCategory.length / 5;
-        let cLengthCeil = Math.ceil(cLength);
-        let categoryArr = [];
-
-        // 页面上需要循环的分类图标二维数组，一组5个图标
-        for (let tabIndex = 1; tabIndex <= cLengthCeil; tabIndex++) {
-          let num = 5;
-
-          // 如果是最后一个，则最后的分类图标数有可能不足5个
-          if (tabIndex == cLengthCeil) {
-            num = homeCategory.length - (tabIndex - 1) * 5;
-          }
-
-          let list = [];
-          // 判断每个分类是否有图标url
-          for (let itemIndex = 0; itemIndex < num; itemIndex++) {
-            let index = tabIndex * itemIndex;
-            // 如果本分类下没有配置图标，则默认本地图标
-            if (!homeCategory[index].icon) {
-              homeCategory[index].icon = `../../icons/index-category${itemIndex + 1}.png`;
-            }
-
-            list.push(homeCategory[index]);
-          }
-
-          categoryArr.push(list);
-        }
-
         this.setData({
           isLoaded: true,
-          productList: homeCategory,
-          categoryArr
+          productList: homeCategory
         });
       }, () => {
         wx.hideLoading();
@@ -209,6 +240,8 @@ Page({
   getData () {
     // 获取banner列表
     this.getBannerList();
+    // 获取分类页分类
+    this.getCategory();
     // 获取广告列表
     this.getAdList();
     // 获取品牌列表
@@ -232,7 +265,8 @@ Page({
       })
     }
   },
-  onLoad () {
+  // 获取用户信息
+  getUserInfo () {
     // 获取用户的信息
     app.getUserInfo()
       .then((res) => {
@@ -254,9 +288,32 @@ Page({
         });
       }, () => {
       });
-
-    // wx.switchTab({
-    //   url: '/pages/category/index?type=1'
-    // })
+  },
+  onLoad (params) {
+    let customerId = params.customerId;
+    let adminId = params.adminId;
+    // 如果同时存在客户id和管理员id，表示管理员代下单，要先执行登录流程
+    if (customerId && adminId) {
+      auth.login({
+        customerId,
+        adminId
+      }).then((res) => {
+        if (res.errorCode == 200) {
+          this.getUserInfo();
+        } else {
+          wx.showToast({
+            title: res.moreInfo || '代下单登录失败',
+            image: '../../icons/close-circled.png'
+          })
+        }
+      }).catch(() => {
+        wx.showToast({
+          title: '代下单登录失败',
+          image: '../../icons/close-circled.png'
+        })
+      })
+    } else {
+      this.getUserInfo();
+    }
   }
 })

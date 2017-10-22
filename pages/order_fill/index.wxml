@@ -24,16 +24,6 @@
 </view>
 
 <view class="line-container mt18">
-  <view class="line-item bb">
-    <view class="row">
-      <view class="title">交货日期</view>
-      <view class="content">
-        <picker mode="date" value="{{date}}" start="{{beginDate}}" bindchange="bindDateChange">
-          <view>{{date}}</view>
-        </picker>
-      </view>
-    </view>
-  </view>
   <view class="line-item">
     <view class="row">
       <view class="title">物流方式</view>
@@ -118,7 +108,7 @@
 
 <view class="cart-account">
   <view class="total tar">
-    应付金额：<text class="text-energized"><text class="small">￥</text>{{amount}}</text>
+    应付金额：<text class="text-energized"><text class="small">￥</text>{{order.amount}}</text>
   </view>
   <view class="calc {{ isSubmit ? '' : 'active'}}" bindtap="submit">提交订单</view>
 </view>

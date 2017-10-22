@@ -25,7 +25,7 @@ page {
 .category-sub {
   display: flex; }
   .category-sub .category-item {
-    flex: 1; }
+    width: 25%; }
     .category-sub .category-item .link {
       padding: 22rpx 0 18rpx 0; }
     .category-sub .category-item image {

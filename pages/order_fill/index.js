@@ -2,7 +2,6 @@ import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 
 let { formatDate } = require('../../public/js/utils.js');
-let beginDateMillion = new Date().getTime() + (24 * 60 * 60 * 1000) * 2;
 
 Page({
   data: {
@@ -28,11 +27,7 @@ Page({
     // 选中的物流方式
     logisticIndex: '',
     // 物流方式是否加载完毕
-    isLogisticed: false,
-    // 交货日期
-    date: formatDate(new Date(), 'YYYY-MM-DD'),
-    // 交货最早时间
-    beginDate: formatDate(new Date(beginDateMillion), 'YYYY/MM/DD'),
+    isLogisticed: false
   },
   // 显示/隐藏新增备注框
   switchRemark: function () {
@@ -65,12 +60,6 @@ Page({
     });
 
     this.switchRemark();
-  },
-  // 选择日期
-  bindDateChange: function (e) {
-    this.setData({
-      date: e.detail.value
-    })
   },
   // 选择物流方式
   bindLogisticChange (e) {
@@ -193,7 +182,7 @@ Page({
   },
   // 提交订单
   submit () {
-    let { id, remark, address, date, isSubmit, logisticList, logisticIndex, isLogisticed } = this.data;
+    let { id, remark, address, isSubmit, logisticList, logisticIndex, isLogisticed } = this.data;
 
     try {
       // 物流列表未加载完毕
@@ -216,10 +205,6 @@ Page({
       if (address.length === 0) {
         throw new Error('收货地址未选择');
       }
-      // 如果日期为空，则提示
-      if (date.length === 0) {
-        throw new Error('日期未选择');
-      }
     } catch (e) {
       return wx.showToast({
         title: e.message,
@@ -239,7 +224,6 @@ Page({
       data: {
         addressId: address[0].id,
         remarks: remark,
-        deliveryDate: new Date(date).getTime(),
         fulFillType
       }
     }).then((res) => {

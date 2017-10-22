@@ -18,7 +18,7 @@
     <view class="ptb20">
       <view class="row">
         <view class="title">订单金额</view>
-        <view class="content">{{order.amount}}</view>
+        <view class="content">￥{{order.amount}}</view>
       </view>
       <view class="sub-row">
         <view class="title">优惠金额</view>
@@ -27,24 +27,25 @@
     </view>
     <view class="ptb20" wx:if="{{order.status.type == 'SUBMITTED'}}">
       <!--<navigator class="row" url="/pages/pay_record/index">-->
-        <!--<view class="title">付款记录</view>-->
-        <!--<view class="content">-->
-          <!--<text class="text-stable">未付款></text>-->
-        <!--</view>-->
+      <!--<view class="title">付款记录</view>-->
+      <!--<view class="content">-->
+      <!--<text class="text-stable">未付款></text>-->
+      <!--</view>-->
       <!--</navigator>-->
       <view class="row mt10 mb20">
         <!--<view class="title">待付款 ￥{{order.subtotal}}</view>-->
         <view class="content">
           <navigator class="badge"
-                     url="/pages/order_pay/index?id={{order.id}}">付 款</navigator>
+                     url="/pages/order_pay/index?id={{order.id}}">付 款
+          </navigator>
         </view>
       </view>
     </view>
     <!--<view class="ptb20">-->
-      <!--<navigator class="row" url="/pages/release_record/index">-->
-        <!--<view class="title">出库/发货记录</view>-->
-        <!--<view class="content">备货中/待发货</view>-->
-      <!--</navigator>-->
+    <!--<navigator class="row" url="/pages/release_record/index">-->
+    <!--<view class="title">出库/发货记录</view>-->
+    <!--<view class="content">备货中/待发货</view>-->
+    <!--</navigator>-->
     <!--</view>-->
   </view>
 
@@ -58,14 +59,14 @@
         </view>
       </view>
     </view>
-    <!--<navigator class="line-item bb" url="/pages/product_list/index">-->
-    <!--<view class="row">-->
-    <!--<view class="title">商品清单</view>-->
-    <!--<view class="content">-->
-    <!--<text class="text-stable">共4款，总数20 ></text>-->
-    <!--</view>-->
-    <!--</view>-->
-    <!--</navigator>-->
+    <view class="line-item bb" bindtap="jump">
+      <view class="row">
+        <view class="title">商品清单</view>
+        <view class="content">
+          <text class="text-stable">共{{order.orderItems.length}}款，总数{{totalNum}} ></text>
+        </view>
+      </view>
+    </view>
     <!--<view class="line-item bb">-->
     <!--<view class="row">-->
     <!--<view class="title">订单附件</view>-->
@@ -96,7 +97,9 @@
         </view>
       </view>
       <view class="sub-row">
-        <view class="title">收货地址：{{order.billingAddress.stateProvinceRegion}} {{order.billingAddress.city}} {{order.billingAddress.county}} {{order.billingAddress.addressLine}}</view>
+        <view class="title">收货地址：{{order.billingAddress.stateProvinceRegion}} {{order.billingAddress.city}}
+          {{order.billingAddress.county}} {{order.billingAddress.addressLine}}
+        </view>
       </view>
     </view>
   </view>
@@ -127,15 +130,18 @@
     <!--支付之前，可以取消订单-->
     <view class="each-item cancel"
           bindtap="confirmCancelOrder"
-          wx:if="{{order.status.id >= 0 && order.status.id < 2000}}">{{isCancelling ? '正在取消中' : '取消订单'}}</view>
+          wx:if="{{order.status.id >= 0 && order.status.id < 2000}}">{{isCancelling ? '正在取消中' : '取消订单'}}
+    </view>
     <!--支付之后，可以退单-->
     <view class="each-item cancel"
           bindtap="switchBackReason"
-          wx:if="{{order.status.id >= 2000 && order.status.id < 4000}}">{{isBacking ? '正在退单中' : '申请退单'}}</view>
+          wx:if="{{order.status.id >= 2000 && order.status.id < 4000}}">{{isBacking ? '正在退单中' : '申请退单'}}
+    </view>
     <!--运输中，可以确认收货-->
     <view class="each-item cancel"
-          bindtap="confirmReceive"
-          wx:if="{{order.status.id == 3000}}">{{isReceiving ? '正在确认中' : '确认收货'}}</view>
+          bindtap="confirmReceived"
+          wx:if="{{order.status.id == 3000}}">{{isReceiving ? '正在确认中' : '确认收货'}}
+    </view>
     <navigator class="each-item confirm" open-type="switchTab" url="/pages/index/index">去购物</navigator>
   </view>
 </block>

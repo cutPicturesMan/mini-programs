@@ -1,5 +1,7 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+
+let app = getApp();
 let { formatDate } = require('../../public/js/utils.js');
 
 Page({
@@ -8,6 +10,8 @@ Page({
     id: '',
     // 订单详情
     order: {},
+    // 总数
+    totalNum: 0,
     // 退单原因
     backReason: '',
     // 是否显示退单原因框
@@ -27,6 +31,15 @@ Page({
       backReason: e.detail.value
     });
   },
+  // 跳转
+  jump () {
+    let { order } = this.data;
+    app.orderItems = order.orderItems;
+
+    wx.navigateTo({
+      url: '/pages/product_list/index'
+    })
+  },
   // 显示隐藏退单原因弹窗
   switchBackReason () {
     let { backReasonToggle } = this.data;
@@ -39,11 +52,11 @@ Page({
   confirmBackReason () {
     let { backReason } = this.data;
 
-    try{
-      if(!backReason){
+    try {
+      if (!backReason) {
         throw new Error('请填写退单原因');
       }
-    }catch(e){
+    } catch (e) {
       return wx.showToast({
         title: e.message,
         image: '../../icons/close-circled.png'
@@ -86,7 +99,7 @@ Page({
     wx.showLoading();
     let { id, isCancelling } = this.data;
 
-    if(isCancelling){
+    if (isCancelling) {
       return wx.showToast({
         title: '正在取消中',
         image: '../../icons/close-circled.png'
@@ -101,12 +114,12 @@ Page({
       url: `${api.order}${id}`,
       method: 'DELETE'
     }).then((res) => {
-      if(res.errorCode == 200){
+      if (res.errorCode == 200) {
         wx.showToast({
           title: res.moreInfo || '取消成功'
         })
 
-        setTimeout(()=>{
+        setTimeout(() => {
           this.setData({
             isCancelling: false
           });
@@ -130,14 +143,14 @@ Page({
     wx.showLoading();
     let { id, isBacking, backReason } = this.data;
 
-    try{
-      if(isBacking){
+    try {
+      if (isBacking) {
         throw new Error('正在退单中');
       }
-      if(!backReason){
+      if (!backReason) {
         throw new Error('请填写退单原因');
       }
-    }catch(e){
+    } catch (e) {
       return wx.showToast({
         title: e.message,
         image: '../../icons/close-circled.png'
@@ -155,12 +168,12 @@ Page({
         reason: backReason
       }
     }).then((res) => {
-      if(res.errorCode == 200){
+      if (res.errorCode == 200) {
         wx.showToast({
           title: res.moreInfo || '退单成功'
         })
 
-        setTimeout(()=>{
+        setTimeout(() => {
           this.setData({
             isBacking: false
           });
@@ -182,9 +195,9 @@ Page({
   // 确认收货
   confirmReceived () {
     wx.showLoading();
-    let { id, isReceiving} = this.data;
+    let { id, isReceiving } = this.data;
 
-    if(isReceiving){
+    if (isReceiving) {
       return wx.showToast({
         title: '正在确认中',
         image: '../../icons/close-circled.png'
@@ -199,12 +212,12 @@ Page({
       url: `${api.order_confirm}${id}`,
       method: 'PUT'
     }).then((res) => {
-      if(res.errorCode == 200){
+      if (res.errorCode == 200) {
         wx.showToast({
           title: res.moreInfo || '确认收货成功'
         })
 
-        setTimeout(()=>{
+        setTimeout(() => {
           this.setData({
             isReceiving: false
           });
@@ -233,11 +246,17 @@ Page({
     }).then((res) => {
       wx.hideLoading();
       let order = res.data;
+      let totalNum = 0;
       order.updatedAt = formatDate(new Date(order.updatedAt));
 
+      order.orderItems.forEach((item) => {
+        totalNum += item.quantity;
+      });
+
       this.setData({
-        isLoaded: true,
-        order: res.data
+        totalNum,
+        order: res.data,
+        isLoaded: true
       });
     });
   },

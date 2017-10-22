@@ -21,18 +21,17 @@ Page({
   // 获取订单数据
   getData () {
     let { page, size, status, begin, end } = this.data;
-    let params = {
-      page,
-      size,
-      status,
-      begin,
-      end
-    }
 
     wx.showLoading();
     http.request({
       url: api.order,
-      data: params
+      data: {
+        page,
+        size,
+        status,
+        startDate: begin,
+        endDate: end
+      }
     }).then((res) => {
       wx.hideLoading();
 

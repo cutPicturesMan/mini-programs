@@ -32,7 +32,7 @@ class Http extends Auth {
     }
 
     // 如果是提交数据，则使用form表单提交
-    if (!!~['POST', 'PUT'].indexOf(params.method)) {
+    if (!!~['POST', 'PUT', 'DELETE'].indexOf(params.method)) {
       config.header['content-type'] = 'application/x-www-form-urlencoded';
     }
 

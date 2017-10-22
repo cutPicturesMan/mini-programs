@@ -10,48 +10,24 @@
     </view>
   </view>
 </view>
-<view class="list-section mt18">
+<view class="list-section mt18" wx:for="{{orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}">
   <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
+    <view class="item-img">
+      <image
+        src="{{sku.skuMedia.primary.url ? (sku.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+    </view>
     <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
+      <view class="title" url="/pages/product/index">{{item.name}}</view>
       <view class="descrip-container">
         <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
+          <view class="intro">数量：{{sku.quantity}}</view>
+          <view class="intro">单价：￥{{sku.amount}}</view>
+          <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">
+            {{item.attributeName}}：{{item.attributeValue}}
+          </view>
         </view>
       </view>
     </view>
-  </view>
-  <view class="item-state" bindtap="switchAddRemark">
-    <text class="tip text-stable">备注：请输入200字以内的备注</text>
-  </view>
-</view>
-<view class="list-section mt18">
-  <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
-      <view class="descrip-container">
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="item-state" bindtap="switchAddRemark">
-    <text class="tip text-stable">备注：请输入200字以内的备注</text>
   </view>
 </view>
 
