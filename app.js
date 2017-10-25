@@ -36,5 +36,9 @@ App({
     })
 
     return p;
-  }
+  },
+  onShow () {
+    // 小程序从后台工作进入前台时，刷新当前用户信息
+    this.userInfo = null;
+  },
 })

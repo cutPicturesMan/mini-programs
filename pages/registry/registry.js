@@ -1,8 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 import utils from '../../public/js/utils.js';
+import Auth from '../../public/js/auth.js';
 
 let app = getApp();
+let auth = new Auth();
 
 Page({
   data: {
@@ -138,6 +140,9 @@ Page({
     }).then((res) => {
       // 提交成功，则跳转到首页
       if (res.errorCode === 200) {
+        // 从后台进入前台时，刷新当前用户信息
+        app.userInfo = null;
+
         wx.showToast({
           title: res.data.status.friendlyType || '提交成功'
         })
@@ -182,22 +187,47 @@ Page({
       }
     });
   },
-  onLoad (params) {
-    // 默认业务员id为1
-    let adminId = 1;
+  onLoad (params = {}) {
+    // 获取用户的信息
+    app.getUserInfo()
+      .then((res) => {
+        if (res.status && res.status.id == 1) {
+          wx.showToast({
+            title: '您已注册，自动跳转中',
+            image: '../../icons/close-circled.png'
+          })
 
-    // 如果是通过扫码进来的
-    if(params.scene){
-      let scene = utils.parseQueryString(decodeURIComponent(params.scene));
-      scene.adminId && (adminId = scene.adminId);
-    } else {
-      params.adminId && (adminId = params.adminId);
-    }
+          setTimeout(() => {
+            wx.switchTab({
+              url: `/pages/index/index`
+            });
+          }, 1500)
+        } else {
+          auth.login()
+            .then(() => {
+              // 默认业务员id为1
+              let adminId = 1;
 
-    this.setData({
-      adminId
-    });
+              // 如果是通过扫码进来的
+              if(params.scene){
+                let scene = utils.parseQueryString(decodeURIComponent(params.scene));
+                scene.adminId && (adminId = scene.adminId);
+              } else {
+                params.adminId && (adminId = params.adminId);
+              }
 
-    this.getUserInfo();
+              this.setData({
+                adminId
+              });
+
+              this.getUserInfo();
+            })
+        }
+      }, () => {
+        wx.showModal({
+          title: '提示',
+          content: '获取用户信息失败，请重新进入小程序'
+        })
+      })
   }
 })

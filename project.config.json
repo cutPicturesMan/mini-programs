@@ -12,7 +12,7 @@
 	"projectname": "%E7%84%99%E4%BA%91%E4%BE%9B%E5%BA%94%E9%93%BE",
 	"condition": {
 		"weapp": {
-			"current": 2,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -55,6 +55,12 @@
 					"name": "代下单",
 					"pathName": "pages/index/index",
 					"query": "customerId=4&adminId=1"
+				},
+				{
+					"id": 7,
+					"name": "注册页",
+					"pathName": "pages/registry/registry",
+					"query": "adminId=1"
 				}
 			]
 		},

@@ -22,7 +22,7 @@
         <image src="{{item.orderItems[0].skuMedia.alt1.url ? (item.orderItems[0].skuMedia.alt1.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
       </view>
       <view class="content">
-        <view class="title" url="/pages/product/index">{{item.name}}</view>
+        <view class="title" url="/pages/product/index">{{sku.name}}</view>
         <view class="descrip-container">
           <view class="descrip-list">
             <view class="intro">数量：{{sku.quantity}}</view>

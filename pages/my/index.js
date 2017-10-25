@@ -42,7 +42,7 @@ Page({
       }
     })
   },
-  onLoad () {
+  onShow () {
     // 获取用户的信息
     app.getUserInfo()
       .then((res) => {

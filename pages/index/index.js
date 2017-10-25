@@ -289,7 +289,7 @@ Page({
       }, () => {
       });
   },
-  onLoad (params) {
+  onShow (params = {}) {
     let customerId = params.customerId;
     let adminId = params.adminId;
     // 如果同时存在客户id和管理员id，表示管理员代下单，要先执行登录流程

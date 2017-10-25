@@ -21,7 +21,7 @@
     <view class="title">{{product.name}}</view>
     <view class="price text-energized">
       <block wx:if="{{isSkuLoaded}}">
-        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].rp : '无价格'}}
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].rp || '暂无' : '无价格'}}
       </block>
       <block wx:else>
         查询中
@@ -30,7 +30,7 @@
     <view class="number">货号：{{product.number || '暂无'}}</view>
     <view class="number">市场价：
       <block wx:if="{{isSkuLoaded}}">
-        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].sp : '无市场价'}}
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].sp || '暂无' : '无市场价'}}
       </block>
       <block wx:else>
         查询中
