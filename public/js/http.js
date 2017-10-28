@@ -40,6 +40,7 @@ class Http extends Auth {
       let fn = {
         success: (res) => {
           res = res.data;
+
           // 用户未登录，则重新登录之后，再次发起本次请求
           if (res.errorCode === 401) {
             this.errorCount++;
@@ -49,6 +50,8 @@ class Http extends Auth {
             if(this.errorCount < this.maxErrorCount){
               this.login()
                 .then(() => {
+                  this.errorCount = 0;
+
                   sessionId = wx.getStorageSync('sessionId');
                   config.header.cookie = `SESSION=${sessionId}`;
                   this.request(config);
