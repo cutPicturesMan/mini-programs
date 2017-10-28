@@ -1,0 +1,53 @@
+<view class="empty-data" wx:if="{{list.length === 0}}">
+  <view class="p20 tac text-stable fs32">{{ tabList[tabIndex].name }}空空如也~</view>
+  <view class="tac">
+    <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
+  </view>
+</view>
+
+<view class="list-tabs">
+  <view class="tabs-item {{tabIndex === index ? 'active' : ''}}"
+        wx:for="{{tabList}}"
+        data-index="{{index}}"
+        data-item="{{item}}"
+        bindtap="switchTabs">
+    <text>{{item.name}}</text>
+  </view>
+</view>
+
+<scroll-view
+  class="scroll-view"
+  scroll-y="true"
+  enable-back-to-top="true"
+  bindscrolltolower="loadmore">
+  <view class="list-section mb20" wx:for="{{list}}" wx:key="{{item.id}}">
+    <navigator class="label-act bb" url="/pages/order_detail/index">
+      <view class="title">
+        <text class="pr20 pl15">订单编号</text>
+      </view>
+      <view class="arrow">{{item.orderNumber}}</view>
+    </navigator>
+    <view class="list-item" wx:for="{{item.orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}">
+      <navigator class="item-img" url="/pages/product/index">
+        <image src="../../testimg/list.jpg"></image>
+      </navigator>
+      <view class="content">
+        <navigator class="title" url="/pages/product/index">{{item.name}}</navigator>
+        <view class="descrip-container">
+          <view class="descrip-list">
+            <view class="intro">数量：{{sku.quantity}}</view>
+            <view class="intro">单价：￥{{sku.price}}</view>
+            <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">{{item.attributeName}}：{{item.attributeValue}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item-state">
+      <text class="tip text-stable">{{item.status.friendlyType}}</text>
+      <view class="btns-group">
+        <!--<navigator class="btn btn-energized-light" url="/pages/order_detail/index">再次购买</navigator>-->
+        <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
+      </view>
+    </view>
+  </view>
+</scroll-view>

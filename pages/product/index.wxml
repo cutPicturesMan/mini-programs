@@ -1,85 +1,110 @@
-<view class="add-cart">
-  <image src="../../icons/icon-shopcar.png"></image>
-</view>
-<swiper class="banner-slide"
-        indicator-dots="{{bannerSlider.indicatorDots}}"
-        indicator-color="rgba(0,0,0,0.5)"
-        indicator-active-color="#ff4400"
-        circular="{{bannerSlider.circular}}"
-        autoplay="{{bannerSlider.autoplay}}"
-        interval="{{bannerSlider.interval}}"
-        duration="{{bannerSlider.duration}}">
-  <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
-    <swiper-item>
-      <image src="{{item}}"/>
-    </swiper-item>
-  </block>
-</swiper>
-<view class="product-info">
-  <view class="title">iFashion像素大战像素大战2像素大像素像
-    战像素大战像素大战</view>
-  <view class="price text-energized">
-    <text class="small">￥</text>123
-  </view>
-  <view class="number">型号：1345683147</view>
-  <view class="market-price">市场价：345</view>
-</view>
-<view class="product-sku mt18">
-  <view>
-    <view class="sku-title">颜色</view>
-    <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
+<block wx:if="{{isLoaded}}">
+  <navigator class="add-cart" open-type="switchTab" url="/pages/cart/index"
+  >
+    <image src="../../icons/icon-shopcar.png"/>
+  </navigator>
+  <swiper class="banner-slide"
+          indicator-dots="{{bannerSlider.indicatorDots}}"
+          indicator-color="rgba(0,0,0,0.5)"
+          indicator-active-color="#ff4400"
+          circular="{{bannerSlider.circular}}"
+          autoplay="{{bannerSlider.autoplay}}"
+          interval="{{bannerSlider.interval}}"
+          duration="{{bannerSlider.duration}}">
+    <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="product-info">
+    <view class="title">{{product.name}}</view>
+    <view class="price text-energized">
+      <block wx:if="{{isSkuLoaded}}">
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].rp || '暂无' : '无价格'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
     </view>
-  </view>
-  <view>
-    <view class="sku-title">颜色</view>
-    <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
-      <view class="sku-item">黑色黑色</view>
-      <view class="sku-item">黑色</view>
-      <view class="sku-item">黑色黑色黑色黑色</view>
-      <view class="sku-item">黑色</view>
+    <view class="number">货号：{{product.number || '暂无'}}</view>
+    <view class="number">市场价：
+      <block wx:if="{{isSkuLoaded}}">
+        <text class="small">￥</text>{{ sku.length > 0 ? sku[skuIndex].sp || '暂无' : '无市场价'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
     </view>
+    <view class="number">单位：{{product.unit || '暂无'}}</view>
+    <view class="number">生产商：{{product.manufacturer || '暂无'}}</view>
+    <view class="number">产地：{{product.origin || '暂无'}}</view>
+    <view class="number">描述：{{product.description || '暂无'}}</view>
   </view>
-  <view>
-    <view class="sku-title">颜色</view>
+  <view class="product-sku mt18">
     <view>
-      <view class="sku-item active">白色</view>
-      <view class="sku-item">黑色</view>
-    </view>
-  </view>
-  <view>
-    <view class="sku-title">订购数量</view>
-    <view class="opera-container">
-      <view class="opera-btns">
-        <view class="reduce-btn">
-          <image src="../../icons/icon-reduce.png"></image>
-        </view>
-        <view class="count">10</view>
-        <view class="add-btn">
-          <image src="../../icons/icon-add.png"></image>
-        </view>
+      <view class="sku-title">选择</view>
+      <view>
+        <block wx:if="{{isSkuLoaded}}">
+          <block wx:if="{{sku.length > 0}}">
+            <view class="sku-item {{ skuIndex === index ? 'active' : ''}}"
+                  wx:for="{{sku}}"
+                  wx:key="{{id}}"
+                  data-index="{{index}}"
+                  bindtap="selectSku">{{item.title}}</view>
+          </block>
+          <view class="text-stable" wx:else>无可选规格</view>
+        </block>
+        <block wx:else>
+          查询中
+        </block>
       </view>
-      <text class="unit">件</text>
+    </view>
+    <view>
+      <view class="sku-title">订购</view>
+      <view class="opera-container">
+        <view class="opera-btns">
+          <view class="reduce-btn" bindtap="reduce">
+            <image src="../../icons/icon-reduce.png"></image>
+          </view>
+          <input class="count" type="number" value="{{num}}" bindinput="inputNumber"/>
+          <view class="add-btn" bindtap="add">
+            <image src="../../icons/icon-add.png"></image>
+          </view>
+        </view>
+        <text class="unit">件</text>
+        <text class="unit">剩余 {{sku[skuIndex].q}} 件</text>
+      </view>
     </view>
   </view>
-</view>
-<view class="product-intro mt18">
-  <view class="intro-title">
-    <text>产品详情</text>
+  <view class="product-intro mt18">
+    <view class="intro-title">
+      <text>产品详情</text>
+    </view>
+    <view class="intro-content">
+      <block wx:if="{{product.longDescription}}">{{product.longDescription}}</block>
+      <block wx:if="{{!product.longDescription}}">
+        <view class="fs20 pt15 pb60 tac text-stable">暂无描述详情</view>
+      </block>
+    </view>
   </view>
-  <view class="intro-content">
-    <image src="../../testimg/good.jpg" mode="widthFix"></image>
+  <view class="opera-panel">
+    <!--<view class="collect">-->
+      <!--<image src="../../icons/icon-collect.png"></image>-->
+    <!--</view>-->
+    <!--<view class="share">-->
+      <!--<image src="../../icons/icon-share.png"></image>-->
+    <!--</view>-->
+    <view class="buy {{ (skuIndex >= 0 && num <= sku[skuIndex].q) ? 'active' : '' }}"
+          hidden="{{isSubmit}}"
+          bindtap="buy">
+      <block wx:if="{{isSkuLoaded}}">
+        {{ num > sku[skuIndex].q ? '库存不足' : '加入购物车'}}
+      </block>
+      <block wx:else>
+        查询中
+      </block>
+    </view>
+    <view class="buy" hidden="{{!isSubmit}}">提交中...</view>
   </view>
-</view>
-<view class="opera-panel">
-  <view class="collect">
-    <image src="../../icons/icon-collect.png"></image>
-  </view>
-  <view class="share">
-    <image src="../../icons/icon-share.png"></image>
-  </view>
-  <navigator class="buy" open-type="switchTab" url="/pages/cart/index">加入购物车</navigator>
-</view>
+</block>

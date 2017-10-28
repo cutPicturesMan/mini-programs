@@ -1,0 +1,47 @@
+<view wx:if="{{isLoaded}}">
+  <view class="user-info">
+    <image class="img" src="{{avatarUrl}}"></image>
+    <view class="title">昵称：{{nickName}}</view>
+  </view>
+  <view class="line-cell bb-e5 mt18">
+    <view class="cell-title">公司名称：</view>
+    <view class="cell-content">
+      <input type="text" placeholder="请输入" bindinput="bindCompanyInput"/>
+    </view>
+  </view>
+  <view class="line-cell bb-e5">
+    <view class="cell-title">门店名称:</view>
+    <view class="cell-content">
+      <input type="text" placeholder="请输入" bindinput="bindShopInput"/>
+    </view>
+  </view>
+  <view class="line-cell bb-e5">
+    <view class="cell-title">联系人:</view>
+    <view class="cell-content">
+      <input type="text" placeholder="请输入" bindinput="bindNameInput" value="{{name}}"/>
+    </view>
+  </view>
+  <view class="line-cell bb-e5">
+    <view class="cell-title">电话:</view>
+    <view class="cell-content">
+      <input type="number" placeholder="请输入" maxlength="11" bindinput="bindPhoneInput" value="{{phone}}"/>
+    </view>
+  </view>
+  <view class="line-cell">
+    <view class="cell-title">地址:</view>
+    <view class="cell-content">
+      <input type="text" placeholder="请输入" bindinput="bindAddressInput" value="{{address}}"/>
+    </view>
+  </view>
+
+  <view class="btn btn-fixed fixed-bottom {{isSubmit ? 'btn-stable': 'btn-energized-linear'}}" bindtap="submit">{{isSubmit ? '正在提交中...': '完  成'}}</view>
+</view>
+
+<view class="empty-data" wx:if="{{!isAllowInfo}}">
+  <view class="p20 tac fs32 text-stable">
+    <view>请允许使用您的个人信息，否则无法完成注册。</view>
+    <view>可在右上角进入小程序主页，在主页右上角的设置中打开--用户信息--允许，然后重新进入本页面</view>
+  </view>
+</view>
+
+

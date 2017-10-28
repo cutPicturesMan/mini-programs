@@ -28,6 +28,23 @@ const utils = {
     });
 
     return format;
+  },
+  /**
+   * 将查询字符串转为对象   role=-1&code=yyyy => {role: -1, code: yyyy}
+   * @param queryStr  查询字符串
+   * @param mark  查询字符串的分隔符
+   * @returns {}  对象
+   */
+  parseQueryString(queryStr = '', mark = '&'){
+    let queryList = decodeURIComponent(queryStr).split(mark);
+    let queryObj = {};
+
+    queryList.forEach((item)=>{
+      let arr = item.split('=');
+      queryObj[arr[0]] = arr[1];
+    });
+
+    return queryObj;
   }
 }
 

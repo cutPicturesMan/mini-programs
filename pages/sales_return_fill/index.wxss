@@ -31,15 +31,16 @@ page {
       display: block; }
   .cart-account .total {
     flex: 1;
-    text-align: right;
-    padding-right: 20rpx;
+    padding: 0 20rpx;
     font-size: 26rpx; }
   .cart-account .calc {
     width: 190rpx;
     font-size: 26rpx;
     text-align: center;
     color: #fff;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+    background-color: #e5e5e5; }
+    .cart-account .calc.active {
+      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
 .remark-add {
   background-color: rgba(0, 0, 0, 0.65);

@@ -6,9 +6,14 @@
 .address-section{
   position: relative;
   transition: .4s;
+  display: flex;
   &.active{
     transform: translateX(-110rpx);
   }
+  .address-main{
+    flex: 1;
+  }
+  .select-btn,
   .delete-btn{
     width: 110rpx;
     background-color: #ff5500;
@@ -17,6 +22,8 @@
     display: flex;
     justify-content: center;
     align-items:center;
+  }
+  .delete-btn{
     position:absolute;
     top:0;
     right:-110rpx;

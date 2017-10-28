@@ -2,4 +2,19 @@
 @import '../../public/css/_mixin.scss';
 @import '../../public/css/_category.scss';
 
+page{
+  padding-top: 160rpx + 18rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+.search-top{
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index: 100;
+}
 
+.scroll-view{
+  height: 100%;
+}

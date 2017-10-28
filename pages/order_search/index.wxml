@@ -2,27 +2,27 @@
   <view class="search-item bb">
     <view class="title">开始时间</view>
     <view class="content">
-      <picker mode="date" value="{{beginDate}}" bindchange="bindBeginDateChange">
-        <view>{{beginDate}}</view>
+      <picker mode="date" value="{{begin}}" bindchange="bindBeginDateChange">
+        <view>{{begin}}</view>
       </picker>
     </view>
   </view>
   <view class="search-item bb">
     <view class="title">结束时间</view>
     <view class="content">
-      <picker mode="date" value="{{endDate}}" bindchange="bindEndDateChange">
-        <view>{{endDate}}</view>
+      <picker mode="date" value="{{end}}" bindchange="bindEndDateChange">
+        <view>{{end}}</view>
       </picker>
     </view>
   </view>
   <view class="search-item bb">
     <view class="title">订单状态</view>
     <view class="content">
-      <picker bindchange="bindPickerChange" value="{{listStateIndex}}" range="{{listState}}" range-key="name">
-        <view>{{listState[listStateIndex].name}}</view>
+      <picker bindchange="bindPickerChange" value="{{statusIndex}}" range="{{status}}" range-key="name">
+        <view>{{status[statusIndex].name}}</view>
       </picker>
     </view>
   </view>
-  <view class="mt110 btn btn-full btn-energized-linear">订单查询</view>
+  <view class="mt110 btn btn-full btn-energized-linear" bindtap="search">订单查询</view>
 </view>
 

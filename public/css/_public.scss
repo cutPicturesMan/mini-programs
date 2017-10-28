@@ -3,6 +3,10 @@
 @import './_utils.scss';
 @import './_animate.scss';
 
+.ellipsis{
+  @include ellipsis();
+}
+
 .empty-data{
   height: 100%;
   background-color: #fff;
@@ -11,6 +15,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position:absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  z-index: 10;
   image{
     width:295rpx;
     height: 185rpx;

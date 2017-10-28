@@ -1,137 +1,86 @@
-<view class="search-bar">
-  <view class="search-input ml20">
-    <image src="../../icons/icon-search.png"></image>
-    <input placeholder="请输入" placeholder-style="color:#fff;"/>
-  </view>
-  <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
-    <image src="../../icons/icon-shopcar.png"></image>
-  </navigator>
-</view>
-<view class="category-tabs">
-  <view class="tabs-item">
-    <text>销量</text>
-    <view class="sort-triangle">
-      <view class="up"></view>
-      <view class="down"></view>
+<!--如果用户角色数据请求完毕-->
+<block wx:if="{{userInfo.status}}">
+  <!--如果用户审核通过(1)，则进入系统-->
+  <block wx:if="{{userInfo.status.id == 1}}">
+    <view class="search-bar">
+      <view class="search-input ml20">
+        <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入"
+               placeholder-style="color:#fff;"/>
+      </view>
+      <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
+        <image src="../../icons/icon-shopcar.png"></image>
+      </navigator>
     </view>
-  </view>
-  <view class="tabs-item">
-    <text>价格</text>
-    <view class="sort-triangle">
-      <view class="up"></view>
-      <view class="down"></view>
+    <view class="category-tabs">
+      <view class="tabs-item" bindtap="changePriceOrder">
+        <text>价格</text>
+        <view class="sort-triangle {{priceOrder === 1 ? 'active' : ''}}">
+          <view class="up"></view>
+          <view class="down"></view>
+        </view>
+      </view>
     </view>
-  </view>
-</view>
-<!-- 左侧导航 -->
-<scroll-view class="category-nav" scroll-y="true">
-  <block wx:for="{{nav}}" wx:key="unique">
-    <view class="nav-item {{navIndex==index ? 'active' : ''}}" data-index="{{index}}" bindtap="changeTab">
-      <image src="{{item.icon}}"></image>
-      <text>{{item.title}}</text>
+    <!-- 左侧导航 -->
+    <scroll-view class="category-nav" scroll-y="true">
+      <view wx:for="{{navList}}"
+            wx:key="{{id}}">
+        <view class="nav-item big {{navIndex==index && item.childCategory.length == 0 ? 'active' : ''}}"
+              data-index="{{index}}"
+              bindtap="changeNav">
+          <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+        <block wx:if="{{item.childCategory.length > 0}}">
+          <view class="nav-item {{navIndex==index && subNavIndex==subindex ? 'active' : ''}}"
+                wx:for="{{item.childCategory}}"
+                wx:for-index="subindex"
+                wx:key="{{id}}"
+                data-index="{{index}}"
+                data-sub-index="{{subindex}}"
+                bindtap="changeSubNav">
+            <image wx:if="{{item.icon}}" src="{{item.icon}}"></image>
+            <text class="text-energized">·</text>
+            <text>{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <!-- 右侧主体 -->
+    <view class="category-main">
+      <scroll-view
+        class="scroll-view"
+        scroll-y="true"
+        enable-back-to-top="true"
+        bindscrolltolower="loadmore">
+        <view class="good-section">
+          <view class="good-item" wx:for="{{list}}" wx:key="{{id}}">
+            <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
+              <image
+                src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/180/h/160') : '../../icons/img-none.png'}}"></image>
+            </navigator>
+            <navigator class="content" url="/pages/product/index?id={{item.id}}">
+              <view class="title">{{item.name}}</view>
+              <view class="intro">{{item.productOptionSize}}个规格可选</view>
+              <view class="intro">产地：{{item.manufacturer || '暂无'}}</view>
+              <view class="info">
+                <text class="price">¥{{item.minPrice}}</text>
+              </view>
+            </navigator>
+          </view>
+          <view class="p30 tac text-stable fs20" wx:if="{{!isMore}}">没有更多数据了～</view>
+        </view>
+      </scroll-view>
     </view>
   </block>
-</scroll-view>
-<!-- 右侧主体 -->
-<view class="category-main">
-  <scroll-view class="scroll-view" scroll-y="true">
-    <view class="ad-img">
-      <image src="../../testimg/category1.jpg"></image>
+  <!--否则-->
+  <block wx:else>
+    <view class="empty-data">
+      <!--如果正在审核中(2)、则页面显示正在审核，不进入系统-->
+      <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
+      <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
+      <block wx:else>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
+      </block>
     </view>
-    <view class="good-section">
-      <view class="good-item">
-        <navigator class="good-img" url="/pages/product/index">
-          <image src="../../testimg/category2.png"></image>
-        </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
-          <text class="intro">2个规格可选</text>
-          <view class="info">
-            <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator class="good-img" url="/pages/product/index">
-          <image src="../../testimg/category2.png"></image>
-        </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
-          <text class="intro">2个规格可选</text>
-          <view class="info">
-            <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator class="good-img" url="/pages/product/index">
-          <image src="../../testimg/category2.png"></image>
-        </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
-          <text class="intro">2个规格可选</text>
-          <view class="info">
-            <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="good-item">
-        <navigator class="good-img" url="/pages/product/index">
-          <image src="../../testimg/category2.png"></image>
-        </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
-          <text class="intro">2个规格可选</text>
-          <view class="info">
-            <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="good-section">
-      <view class="nav-title">推荐</view>
-      <view class="good-item">
-        <navigator class="good-img" url="/pages/product/index">
-          <image src="../../testimg/category2.png"></image>
-        </navigator>
-        <view class="content">
-          <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686
-            0 芝士戚风烘培金 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686 三能乳酪蛋糕模具SN686</navigator>
-          <text class="intro">2个规格可选</text>
-          <view class="info">
-            <text class="price">¥23.00</text>
-            <view class="opera">
-              <image src="../../icons/icon-cart2.png"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </scroll-view>
-</view>
-
-
-
-
-
+  </block>
+</block>

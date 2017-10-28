@@ -2,4 +2,60 @@
 @import '../../public/css/_mixin.scss';
 @import '../../public/css/_category.scss';
 
+.sub-category{
+  z-index: 100;
+  &,
+  &-bg{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+  }
+  &-bg{
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .7);
+  }
+  &-main{
+    background-color: #fff;
+    position:fixed;
+    right:0;
+    bottom:0;
+    left:0;
+    transform: translateY(100%);
+  }
+  &-title{
+    height: 84rpx;
+    font-size: 32rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-scroll{
+    height: 120rpx;
+    margin-bottom: 60rpx;
+  }
+  &-content{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20rpx;
+  }
+  &-item{
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-bottom: 20rpx;
+    margin-right: 20rpx;
+    border-radius: 15rpx;
+    background-color: #f5f5f5;
+    color: #000;
+    text-align: center;
+    font-size: 22rpx;
 
+    @include ellipsis();
+    &.active{
+      color: #fff;
+      background-color: #ff5000;
+    }
+  }
+}

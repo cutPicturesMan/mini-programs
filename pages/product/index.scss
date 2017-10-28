@@ -8,7 +8,7 @@ page{
   border-radius: 50%;
   background-color: rgba(0, 0, 0, .65);
   padding: 8rpx;
-  position:absolute;
+  position:fixed;
   top: 10rpx;
   right: 24rpx;
   z-index: 100;
@@ -28,7 +28,7 @@ page{
   }
 }
 .product-info{
-  padding:17rpx 17rpx 0 17rpx;
+  padding:17rpx;
   background-color: #fff;
   .title{
     line-height: 30rpx;
@@ -113,12 +113,11 @@ page{
   .count{
     font-weight: bold;
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+    text-align: center;
   }
 }
 .product-intro{
+  min-height: 300rpx;
   background-color: #fff;
   .intro-title{
     height: 84rpx;
@@ -142,6 +141,7 @@ page{
 }
 .opera-panel{
   height: 88rpx;
+  line-height: 88rpx;
   background-color: #fff;
   display: flex;
   position: fixed;
@@ -149,24 +149,27 @@ page{
   bottom: 0;
   left: 0;
   .collect{
-    flex: 1;
-    box-sizing: border-box;
+    width: 25%;
     border-top: 1rpx solid #e5e5e5;
     border-right: 1rpx solid #e5e5e5;
   }
   .share{
-    flex: 1;
+    width: 25%;
     border-top: 1rpx solid #e5e5e5;
   }
   .buy{
-    width: 50%;
-    color:#fff;
+    flex: 1;
     font-size: 34rpx;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
+    color:#fff;
+    background: #e5e5e5;
+    text-align: center;
+    &.active{
+      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
+    }
   }
   .collect,
-  .share,
-  .buy{
+  .share{
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;

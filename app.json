@@ -1,5 +1,6 @@
 {
   "pages":[
+
     "pages/index/index",
     "pages/category/index",
     "pages/cart/index",
@@ -18,10 +19,13 @@
     "pages/order_invoice/index",
     "pages/order_attachment/index",
     "pages/order_result/index",
+    "pages/order_journey/index",
 
     "pages/release_record/index",
     "pages/release_list/index",
     "pages/company_info/index",
+
+    "pages/registry/registry",
 
     "pages/account_balance/index",
     "pages/recharge/index",
@@ -31,7 +35,6 @@
     "pages/pay_record/index",
     "pages/address/index",
     "pages/address_edit/index",
-    "pages/address_new/index",
     "pages/product/index",
     "pages/product_list/index",
     "pages/shoper/index",
@@ -41,7 +44,7 @@
     "backgroundColor":"#f2f2f2",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#ff5000",
-    "navigationBarTitleText": "电商",
+    "navigationBarTitleText": "焙云",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {

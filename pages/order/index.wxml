@@ -1,125 +1,93 @@
-<view class="list-tabs">
-  <view class="tabs-item active">
-    <text>当前订单</text>
-  </view>
-  <view class="tabs-item">
-    <text>历史订单</text>
-  </view>
-  <navigator class="tabs-item" url="/pages/order_search/index">
-    <text>订单查询</text>
-  </navigator>
-</view>
+<!--如果用户角色数据请求完毕-->
+<block wx:if="{{userInfo.status}}">
+  <!--如果用户审核通过(1)，则进入系统-->
+  <block wx:if="{{userInfo.status.id == 1}}">
+    <view class="empty-data" wx:if="{{list.length === 0}}">
+      <view class="p20 tac text-stable fs32">空空如也~</view>
+      <view class="tac">
+        <navigator class="btn btn-energized" open-type="switchTab" url="/pages/index/index">去购物</navigator>
+      </view>
+    </view>
 
-<view class="list-section mt18">
-  <navigator class="label-act bb" url="/pages/order_detail/index">
-    <view class="ico">
-      <image src="../../testimg/list1.jpg"></image>
-    </view>
-    <view class="title">
-      <text class="pr20 pl15">三能旗舰店</text>
-      <image class="icon" src="../../icons/icon-arrow-right.png"></image>
-    </view>
-  </navigator>
-  <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
-      <view class="descrip-container">
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
-        </view>
+    <view class="list-tabs">
+      <view class="tabs-item {{tabIndex === 0 ? 'active' : ''}}"
+            data-index="{{0}}"
+            data-status="{{''}}"
+            bindtap="switchTabs">
+        <text>当前订单</text>
       </view>
+      <view class="tabs-item {{tabIndex === 1 ? 'active' : ''}}"
+            data-index="{{1}}"
+            data-status="{{FINISHED}}"
+            bindtap="switchTabs">
+        <text>历史订单</text>
+      </view>
+      <navigator class="tabs-item" url="/pages/order_search/index">
+        <text>订单查询</text>
+      </navigator>
     </view>
-  </view>
-  <view class="item-state">
-    <text class="tip text-stable">待发货确认</text>
-    <view class="btns-group">
-      <navigator class="btn btn-energized-light" url="/pages/order_detail/index">再次购买</navigator>
-      <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
-    </view>
-  </view>
-</view>
 
-<view class="list-section mt18">
-  <navigator class="label-act bb" url="/pages/product/index">
-    <view class="ico">
-      <image src="../../testimg/list1.jpg"></image>
-    </view>
-    <view class="title">
-      <text class="pr20 pl15">三能旗舰店</text>
-      <image class="icon" src="../../icons/icon-arrow-right.png"></image>
-    </view>
-  </navigator>
-  <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
-      <view class="descrip-container">
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
+    <scroll-view
+      class="scroll-view"
+      scroll-y="true"
+      enable-back-to-top="true"
+      bindscrolltolower="loadmore">
+      <view class="list-section mt18" wx:for="{{list}}" wx:key="{{item.id}}">
+        <navigator url="/pages/order_detail/index?id={{item.id}}">
+          <view class="label-act bb">
+            <view class="title">
+              <text class="pr20 pl15">订单编号</text>
+            </view>
+            <view class="arrow">{{item.orderNumber}}</view>
+          </view>
+          <view class="list-item" wx:for="{{item.orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}"
+                url="/pages/product/index?id={{item.id}}">
+            <view class="item-img">
+              <image
+                src="{{item.orderItems[0].skuMedia.primary.url ? (item.orderItems[0].skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+            </view>
+            <view class="content">
+              <view class="title" url="/pages/product/index">{{sku.name}}</view>
+              <view class="descrip-container">
+                <view class="descrip-list">
+                  <view class="intro">数量：{{sku.quantity}}</view>
+                  <view class="intro">单价：￥{{sku.amount}}</view>
+                  <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">
+                    {{item.attributeName}}：{{item.attributeValue}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+        <view class="item-state">
+          <text class="tip text-stable">{{item.status.friendlyType}}</text>
+          <view class="btns-group">
+            <navigator class="btn btn-energized-light" open-type="switchTab" url="/pages/index/index"
+                       wx:if="{{item.status.type === FINISHED}}">再次购买
+            </navigator>
+            <navigator class="btn btn-energized" url="/pages/order_pay/index?id={{item.id}}"
+                       wx:if="{{item.status.type === SUBMITTED}}">立即付款
+            </navigator>
+          </view>
         </view>
       </view>
+      <view class="tac p20 text-stable fs20">{{isMore ? '正在加载中...' : '没有更多了'}}</view>
+    </scroll-view>
+  </block>
+  <!--否则-->
+  <block wx:else>
+    <view class="empty-data">
+      <!--如果正在审核中(2)、则页面显示正在审核，不进入系统-->
+      <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
+      <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
+      <block wx:else>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
+      </block>
     </view>
-  </view>
-  <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</navigator>
-      <view class="descrip-container">
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="list-item">
-    <navigator class="item-img" url="/pages/product/index">
-      <image src="../../testimg/list.jpg"></image>
-    </navigator>
-    <view class="content">
-      <navigator class="title" url="/pages/product/index">三能乳酪蛋糕模具SN6860 芝士戚风烘培金色
-        不粘烤箱家用 烘焙工具</navigator>
-      <view class="descrip-container">
-        <view class="descrip-list">
-          <view class="intro">白色X10个</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">时间：2017-7-24 11:44:50</view>
-          <view class="intro">金额：21,000.00（未付款）</view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="item-state">
-    <text class="tip text-stable">待发货确认</text>
-    <view class="btns-group">
-      <navigator class="btn btn-energized-light" url="/pages/order_detail/index">再次购买</navigator>
-      <navigator class="btn btn-energized" url="/pages/order_pay/index">立即付款</navigator>
-    </view>
-  </view>
-</view>
+  </block>
+</block>
+
+
+
+

@@ -1,7 +1,7 @@
 var app = getApp()
 Page({
   data: {
-    // 新增备注开关
+    // 备注的开关
     addToggle: false,
     list: [1]
   },

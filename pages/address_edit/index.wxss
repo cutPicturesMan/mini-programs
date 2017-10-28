@@ -29,6 +29,8 @@
       display: flex;
       justify-content: flex-end;
       align-items: center; }
+      .addr-section .addr-item .content input {
+        flex: 1; }
       .addr-section .addr-item .content .ico {
         width: 36rpx;
         height: 36rpx; }

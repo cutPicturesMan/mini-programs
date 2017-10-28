@@ -1,271 +1,190 @@
-<view class="search-bar fixed">
-  <view class="search-input ml20">
-    <input placeholder="请输入" placeholder-style="color:#fff;"/>
-  </view>
-  <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
-    <image src="../../icons/icon-shopcar.png"></image>
-  </navigator>
-</view>
-<swiper class="banner-slide"
-        indicator-dots="{{bannerSlider.indicatorDots}}"
-        indicator-color="rgba(0,0,0,0.5)"
-        indicator-active-color="#ff4400"
-        circular="{{bannerSlider.circular}}"
-        autoplay="{{bannerSlider.autoplay}}"
-        interval="{{bannerSlider.interval}}"
-        duration="{{bannerSlider.duration}}">
-  <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
-    <swiper-item>
-      <navigator url="/pages/product/index">
-        <image src="{{item}}"/>
+<!--如果用户角色数据请求完毕-->
+<block wx:if="{{userInfo.status}}">
+  <!--如果用户审核通过(1)，则进入系统-->
+  <block wx:if="{{userInfo.status.id == 1}}">
+    <!--顶部搜索-->
+    <view class="search-bar fixed">
+      <view class="search-input ml20">
+        <input bindinput="searchInput" bindconfirm="searchConfirm" value="{{searchText}}" placeholder="请输入"
+               placeholder-style="color:#fff;"/>
+      </view>
+      <navigator class="right-btn" open-type="switchTab" url="/pages/cart/index">
+        <image src="../../icons/icon-shopcar.png"></image>
       </navigator>
-    </swiper-item>
+    </view>
+    <!--图片轮播-->
+    <swiper class="banner-slide"
+            indicator-dots="{{bannerSlider.indicatorDots}}"
+            indicator-color="rgba(0,0,0,0.5)"
+            indicator-active-color="#ff4400"
+            circular="{{bannerSlider.circular}}"
+            autoplay="{{bannerSlider.autoplay}}"
+            interval="{{bannerSlider.interval}}"
+            duration="{{bannerSlider.duration}}"
+            wx:if="{{bannerList.length > 0}}">
+      <block wx:for="{{bannerList}}" wx:key="unique">
+        <swiper-item>
+          <view data-type="{{5}}"
+                data-id="{{item.id}}"
+                data-clength="{{item.childCategory.length}}"
+                bindtap="jump">
+            <image src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url + '?imageView2/1/w/750/h/235' : '../../icons/icon-no-img.png'}}"/>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--分类轮播-->
+    <swiper class="category-section"
+            indicator-dots="{{categorySlider.indicatorDots}}"
+            indicator-color="rgba(0,0,0,0.5)"
+            indicator-active-color="#ff4400"
+            circular="{{categorySlider.circular}}"
+            autoplay="{{categorySlider.autoplay}}"
+            interval="{{categorySlider.interval}}"
+            duration="{{categorySlider.duration}}"
+            wx:if="{{categoryArr.length > 0}}">
+      <block wx:for="{{categoryArr}}" wx:key="{{index}}">
+        <swiper-item class="category-sub clear">
+          <view class="category-item"
+                wx:for="{{item}}"
+                wx:key="{{index}}"
+                data-type="{{2}}"
+                data-id="{{item.id}}"
+                data-clength="{{item.childCategory.length}}"
+                bindtap="jump">
+            <view class="link">
+              <image src="{{item.icon}}"></image>
+              <text class="text">{{item.name}}</text>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--文字轮播-->
+    <swiper class="text-slider"
+            circular="{{textSlider.circular}}"
+            autoplay="{{textSlider.autoplay}}"
+            interval="{{textSlider.interval}}"
+            duration="{{textSlider.duration}}"
+            vertical="{{textSlider.vertical}}"
+            wx:if="{{textList.length > 0 && false}}">
+      <block wx:for="{{textList}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="../../icons/icon-trumpet.png" class="slide-image"/>
+          <text>{{item}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--推荐品牌-->
+    <view class="recommend-brand mt18" wx:if="{{brankList.length > 0}}">
+      <view class="title">
+        <image src="../../icons/index-brand.png"></image>
+        <text>推荐品牌</text>
+      </view>
+      <view class="content clear">
+        <view class="brand-item"
+               wx:for="{{brankList}}"
+               wx:key="{{index}}"
+               data-type="{{4}}"
+               data-id="{{item.id}}"
+               data-clength="{{item.childCategory.length}}"
+               bindtap="jump">
+          <image class="{{item.url ? 'img' : 'no-img'}}"
+                 src="{{item.categoryMedia.primary ? item.categoryMedia.primary.media.url : '../../icons/icon-no-img.png'}}"
+                 mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{productList}}" wx:key="{{index}}">
+      <!--广告，每2个分类，就循环显示一个广告-->
+      <view class="ad-img mt18"
+            wx:if="{{adList[index] && adList[index].categoryMedia.primary}}"
+            data-type="{{3}}"
+            data-id="{{adList[index].id}}"
+            data-clength="{{adList[index].childCategory.length}}"
+            bindtap="jump">
+        <image src="{{adList[index].categoryMedia.primary.media.url + '?imageView2/1/w/750/h/160'}}"></image>
+      </view>
+      <!--当前循环序号是偶数 && 子分类有商品，显示分类样式1-->
+      <view class="mt18" wx:if="{{index % 2 == 0 && item.goods.length != 0}}">
+        <view class="label-act"
+              data-type="{{1}}"
+              data-id="{{item.id}}"
+              data-clength="{{item.childCategory.length}}"
+              bindtap="jump">
+          <view class="ico">
+            <image src="{{item.url}}" wx:if="{{item.url}}"></image>
+          </view>
+          <view class="title">{{item.name}}</view>
+          <view class="arrow">更多>></view>
+        </view>
+        <view class="good-section {{item.goods.length == 1 ? 'length1' : ''}} {{item.goods.length == 2 ? 'length2' : ''}} {{item.goods.length == 3 ? 'length3' : ''}} {{item.goods.length == 4 ? 'length4' : ''}}">
+          <view class="l">
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[0].id}}" >
+              <image class="img"
+                     src="{{item.goods[0].skuMedia.primary ? item.goods[0].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     mode="aspectFit"></image>
+            </navigator>
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[1].id}}">
+              <image class="img"
+                     src="{{item.goods[1].skuMedia.primary ? item.goods[1].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     mode="aspectFit"></image>
+            </navigator>
+          </view>
+          <view class="r">
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[2].id}}" wx:if="{{item.goods[2].id}}">
+              <image class="img"
+                     src="{{item.goods[2].skuMedia.primary ? item.goods[2].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     mode="aspectFit"></image>
+            </navigator>
+            <navigator class="item" hover-class="none" url="/pages/product/index?id={{item.goods[3].id}}" wx:if="{{item.goods[3].id}}">
+              <image class="img"
+                     src="{{item.goods[3].skuMedia.primary ? item.goods[3].skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     mode="aspectFit"></image>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <!--当前循环序号是奇数 && 子分类有商品，显示分类样式2-->
+      <view class="mt18" wx:if="{{index % 2 == 1 && item.goods.length != 0}}">
+        <view class="label-act"
+              data-type="{{1}}"
+              data-id="{{item.id}}"
+              data-clength="{{item.childCategory.length}}"
+              bindtap="jump">
+          <view class="ico">
+            <image src="{{item.url}}" wx:if="{{item.url}}"></image>
+          </view>
+          <view class="title">{{item.name}}</view>
+          <view class="arrow">更多>></view>
+        </view>
+        <view class="good-list type1 clear">
+          <view class="good-item" wx:for="{{item.goods}}" wx:key="{{index}}">
+            <navigator url="/pages/product/index?id={{item.id}}" hover-class="none">
+              <image class="img"
+                     src="{{item.skuMedia.primary ? item.skuMedia.primary.url : '../../icons/icon-no-img.png'}}"
+                     mode="aspectFit"></image>
+              <text class="title">{{item.name}}</text>
+            </navigator>
+            <view class="info">
+              <text class="price">¥{{item.minPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
   </block>
-</swiper>
-<view class="category-list clear">
-  <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
-      <image src="../../icons/index-category1.png"></image>
-      <text class="text">主材类</text>
-    </navigator>
-  </view>
-  <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
-      <image src="../../icons/index-category2.png"></image>
-      <text class="text">辅料类</text>
-    </navigator>
-  </view>
-  <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
-      <image src="../../icons/index-category3.png"></image>
-      <text class="text">模具类模具类模具类模具类模具类模具类</text>
-    </navigator>
-  </view>
-  <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
-      <image src="../../icons/index-category4.png"></image>
-      <text class="text">包材类</text>
-    </navigator>
-  </view>
-  <view class="category-item">
-    <navigator class="link" url="/pages/search_result/index">
-      <image src="../../icons/index-category5.png"></image>
-      <text class="text">外购成品</text>
-    </navigator>
-  </view>
-</view>
-<swiper class="text-slider"
-        circular="{{bannerSlider.circular}}"
-        autoplay="{{textSlider.autoplay}}"
-        interval="{{textSlider.interval}}"
-        duration="{{textSlider.duration}}"
-        vertical="{{textSlider.vertical}}">
-  <block wx:for="{{textSlider.imgUrls}}" wx:key="unique">
-    <swiper-item>
-      <image src="../../icons/icon-trumpet.png" class="slide-image"/>
-      <text>{{item}}</text>
-    </swiper-item>
+  <!--否则-->
+  <block wx:else>
+    <view class="empty-data">
+      <!--如果正在审核中(2)、则页面显示正在审核，不进入系统-->
+      <view class="p20 tac fs32 text-stable" wx:if="{{userInfo.status.id == 2}}">您的角色正在审核中</view>
+      <!--如果用户未审核(-1)、审核拒绝(0)，则提示跳转信息申请页-->
+      <block wx:else>
+        <view class="p20 tac fs32 text-stable">对不起，您还未注册，请扫码注册</view>
+      </block>
+    </view>
   </block>
-</swiper>
-<view class="recommend-brand mt18">
-  <view class="title">
-    <image src="../../icons/index-brand.png"></image>
-    <text>推荐品牌</text>
-  </view>
-  <view class="content clear">
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-    <navigator class="brand-item" url="/pages/shoper/index">
-      <image src="../../testimg/index.jpg"></image>
-    </navigator>
-  </view>
-</view>
-<navigator class="ad-img mt18" url="/pages/product/index">
-  <image src="../../testimg/index2.jpg"></image>
-</navigator>
-<view class="mt18">
-  <navigator class="label-act" url="/pages/search_result/index">
-    <view class="ico">
-      <image src="../../icons/icon-new.png"></image>
-    </view>
-    <view class="title">新品上市</view>
-    <view class="arrow">更多>></view>
-  </navigator>
-  <view class="good-section">
-    <view class="l">
-      <navigator class="item" hover-class="none" url="/pages/product/index">
-        <image src="../../testimg/index3.png"></image>
-      </navigator>
-      <navigator class="item" hover-class="none" url="/pages/product/index">
-        <image src="../../testimg/index4.png"></image>
-      </navigator>
-    </view>
-    <view class="r">
-      <navigator class="item" hover-class="none" url="/pages/product/index">
-        <image src="../../testimg/index5.png"></image>
-      </navigator>
-      <navigator class="item" hover-class="none" url="/pages/product/index">
-        <image src="../../testimg/index51.png"></image>
-      </navigator>
-    </view>
-  </view>
-</view>
-<view class="mt18">
-  <navigator class="label-act" url="/pages/search_result/index">
-    <view class="ico">
-      <image src="../../icons/icon-flag.png"></image>
-    </view>
-    <view class="title">推荐</view>
-    <view class="arrow">更多>></view>
-  </navigator>
-  <view class="good-list type1 clear">
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index6.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <view class="info">
-        <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
-      </view>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index6.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <view class="info">
-        <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
-      </view>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index6.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <view class="info">
-        <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
-      </view>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index6.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <view class="info">
-        <text class="price">¥23.00</text>
-        <view class="opera">
-          <image src="../../icons/icon-cart.png"></image>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-<navigator class="ad-img mt18" url="/pages/product/index">
-  <image src="../../testimg/index7.png"></image>
-</navigator>
-<view>
-  <navigator class="label-act" url="/pages/search_result/index">
-    <view class="ico">
-      <image src="../../icons/icon-home.png"></image>
-    </view>
-    <view class="title">清仓处理</view>
-    <view class="arrow">更多>></view>
-  </navigator>
-  <view class="good-section">
-    <view class="l">
-      <navigator class="item" url="/pages/product/index" hover-class="none">
-        <image src="../../testimg/index3.png"></image>
-      </navigator>
-      <navigator class="item" url="/pages/product/index" hover-class="none">
-        <image src="../../testimg/index4.png"></image>
-      </navigator>
-    </view>
-    <view class="r">
-      <navigator class="item" url="/pages/product/index" hover-class="none">
-        <image src="../../testimg/index5.png"></image>
-      </navigator>
-      <navigator class="item" hover-class="none" url="/pages/product/index">
-        <image src="../../testimg/index51.png"></image>
-      </navigator>
-    </view>
-  </view>
-</view>
-<view class="mt18">
-  <navigator class="label-act" url="/pages/search_result/index">
-    <view class="ico">
-      <image src="../../icons/icon-list.png"></image>
-    </view>
-    <view class="title">历史清单</view>
-    <view class="arrow">更多>></view>
-  </navigator>
-  <scroll-view class="good-list type2" scroll-x="true">
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index8.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <text class="price">¥23.00</text>
-      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index8.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <text class="price">¥23.00</text>
-      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index8.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <text class="price">¥23.00</text>
-      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
-    </view>
-    <view class="good-item">
-      <navigator url="/pages/product/index" hover-class="none">
-        <image class="img" src="../../testimg/index8.png"></image>
-        <text class="title">三能乳酪蛋糕模具SN6860 芝士戚风烘
-          培金色不粘烤箱家用 烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具烘焙工具</text>
-      </navigator>
-      <text class="price">¥23.00</text>
-      <navigator class="opera" url="/pages/product/index" hover-class="none">补 货</navigator>
-    </view>
-  </scroll-view>
-</view>
+</block>
+
+

@@ -10,7 +10,7 @@
 .list-section {
   background-color: #fff; }
   .list-section .sel {
-    margin-right: 20rpx; }
+    padding-right: 20rpx; }
     .list-section .sel image {
       width: 36rpx;
       height: 36rpx;
@@ -29,7 +29,7 @@
       display: flex;
       align-items: center; }
     .list-section .list-item .item-img {
-      padding: 10rpx 10rpx 10rpx 0; }
+      padding: 10rpx; }
       .list-section .list-item .item-img image {
         width: 166rpx;
         height: 166rpx;
@@ -50,18 +50,21 @@
         line-height: 32rpx;
         color: #999;
         font-size: 22rpx;
-        padding: 5rpx; }
-        .list-section .list-item .content .descrip-container .descrip-list.hide {
-          height: 32rpx;
+        padding: 0 5rpx; }
+        .list-section .list-item .content .descrip-container .descrip-list.short {
+          height: 64rpx;
           overflow: hidden; }
-          .list-section .list-item .content .descrip-container .descrip-list.hide .intro:first-child {
+          .list-section .list-item .content .descrip-container .descrip-list.short .intro:first-child {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis; }
       .list-section .list-item .content .descrip-container .icon {
         width: 40rpx;
         height: 40rpx;
-        float: right; }
+        float: right;
+        transition: 0.5s; }
+        .list-section .list-item .content .descrip-container .icon.rotate {
+          transform: rotate(180deg); }
       .list-section .list-item .content .info {
         line-height: 34rpx;
         margin-top: 45rpx;
@@ -161,24 +164,29 @@ page {
       display: block; }
   .cart-account .total {
     flex: 1;
-    text-align: right;
-    padding-right: 20rpx;
+    padding: 0 20rpx;
     font-size: 26rpx; }
   .cart-account .calc {
     width: 190rpx;
     font-size: 26rpx;
     text-align: center;
     color: #fff;
-    background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
+    background-color: #e5e5e5; }
+    .cart-account .calc.active {
+      background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
 .address-container {
   overflow-x: hidden; }
 
 .address-section {
   position: relative;
-  transition: .4s; }
+  transition: .4s;
+  display: flex; }
   .address-section.active {
     transform: translateX(-110rpx); }
+  .address-section .address-main {
+    flex: 1; }
+  .address-section .select-btn,
   .address-section .delete-btn {
     width: 110rpx;
     background-color: #ff5500;
@@ -186,7 +194,8 @@ page {
     color: #fff;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; }
+  .address-section .delete-btn {
     position: absolute;
     top: 0;
     right: -110rpx;
