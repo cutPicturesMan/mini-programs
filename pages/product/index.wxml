@@ -13,7 +13,7 @@
           duration="{{bannerSlider.duration}}">
     <block wx:for="{{bannerSlider.imgUrls}}" wx:key="unique">
       <swiper-item>
-        <image src="{{item}}"/>
+        <image src="{{item}}" mode="aspectFill"/>
       </swiper-item>
     </block>
   </swiper>
@@ -82,7 +82,10 @@
       <text>产品详情</text>
     </view>
     <view class="intro-content">
-      <block wx:if="{{product.longDescription}}">{{product.longDescription}}</block>
+      <block wx:if="{{product.longDescription}}">
+        <rich-text nodes="{{product.longDescription}}" wx:if="{{isSupportRichText}}"></rich-text>
+        <view class="fs20 pt15 pb60 tac text-stable" wx:else>当前微信版本过低，无法查看商品详情数据，请升级到最新微信版本后重试</view>
+      </block>
       <block wx:if="{{!product.longDescription}}">
         <view class="fs20 pt15 pb60 tac text-stable">暂无描述详情</view>
       </block>

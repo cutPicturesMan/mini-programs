@@ -25,7 +25,9 @@ Page({
     // 数据是否加载完毕
     isLoaded: false,
     // 规格是否查询完毕
-    isSkuLoaded: false
+    isSkuLoaded: false,
+    // 是否支持后台录入的富文本数据
+    isSupportRichText: wx.canIUse('rich-text')
   },
   // 获取商品数据
   getData (id) {
@@ -37,31 +39,46 @@ Page({
     }).then((res) => {
       wx.hideLoading();
 
-      let skuMedia = res.data.skuMedia;
-      let imgs = [];
-      let skuMediaKey = Object.keys(skuMedia);
+      if(res.errorCode == 200){
+        let skuMedia = res.data.skuMedia;
+        let imgs = [];
+        let skuMediaKey = Object.keys(skuMedia);
 
-      // 如果找到了主图的key，则放在第一位
-      let mainImgIndex = skuMediaKey.indexOf('primary');
-      if(!!~mainImgIndex){
-        skuMediaKey.splice(mainImgIndex, 1);
-        skuMediaKey.unshift('primary');
+        // 如果找到了主图的key，则放在第一位
+        let mainImgIndex = skuMediaKey.indexOf('primary');
+        if(!!~mainImgIndex){
+          skuMediaKey.splice(mainImgIndex, 1);
+          skuMediaKey.unshift('primary');
+        }
+
+        skuMediaKey.forEach((key) => {
+          // 如果不存在图片地址，则赋值一个默认的图片
+          imgs.push(skuMedia[key].url ? skuMedia[key].url + '?imageView/2/1/w/750/h/750' : '../../icons/img-none.png');
+      });
+
+        bannerSlider.imgUrls = imgs;
+
+        this.setData({
+          bannerSlider,
+          product: res.data,
+          isLoaded: true
+        });
+
+        this.getSku(id);
+      } else {
+        wx.showModal({
+          content: res.moreInfo || '该商品暂无详情',
+          showCancel: false,
+          confirmText: '返回',
+          success: (res)=>{
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }
+        })
       }
-
-      skuMediaKey.forEach((key) => {
-        // 如果不存在图片地址，则赋值一个默认的图片
-        imgs.push(skuMedia[key].url ? skuMedia[key].url : '../../icons/img-none.png');
-      });
-
-      bannerSlider.imgUrls = imgs;
-
-      this.setData({
-        bannerSlider,
-        product: res.data,
-        isLoaded: true
-      });
-
-      this.getSku(id);
     });
   },
   // 获取商品规格

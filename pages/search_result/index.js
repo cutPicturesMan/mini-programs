@@ -157,10 +157,14 @@ Page({
 
     // 如果是搜索数据
     if(params.type == -1){
-      this.getSearchList();
+      if(params.key){
+        this.getSearchList();
+      }
     } else {
-      // 查询分类商品列表接口
-      this.getProductList();
+      if(params.id){
+        // 查询分类商品列表接口
+        this.getProductList();
+      }
     }
   },
   /**

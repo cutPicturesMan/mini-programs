@@ -43,8 +43,8 @@
           <view class="list-item" wx:for="{{item.orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}"
                 url="/pages/product/index?id={{item.id}}">
             <view class="item-img">
-              <image
-                src="{{item.orderItems[0].skuMedia.primary.url ? (item.orderItems[0].skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+              <image mode="aspectFill"
+              src="{{item.orderItems[0].skuMedia.primary.url ? (item.orderItems[0].skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
             </view>
             <view class="content">
               <view class="title" url="/pages/product/index">{{sku.name}}</view>

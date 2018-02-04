@@ -236,9 +236,9 @@ Page({
           wx.switchTab({
             url: `/pages/order/index`,
             success: (e) => {
-              var page = getCurrentPages().pop();
-              if (page == undefined || page == null) return;
-              page.onLoad();
+              // var page = getCurrentPages().pop();
+              // if (page == undefined || page == null) return;
+              // page.onLoad();
             }
           });
         }, 1500);

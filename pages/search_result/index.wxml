@@ -28,7 +28,7 @@
   bindscrolltolower="loadmore">
   <view class="good-item" wx:for="{{list}}" wx:key="id">
     <navigator class="good-img" url="/pages/product/index?id={{item.id}}">
-      <image src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+      <image mode="aspectFill" src="{{item.skuMedia.primary ? (item.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
     </navigator>
     <navigator class="content" url="/pages/product/index?id={{item.id}}">
       <view class="title">{{item.name}}</view>
