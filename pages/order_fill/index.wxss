@@ -73,6 +73,11 @@ page {
     .cart-account .calc.active {
       background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
+.cart-account .calc {
+  line-height: inherit;
+  border-radius: auto;
+  border: 0; }
+
 .line-container {
   background-color: #fff; }
   .line-container .line-item {

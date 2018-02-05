@@ -180,8 +180,23 @@ Page({
       })
     }
   },
+  // 发送模板消息
+  sendTemplateMsg(formId) {
+    http.request({
+      url: `${api.template_msg}`,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        formIds: formId
+      }
+    }).then((res) => {
+      console.log(res);
+    })
+  },
   // 提交订单
-  submit () {
+  submit (e) {
     let { id, remark, address, isSubmit, logisticList, logisticIndex, isLogisticed } = this.data;
 
     try {
@@ -213,6 +228,8 @@ Page({
     }
 
     let fulFillType = logisticList[logisticIndex].type;
+
+    this.sendTemplateMsg(e.default.formId);
 
     wx.showLoading();
     http.request({

@@ -36,7 +36,9 @@ let api = {
   // 登录
   login: '/wx/login',
   // 个人中心
-  user: '/wx/info'
+  user: '/wx/info',
+  // 模板消息
+  template_msg: '/api/user/formId'
 }
 
 for (var attr in api) {
