@@ -106,12 +106,14 @@
   </view>
 </view>
 
-<form bindsubmit="submit" report-submit="true">
+<form bindsubmit="sendTemplateMsg" report-submit="true">
   <view class="cart-account">
     <view class="total tar">
       应付金额：<text class="text-energized"><text class="small">￥</text>{{order.amount}}</text>
     </view>
-    <button class="calc {{ isSubmit ? '' : 'active'}}" formType="submit">提交订单</button>
+    <button class="calc reset-btn {{isSubmit ? '' : 'active'}}"
+            formType="submit"
+            bindtap="submit">提交订单</button>
   </view>
 </form>
 

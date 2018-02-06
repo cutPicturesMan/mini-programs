@@ -1652,6 +1652,13 @@
   overflow: hidden;
   text-overflow: ellipsis; }
 
+.reset-btn {
+  line-height: inherit;
+  border-radius: 0;
+  border: 0; }
+  .reset-btn:after {
+    display: none; }
+
 .empty-data {
   height: 100%;
   background-color: #fff;

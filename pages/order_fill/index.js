@@ -181,7 +181,7 @@ Page({
     }
   },
   // 发送模板消息
-  sendTemplateMsg(formId) {
+  sendTemplateMsg(e) {
     http.request({
       url: `${api.template_msg}`,
       method: 'POST',
@@ -189,7 +189,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        formIds: formId
+        formIds: e.detail.formId
       }
     }).then((res) => {
       console.log(res);
@@ -228,8 +228,6 @@ Page({
     }
 
     let fulFillType = logisticList[logisticIndex].type;
-
-    this.sendTemplateMsg(e.default.formId);
 
     wx.showLoading();
     http.request({

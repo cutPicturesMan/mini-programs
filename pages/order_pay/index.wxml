@@ -1,64 +1,68 @@
-<block wx:if="{{isLoaded}}">
-  <view class="info-section">
-    <view class="info-item bb">
-      <view class="title">订单金额</view>
-      <view class="text">{{order.subtotal}}</view>
-    </view>
-    <view class="info-item">
-      <view class="title">待付金额</view>
-      <view class="text">{{order.amount}}</view>
-    </view>
-  </view>
-  <view class="info-section mt18" wx:if="{{false}}">
-    <view class="info-item bb">
-      <view class="title">账号余额</view>
-      <view class="text">214,567.00</view>
-    </view>
-    <view class="info-item">
-      <view class="title">账号返点</view>
-      <view class="text">69.00</view>
-    </view>
-  </view>
-  <view>
-    <view class="select-label bb {{index === 0 ? 'mt25' : 0}}"
-          wx:for="{{payType}}"
-          wx:key="{{index}}"
-          data-index="{{index}}"
-          bindtap="selectPayType">
-      <view class="ico">
-        <block wx:if="{{item.type === CASH_GATEWAY}}">
-          <image src="../../icons/icon-bag.png"></image>
-        </block>
-        <block wx:if="{{item.type === PTPAY_GATEWAY}}">
-          <image src="../../icons/icon-money.png"></image>
-        </block>
-        <block wx:if="{{item.type === CYCLE_GATEWAY}}">
-          <image src="../../icons/icon-day.png"></image>
-        </block>
-        <block wx:if="{{item.type === WXPAY_GATEWAY}}">
-          <!--<image src="../../icons/icon-wx-disabled.png"></image>-->
-          <image src="../../icons/icon-wx.png"></image>
-        </block>
+<form bindsubmit="sendTemplateMsg" report-submit="true">
+  <block wx:if="{{isLoaded}}">
+    <view class="info-section">
+      <view class="info-item bb">
+        <view class="title">订单金额</view>
+        <view class="text">{{order.subtotal}}</view>
       </view>
-      <view class="title">{{item.friendlyType}}</view>
-      <view class="arrow">
-        <image class="icon" src="{{ payIndex === index ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+      <view class="info-item">
+        <view class="title">待付金额</view>
+        <view class="text">{{order.amount}}</view>
       </view>
     </view>
-  </view>
-  <view class="plr30 mt110">
-    <block wx:if="{{payType.length === 0}}">
-      <view class="btn btn-full btn-stable">暂无支付方式，无法完成支付</view>
-    </block>
-    <block wx:else>
-      <view class="btn btn-full btn-energized-linear" bindtap="submit">{{isSubmit ? '正在提交中...' : '确认支付'}}</view>
-    </block>
-  </view>
-  <view class="app-prompt" wx:if="{{payState!=0}}">
-    <view class="prompt-container">
-      <image src="../../icons/icon-laught.png"></image>
-      <view class="text">支 付 成 功</view>
-      <view class="btn btn-large btn-energized-linear" bindtap="switchOrderPage">完成</view>
+    <view class="info-section mt18" wx:if="{{false}}">
+      <view class="info-item bb">
+        <view class="title">账号余额</view>
+        <view class="text">214,567.00</view>
+      </view>
+      <view class="info-item">
+        <view class="title">账号返点</view>
+        <view class="text">69.00</view>
+      </view>
     </view>
-  </view>
-</block>
+    <view>
+      <view class="select-label bb {{index === 0 ? 'mt25' : 0}}"
+            wx:for="{{payType}}"
+            wx:key="{{index}}"
+            data-index="{{index}}"
+            bindtap="selectPayType">
+        <view class="ico">
+          <block wx:if="{{item.type === CASH_GATEWAY}}">
+            <image src="../../icons/icon-bag.png"></image>
+          </block>
+          <block wx:if="{{item.type === PTPAY_GATEWAY}}">
+            <image src="../../icons/icon-money.png"></image>
+          </block>
+          <block wx:if="{{item.type === CYCLE_GATEWAY}}">
+            <image src="../../icons/icon-day.png"></image>
+          </block>
+          <block wx:if="{{item.type === WXPAY_GATEWAY}}">
+            <!--<image src="../../icons/icon-wx-disabled.png"></image>-->
+            <image src="../../icons/icon-wx.png"></image>
+          </block>
+        </view>
+        <view class="title">{{item.friendlyType}}</view>
+        <view class="arrow">
+          <image class="icon" src="{{ payIndex === index ? '../../icons/icon-radio-selected.png' : '../../icons/icon-radio.png'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="plr30 mt110">
+      <block wx:if="{{payType.length === 0}}">
+        <view class="btn btn-full btn-stable">暂无支付方式，无法完成支付</view>
+      </block>
+      <block wx:else>
+        <button class="reset-btn btn btn-full btn-energized-linear"
+                formType="submit"
+                bindtap="submit">{{isSubmit ? '正在提交中...' : '确认支付'}}</button>
+      </block>
+    </view>
+    <view class="app-prompt" wx:if="{{payState!=0}}">
+      <view class="prompt-container">
+        <image src="../../icons/icon-laught.png"></image>
+        <view class="text">支 付 成 功</view>
+        <view class="btn btn-large btn-energized-linear" bindtap="switchOrderPage">完成</view>
+      </view>
+    </view>
+  </block>
+</form>
