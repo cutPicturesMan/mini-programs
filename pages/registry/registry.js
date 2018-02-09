@@ -28,6 +28,8 @@ Page({
     // 经理id
     adminId: 0,
 
+
+
     // 数据是否加载完毕
     isLoaded: false,
     // 是否允许使用个人信息
@@ -36,6 +38,17 @@ Page({
     isAllowAddress: true,
     // 是否正在提交
     isSubmit: false
+  },
+  /**
+   * 输入框自动聚焦
+   * @param e
+   */
+  bindInputTap(e){
+    let { key } = e.currentTarget.dataset;
+
+    this.setData({
+      [`${key}`]: true
+    })
   },
   // 公司名称
   bindCompanyInput (e) {
@@ -188,7 +201,9 @@ Page({
     });
   },
   onLoad (params = {}) {
-    // 获取用户的信息
+      this.getUserInfo();
+return;
+      // 获取用户的信息
     app.getUserInfo()
       .then((res) => {
         if (res.status && res.status.id == 1) {

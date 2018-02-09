@@ -14,6 +14,18 @@ Page({
     // 数据是否加载完毕
     isLoaded: false,
   },
+  // 发送模板消息
+  sendTemplateMsg(e) {
+    http.request({
+        url: `${api.template_msg}`,
+        method: 'POST',
+        data: {
+            formIds: e.detail.formId
+        }
+    }).then((res) => {
+        console.log(res);
+    })
+  },
   // 获取订单数据
   getData (id) {
     wx.showLoading();

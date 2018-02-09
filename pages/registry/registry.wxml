@@ -3,34 +3,34 @@
     <image class="img" src="{{avatarUrl}}"></image>
     <view class="title">昵称：{{nickName}}</view>
   </view>
-  <view class="line-cell bb-e5 mt18">
+  <view class="line-cell bb-e5 mt18" bindtap="bindInputTap" data-key="isCompanyInput">
     <view class="cell-title">公司名称：</view>
     <view class="cell-content">
-      <input type="text" placeholder="请输入" bindinput="bindCompanyInput"/>
+      <input type="text" placeholder="请输入" bindinput="bindCompanyInput" focus="{{isCompanyInput}}"/>
     </view>
   </view>
-  <view class="line-cell bb-e5">
+  <view class="line-cell bb-e5" bindtap="bindInputTap" data-key="isShopInput">
     <view class="cell-title">门店名称:</view>
     <view class="cell-content">
-      <input type="text" placeholder="请输入" bindinput="bindShopInput"/>
+      <input type="text" placeholder="请输入" bindinput="bindShopInput" focus="{{isShopInput}}"/>
     </view>
   </view>
-  <view class="line-cell bb-e5">
+  <view class="line-cell bb-e5" bindtap="bindInputTap" data-key="isNameInput">
     <view class="cell-title">联系人:</view>
     <view class="cell-content">
-      <input type="text" placeholder="请输入" bindinput="bindNameInput" value="{{name}}"/>
+      <input type="text" placeholder="请输入" bindinput="bindNameInput" value="{{name}}" focus="{{isNameInput}}"/>
     </view>
   </view>
-  <view class="line-cell bb-e5">
+  <view class="line-cell bb-e5" bindtap="bindInputTap" data-key="isPhoneInput">
     <view class="cell-title">电话:</view>
     <view class="cell-content">
-      <input type="number" placeholder="请输入" maxlength="11" bindinput="bindPhoneInput" value="{{phone}}"/>
+      <input type="number" placeholder="请输入" maxlength="11" bindinput="bindPhoneInput" value="{{phone}}" focus="{{isPhoneInput}}"/>
     </view>
   </view>
-  <view class="line-cell">
+  <view class="line-cell" bindtap="bindInputTap" data-key="isAddressInput">
     <view class="cell-title">地址:</view>
     <view class="cell-content">
-      <input type="text" placeholder="请输入" bindinput="bindAddressInput" value="{{address}}"/>
+      <input type="text" placeholder="请输入" bindinput="bindAddressInput" value="{{address}}" focus="{{isAddressInput}}"/>
     </view>
   </view>
 

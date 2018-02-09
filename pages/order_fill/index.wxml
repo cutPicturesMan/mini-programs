@@ -11,18 +11,6 @@
   </view>
 </view>
 
-<view class="line-container mt18" bindtap="switchRemark">
-  <view class="line-item">
-    <view class="row">
-      <view class="title">备注信息</view>
-      <view class="content ellipsis">
-        <text wx:if="{{remark !== ''}}">{{remark}}</text>
-        <text class="text-stable" wx:if="{{remark === ''}}">请输入</text>
-      </view>
-    </view>
-  </view>
-</view>
-
 <view class="line-container mt18">
   <view class="line-item">
     <view class="row">
@@ -31,6 +19,18 @@
         <picker bindchange="bindLogisticChange" value="{{logisticIndex}}" range="{{logisticList}}" range-key="friendlyType">
           <view>{{logisticList[logisticIndex].friendlyType || '请选择物流方式'}}</view>
         </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="line-container mt18" bindtap="switchRemark">
+  <view class="line-item">
+    <view class="row">
+      <view class="title">备注信息</view>
+      <view class="content ellipsis">
+        <text wx:if="{{remark !== ''}}">{{remark}}</text>
+        <text class="text-stable" wx:if="{{remark === ''}}">请输入</text>
       </view>
     </view>
   </view>
