@@ -13,7 +13,7 @@ Page({
       {
         id: 1,
         code: 'SUBMITTED',
-        name: '已提交'
+        name: '财务审核'
       },
       {
         id: 2,

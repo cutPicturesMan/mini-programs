@@ -11,19 +11,6 @@
   </view>
 </view>
 
-<view class="line-container mt18">
-  <view class="line-item">
-    <view class="row">
-      <view class="title">物流方式</view>
-      <view class="content">
-        <picker bindchange="bindLogisticChange" value="{{logisticIndex}}" range="{{logisticList}}" range-key="friendlyType">
-          <view>{{logisticList[logisticIndex].friendlyType || '请选择物流方式'}}</view>
-        </picker>
-      </view>
-    </view>
-  </view>
-</view>
-
 <view class="line-container mt18" bindtap="switchRemark">
   <view class="line-item">
     <view class="row">

@@ -166,6 +166,10 @@ Page({
           });
         }, 1500);
       } else {
+        if(res.errorCode == 13001){
+          res.moreInfo = '该姓名已被占用';
+        }
+
         // 提交失败，则提示
         wx.showToast({
           title: res.moreInfo,

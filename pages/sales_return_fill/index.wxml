@@ -67,7 +67,7 @@
   <view class="total tar">
     应付金额：<text class="text-energized"><text class="small">￥</text>230</text>
   </view>
-  <navigator class="calc" url="/pages/order_pay/index">提交订单</navigator>
+  <!--<navigator class="calc" url="/pages/order_pay/index">提交订单</navigator>-->
 </view>
 
 <view class="remark-add" wx:if="{{addToggle}}">

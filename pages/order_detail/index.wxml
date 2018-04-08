@@ -25,22 +25,14 @@
         <view class="content">{{order.offerTotal || '无'}}</view>
       </view>
     </view>
-    <view class="ptb20" wx:if="{{order.status.type == 'SUBMITTED'}}">
-      <!--<navigator class="row" url="/pages/pay_record/index">-->
-      <!--<view class="title">付款记录</view>-->
-      <!--<view class="content">-->
-      <!--<text class="text-stable">未付款></text>-->
+    <!--<view class="ptb20" wx:if="{{order.status.type == 'SUBMITTED'}}">-->
+      <!--<view class="row mt10 mb20">-->
+        <!--<view class="content">-->
+          <!--<navigator class="badge" url="/pages/order_pay/index?id={{order.id}}">付 款-->
+          <!--</navigator>-->
+        <!--</view>-->
       <!--</view>-->
-      <!--</navigator>-->
-      <view class="row mt10 mb20">
-        <!--<view class="title">待付款 ￥{{order.subtotal}}</view>-->
-        <view class="content">
-          <navigator class="badge"
-                     url="/pages/order_pay/index?id={{order.id}}">付 款
-          </navigator>
-        </view>
-      </view>
-    </view>
+    <!--</view>-->
     <!--<view class="ptb20">-->
     <!--<navigator class="row" url="/pages/release_record/index">-->
     <!--<view class="title">出库/发货记录</view>-->

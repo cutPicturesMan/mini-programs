@@ -7,10 +7,6 @@ Page({
     ...PAY_TYPE,
     // 支付状态，0未支付，1支付成功，2支付失败
     payState: 0,
-    // 默认选择的支付方式
-    payIndex: 0,
-    // 支付类型
-    payType: [],
     // 数据是否加载完毕
     isLoaded: false,
   },
@@ -40,26 +36,10 @@ Page({
       });
     });
   },
-  // 获取所有支付方式
-  getPayType (id) {
-    http.request({
-      url: `${api.pay}${id}`
-    }).then((res) => {
-      this.setData({
-        payType: res.data
-      });
-    });
-  },
-  // 选择支付方式
-  selectPayType (e) {
-    let { index } = e.currentTarget.dataset;
-    this.setData({
-      payIndex: index
-    });
-  },
+
   // 确认支付
   submit () {
-    let { payIndex, payType, order, isSubmit } = this.data;
+    let { order, isSubmit } = this.data;
 
     if (isSubmit) {
       return wx.showToast({
@@ -77,7 +57,7 @@ Page({
       url: `${api.pay}${order.id}`,
       method: 'PUT',
       data: {
-        type: payType[payIndex].type
+        type: order.type
       }
     }).then((res) => {
       if (res.errorCode === 200) {
@@ -112,7 +92,6 @@ Page({
   onLoad: function (params) {
     if (params.id) {
       this.getData(params.id);
-      this.getPayType(params.id);
     } else {
       wx.showToast({
         title: '请传入待支付订单id',

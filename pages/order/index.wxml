@@ -63,12 +63,11 @@
         <view class="item-state">
           <text class="tip text-stable">{{item.status.friendlyType}}</text>
           <view class="btns-group">
-            <navigator class="btn btn-energized-light" open-type="switchTab" url="/pages/index/index"
-                       wx:if="{{item.status.type === FINISHED}}">再次购买
+            <navigator class="btn btn-energized-light" open-type="switchTab" url="/pages/index/index" wx:if="{{item.status.type === FINISHED}}">再次购买
             </navigator>
-            <navigator class="btn btn-energized" url="/pages/order_pay/index?id={{item.id}}"
-                       wx:if="{{item.status.type === SUBMITTED}}">立即付款
-            </navigator>
+            <!--<navigator class="btn btn-energized" url="/pages/order_pay/index?id={{item.id}}"-->
+                       <!--wx:if="{{item.status.type === SUBMITTED}}">立即付款-->
+            <!--</navigator>-->
           </view>
         </view>
       </view>

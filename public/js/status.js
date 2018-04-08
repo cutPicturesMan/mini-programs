@@ -6,7 +6,7 @@ const STATUS = {
   EXAMINE_FINANCE: 'EXAMINE_FINANCE',
   // 经理审核
   EXAMINE_MANAGER: 'EXAMINE_MANAGER',
-  // 已提交
+  // 财务审核
   SUBMITTED: 'SUBMITTED',
   // 已取消
   CANCELLED: 'CANCELLED',

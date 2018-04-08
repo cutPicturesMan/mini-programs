@@ -21,13 +21,7 @@ Page({
     // 最后提交的remark
     remark: '',
     // 收货地址
-    address: [],
-    // 物流方式列表
-    logisticList: [],
-    // 选中的物流方式
-    logisticIndex: '',
-    // 物流方式是否加载完毕
-    isLogisticed: false
+    address: []
   },
   // 显示/隐藏新增备注框
   switchRemark: function () {
@@ -88,30 +82,7 @@ Page({
         order: res.data,
         totalCount: totalCount
       });
-
-      this.getlogisticList();
     });
-  },
-  // 获取物流方式列表
-  getlogisticList () {
-    let { order } = this.data;
-
-    http.request({
-      url: `${api.logistic_list}${order.id}`
-    }).then((res) => {
-      if (res.errorCode === 200) {
-        this.setData({
-          isLogisticed: true,
-          logisticList: res.data
-        });
-      } else {
-        // 获取失败，则提示
-        wx.showToast({
-          title: res.moreInfo,
-          image: '../../icons/close-circled.png'
-        })
-      }
-    })
   },
   setAddress (item) {
     let address = this.data.address;
@@ -197,13 +168,9 @@ Page({
   },
   // 提交订单
   submit (e) {
-    let { id, remark, address, isSubmit, logisticList, logisticIndex, isLogisticed } = this.data;
+    let { id, remark, address, isSubmit } = this.data;
 
     try {
-      // 物流列表未加载完毕
-      if (!isLogisticed) {
-        throw new Error('正在加载配送方式中，请稍后');
-      }
       // 正在提交中，请勿重复提交
       if (isSubmit) {
         throw new Error('正在提交中，请勿重复提交');
@@ -211,10 +178,6 @@ Page({
       // 如果id为0，则提示
       if (!id) {
         throw new Error(`订单id无效，id=${id}`);
-      }
-      // 未选择物流
-      if (logisticIndex == '') {
-        throw new Error('请选择物流方式');
       }
       // 如果收货地址为空，则提示
       if (address.length === 0) {
@@ -227,8 +190,6 @@ Page({
       })
     }
 
-    let fulFillType = logisticList[logisticIndex].type;
-
     wx.showLoading();
     http.request({
       url: `${api.order}${id}`,
@@ -238,8 +199,7 @@ Page({
       },
       data: {
         addressId: address[0].id,
-        remarks: remark,
-        fulFillType
+        remarks: remark
       }
     }).then((res) => {
       if (res.errorCode === 200) {
