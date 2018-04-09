@@ -10,7 +10,7 @@
     </view>
   </view>
 </view>
-<view class="list-section mt18" wx:for="{{orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}">
+<navigator url="/pages/product/index?id={{sku.prodId}}" class="list-section mt18" wx:for="{{orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}">
   <view class="list-item">
     <view class="item-img">
       <image
@@ -29,5 +29,5 @@
       </view>
     </view>
   </view>
-</view>
+</navigator>
 

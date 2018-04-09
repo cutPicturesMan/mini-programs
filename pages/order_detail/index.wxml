@@ -47,7 +47,7 @@
       <view class="row">
         <view class="title">备注信息</view>
         <view class="content">
-          <text class="text-stable">{{order.remark || '暂无'}}</text>
+          <text class="text-stable">{{order.remarks || '暂无'}}</text>
         </view>
       </view>
     </view>

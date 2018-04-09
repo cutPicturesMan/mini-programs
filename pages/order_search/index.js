@@ -12,56 +12,61 @@ Page({
     status: [
       {
         id: 1,
-        code: 'SUBMITTED',
-        name: '财务审核'
+        code: 'PENDING_SALEMAN',
+        name: '待业务员审核'
       },
       {
         id: 2,
-        code: 'PENDING_SALEMAN',
-        name: '业务员审核'
+        code: 'EXAMINE_MANAGER',
+        name: '待经理审核'
       },
       {
         id: 3,
-        code: 'EXAMINE_FINANCE',
-        name: '仓管审核'
+        code: 'EXAMINE_ACCOUNTANT',
+        name: '待财务审核'
       },
       {
         id: 4,
-        code: 'EXAMINE_MANAGER',
-        name: '经理审核'
+        code: 'SUBMITTED',
+        name: '待财务确认'
       },
       {
         id: 5,
         code: 'PAID',
-        name: '财务审核'
+        name: '财务已确认'
       },
       {
         id: 6,
-        code: 'SHIPPED',
-        name: '运输中'
+        code: 'EXAMINE_FINANCE',
+        name: '待仓管审核'
       },
       {
         id: 7,
-        code: 'CONFIRMED',
-        name: '确认收货'
-      },
-      {
-        id: 8,
-        code: 'FINISHED',
-        name: '已经结束'
-      },
-      {
-        id: 9,
         code: 'CANCELLED',
         name: '已取消'
       },
       {
+        id: 8,
+        code: 'SHIPPED',
+        name: '运输中'
+      },
+      {
+        id: 9,
+        code: 'CONFIRMED',
+        name: '确认收货'
+      },
+      {
         id: 10,
+        code: 'FINISHED',
+        name: '已经结束'
+      },
+      {
+        id: 11,
         code: 'BACKING',
         name: '退货中'
       },
       {
-        id: 11,
+        id: 12,
         code: 'BACKED',
         name: '已退货'
       }
