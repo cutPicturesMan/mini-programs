@@ -13,8 +13,7 @@
 <navigator url="/pages/product/index?id={{sku.prodId}}" class="list-section mt18" wx:for="{{orderItems}}" wx:for-item="sku" wx:key="{{sku.id}}">
   <view class="list-item">
     <view class="item-img">
-      <image
-        src="{{sku.skuMedia.primary.url ? (sku.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
+      <image src="{{sku.skuMedia.primary.url ? (sku.skuMedia.primary.url + '?imageView/2/1/w/260/h/260') : '../../icons/img-none.png'}}"></image>
     </view>
     <view class="content">
       <view class="title">{{sku.name}}</view>
