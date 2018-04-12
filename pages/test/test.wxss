@@ -1,0 +1,5 @@
+.category-sub {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 1041px; }
