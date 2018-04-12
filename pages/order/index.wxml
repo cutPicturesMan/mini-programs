@@ -63,7 +63,7 @@
         <view class="item-state">
           <text class="tip text-stable">{{item.status.friendlyType}}</text>
           <view class="btns-group">
-            <view class="price mr20">总价：￥{{item.amount}}</view>
+            <view class="price mr20">优惠后总价：￥{{item.offerTotal || item.amount}}</view>
             <!--<navigator class="btn btn-energized-light" open-type="switchTab" url="/pages/index/index" wx:if="{{item.status.type === FINISHED}}">再次购买-->
             <!--</navigator>-->
             <!--<navigator class="btn btn-energized" url="/pages/order_pay/index?id={{item.id}}"-->
