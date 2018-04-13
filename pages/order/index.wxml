@@ -52,6 +52,7 @@
                 <view class="descrip-list">
                   <view class="intro">数量：{{sku.quantity}}</view>
                   <view class="intro">单价：￥{{sku.amount}}</view>
+                  <view class="intro">小计：{{item.subtotal}}</view>
                   <view class="intro" wx:for="{{sku.productOption}}" wx:key="{{sku.attributeName}}">
                     {{item.attributeName}}：{{item.attributeValue}}
                   </view>
@@ -63,7 +64,7 @@
         <view class="item-state">
           <text class="tip text-stable">{{item.status.friendlyType}}</text>
           <view class="btns-group">
-            <view class="price mr20">优惠后总价：￥{{item.offerTotal || item.amount}}</view>
+            <view class="price mr20">订单总价：￥{{item.amount}}</view>
             <!--<navigator class="btn btn-energized-light" open-type="switchTab" url="/pages/index/index" wx:if="{{item.status.type === FINISHED}}">再次购买-->
             <!--</navigator>-->
             <!--<navigator class="btn btn-energized" url="/pages/order_pay/index?id={{item.id}}"-->
