@@ -17,12 +17,16 @@
     </view>
     <view class="ptb20">
       <view class="row">
-        <view class="title">订单金额</view>
+        <view class="title">订单总价</view>
         <view class="content">￥{{order.amount}}</view>
       </view>
       <view class="sub-row">
-        <view class="title">优惠后总价</view>
-        <view class="content">{{order.offerTotal || order.amount}}</view>
+        <view class="title">订单小计</view>
+        <view class="content">{{order.subtotal}}</view>
+      </view>
+      <view class="sub-row">
+        <view class="title">优惠金额</view>
+        <view class="content">-{{order.offerTotal}}</view>
       </view>
     </view>
     <!--<view class="ptb20" wx:if="{{order.status.type == 'SUBMITTED'}}">-->

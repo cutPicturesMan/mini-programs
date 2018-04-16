@@ -3,7 +3,7 @@
 <view class="line-container">
   <view class="line-item">
     <view class="row">
-      <view class="title">订单金额</view>
+      <view class="title">订单总价</view>
       <view class="content">
         <text class="text-energized">¥ {{order.amount}}</text>
       </view>

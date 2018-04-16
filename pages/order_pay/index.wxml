@@ -2,7 +2,7 @@
   <block wx:if="{{isLoaded}}">
     <view class="info-section">
       <view class="info-item bb">
-        <view class="title">订单金额</view>
+        <view class="title">订单小计</view>
         <view class="text">{{order.subtotal}}</view>
       </view>
       <view class="info-item">
