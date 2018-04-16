@@ -40,5 +40,3 @@
     margin-top: 35rpx; }
   .app-prompt .prompt-container .btn {
     margin: 150rpx auto 0; }
-
-/*# sourceMappingURL=index.wxss.map */

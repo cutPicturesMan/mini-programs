@@ -16,14 +16,18 @@ page {
     height: 110rpx;
     color: #444;
     font-size: 28rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .search-container .search-item.bb {
       border-bottom: 1rpx solid #e5e5e5; }
     .search-container .search-item .title {
       margin-right: 30rpx; }
     .search-container .search-item .content {
-      flex: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
       text-align: right; }
-
-/*# sourceMappingURL=index.wxss.map */

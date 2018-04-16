@@ -4,6 +4,4 @@
 		<text>{{ content }}</text>
 	</view>
 </template>
-<import src="../../../common/toast/toast.wxml"/>
 
-<template is="toast" data="{{ ...toast }}" />

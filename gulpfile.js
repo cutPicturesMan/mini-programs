@@ -20,19 +20,19 @@ const handleError = function(err) {
 
 gulp.task('sass', function () {
   var combined = combiner.obj([
-    gulp.src('./pages/test/*.scss'),
+    gulp.src(['**/*.scss', '!node_modules/**/*']),
     sass().on('error', sass.logError),
     autoprefixer([
       'iOS >= 8',
       'Android >= 4.1'
     ]),
     rename((path) => path.extname = '.wxss'),
-    gulp.dest('./pages/test/')
+    gulp.dest('./')
   ]);
 
   combined.on('error', handleError);
 });
 
 gulp.task('default', function () {
-  gulp.watch('./pages/**/*.scss', ['sass']);
+  gulp.watch('**/*.scss', ['sass']);
 });

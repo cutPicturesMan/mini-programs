@@ -1,11 +1,12 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 import Auth from '../../public/js/auth.js';
+import WXPage from '../Page';
 
 let app = getApp();
 let auth = new Auth();
 
-Page({
+new WXPage({
   data: {
     // 搜索关键字
     searchText: '',

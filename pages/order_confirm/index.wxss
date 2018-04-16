@@ -24,10 +24,16 @@
         height: 25rpx; }
   .list-section .list-item {
     padding-left: 18rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
     .list-section .list-item .sel {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center; }
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
     .list-section .list-item .item-img {
       padding: 10rpx; }
       .list-section .list-item .item-img image {
@@ -35,7 +41,9 @@
         height: 166rpx;
         display: block; }
     .list-section .list-item .content {
-      flex: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
       padding: 10rpx 15rpx 10rpx 26rpx; }
       .list-section .list-item .content .title {
         line-height: 34rpx;
@@ -62,15 +70,21 @@
         width: 40rpx;
         height: 40rpx;
         float: right;
+        -webkit-transition: 0.5s;
         transition: 0.5s; }
         .list-section .list-item .content .descrip-container .icon.rotate {
-          transform: rotate(180deg); }
+          -webkit-transform: rotate(180deg);
+                  transform: rotate(180deg); }
       .list-section .list-item .content .info {
         line-height: 34rpx;
         margin-top: 45rpx;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex; }
         .list-section .list-item .content .info .price {
-          flex: 1;
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+                  flex: 1;
           font-size: 32rpx; }
         .list-section .list-item .content .info .num {
           font-size: 24rpx; }
@@ -79,28 +93,52 @@
       color: #fff;
       font-size: 24rpx;
       background-color: #ff3b30;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: center;
-      align-items: center; }
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
   .list-section .item-opera {
     padding: 26rpx 22rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
     .list-section .item-opera .text {
       font-size: 24rpx;
-      flex: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center; }
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
     .list-section .item-opera .opera-btns {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center; }
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
       .list-section .item-opera .opera-btns .reduce-btn,
       .list-section .item-opera .opera-btns .add-btn {
         width: 56rpx;
         height: 50rpx;
         background-color: #f5f5f5;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
-        justify-content: center;
-        align-items: center; }
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center; }
         .list-section .item-opera .opera-btns .reduce-btn image,
         .list-section .item-opera .opera-btns .add-btn image {
           width: 40rpx;
@@ -110,16 +148,28 @@
         font-size: 32rpx;
         font-weight: bold;
         color: #000;
-        flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
-        justify-content: center;
-        align-items: center; }
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center; }
   .list-section .item-state {
     height: 80rpx;
     margin-left: 18rpx;
     border-top: 1rpx solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .list-section .item-state .edit {
       font-size: 24rpx; }
     .list-section .item-state .tip {
@@ -129,7 +179,9 @@
       text-overflow: ellipsis; }
     .list-section .item-state .btns-group {
       text-align: right;
-      flex: 1; }
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1; }
       .list-section .item-state .btns-group .btn {
         margin-right: 25rpx; }
     .list-section .item-state .sign {
@@ -152,18 +204,26 @@ page {
   right: 0;
   bottom: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .cart-account .sel {
     margin-left: 18rpx;
     font-size: 28rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .cart-account .sel image {
       width: 40rpx;
       height: 40rpx;
       display: block; }
   .cart-account .total {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
     padding: 0 20rpx;
     font-size: 26rpx; }
   .cart-account .calc {
@@ -173,6 +233,7 @@ page {
     color: #fff;
     background-color: #e5e5e5; }
     .cart-account .calc.active {
+      background: -webkit-linear-gradient(left, #ff9000 18%, #ff5000 78%);
       background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
 .address-container {
@@ -180,21 +241,33 @@ page {
 
 .address-section {
   position: relative;
+  -webkit-transition: .4s;
   transition: .4s;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .address-section.active {
-    transform: translateX(-110rpx); }
+    -webkit-transform: translateX(-110rpx);
+            transform: translateX(-110rpx); }
   .address-section .address-main {
-    flex: 1; }
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1; }
   .address-section .select-btn,
   .address-section .delete-btn {
     width: 110rpx;
     background-color: #ff5500;
     font-size: 24rpx;
     color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
   .address-section .delete-btn {
     position: absolute;
     top: 0;
@@ -211,16 +284,26 @@ page {
     .address-section .address-item .addr-user {
       line-height: 44rpx;
       padding: 0 30rpx 0 55rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex; }
       .address-section .address-item .addr-user .name {
-        flex: 1; }
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1; }
     .address-section .address-item .addr-detail {
       padding: 5rpx 0 15rpx 0;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex; }
       .address-section .address-item .addr-detail .ico,
       .address-section .address-item .addr-detail .arrow {
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
-        align-items: center; }
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center; }
         .address-section .address-item .addr-detail .ico image,
         .address-section .address-item .addr-detail .arrow image {
           width: 40rpx;
@@ -228,24 +311,38 @@ page {
       .address-section .address-item .addr-detail .content {
         line-height: 28rpx;
         margin-left: 15rpx;
-        flex: 1; }
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1; }
     .address-section .address-item .addr-opera {
       height: 45rpx;
       color: #999;
       font-size: 22rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex; }
       .address-section .address-item .addr-opera .default {
-        flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
-        align-items: center; }
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center; }
         .address-section .address-item .addr-opera .default .ico {
           width: 24rpx;
           height: 24rpx;
           margin: 0 20rpx 0 10rpx; }
       .address-section .address-item .addr-opera .edit {
         padding: 0 25rpx;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
-        align-items: center; }
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center; }
         .address-section .address-item .addr-opera .edit.mr-25 {
           margin-right: -25rpx; }
 
@@ -253,5 +350,3 @@ page {
   background-color: #fafafa; }
   .list-section .list-item .item-img image {
     border: 1rpx solid #e5e5e5; }
-
-/*# sourceMappingURL=index.wxss.map */

@@ -19,10 +19,16 @@ page {
     border-bottom: 1rpx solid #f1f1f1;
     font-size: 28rpx;
     color: #666;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .file-list .file-item .name {
-      flex: 1; }
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1; }
     .file-list .file-item .close {
       width: 40rpx;
       height: 40rpx;
@@ -40,12 +46,23 @@ page {
   right: 0;
   bottom: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .file-opera .item {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
-    flex-direction: column; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column; }
     .file-opera .item .icon {
       width: 96rpx;
       height: 96rpx; }
@@ -53,5 +70,3 @@ page {
       margin-top: 22rpx;
       font-size: 26rpx;
       color: #999; }
-
-/*# sourceMappingURL=index.wxss.map */

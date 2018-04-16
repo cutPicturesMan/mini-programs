@@ -23,6 +23,8 @@ page {
   background-color: #fff; }
 
 .category-sub {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .category-sub .category-item {
     width: 25%; }
@@ -51,19 +53,26 @@ page {
   padding: 10rpx 0 6rpx 0;
   background-color: #fff;
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .text-slider:after {
     content: '';
     width: 167rpx;
     height: 5rpx;
+    background: -webkit-linear-gradient(left, #508eff 39%, #3ab8fe 100%);
     background: linear-gradient(to right, #508eff 39%, #3ab8fe 100%);
     position: absolute;
     top: -1rpx;
     left: 0;
     display: block; }
   .text-slider swiper-item {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .text-slider swiper-item image {
       width: 30rpx;
       height: 24rpx;
@@ -80,8 +89,14 @@ page {
   background-color: #fff; }
   .recommend-brand .title {
     height: 80rpx;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
     .recommend-brand .title image {
       width: 29rpx;
@@ -99,9 +114,15 @@ page {
       border-right: 1rpx solid #e5e5e5;
       box-sizing: border-box;
       float: left;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: center;
-      align-items: center; }
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
       .recommend-brand .content .brand-item:nth-child(4n) {
         border-right: 0; }
       .recommend-brand .content .brand-item .img {
@@ -116,17 +137,29 @@ page {
 .good-section {
   border-top: 1rpx solid #e5e5e5;
   background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .good-section.length1 .l, .good-section.length2 .l {
     width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
   .good-section.length1 .r, .good-section.length2 .r {
     display: none; }
   .good-section .l .item {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1; }
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1; }
     .good-section .l .item:first-child {
       border-bottom: 1rpx solid #e5e5e5; }
     .good-section .l .item image {
@@ -134,10 +167,16 @@ page {
       height: 150rpx; }
   .good-section .r {
     border-left: 1rpx solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    flex: 1; }
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1; }
     .good-section .r .item {
-      flex: 1; }
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1; }
       .good-section .r .item:first-child {
         border-right: 1rpx solid #e5e5e5; }
       .good-section .r .item image {
@@ -171,12 +210,18 @@ page {
       -webkit-line-clamp: 2; }
     .good-list.type1 .good-item .info {
       min-height: 70rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center; }
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
       .good-list.type1 .good-item .info .price {
         color: #ff4400;
         font-size: 32rpx;
-        flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
         padding-left: 18rpx;
         font-weight: bold; }
       .good-list.type1 .good-item .info .opera {
@@ -215,7 +260,9 @@ page {
       .good-list.type2 .good-item .price {
         color: #ff4400;
         font-size: 26rpx;
-        flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
         margin-top: 15rpx;
         padding: 0 18rpx;
         font-weight: bold; }
@@ -224,10 +271,9 @@ page {
         height: 42rpx;
         line-height: 42rpx;
         border-radius: 5rpx;
+        background: -webkit-linear-gradient(left, #ff9000 18%, #ff5000 78%);
         background: linear-gradient(to right, #ff9000 18%, #ff5000 78%);
         margin: 10rpx 0 0 18rpx;
         font-size: 22rpx;
         text-align: center;
         color: #fff; }
-
-/*# sourceMappingURL=index.wxss.map */

@@ -26,13 +26,19 @@
       min-height: 55rpx;
       text-align: right;
       font-size: 28rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: flex-end;
-      align-items: center; }
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center; }
       .addr-section .addr-item .content input {
-        flex: 1; }
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1; }
       .addr-section .addr-item .content .ico {
         width: 36rpx;
         height: 36rpx; }
-
-/*# sourceMappingURL=index.wxss.map */

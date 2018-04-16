@@ -1,7 +1,5 @@
 /**
  * 自定义的toast 提示浮层
- *
- * @author HuiminLiu
  */
 
 const toast = {
@@ -31,7 +29,7 @@ const toast = {
 
 		this.page.setData({
 			toast: {
-				icon: opt.icon || toast.ICON.WARNING,
+				icon: opt.icon || toast.ICON.ERROR,
 				content: opt.content
 			}
 		})
@@ -65,4 +63,4 @@ toast.ICON = {
 	ERROR   : 'cancel'
 }
 
-module.exports = toast
+export default toast

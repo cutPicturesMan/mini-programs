@@ -19,18 +19,26 @@ page {
   right: 0;
   bottom: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
   .cart-account .sel {
     margin-left: 18rpx;
     font-size: 28rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .cart-account .sel image {
       width: 40rpx;
       height: 40rpx;
       display: block; }
   .cart-account .total {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
     padding: 0 20rpx;
     font-size: 26rpx; }
   .cart-account .calc {
@@ -40,6 +48,7 @@ page {
     color: #fff;
     background-color: #e5e5e5; }
     .cart-account .calc.active {
+      background: -webkit-linear-gradient(left, #ff9000 18%, #ff5000 78%);
       background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
 
 page {
@@ -59,8 +68,12 @@ page {
   .line-section .sub-line {
     min-height: 84rpx;
     font-size: 28rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .line-section .line.bb,
     .line-section .sub-line.bb {
       border-bottom: 1rpx solid #f6f6f6; }
@@ -71,9 +84,9 @@ page {
       margin-right: 12rpx; }
     .line-section .line .text,
     .line-section .sub-line .text {
-      flex: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
       text-align: right; }
   .line-section .sub-line {
     color: #999; }
-
-/*# sourceMappingURL=index.wxss.map */

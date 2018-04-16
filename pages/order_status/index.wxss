@@ -11,6 +11,8 @@ page {
   min-height: 100%;
   padding-top: 116rpx;
   background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex; }
 
 .record-total {
@@ -26,13 +28,19 @@ page {
   .record-total .line {
     line-height: 50rpx;
     color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex; }
     .record-total .line .content {
       text-align: right;
-      flex: 1; }
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1; }
 
 .order-status {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
   padding: 75rpx 77rpx;
   margin-left: 169rpx;
   border-left: 1rpx solid #efefef;
@@ -64,5 +72,3 @@ page {
       bottom: -10rpx;
       left: -10rpx;
       display: inline-block; }
-
-/*# sourceMappingURL=index.wxss.map */

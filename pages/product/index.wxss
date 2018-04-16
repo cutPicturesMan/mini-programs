@@ -73,8 +73,12 @@ page {
 
 .opera-container {
   margin-top: 22rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center; }
   .opera-container .unit {
     font-size: 24rpx;
     color: #999;
@@ -86,15 +90,25 @@ page {
   font-size: 32rpx;
   border: 1rpx solid #e5e5e5;
   border-radius: 9rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center; }
   .opera-btns .reduce-btn,
   .opera-btns .add-btn {
     width: 62rpx;
     height: 62rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .opera-btns .reduce-btn image,
     .opera-btns .add-btn image {
       width: 40rpx;
@@ -105,7 +119,9 @@ page {
     border-left: 1rpx solid #e5e5e5; }
   .opera-btns .count {
     font-weight: bold;
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
     text-align: center; }
 
 .product-intro {
@@ -114,13 +130,21 @@ page {
   .product-intro .intro-title {
     height: 84rpx;
     color: #ff5000;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
     font-size: 27rpx;
     font-weight: bold; }
     .product-intro .intro-title text {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
       border-bottom: 2rpx solid #ff5000; }
   .product-intro .intro-content image {
     width: 100%;
@@ -130,6 +154,8 @@ page {
   height: 88rpx;
   line-height: 88rpx;
   background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   position: fixed;
   right: 0;
@@ -143,22 +169,29 @@ page {
     width: 25%;
     border-top: 1rpx solid #e5e5e5; }
   .opera-panel .buy {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
     font-size: 34rpx;
     color: #fff;
     background: #e5e5e5;
     text-align: center; }
     .opera-panel .buy.active {
+      background: -webkit-linear-gradient(left, #ff9000 18%, #ff5000 78%);
       background: linear-gradient(to right, #ff9000 18%, #ff5000 78%); }
   .opera-panel .collect,
   .opera-panel .share {
     box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
     .opera-panel .collect image,
     .opera-panel .share image {
       width: 48rpx;
       height: 48rpx; }
-
-/*# sourceMappingURL=index.wxss.map */
