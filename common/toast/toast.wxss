@@ -1,54 +1,60 @@
-/*
-Error: Invalid CSS after "fixed": expected expression (e.g. 1px, bold), was ";"
-        on line 2 of toast.wxss
+.toast {
+  min-width: 250rpx;
+  max-width: 400rpx;
+  min-height: 200rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.7); }
+  .toast .loading {
+    margin-top: 15px;
+    height: 15px;
+    width: 30px;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-radius: 0 0 15px 15px;
+    -webkit-transform-origin: top center;
+            transform-origin: top center;
+    box-sizing: border-box;
+    -webkit-animation: spin .75s linear infinite;
+            animation: spin .75s linear infinite; }
+  .toast text {
+    margin-top: 10px;
+    word-break: break-all;
+    font-size: 14px;
+    color: #fff; }
 
-1: .toast {
-2:   position: fixed;
-3:   left: 175rpx;
-4:   top: 50%;
-5:   -webkit-transform: translateY(-61.8%);
-6:           transform: translateY(-61.8%);
-7:   z-index: 100;
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 
-Backtrace:
-toast.wxss:2
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:1278:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/script/lexer.rb:231:in `expected!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/script/parser.rb:761:in `assert_done'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/script/parser.rb:69:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/script/parser.rb:228:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/script.rb:27:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:1177:in `parse_script'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:749:in `parse_property'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:708:in `parse_property_or_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:667:in `parse_line'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:540:in `build_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:559:in `block in append_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:558:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:558:in `append_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:549:in `block in build_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:542:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:542:in `build_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:559:in `block in append_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:558:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:558:in `append_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:417:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/plugin.rb:82:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
-/usr/local/bin/sass:23:in `load'
-/usr/local/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"fixed\": expected expression (e.g. 1px, bold), was \";\"\A         on line 2 of toast.wxss\A \A 1: .toast {\A 2:   position: fixed;\A 3:   left: 175rpx;\A 4:   top: 50%;\A 5:   -webkit-transform: translateY(-61.8%);\A 6:           transform: translateY(-61.8%);\A 7:   z-index: 100;"; }
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }

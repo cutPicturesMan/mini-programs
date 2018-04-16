@@ -1,7 +1,8 @@
 <template name="toast">
-	<view class="toast" wx:if="{{ content }}">
-		<icon type="{{ icon }}" size="50" color="#eee"/>
-		<text>{{ content }}</text>
+	<view class="toast" wx:if="{{ isShowToast }}">
+		<view class="loading" wx:if="{{ icon == 'waiting' }}"></view>
+		<icon wx:else type="{{ icon }}" size="50" color="#eee"/>
+		<text wx:if="{{ content }}">{{ content }}</text>
 	</view>
 </template>
 
