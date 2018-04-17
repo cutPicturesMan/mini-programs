@@ -1,19 +1,24 @@
 .toast {
-	min-width: 250rpx;
-	max-width: 400rpx;
-	min-height: 200rpx;
+	//min-width: 250rpx;
+	//max-width: 400rpx;
+	//min-height: 200rpx;
+
+	min-width: 140px;
+	max-width: 200px;
+	min-height: 120px;
 
 	position: fixed;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -61.8%);
+	transform: translate(-50%, -50%);
 	z-index: 100;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	//padding: 10rpx 15rpx;
 	box-sizing: border-box;
-	padding: 15px;
+	padding: 10px 15px;
 	border-radius: 5px;
 	background: rgba(0, 0, 0, .7);
 
