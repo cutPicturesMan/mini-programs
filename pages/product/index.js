@@ -11,7 +11,7 @@ new WXPage({
     // 商品规格
     sku: [],
     // 默认选中的规格
-    skuIndex: 0,
+    skuIndex: -1,
     // 选择的数量
     num: 1,
     // 是否正在提交中
