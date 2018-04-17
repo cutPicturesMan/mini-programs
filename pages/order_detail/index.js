@@ -1,10 +1,11 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
 
 let app = getApp();
 let { formatDate } = require('../../public/js/utils.js');
 
-Page({
+new WXPage({
   data: {
     // 订单id
     id: '',
@@ -57,9 +58,8 @@ Page({
         throw new Error('请填写退单原因');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: e.message
       })
     }
 
@@ -100,9 +100,8 @@ Page({
     let { id, isCancelling } = this.data;
 
     if (isCancelling) {
-      return wx.showToast({
-        title: '正在取消中',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '正在取消中'
       })
     }
 
@@ -114,9 +113,11 @@ Page({
       url: `${api.order}${id}`,
       method: 'DELETE'
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode == 200) {
-        wx.showToast({
-          title: res.moreInfo || '取消成功'
+        this.toast.success({
+          content: res.moreInfo || '取消成功'
         })
 
         setTimeout(() => {
@@ -127,9 +128,8 @@ Page({
           this.getData();
         }, 1500)
       } else {
-        wx.showToast({
-          title: res.moreInfo || '取消失败，请重试',
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: res.moreInfo || '取消失败，请重试',
         })
 
         this.setData({
@@ -151,9 +151,8 @@ Page({
         throw new Error('请填写退单原因');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: e.message
       })
     }
 
@@ -168,9 +167,11 @@ Page({
         reason: backReason
       }
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode == 200) {
-        wx.showToast({
-          title: res.moreInfo || '退单成功'
+        this.toast.success({
+          content: res.moreInfo || '退单成功'
         })
 
         setTimeout(() => {
@@ -181,9 +182,8 @@ Page({
           this.getData();
         }, 1500)
       } else {
-        wx.showToast({
-          title: res.moreInfo || '退单失败，请重试',
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: res.moreInfo || '退单失败，请重试'
         })
 
         this.setData({
@@ -198,9 +198,8 @@ Page({
     let { id, isReceiving } = this.data;
 
     if (isReceiving) {
-      return wx.showToast({
-        title: '正在确认中',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '正在确认中'
       })
     }
 
@@ -212,9 +211,11 @@ Page({
       url: `${api.order_confirm}${id}`,
       method: 'PUT'
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode == 200) {
-        wx.showToast({
-          title: res.moreInfo || '确认收货成功'
+        this.toast.success({
+          content: res.moreInfo || '确认收货成功'
         })
 
         setTimeout(() => {
@@ -225,9 +226,8 @@ Page({
           this.getData();
         }, 1500)
       } else {
-        wx.showToast({
-          title: res.moreInfo || '确认收货失败，请重试',
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: res.moreInfo || '确认收货失败，请重试'
         })
 
         this.setData({

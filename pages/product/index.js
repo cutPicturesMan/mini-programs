@@ -1,8 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
 
 var app = getApp()
-Page({
+
+new WXPage({
   data: {
     // 商品详情
     product: {},
@@ -115,9 +117,8 @@ Page({
         throw new Error('库存不足');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png',
+      return this.toast.error({
+        content: e.message,
         duration: 3000
       })
     }
@@ -157,10 +158,9 @@ Page({
         throw new Error('库存不足');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png',
-        duration: 3000
+      return this.toast.error({
+        content: e.message,
+        duration: 4000
       })
     }
 
@@ -184,10 +184,9 @@ Page({
         throw new Error('库存不足');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png',
-        duration: 3000
+      return this.toast.error({
+        content: e.message,
+        duration: 4000
       })
     }
 
@@ -201,15 +200,13 @@ Page({
 
     // 如果未选规格，则返回
     if (skuIndex < 0) {
-      return wx.showToast({
-        title: '后台未设置规格',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '后台未设置规格'
       })
     } else if (num > sku[skuIndex].q) {
       // 请求错误
-      return wx.showToast({
-        title: '库存不足',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '库存不足'
       })
     }
 
@@ -229,10 +226,11 @@ Page({
         skuId: sku[skuIndex].skuId
       }
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode === 200) {
-        wx.showToast({
-          title: res.data,
-          duration: 2500
+        this.toast.success({
+          content: res.data
         })
 
         this.setData({
@@ -242,9 +240,9 @@ Page({
         this.setData({
           isSubmit: false
         });
-        wx.showToast({
-          title: res.data || '提交失败',
-          image: '../../icons/close-circled.png'
+
+        this.toast.error({
+          content: res.data || '提交失败'
         })
       }
     });
@@ -253,9 +251,8 @@ Page({
     if (params.id) {
       this.getData(params.id);
     } else {
-      wx.showToast({
-        title: '请传入商品id',
-        image: '../../icons/close-circled.png'
+      this.toast.error({
+        content: '请传入商品id'
       })
     }
   }

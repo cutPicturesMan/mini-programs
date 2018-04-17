@@ -1,3 +1,6 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <view class="address-container">
   <view wx:for="{{list}}" wx:key="id" class="address-section mt18 {{delIndex === index ? 'active' : ''}}">
     <view class="address-main">

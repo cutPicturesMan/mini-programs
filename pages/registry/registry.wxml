@@ -1,3 +1,6 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <view wx:if="{{isLoaded}}">
   <view class="user-info">
     <image class="img" src="{{avatarUrl}}"></image>

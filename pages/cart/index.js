@@ -1,8 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
+
 let app = getApp();
 
-Page({
+new WXPage({
   data: {
     // 购物车数据
     list: [],
@@ -63,18 +65,16 @@ Page({
 
     if (num < 1) {
       num = 1;
-      wx.showToast({
-        title: '选择的数量不能小于1',
-        image: '../../icons/close-circled.png'
+      this.toast.error({
+        content: '选择的数量不能小于1'
       })
     }
 
     // 如果购买数量大于总库存，则提示
     if (num > list[index].q) {
       num = list[index].q;
-      wx.showToast({
-        title: '库存不足',
-        image: '../../icons/close-circled.png'
+      this.toast.error({
+        content: '库存不足'
       })
     }
 
@@ -97,9 +97,8 @@ Page({
     if (list[index].quantity > list[index].q) {
       list[index].quantity = list[index].q;
 
-      return wx.showToast({
-        title: '库存不足',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '库存不足'
       })
     }
 
@@ -188,17 +187,18 @@ Page({
       url: `${api.cart}/${id}`,
       method: 'DELETE'
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode === 200) {
-        wx.showToast({
-          title: res.moreInfo || '删除成功',
+        this.toast.success({
+          content: res.moreInfo || '删除成功'
         })
       } else {
         // 删除失败了，把刚刚移除的数据还原
         list.splice(index, 1, item);
 
-        wx.showToast({
-          image: '../../icons/close-circled.png',
-          title: res.moreInfo || '删除失败',
+        this.toast.error({
+          content: res.moreInfo || '删除失败'
         })
       }
 
@@ -262,17 +262,15 @@ Page({
     });
 
     if (cartIds.length === 0) {
-      return wx.showToast({
-        image: '../../icons/close-circled.png',
-        title: '请至少选择一个商品'
+      return this.toast.error({
+        content: '请至少选择一个商品'
       })
     }
 
     // 正在提交中，请勿重复提交
     if(isSubmit){
-      return wx.showToast({
-        image: '../../icons/close-circled.png',
-        title: '正在提交中，请勿重复提交'
+      return this.toast.error({
+        content: '正在提交中，请勿重复提交'
       })
     }
     this.setData({
@@ -290,9 +288,11 @@ Page({
         cartIds: cartIds
       }
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode === 200) {
-        wx.showToast({
-          title: res.moreInfo || '恭喜你，提交成功'
+        this.toast.success({
+          content: res.moreInfo || '恭喜你，提交成功'
         })
 
         setTimeout(()=>{
@@ -303,9 +303,8 @@ Page({
           });
         }, 1500);
       } else {
-        wx.showToast({
-          image: '../../icons/close-circled.png',
-          title: res.moreInfo || '对不起，提交失败'
+        this.toast.error({
+          content: res.moreInfo || '对不起，提交失败'
         })
       }
 

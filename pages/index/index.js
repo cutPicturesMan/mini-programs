@@ -293,6 +293,7 @@ new WXPage({
   onShow (params = {}) {
     let customerId = params.customerId;
     let adminId = params.adminId;
+
     // 如果同时存在客户id和管理员id，表示管理员代下单，要先执行登录流程
     if (customerId && adminId) {
       auth.login({
@@ -302,15 +303,13 @@ new WXPage({
         if (res.errorCode == 200) {
           this.getUserInfo();
         } else {
-          wx.showToast({
-            title: res.moreInfo || '代下单登录失败',
-            image: '../../icons/close-circled.png'
+          this.toast.error({
+            content: res.moreInfo || '代下单登录失败'
           })
         }
       }).catch(() => {
-        wx.showToast({
-          title: '代下单登录失败',
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: '代下单登录失败'
         })
       })
     } else {

@@ -1,6 +1,8 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <block wx:if="{{isLoaded}}">
-  <navigator class="add-cart" open-type="switchTab" url="/pages/cart/index"
-  >
+  <navigator class="add-cart" open-type="switchTab" url="/pages/cart/index">
     <image src="../../icons/icon-shopcar.png"/>
   </navigator>
   <swiper class="banner-slide"

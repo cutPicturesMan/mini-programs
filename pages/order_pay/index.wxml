@@ -1,3 +1,6 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <form bindsubmit="sendTemplateMsg" report-submit="true">
   <block wx:if="{{isLoaded}}">
     <view class="info-section">

@@ -1,8 +1,9 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
 import PAY_TYPE from '../../public/js/pay_type.js';
+import WXPage from '../Page';
 
-Page({
+new WXPage({
   data: {
     ...PAY_TYPE,
     // 支付状态，0未支付，1支付成功，2支付失败
@@ -42,9 +43,8 @@ Page({
     let { order, isSubmit } = this.data;
 
     if (isSubmit) {
-      return wx.showToast({
-        title: '正在提交中...',
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: '正在提交中...'
       })
     }
 
@@ -60,16 +60,17 @@ Page({
         type: order.type
       }
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode === 200) {
-        wx.hideLoading();
         this.setData({
           payState: 1
         });
       } else {
-        wx.showToast({
-          title: res.moreInfo || '支付失败',
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: res.moreInfo || '支付失败'
         })
+
         setTimeout(() => {
           this.setData({
             isSubmit: false
@@ -93,9 +94,8 @@ Page({
     if (params.id) {
       this.getData(params.id);
     } else {
-      wx.showToast({
-        title: '请传入待支付订单id',
-        image: '../../icons/close-circled.png'
+      this.toast.error({
+        content: '请传入待支付订单id'
       })
     }
   }

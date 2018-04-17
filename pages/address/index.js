@@ -1,8 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
 
 var app = getApp()
-Page({
+
+new WXPage({
   data: {
     list: [],
     // 是否是选择地址模式
@@ -45,9 +47,12 @@ Page({
             isDefault: 1,
           },
         }).then((res) => {
-          wx.showToast({
-            title: res.moreInfo,
+          wx.hideLoading();
+
+          this.toast.success({
+            content: res.moreInfo,
           })
+
           setTimeout(() => {
             this.getAddressList();
           }, 1500)
@@ -106,19 +111,21 @@ Page({
             },
             method: 'DELETE'
           }).then((res) => {
+            wx.hideLoading();
+
             if (res.errorCode === 200) {
-              wx.showToast({
-                title: res.moreInfo,
+              this.toast.success({
+                content: res.moreInfo
               })
 
               setTimeout(() => {
                 this.getAddressList();
               }, 1500)
             } else {
-              wx.showToast({
-                image: '../../icons/close-circled.png',
-                title: res.moreInfo || '删除失败',
+              this.toast.error({
+                content: res.moreInfo || '删除失败'
               })
+
               // 删除失败，则还原刚刚移除的数据
               list.splice(index, 1, item);
               this.setData({

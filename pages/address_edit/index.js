@@ -1,7 +1,8 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
 
-Page({
+new WXPage({
   data: {
     id: 0,
     fullName: '',
@@ -81,9 +82,8 @@ Page({
         throw new Error('详细地址不能为空');
       }
     } catch(e){
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: e.message
       })
     }
 
@@ -104,16 +104,17 @@ Page({
         isDefault: this.data.isDefault
       }
     }).then((res) => {
+      wx.hideLoading();
+
       // 如果字段填写错误
       if (res.errors && res.errors.length != 0) {
-        wx.showToast({
-          title: res.errors[0].defaultMessage,
-          image: '../../icons/close-circled.png'
+        this.toast.error({
+          content: res.errors[0].defaultMessage
         })
       } else {
         // 修改成功
-        wx.showToast({
-          title: res.moreInfo || '修改成功',
+        this.toast.success({
+          content: res.moreInfo || '修改成功'
         })
 
         setTimeout(() => {

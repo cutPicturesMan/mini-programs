@@ -1,9 +1,10 @@
 import http from '../../public/js/http.js';
 import api from '../../public/js/api.js';
+import WXPage from '../Page';
 
 let { formatDate } = require('../../public/js/utils.js');
 
-Page({
+new WXPage({
   data: {
     id: 0,
     // 购物车的数据
@@ -71,8 +72,8 @@ Page({
     http.request({
       url: `${api.order}${id}`,
     }).then((res) => {
-      let totalCount = 0;
       wx.hideLoading();
+      let totalCount = 0;
 
       res.data.orderItems.forEach((item, index) => {
         totalCount += item.quantity;
@@ -145,9 +146,8 @@ Page({
       });
     } else {
       // 如果收货地址未加载完，则提示
-      wx.showToast({
-        image: '../../icons/close-circled.png',
-        title: '收货地址加载中'
+      this.toast.error({
+        content: '收货地址加载中'
       })
     }
   },
@@ -184,9 +184,8 @@ Page({
         throw new Error('收货地址未选择');
       }
     } catch (e) {
-      return wx.showToast({
-        title: e.message,
-        image: '../../icons/close-circled.png'
+      return this.toast.error({
+        content: e.message
       })
     }
 
@@ -202,9 +201,11 @@ Page({
         remarks: remark
       }
     }).then((res) => {
+      wx.hideLoading();
+
       if (res.errorCode === 200) {
-        wx.showToast({
-          title: res.moreInfo || '恭喜你，订单创建成功'
+        this.toast.success({
+          content: res.moreInfo || '恭喜你，订单创建成功'
         })
 
         setTimeout(() => {
@@ -218,9 +219,8 @@ Page({
           });
         }, 1500);
       } else {
-        wx.showToast({
-          image: '../../icons/close-circled.png',
-          title: res.moreInfo || '对不起，订单创建失败'
+        this.toast.error({
+          content: res.moreInfo || '对不起，订单创建失败'
         })
 
         this.setData({

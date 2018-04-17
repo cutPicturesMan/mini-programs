@@ -1,5 +1,5 @@
 <import src="../../common/toast/toast.wxml"/>
-<template is="toast" data="{{ ...toast }}" />
+<template is="toast" data="{{ ...toast }}"/>
 
 <!--如果用户角色数据请求完毕-->
 <block wx:if="{{userInfo.status}}">

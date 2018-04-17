@@ -1,3 +1,6 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <view class="addr-section mt18">
   <view class="addr-item bb">
     <view class="title">联系人</view>

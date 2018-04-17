@@ -1,3 +1,6 @@
+<import src="../../common/toast/toast.wxml"/>
+<template is="toast" data="{{ ...toast }}"/>
+
 <block wx:if="{{isLoaded}}">
   <view class="pt18"></view>
   <view class="order-container">
