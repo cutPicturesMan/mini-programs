@@ -204,9 +204,7 @@ new WXPage({
     });
   },
   onLoad (params = {}) {
-      this.getUserInfo();
-return;
-      // 获取用户的信息
+    // 获取用户的信息
     app.getUserInfo()
       .then((res) => {
         if (res.status && res.status.id == 1) {
